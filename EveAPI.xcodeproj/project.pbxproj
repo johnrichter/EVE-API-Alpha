@@ -7,15 +7,38 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CDB3E81A17A9CE2500899F94 /* XMLDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB3E81917A9CE2500899F94 /* XMLDictionary.m */; };
+		CDCDE51617A893D90062A36F /* ObjectBlueprint.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCDE51517A893D90062A36F /* ObjectBlueprint.m */; };
+		CDCDE51917A894AF0062A36F /* RequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCDE51817A894AF0062A36F /* RequestOperation.m */; };
+		CDCDE51C17A899B30062A36F /* ResponseObjectFilterOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCDE51B17A899B30062A36F /* ResponseObjectFilterOperation.m */; };
+		CDCDE51F17A89BC90062A36F /* ResponseObjectArchitect.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCDE51E17A89BC90062A36F /* ResponseObjectArchitect.m */; };
+		CDCDE52217A8A0B90062A36F /* ObjectModelGraph.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCDE52117A8A0B90062A36F /* ObjectModelGraph.m */; };
+		CDCDE52817A8A17B0062A36F /* HTTPURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCDE52717A8A17B0062A36F /* HTTPURLConnection.m */; };
 		CDF4079A1791B2C6001B5A57 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDF407991791B2C6001B5A57 /* Cocoa.framework */; };
 		CDF407A41791B2C6001B5A57 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CDF407A21791B2C6001B5A57 /* InfoPlist.strings */; };
 		CDF407A61791B2C6001B5A57 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF407A51791B2C6001B5A57 /* main.m */; };
 		CDF407AA1791B2C6001B5A57 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = CDF407A81791B2C6001B5A57 /* Credits.rtf */; };
 		CDF407AD1791B2C6001B5A57 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF407AC1791B2C6001B5A57 /* AppDelegate.m */; };
 		CDF407B01791B2C6001B5A57 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDF407AE1791B2C6001B5A57 /* MainMenu.xib */; };
+		CDF407B91791B4F5001B5A57 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF407B71791B4F5001B5A57 /* MasterViewController.m */; };
+		CDF407BA1791B4F5001B5A57 /* MasterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDF407B81791B4F5001B5A57 /* MasterViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CDB3E81817A9CE2500899F94 /* XMLDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLDictionary.h; sourceTree = "<group>"; };
+		CDB3E81917A9CE2500899F94 /* XMLDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLDictionary.m; sourceTree = "<group>"; };
+		CDCDE51417A893D90062A36F /* ObjectBlueprint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectBlueprint.h; sourceTree = "<group>"; };
+		CDCDE51517A893D90062A36F /* ObjectBlueprint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectBlueprint.m; sourceTree = "<group>"; };
+		CDCDE51717A894AF0062A36F /* RequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestOperation.h; sourceTree = "<group>"; };
+		CDCDE51817A894AF0062A36F /* RequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestOperation.m; sourceTree = "<group>"; };
+		CDCDE51A17A899B30062A36F /* ResponseObjectFilterOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResponseObjectFilterOperation.h; sourceTree = "<group>"; };
+		CDCDE51B17A899B30062A36F /* ResponseObjectFilterOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResponseObjectFilterOperation.m; sourceTree = "<group>"; };
+		CDCDE51D17A89BC90062A36F /* ResponseObjectArchitect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResponseObjectArchitect.h; sourceTree = "<group>"; };
+		CDCDE51E17A89BC90062A36F /* ResponseObjectArchitect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResponseObjectArchitect.m; sourceTree = "<group>"; };
+		CDCDE52017A8A0B90062A36F /* ObjectModelGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectModelGraph.h; sourceTree = "<group>"; };
+		CDCDE52117A8A0B90062A36F /* ObjectModelGraph.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectModelGraph.m; sourceTree = "<group>"; };
+		CDCDE52617A8A17B0062A36F /* HTTPURLConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPURLConnection.h; sourceTree = "<group>"; };
+		CDCDE52717A8A17B0062A36F /* HTTPURLConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPURLConnection.m; sourceTree = "<group>"; };
 		CDF407961791B2C6001B5A57 /* EveAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EveAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDF407991791B2C6001B5A57 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		CDF4079C1791B2C6001B5A57 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -29,6 +52,9 @@
 		CDF407AB1791B2C6001B5A57 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CDF407AC1791B2C6001B5A57 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		CDF407AF1791B2C6001B5A57 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		CDF407B61791B4F5001B5A57 /* MasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MasterViewController.h; path = ../MasterViewController.h; sourceTree = "<group>"; };
+		CDF407B71791B4F5001B5A57 /* MasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MasterViewController.m; path = ../MasterViewController.m; sourceTree = "<group>"; };
+		CDF407B81791B4F5001B5A57 /* MasterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MasterViewController.xib; path = ../MasterViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,9 +69,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CDCDE51317A893240062A36F /* Restful Web Framework */ = {
+			isa = PBXGroup;
+			children = (
+				CDCDE51417A893D90062A36F /* ObjectBlueprint.h */,
+				CDCDE51517A893D90062A36F /* ObjectBlueprint.m */,
+				CDCDE51717A894AF0062A36F /* RequestOperation.h */,
+				CDCDE51817A894AF0062A36F /* RequestOperation.m */,
+				CDCDE51D17A89BC90062A36F /* ResponseObjectArchitect.h */,
+				CDCDE51E17A89BC90062A36F /* ResponseObjectArchitect.m */,
+				CDCDE51A17A899B30062A36F /* ResponseObjectFilterOperation.h */,
+				CDCDE51B17A899B30062A36F /* ResponseObjectFilterOperation.m */,
+				CDCDE52017A8A0B90062A36F /* ObjectModelGraph.h */,
+				CDCDE52117A8A0B90062A36F /* ObjectModelGraph.m */,
+				CDCDE52617A8A17B0062A36F /* HTTPURLConnection.h */,
+				CDCDE52717A8A17B0062A36F /* HTTPURLConnection.m */,
+				CDB3E81817A9CE2500899F94 /* XMLDictionary.h */,
+				CDB3E81917A9CE2500899F94 /* XMLDictionary.m */,
+			);
+			name = "Restful Web Framework";
+			sourceTree = "<group>";
+		};
 		CDF4078D1791B2C6001B5A57 = {
 			isa = PBXGroup;
 			children = (
+				CDCDE51317A893240062A36F /* Restful Web Framework */,
 				CDF4079F1791B2C6001B5A57 /* EveAPI */,
 				CDF407981791B2C6001B5A57 /* Frameworks */,
 				CDF407971791B2C6001B5A57 /* Products */,
@@ -82,6 +130,9 @@
 		CDF4079F1791B2C6001B5A57 /* EveAPI */ = {
 			isa = PBXGroup;
 			children = (
+				CDF407B61791B4F5001B5A57 /* MasterViewController.h */,
+				CDF407B71791B4F5001B5A57 /* MasterViewController.m */,
+				CDF407B81791B4F5001B5A57 /* MasterViewController.xib */,
 				CDF407AB1791B2C6001B5A57 /* AppDelegate.h */,
 				CDF407AC1791B2C6001B5A57 /* AppDelegate.m */,
 				CDF407AE1791B2C6001B5A57 /* MainMenu.xib */,
@@ -156,6 +207,7 @@
 				CDF407A41791B2C6001B5A57 /* InfoPlist.strings in Resources */,
 				CDF407AA1791B2C6001B5A57 /* Credits.rtf in Resources */,
 				CDF407B01791B2C6001B5A57 /* MainMenu.xib in Resources */,
+				CDF407BA1791B4F5001B5A57 /* MasterViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,6 +220,14 @@
 			files = (
 				CDF407A61791B2C6001B5A57 /* main.m in Sources */,
 				CDF407AD1791B2C6001B5A57 /* AppDelegate.m in Sources */,
+				CDF407B91791B4F5001B5A57 /* MasterViewController.m in Sources */,
+				CDCDE51617A893D90062A36F /* ObjectBlueprint.m in Sources */,
+				CDCDE51917A894AF0062A36F /* RequestOperation.m in Sources */,
+				CDCDE51C17A899B30062A36F /* ResponseObjectFilterOperation.m in Sources */,
+				CDCDE51F17A89BC90062A36F /* ResponseObjectArchitect.m in Sources */,
+				CDCDE52217A8A0B90062A36F /* ObjectModelGraph.m in Sources */,
+				CDCDE52817A8A17B0062A36F /* HTTPURLConnection.m in Sources */,
+				CDB3E81A17A9CE2500899F94 /* XMLDictionary.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,6 +363,7 @@
 				CDF407B51791B2C6001B5A57 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
