@@ -8,12 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "HTTPURLConnection.h"
-#import "ResponseObjectFilter.h"
 
 @interface RequestOperation : NSOperation
 
 @property (strong) HTTPURLConnection *httpConnection;
 @property (strong) NSMutableArray *objectBlueprints;
-@property (strong) ResponseObjectFilter *responseFilter;
 
 @end

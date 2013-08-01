@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CDB3E81A17A9CE2500899F94 /* XMLDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB3E81917A9CE2500899F94 /* XMLDictionary.m */; };
+		CDB3E81A17A9CE2500899F94 /* XMLDictionaryFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB3E81917A9CE2500899F94 /* XMLDictionaryFactory.m */; };
 		CDCDE51617A893D90062A36F /* ObjectBlueprint.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCDE51517A893D90062A36F /* ObjectBlueprint.m */; };
 		CDCDE51917A894AF0062A36F /* RequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCDE51817A894AF0062A36F /* RequestOperation.m */; };
 		CDCDE51C17A899B30062A36F /* ResponseObjectFilterOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCDE51B17A899B30062A36F /* ResponseObjectFilterOperation.m */; };
@@ -25,8 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		CDB3E81817A9CE2500899F94 /* XMLDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLDictionary.h; sourceTree = "<group>"; };
-		CDB3E81917A9CE2500899F94 /* XMLDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLDictionary.m; sourceTree = "<group>"; };
+		CDB3E81817A9CE2500899F94 /* XMLDictionaryFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLDictionaryFactory.h; sourceTree = "<group>"; };
+		CDB3E81917A9CE2500899F94 /* XMLDictionaryFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLDictionaryFactory.m; sourceTree = "<group>"; };
 		CDCDE51417A893D90062A36F /* ObjectBlueprint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectBlueprint.h; sourceTree = "<group>"; };
 		CDCDE51517A893D90062A36F /* ObjectBlueprint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectBlueprint.m; sourceTree = "<group>"; };
 		CDCDE51717A894AF0062A36F /* RequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestOperation.h; sourceTree = "<group>"; };
@@ -84,8 +84,8 @@
 				CDCDE52117A8A0B90062A36F /* ObjectModelGraph.m */,
 				CDCDE52617A8A17B0062A36F /* HTTPURLConnection.h */,
 				CDCDE52717A8A17B0062A36F /* HTTPURLConnection.m */,
-				CDB3E81817A9CE2500899F94 /* XMLDictionary.h */,
-				CDB3E81917A9CE2500899F94 /* XMLDictionary.m */,
+				CDB3E81817A9CE2500899F94 /* XMLDictionaryFactory.h */,
+				CDB3E81917A9CE2500899F94 /* XMLDictionaryFactory.m */,
 			);
 			name = "Restful Web Framework";
 			sourceTree = "<group>";
@@ -227,7 +227,7 @@
 				CDCDE51F17A89BC90062A36F /* ResponseObjectArchitect.m in Sources */,
 				CDCDE52217A8A0B90062A36F /* ObjectModelGraph.m in Sources */,
 				CDCDE52817A8A17B0062A36F /* HTTPURLConnection.m in Sources */,
-				CDB3E81A17A9CE2500899F94 /* XMLDictionary.m in Sources */,
+				CDB3E81A17A9CE2500899F94 /* XMLDictionaryFactory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

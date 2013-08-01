@@ -7,6 +7,7 @@
 //
 
 #import "MasterViewController.h"
+#import "XMLDictionaryFactory.h"
 
 @interface MasterViewController ()
 
@@ -30,7 +31,11 @@
     [super loadView];
     
     [self.xmlTextView setString:@"Hello World!"];
-    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:@"https://api.eveonline.com/account/APIKeyInfo.xml.aspx?keyID=1927220&vCode=JVolmWFGtr6wMewZywlpRje3XmRSiI6xKQ6TbOELHEUH7j8vymuim3D62UKOlB6Y"]];
+    
+    //NSURL *url = [NSURL URLWithString:@"https://api.eveonline.com/account/APIKeyInfo.xml.aspx?keyID=1927220&vCode=JVolmWFGtr6wMewZywlpRje3XmRSiI6xKQ6TbOELHEUH7j8vymuim3D62UKOlB6Y"];
+    NSURL *url = [NSURL URLWithString:@"https://api.eveonline.com/char/WalletJournal.xml.aspx?keyID=1927220&vCode=JVolmWFGtr6wMewZywlpRje3XmRSiI6xKQ6TbOELHEUH7j8vymuim3D62UKOlB6Y&characterID=91836741&rowCount=25"];
+    
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
     
     self.urlConnection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
     if (self.urlConnection)
@@ -73,6 +78,10 @@
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
     NSLog(@"Succeeded: Received %ld bytes of data", (unsigned long)[self.receivedData length]);
+    
+    NSError *error = [[NSError alloc] init];
+    NSDictionary *xmlDictionary = [XMLDictionaryFactory dictionaryFromData:self.receivedData Error:error];
+    
     
     NSString *receivedDataString = [[NSString alloc] initWithBytes:self.receivedData.mutableBytes length:[self.receivedData length] encoding:NSUTF8StringEncoding];
     
