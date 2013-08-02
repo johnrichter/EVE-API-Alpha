@@ -10,8 +10,15 @@
 
 @interface XMLDictionaryFactory : NSObject <NSXMLParserDelegate>
 
-@property (strong) NSXMLParser *xmlParser;
+// The container for the constructed xml document
 @property (strong) NSMutableDictionary *xmlDictionary;
+
+// Holds a mapping between element dict and parent element dict
+// ->{elementID : parentID}
+@property (strong) NSMutableDictionary *elementToParentMap;
+
+// Pointer to the current element being processed. ->{'currentElement' : {...}}
+@property (strong) NSMutableDictionary *currentElement;
 
 - (XMLDictionaryFactory *)init;
 

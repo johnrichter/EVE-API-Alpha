@@ -32,7 +32,7 @@
     
     [self.xmlTextView setString:@"Hello World!"];
     
-    //NSURL *url = [NSURL URLWithString:@"https://api.eveonline.com/account/APIKeyInfo.xml.aspx?keyID=1927220&vCode=JVolmWFGtr6wMewZywlpRje3XmRSiI6xKQ6TbOELHEUH7j8vymuim3D62UKOlB6Y"];
+   //NSURL *url = [NSURL URLWithString:@"https://api.eveonline.com/account/APIKeyInfo.xml.aspx?keyID=1927220&vCode=JVolmWFGtr6wMewZywlpRje3XmRSiI6xKQ6TbOELHEUH7j8vymuim3D62UKOlB6Y"];
     NSURL *url = [NSURL URLWithString:@"https://api.eveonline.com/char/WalletJournal.xml.aspx?keyID=1927220&vCode=JVolmWFGtr6wMewZywlpRje3XmRSiI6xKQ6TbOELHEUH7j8vymuim3D62UKOlB6Y&characterID=91836741&rowCount=25"];
     
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
@@ -81,7 +81,8 @@
     
     NSError *error = [[NSError alloc] init];
     NSDictionary *xmlDictionary = [XMLDictionaryFactory dictionaryFromData:self.receivedData Error:error];
-    
+   
+   NSLog(@"XML Dictionary:\n%@", xmlDictionary);
     
     NSString *receivedDataString = [[NSString alloc] initWithBytes:self.receivedData.mutableBytes length:[self.receivedData length] encoding:NSUTF8StringEncoding];
     

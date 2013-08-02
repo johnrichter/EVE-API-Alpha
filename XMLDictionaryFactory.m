@@ -14,8 +14,14 @@
 
 - (XMLDictionaryFactory *)init
 {
-    self.xmlDictionary = [[NSMutableDictionary alloc] init];
-    self.xmlParser = nil;
+    self = [super init];
+    if (self)
+    {
+       self.xmlDictionary = [[NSMutableDictionary alloc] init];
+       self.elementToParentMap = [[NSMutableDictionary alloc] init];
+       self.currentElement = nil;
+    }
+    
     return self;
 }
 
@@ -69,45 +75,106 @@
 
 - (void)parserDidStartDocument:(NSXMLParser *)parser
 {
-    NSLog(@"Started parsing data");
+    NSLog(@"Started parsing document");
 }
 
 - (void)parserDidEndDocument:(NSXMLParser *)parser
 {
-    NSLog(@"Ended parsing Data");
+    NSLog(@"Ended parsing document");
+}
+
+// Sent by a parser object to its delegate when it encounters start tag for a specific element.
+- (void)
+   parser:(NSXMLParser *)parser
+   didStartElement:(NSString *)elementName
+   namespaceURI:(NSString *)namespaceURI
+   qualifiedName:(NSString *)qName
+   attributes:(NSDictionary *)attributeDict
+{
+    if (elementName != nil)
+    {
+       // Create the initial element dictionary object
+       NSMutableDictionary *newElement =
+         [NSMutableDictionary dictionaryWithObjectsAndKeys:
+            attributeDict, @"attributes",
+            @"", @"value",
+            [NSMutableArray array], @"children",
+            nil];
+       
+       // used for the elementToParentMap
+       NSValue *childKey = [NSValue valueWithNonretainedObject:newElement];
+       
+       if ([self.xmlDictionary count] == 0)
+       {
+          // set the initial dictionary
+          [self.xmlDictionary setValue:newElement forKey:elementName];
+       }
+       else  // this is not our first element
+       {
+          NSMutableArray *children = self.currentElement[@"children"];
+          if (children != nil)
+          {
+             [children addObject:[NSMutableDictionary
+                                  dictionaryWithObjectsAndKeys:newElement, elementName, nil]];
+          }
+          // todo: check this ^ if null
+       }
+       
+       // update parent and current element pointers
+       if (self.currentElement != nil)
+       {
+          [self.elementToParentMap setObject:self.currentElement forKey:childKey];
+       }
+       else
+       {
+          // There are no parents of the root node
+          [self.elementToParentMap setObject:[[NSNull alloc] init] forKey:childKey];
+       }
+       self.currentElement = newElement;
+    }
+    else
+    {
+        // returning the parseError will be done by the parser:parseErrorOccurred: delegate function
+        [parser abortParsing];
+    }
 }
 
 // Sent by a parser object to its delegate when it encounters an end tag for a specific element.
-- (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict
+- (void)
+   parser:(NSXMLParser *)parser
+   didEndElement:(NSString *)elementName
+   namespaceURI:(NSString *)namespaceURI
+   qualifiedName:(NSString *)qName
 {
-    NSLog(@"Started parsing element: %@ with namespace: %@, qualified name: %@, and attributes: %@",
-          elementName, namespaceURI, qName, attributeDict);
-}
-
-// Sent by a parser object to its delegate when it encounters an end tag for a specific element.
-- (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
-{
-    NSLog(@"Ended parsing of element: %@, with namespace: %@, and qualified name: %@",
-          elementName, namespaceURI, qName);
+   // update the parent and current element pointers
+   NSValue *currentElementKey = [NSValue valueWithNonretainedObject:self.currentElement];
+   self.currentElement = self.elementToParentMap[currentElementKey];
 }
 
 // Sent by a parser object to its delegate when it encounters a fatal error.
 - (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError
 {
-    NSLog(@"Errors parsing data.\n  Code: %ld\n  Description: %@",
+   NSLog(@"Errors parsing data.\n  Code: %ld\n  Description: %@",
           (long)parseError.code, parseError.description);
 }
 
 // Sent by a parser object to provide its delegate with a string representing all or part of the characters of the current element.
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
 {
-    NSLog(@"Found characters: %@", string);
+   NSArray *tokens = [string componentsSeparatedByCharactersInSet:
+      [NSCharacterSet whitespaceAndNewlineCharacterSet]];
+   NSString *strippedString = [tokens componentsJoinedByString:@""];
+   
+   if (![strippedString isEqualToString:@""])  // If the text was not just whitespace
+   {
+      self.currentElement[@"value"] = string;
+   }
 }
 
-// Reported by a parser object to provide its delegate with a string representing all or part of the ignorable whitespace characters of the current element.
+// Reported by a parser object to provide its delegate with a string representing all or
+// part of the ignorable whitespace characters of the current element.
 - (void)parser:(NSXMLParser *)parser foundIgnorableWhitespace:(NSString *)whitespaceString
 {
-    NSLog(@"Found ignorable whitespace: >%@<", whitespaceString);
 }
 
 // Sent by a parser object to its delegate when it encounters a comment in the XML.
