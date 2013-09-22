@@ -8,10 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@interface XMLDictionaryFactory : NSObject <NSXMLParserDelegate>
+@interface XMLFactory : NSObject <NSXMLParserDelegate>
 
 // The container for the constructed xml document
-@property (strong) NSMutableDictionary *xmlDictionary;
+@property (strong) NSMutableDictionary *xmlMap;
 
 // Holds a mapping between element dict and parent element dict
 // ->{elementID : parentID}
@@ -20,9 +20,9 @@
 // Pointer to the current element being processed. ->{'currentElement' : {...}}
 @property (strong) NSMutableDictionary *currentElement;
 
-- (XMLDictionaryFactory *)init;
+- (XMLFactory *)init;
 
-+ (NSDictionary *)dictionaryFromData:(NSData *)data Error:(NSError *)error;
-+ (NSDictionary *)dictionaryFromFile:(NSURL *)pathToFile Error:(NSError *)error;
++ (NSDictionary *)xmlFromData:(NSData *)data Error:(NSError *)error;
++ (NSDictionary *)xmlFromFile:(NSURL *)pathToFile Error:(NSError *)error;
 
 @end

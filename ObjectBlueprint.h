@@ -11,7 +11,14 @@
 @interface ObjectBlueprint : NSObject
 
 @property (strong) id objectClassId;
-@property (strong) NSMutableDictionary *objectProperties;
-@property (strong) NSString *keyPath;
+@property (strong) NSString *matchesKeyPath;
+@property (strong) NSDictionary *objectAttributes;
+@property BOOL objectHasValue;
+
+- (ObjectBlueprint *)
+   initWithClass:(id)class
+   KeyPath:(NSString *)keyPath
+   Attributes:(NSDictionary *)attributes
+   HasValue:(BOOL)value;
 
 @end

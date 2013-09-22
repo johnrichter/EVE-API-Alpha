@@ -7,13 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CDB3E81A17A9CE2500899F94 /* XMLDictionaryFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB3E81917A9CE2500899F94 /* XMLDictionaryFactory.m */; };
+		CD2940F517EE639800BC7947 /* EVECharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2940F417EE639800BC7947 /* EVECharacter.m */; };
+		CD2940F817EEA4EA00BC7947 /* ObjectBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2940F717EEA4EA00BC7947 /* ObjectBuilder.m */; };
+		CDB3E81A17A9CE2500899F94 /* XMLFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB3E81917A9CE2500899F94 /* XMLFactory.m */; };
 		CDCDE51617A893D90062A36F /* ObjectBlueprint.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCDE51517A893D90062A36F /* ObjectBlueprint.m */; };
 		CDCDE51917A894AF0062A36F /* RequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCDE51817A894AF0062A36F /* RequestOperation.m */; };
-		CDCDE51C17A899B30062A36F /* ResponseObjectFilterOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCDE51B17A899B30062A36F /* ResponseObjectFilterOperation.m */; };
-		CDCDE51F17A89BC90062A36F /* ResponseObjectArchitect.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCDE51E17A89BC90062A36F /* ResponseObjectArchitect.m */; };
-		CDCDE52217A8A0B90062A36F /* ObjectModelGraph.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCDE52117A8A0B90062A36F /* ObjectModelGraph.m */; };
-		CDCDE52817A8A17B0062A36F /* HTTPURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCDE52717A8A17B0062A36F /* HTTPURLConnection.m */; };
 		CDF4079A1791B2C6001B5A57 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDF407991791B2C6001B5A57 /* Cocoa.framework */; };
 		CDF407A41791B2C6001B5A57 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CDF407A21791B2C6001B5A57 /* InfoPlist.strings */; };
 		CDF407A61791B2C6001B5A57 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF407A51791B2C6001B5A57 /* main.m */; };
@@ -25,20 +23,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		CDB3E81817A9CE2500899F94 /* XMLDictionaryFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLDictionaryFactory.h; sourceTree = "<group>"; };
-		CDB3E81917A9CE2500899F94 /* XMLDictionaryFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLDictionaryFactory.m; sourceTree = "<group>"; };
+		CD2940F317EE639800BC7947 /* EVECharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVECharacter.h; sourceTree = "<group>"; };
+		CD2940F417EE639800BC7947 /* EVECharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVECharacter.m; sourceTree = "<group>"; };
+		CD2940F617EEA4EA00BC7947 /* ObjectBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectBuilder.h; sourceTree = "<group>"; };
+		CD2940F717EEA4EA00BC7947 /* ObjectBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectBuilder.m; sourceTree = "<group>"; };
+		CDB3E81817A9CE2500899F94 /* XMLFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLFactory.h; sourceTree = "<group>"; };
+		CDB3E81917A9CE2500899F94 /* XMLFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLFactory.m; sourceTree = "<group>"; };
 		CDCDE51417A893D90062A36F /* ObjectBlueprint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectBlueprint.h; sourceTree = "<group>"; };
 		CDCDE51517A893D90062A36F /* ObjectBlueprint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectBlueprint.m; sourceTree = "<group>"; };
 		CDCDE51717A894AF0062A36F /* RequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestOperation.h; sourceTree = "<group>"; };
 		CDCDE51817A894AF0062A36F /* RequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestOperation.m; sourceTree = "<group>"; };
-		CDCDE51A17A899B30062A36F /* ResponseObjectFilterOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResponseObjectFilterOperation.h; sourceTree = "<group>"; };
-		CDCDE51B17A899B30062A36F /* ResponseObjectFilterOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResponseObjectFilterOperation.m; sourceTree = "<group>"; };
-		CDCDE51D17A89BC90062A36F /* ResponseObjectArchitect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResponseObjectArchitect.h; sourceTree = "<group>"; };
-		CDCDE51E17A89BC90062A36F /* ResponseObjectArchitect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResponseObjectArchitect.m; sourceTree = "<group>"; };
-		CDCDE52017A8A0B90062A36F /* ObjectModelGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectModelGraph.h; sourceTree = "<group>"; };
-		CDCDE52117A8A0B90062A36F /* ObjectModelGraph.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectModelGraph.m; sourceTree = "<group>"; };
-		CDCDE52617A8A17B0062A36F /* HTTPURLConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPURLConnection.h; sourceTree = "<group>"; };
-		CDCDE52717A8A17B0062A36F /* HTTPURLConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPURLConnection.m; sourceTree = "<group>"; };
 		CDF407961791B2C6001B5A57 /* EveAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EveAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDF407991791B2C6001B5A57 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		CDF4079C1791B2C6001B5A57 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -76,16 +70,12 @@
 				CDCDE51517A893D90062A36F /* ObjectBlueprint.m */,
 				CDCDE51717A894AF0062A36F /* RequestOperation.h */,
 				CDCDE51817A894AF0062A36F /* RequestOperation.m */,
-				CDCDE51D17A89BC90062A36F /* ResponseObjectArchitect.h */,
-				CDCDE51E17A89BC90062A36F /* ResponseObjectArchitect.m */,
-				CDCDE51A17A899B30062A36F /* ResponseObjectFilterOperation.h */,
-				CDCDE51B17A899B30062A36F /* ResponseObjectFilterOperation.m */,
-				CDCDE52017A8A0B90062A36F /* ObjectModelGraph.h */,
-				CDCDE52117A8A0B90062A36F /* ObjectModelGraph.m */,
-				CDCDE52617A8A17B0062A36F /* HTTPURLConnection.h */,
-				CDCDE52717A8A17B0062A36F /* HTTPURLConnection.m */,
-				CDB3E81817A9CE2500899F94 /* XMLDictionaryFactory.h */,
-				CDB3E81917A9CE2500899F94 /* XMLDictionaryFactory.m */,
+				CDB3E81817A9CE2500899F94 /* XMLFactory.h */,
+				CDB3E81917A9CE2500899F94 /* XMLFactory.m */,
+				CD2940F317EE639800BC7947 /* EVECharacter.h */,
+				CD2940F417EE639800BC7947 /* EVECharacter.m */,
+				CD2940F617EEA4EA00BC7947 /* ObjectBuilder.h */,
+				CD2940F717EEA4EA00BC7947 /* ObjectBuilder.m */,
 			);
 			name = "Restful Web Framework";
 			sourceTree = "<group>";
@@ -218,16 +208,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD2940F817EEA4EA00BC7947 /* ObjectBuilder.m in Sources */,
 				CDF407A61791B2C6001B5A57 /* main.m in Sources */,
 				CDF407AD1791B2C6001B5A57 /* AppDelegate.m in Sources */,
 				CDF407B91791B4F5001B5A57 /* MasterViewController.m in Sources */,
 				CDCDE51617A893D90062A36F /* ObjectBlueprint.m in Sources */,
+				CD2940F517EE639800BC7947 /* EVECharacter.m in Sources */,
 				CDCDE51917A894AF0062A36F /* RequestOperation.m in Sources */,
-				CDCDE51C17A899B30062A36F /* ResponseObjectFilterOperation.m in Sources */,
-				CDCDE51F17A89BC90062A36F /* ResponseObjectArchitect.m in Sources */,
-				CDCDE52217A8A0B90062A36F /* ObjectModelGraph.m in Sources */,
-				CDCDE52817A8A17B0062A36F /* HTTPURLConnection.m in Sources */,
-				CDB3E81A17A9CE2500899F94 /* XMLDictionaryFactory.m in Sources */,
+				CDB3E81A17A9CE2500899F94 /* XMLFactory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

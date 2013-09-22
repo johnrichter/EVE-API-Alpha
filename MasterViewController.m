@@ -7,7 +7,10 @@
 //
 
 #import "MasterViewController.h"
-#import "XMLDictionaryFactory.h"
+#import "XMLFactory.h"
+#import "ObjectBlueprint.h"
+#import "RequestOperation.h"
+#import "EVECharacter.h"
 
 @interface MasterViewController ()
 
@@ -33,62 +36,23 @@
     [self.xmlTextView setString:@"Hello World!"];
     
    //NSURL *url = [NSURL URLWithString:@"https://api.eveonline.com/account/APIKeyInfo.xml.aspx?keyID=1927220&vCode=JVolmWFGtr6wMewZywlpRje3XmRSiI6xKQ6TbOELHEUH7j8vymuim3D62UKOlB6Y"];
-    NSURL *url = [NSURL URLWithString:@"https://api.eveonline.com/char/WalletJournal.xml.aspx?keyID=1927220&vCode=JVolmWFGtr6wMewZywlpRje3XmRSiI6xKQ6TbOELHEUH7j8vymuim3D62UKOlB6Y&characterID=91836741&rowCount=25"];
-    
-    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
-    
-    self.urlConnection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
-    if (self.urlConnection)
-    {
-        self.receivedData = [NSMutableData data];
-        NSLog(@"Successfully created NSURLConnection");
-    }
-    else
-    {
-        NSLog(@"Failed to create a URLConneciton");
-    }
-}
-
-- (BOOL)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
-{
-    // This method is called when the server has determined that it
-    // has enough information to create the NSURLResponse.
-    
-    // It can be called multiple times, for example in the case of a
-    // redirect, so each time we reset the data.
-    
-    [self.receivedData setLength:0];
-    return YES;
-}
-
-- (void) connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
-{
-    // Append the new data to receivedData.
-    [self.receivedData appendData:data];
-}
-
--(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
-{
-    // We should release the connection and data object, but with ARC we do not have to
-    NSLog(@"Conneciton failed! Error - %@ %@",
-          [error localizedDescription],
-          [[error userInfo] objectForKey:NSURLErrorFailingURLStringErrorKey]);
-}
-
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection
-{
-    NSLog(@"Succeeded: Received %ld bytes of data", (unsigned long)[self.receivedData length]);
-    
-    NSError *error = [[NSError alloc] init];
-    NSDictionary *xmlDictionary = [XMLDictionaryFactory dictionaryFromData:self.receivedData Error:error];
+   //NSURL *url = [NSURL URLWithString:@"https://api.eveonline.com/char/WalletJournal.xml.aspx?keyID=1927220&vCode=JVolmWFGtr6wMewZywlpRje3XmRSiI6xKQ6TbOELHEUH7j8vymuim3D62UKOlB6Y&characterID=91836741&rowCount=25"];
+   NSURL *url = [NSURL URLWithString:@"https://api.eveonline.com/char/AssetList.xml.aspx?keyID=1927220&vCode=JVolmWFGtr6wMewZywlpRje3XmRSiI6xKQ6TbOELHEUH7j8vymuim3D62UKOlB6Y&characterID=91836741"];
    
-   NSLog(@"XML Dictionary:\n%@", xmlDictionary);
-    
-    NSString *receivedDataString = [[NSString alloc] initWithBytes:self.receivedData.mutableBytes length:[self.receivedData length] encoding:NSUTF8StringEncoding];
-    
-    NSLog(@"Received data string: %@", receivedDataString);
-    
-    [self.xmlTextView setString:receivedDataString];
+   ObjectBlueprint *character = [[ObjectBlueprint alloc]
+                                 initWithClass:[EVECharacter class]
+                                 KeyPath:@"eveapi.result.key.rowset.row"
+                                 Attributes:@{@"characterID":@"characterId",
+                                              @"characterName":@"characterName",
+                                              @"corporationID":@"@corporationId",
+                                              @"corporationName":@"corporationName"}
+                                 HasValue:NO];
+   
+   RequestOperation * myOperation = [[RequestOperation alloc]
+                                     initWithUrl:url
+                                     Blueprints:@[character]];
+   
+   [myOperation start];
 }
 
 @end

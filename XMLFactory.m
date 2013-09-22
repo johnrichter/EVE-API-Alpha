@@ -6,18 +6,18 @@
 //  Copyright (c) 2013 Johnathan Richter. All rights reserved.
 //
 
-#import "XMLDictionaryFactory.h"
+#import "XMLFactory.h"
 
-@implementation XMLDictionaryFactory
+@implementation XMLFactory
 
 #pragma mark - Initialization Routines
 
-- (XMLDictionaryFactory *)init
+- (XMLFactory *)init
 {
     self = [super init];
     if (self)
     {
-       self.xmlDictionary = [[NSMutableDictionary alloc] init];
+       self.xmlMap = [[NSMutableDictionary alloc] init];
        self.elementToParentMap = [[NSMutableDictionary alloc] init];
        self.currentElement = nil;
     }
@@ -27,11 +27,11 @@
 
 #pragma mark - Class Factory Functions
 
-+ (NSDictionary *)dictionaryFromData:(NSData *)data Error:(NSError *)error
++ (NSDictionary *)xmlFromData:(NSData *)data Error:(NSError *)error
 {
     error = nil;
     
-    XMLDictionaryFactory *xmlDictoryFactory = [[self alloc] init];
+    XMLFactory *xmlDictoryFactory = [[self alloc] init];
     
     NSXMLParser *parser = [[NSXMLParser alloc] initWithData:data];
     
@@ -46,14 +46,14 @@
         error = [parser parserError];
     }
     
-    return (NSDictionary *)[xmlDictoryFactory.xmlDictionary copy];
+    return (NSDictionary *)[xmlDictoryFactory.xmlMap copy];
 }
 
-+ (NSDictionary *)dictionaryFromFile:(NSURL *)pathToFile Error:(NSError *)error
++ (NSDictionary *)xmlFromFile:(NSURL *)pathToFile Error:(NSError *)error
 {
     error = nil;
     
-    XMLDictionaryFactory *xmlDictoryFactory = [[self alloc] init];
+    XMLFactory *xmlDictoryFactory = [[self alloc] init];
     
     NSXMLParser *parser = [[NSXMLParser alloc] initWithContentsOfURL:pathToFile];
     
@@ -68,7 +68,7 @@
         error = [parser parserError];
     }
     
-    return (NSDictionary *)[xmlDictoryFactory.xmlDictionary copy];
+    return (NSDictionary *)[xmlDictoryFactory.xmlMap copy];
 }
 
 #pragma mark - Handling XML
@@ -104,10 +104,10 @@
        // used for the elementToParentMap
        NSValue *childKey = [NSValue valueWithNonretainedObject:newElement];
        
-       if ([self.xmlDictionary count] == 0)
+       if ([self.xmlMap count] == 0)
        {
           // set the initial dictionary
-          [self.xmlDictionary setValue:newElement forKey:elementName];
+          [self.xmlMap setValue:newElement forKey:elementName];
        }
        else  // this is not our first element
        {

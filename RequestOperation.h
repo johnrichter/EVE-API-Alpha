@@ -7,11 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "HTTPURLConnection.h"
 
-@interface RequestOperation : NSOperation
+@interface RequestOperation : NSOperation <NSConnectionDelegate>
 
-@property (strong) HTTPURLConnection *httpConnection;
-@property (strong) NSMutableArray *objectBlueprints;
+@property (strong) NSURLRequest *urlRequest;
+@property (strong) NSURLConnection *urlConnection;
+@property (strong) NSMutableData *receivedData;
+@property (strong) NSDictionary *xmlMap;
+@property (strong) NSMutableDictionary *blueprintToDictionaryMap;
+
+@property (strong) NSArray *objectBlueprints;
+
+-(RequestOperation *)initWithUrl:(NSURL *)url Blueprints:(NSArray *)blueprints;
 
 @end
