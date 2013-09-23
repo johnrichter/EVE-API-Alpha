@@ -11,7 +11,7 @@
 @implementation ObjectBlueprint
 
 - (ObjectBlueprint *)
-   initWithClass:(id)class
+   initWithClass:(Class)class
    KeyPath:(NSString *)keyPath
    Attributes:(NSDictionary *)attributes
    HasValue:(BOOL)value

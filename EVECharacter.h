@@ -14,16 +14,9 @@
 @property (strong) NSString *characterName;
 @property (strong) NSNumber *corporationId;
 @property (strong) NSString *corporationName;
+@property (strong) NSNumber *test;
 
 -(EVECharacter *)init;
--(NSNumber *)characterId;
--(void)setCharacterId:(NSNumber *)characterId;
--(NSString *)characterName;
--(void)setCharacterName:(NSString *)characterName;
--(NSNumber *)corporationId;
--(void)setCorporationId:(NSNumber *)corporationId;
--(NSString *)corporationName;
--(void)setCorporationName:(NSString *)corporationName;
 -(void)setNilValueForKey:(NSString *)key;
 
 @end

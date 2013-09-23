@@ -10,7 +10,7 @@
 
 @interface ObjectBlueprint : NSObject
 
-@property (strong) id objectClassId;
+@property (strong) Class objectClassId;
 @property (strong) NSString *matchesKeyPath;
 @property (strong) NSDictionary *objectAttributes;
 @property BOOL objectHasValue;
