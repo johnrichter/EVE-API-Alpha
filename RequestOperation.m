@@ -23,7 +23,7 @@
 
 - (NSDictionary *) createKeyPathToDictionaryMapFromObjectMatches:(NSArray *)objects;
 
-- (void) buildObjects;
+- (BOOL) buildObjects;
 
 @end
 
@@ -111,10 +111,10 @@
       for (ObjectBlueprint *bp in objects)
       {
          NSMutableArray *bpPathMatches =
-            [self getXmlForKeyPath:[bp matchesKeyPath]
+            [self getXmlForKeyPath:[bp xmlKeypath]
                         ForElement:self.xmlMap ParentKeyPath:@""];
          
-         [blueprintMap setValue:[NSArray arrayWithArray:bpPathMatches] forKey:[bp matchesKeyPath]];
+         [blueprintMap setValue:[NSArray arrayWithArray:bpPathMatches] forKey:[bp xmlKeypath]];
       }
    }
    
@@ -172,7 +172,7 @@
    {
       for (ObjectBlueprint *object in self.objectBlueprints)
       {
-         if ([keyPaths containsObject:[object matchesKeyPath]])
+         if ([keyPaths containsObject:[object xmlKeypath]])
          {
             [matches addObject:object];
          }
@@ -253,7 +253,7 @@
    
    NSLog(@"Received data string: %@", receivedDataString);
    
-   [self buildObjects];
+   BOOL success = [self buildObjects];
 }
 
 @end

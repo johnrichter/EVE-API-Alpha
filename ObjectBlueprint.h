@@ -11,8 +11,9 @@
 @interface ObjectBlueprint : NSObject
 
 @property (strong) Class objectClassId;
-@property (strong) NSString *matchesKeyPath;
+@property (strong) NSString *xmlKeypath;
 @property (strong) NSDictionary *objectAttributes;
+@property (strong) NSMutableDictionary *relationships;
 @property BOOL objectHasValue;
 
 - (ObjectBlueprint *)

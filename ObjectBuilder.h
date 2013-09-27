@@ -10,11 +10,18 @@
 
 @interface ObjectBuilder : NSObject
 
-@property (strong) NSDictionary *keyPathToXmlMap;
-@property (strong) NSArray *objects;
+// Holds a reference to the callers xml map
+@property (strong) NSDictionary *xmlMap;
 
--(ObjectBuilder *)initWithKeyPathToXmlMap:(NSDictionary *)map WithObjects:(NSArray *)objects;
+// Holds a reference to all blueprints from the caller
+@property (strong) NSArray *blueprints;
 
--(NSArray *)buildObjects;
+@property (strong) NSMutableDictionary *keyPathToBlueprintMap;
+
+@property (strong) NSError *error;
+
+-(ObjectBuilder *)initWithXmlMap:(NSDictionary **)xmlMap AndBlueprints:(NSArray **)blueprints;
+
+-(NSArray *)buildObjects:(NSError **)error;
 
 @end

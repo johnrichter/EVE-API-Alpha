@@ -11,13 +11,14 @@
 
 @implementation ObjectBuilder
 
--(ObjectBuilder *)initWithKeyPathToXmlMap:(NSDictionary *)map WithObjects:(NSArray *)objects
+-(ObjectBuilder *)initWithXmlMap:(NSDictionary **)xmlMap AndBlueprints:(NSArray **)blueprints
 {
    self = [super init];
    if (self)
    {
-      self.keyPathToXmlMap = map;
-      self.objects = objects;
+      self.xmlMap = *xmlMap;
+      self.blueprints = *blueprints;
+      self.keyPathToBlueprintMap = [[NSMutableDictionary alloc] init];
       
       return self;
    }
@@ -27,7 +28,101 @@
    }
 }
 
--(NSArray *)buildObjects
+-(NSArray *)buildObjects:(NSError **)error
+{
+   if (!self.xmlMap || !self.blueprints)
+   {
+      // TODO: set NSError
+      return @[];
+   }
+   
+   if (!error)
+   {
+      // TODO: set NSError
+      return @[];
+   }
+   
+   self.error = *error;
+   
+   // Build a key path to blueprint map for quick lookup
+   [self createKeypathToBlueprintMap];
+   
+   
+   
+   // builtObjects - @[]
+   // currentKeyPath = @""
+   // Determine correct keyPath
+   // currentBlueprint = Blueprint alloc init
+   //
+   // if blueprintPassedIn != nil
+   //    currentBlueprint = blueprintPassedIn
+   // else if currentKeyPath in self.keyPathToBlueprintMap
+   //    currentBlueprint = self.keyPathToBlueprintMap[currentKeyPath]
+   // else if passedInElement has children
+   //    for each child of passedInElement
+   //       [builtObjects addObjectsFromArray:<recurse>(childXmlMap, currentKeypath, nil)]
+   //    if [builtObjects count] < 0
+   //       return error (Unable to find blueprints in XML)
+   // else
+   //    return error (Unable to find blueprints in XML)
+   //
+   // create an instance of the currentBlueprint object
+   // if the currentBlueprint [hasValue] && xml hasValue
+   //    object value = xml value
+   // for attribute in currentBlueprint attributes
+   //    if passedInElement attributes hasKey:attribute && [object respondsToSelector:attributes[attribute]]
+   //       object property = xml attribute
+   //
+   // For each child of passedInElement
+   //    if blueprint hasRelationship    // We know at least one child is an object
+   //       for relationshipKey in blueprint relationships
+   //          if [child objectForKey:relationshipKey] != nil &&
+   //             [object respondsToSelector:bp relationship property key (aka "a_b" -> "aB")]
+   //
+   //             Use our relationship's blueprint to build the child object in the childXMLMap
+   //             object property = <repeat process>(childMap, currentKeypath, childBlueprint)[0]
+   //             break;
+   //
+   //    else
+   //       [builtObjects addObjectsFromArray:<recurse>(childMap, currentKeypath, nil)]
+   //
+   // [builtObjects addObject:object]
+   //
+   // return builtObjects
+   
+   return ;
+}
+
+-(void)createKeypathToBlueprintMap
+{
+   for (ObjectBlueprint *bp in self.blueprints)
+   {
+      if (self.keyPathToBlueprintMap[[bp xmlKeypath]])
+      {
+         // TODO: Error more than one blueprint per xml key path specified.
+      }
+      else
+      {
+         self.keyPathToBlueprintMap[[bp xmlKeypath]] = bp;
+      }
+   }
+}
+
+-(NSArray *)convertXmlElement:(NSDictionary *)element
+            WithParentKeypath:(NSString *)parentKeypath
+       ToObjectsWithBlueprint:(ObjectBlueprint *)blueprint
+{
+   
+}
+
+/*
+-(BOOL)mapKeyPathsToBlueprints
+{
+   BOOL success = NO;
+   return success;
+}
+
+-(NSArray *)buildObjectsOrig
 {
    NSLog(@"keyPathToXmlMap: %@", self.keyPathToXmlMap);
    NSLog(@"objects: %@", self.objects);
@@ -71,5 +166,5 @@
    
    return builtObjects;
 }
-
+*/
 @end

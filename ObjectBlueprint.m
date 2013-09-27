@@ -20,7 +20,7 @@
    if (self)
    {
       self.objectClassId = class;
-      self.matchesKeyPath = keyPath;
+      self.xmlKeypath = keyPath;
       self.objectAttributes = attributes;
       self.objectHasValue = value;
       
