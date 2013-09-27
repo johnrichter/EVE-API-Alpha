@@ -10,6 +10,7 @@
 		CD2940F517EE639800BC7947 /* EVECharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2940F417EE639800BC7947 /* EVECharacter.m */; };
 		CD2940F817EEA4EA00BC7947 /* ObjectBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2940F717EEA4EA00BC7947 /* ObjectBuilder.m */; };
 		CDB3E81A17A9CE2500899F94 /* XMLFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB3E81917A9CE2500899F94 /* XMLFactory.m */; };
+		CDBE208817F50D8B00C6B71E /* BlueprintRelationship.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBE208717F50D8B00C6B71E /* BlueprintRelationship.m */; };
 		CDCDE51617A893D90062A36F /* ObjectBlueprint.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCDE51517A893D90062A36F /* ObjectBlueprint.m */; };
 		CDCDE51917A894AF0062A36F /* RequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCDE51817A894AF0062A36F /* RequestOperation.m */; };
 		CDF4079A1791B2C6001B5A57 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDF407991791B2C6001B5A57 /* Cocoa.framework */; };
@@ -29,6 +30,8 @@
 		CD2940F717EEA4EA00BC7947 /* ObjectBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectBuilder.m; sourceTree = "<group>"; };
 		CDB3E81817A9CE2500899F94 /* XMLFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLFactory.h; sourceTree = "<group>"; };
 		CDB3E81917A9CE2500899F94 /* XMLFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLFactory.m; sourceTree = "<group>"; };
+		CDBE208617F50D8B00C6B71E /* BlueprintRelationship.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueprintRelationship.h; sourceTree = "<group>"; };
+		CDBE208717F50D8B00C6B71E /* BlueprintRelationship.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueprintRelationship.m; sourceTree = "<group>"; };
 		CDCDE51417A893D90062A36F /* ObjectBlueprint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectBlueprint.h; sourceTree = "<group>"; };
 		CDCDE51517A893D90062A36F /* ObjectBlueprint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectBlueprint.m; sourceTree = "<group>"; };
 		CDCDE51717A894AF0062A36F /* RequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestOperation.h; sourceTree = "<group>"; };
@@ -76,6 +79,8 @@
 				CD2940F417EE639800BC7947 /* EVECharacter.m */,
 				CD2940F617EEA4EA00BC7947 /* ObjectBuilder.h */,
 				CD2940F717EEA4EA00BC7947 /* ObjectBuilder.m */,
+				CDBE208617F50D8B00C6B71E /* BlueprintRelationship.h */,
+				CDBE208717F50D8B00C6B71E /* BlueprintRelationship.m */,
 			);
 			name = "Restful Web Framework";
 			sourceTree = "<group>";
@@ -169,7 +174,7 @@
 		CDF4078E1791B2C6001B5A57 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Johnathan Richter";
 			};
 			buildConfigurationList = CDF407911791B2C6001B5A57 /* Build configuration list for PBXProject "EveAPI" */;
@@ -209,6 +214,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD2940F817EEA4EA00BC7947 /* ObjectBuilder.m in Sources */,
+				CDBE208817F50D8B00C6B71E /* BlueprintRelationship.m in Sources */,
 				CDF407A61791B2C6001B5A57 /* main.m in Sources */,
 				CDF407AD1791B2C6001B5A57 /* AppDelegate.m in Sources */,
 				CDF407B91791B4F5001B5A57 /* MasterViewController.m in Sources */,
@@ -253,7 +259,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -286,7 +291,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
