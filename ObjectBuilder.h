@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "RKValueTransformers.h"
 
 @interface ObjectBuilder : NSObject
 
@@ -19,6 +20,8 @@
 @property (strong) NSMutableDictionary *keyPathToBlueprintMap;
 
 @property (strong) NSError *error;
+
+@property (strong) RKCompoundValueTransformer *valueTransformer;
 
 -(ObjectBuilder *)initWithXmlMap:(NSDictionary **)xmlMap AndBlueprints:(NSArray **)blueprints;
 

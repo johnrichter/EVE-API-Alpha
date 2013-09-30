@@ -13,13 +13,20 @@
 @property (strong) Class objectClassId;
 @property (strong) NSString *xmlKeypath;
 @property (strong) NSDictionary *objectAttributes;
-@property (strong) NSMutableDictionary *relationships;
-@property BOOL objectHasValue;
+@property (strong) NSMutableArray *objectRelationships;
+@property (strong) NSString *objectValue;
 
-- (ObjectBlueprint *)
-   initWithClass:(id)class
-   KeyPath:(NSString *)keyPath
-   Attributes:(NSDictionary *)attributes
-   HasValue:(BOOL)value;
+- (ObjectBlueprint *)initWithClass:(Class)aClass
+                           KeyPath:(NSString *)keyPath
+                        Attributes:(NSDictionary *)attributes
+                             Value:(NSString *)value;
+
+- (ObjectBlueprint *)initWithClass:(Class)aClass
+                           KeyPath:(NSString *)keyPath
+                        Attributes:(NSDictionary *)attributes
+                             Value:(NSString *)value
+                     Relationships:(NSArray *)relationships;
+
+- (void)addRelationshipsFromArray:(NSArray *)relationships;
 
 @end

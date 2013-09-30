@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		CD2940F517EE639800BC7947 /* EVECharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2940F417EE639800BC7947 /* EVECharacter.m */; };
 		CD2940F817EEA4EA00BC7947 /* ObjectBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2940F717EEA4EA00BC7947 /* ObjectBuilder.m */; };
+		CD423FBA17F89C3E00958F90 /* RKValueTransformers.m in Sources */ = {isa = PBXBuildFile; fileRef = CD423FB917F89C3E00958F90 /* RKValueTransformers.m */; };
 		CDB3E81A17A9CE2500899F94 /* XMLFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB3E81917A9CE2500899F94 /* XMLFactory.m */; };
 		CDBE208817F50D8B00C6B71E /* BlueprintRelationship.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBE208717F50D8B00C6B71E /* BlueprintRelationship.m */; };
 		CDCDE51617A893D90062A36F /* ObjectBlueprint.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCDE51517A893D90062A36F /* ObjectBlueprint.m */; };
@@ -28,6 +29,8 @@
 		CD2940F417EE639800BC7947 /* EVECharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVECharacter.m; sourceTree = "<group>"; };
 		CD2940F617EEA4EA00BC7947 /* ObjectBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectBuilder.h; sourceTree = "<group>"; };
 		CD2940F717EEA4EA00BC7947 /* ObjectBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectBuilder.m; sourceTree = "<group>"; };
+		CD423FB817F89C3E00958F90 /* RKValueTransformers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKValueTransformers.h; sourceTree = "<group>"; };
+		CD423FB917F89C3E00958F90 /* RKValueTransformers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKValueTransformers.m; sourceTree = "<group>"; };
 		CDB3E81817A9CE2500899F94 /* XMLFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLFactory.h; sourceTree = "<group>"; };
 		CDB3E81917A9CE2500899F94 /* XMLFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLFactory.m; sourceTree = "<group>"; };
 		CDBE208617F50D8B00C6B71E /* BlueprintRelationship.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueprintRelationship.h; sourceTree = "<group>"; };
@@ -66,7 +69,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		CDCDE51317A893240062A36F /* Restful Web Framework */ = {
+		CD423FBB17F89C4900958F90 /* EVE API */ = {
+			isa = PBXGroup;
+			children = (
+				CD2940F317EE639800BC7947 /* EVECharacter.h */,
+				CD2940F417EE639800BC7947 /* EVECharacter.m */,
+			);
+			name = "EVE API";
+			sourceTree = "<group>";
+		};
+		CD423FBC17F89C7600958F90 /* XMLKit */ = {
 			isa = PBXGroup;
 			children = (
 				CDCDE51417A893D90062A36F /* ObjectBlueprint.h */,
@@ -75,12 +87,28 @@
 				CDCDE51817A894AF0062A36F /* RequestOperation.m */,
 				CDB3E81817A9CE2500899F94 /* XMLFactory.h */,
 				CDB3E81917A9CE2500899F94 /* XMLFactory.m */,
-				CD2940F317EE639800BC7947 /* EVECharacter.h */,
-				CD2940F417EE639800BC7947 /* EVECharacter.m */,
 				CD2940F617EEA4EA00BC7947 /* ObjectBuilder.h */,
 				CD2940F717EEA4EA00BC7947 /* ObjectBuilder.m */,
 				CDBE208617F50D8B00C6B71E /* BlueprintRelationship.h */,
 				CDBE208717F50D8B00C6B71E /* BlueprintRelationship.m */,
+			);
+			name = XMLKit;
+			sourceTree = "<group>";
+		};
+		CD423FBD17F89C9700958F90 /* RestKit */ = {
+			isa = PBXGroup;
+			children = (
+				CD423FB817F89C3E00958F90 /* RKValueTransformers.h */,
+				CD423FB917F89C3E00958F90 /* RKValueTransformers.m */,
+			);
+			name = RestKit;
+			sourceTree = "<group>";
+		};
+		CDCDE51317A893240062A36F /* Restful Web Framework */ = {
+			isa = PBXGroup;
+			children = (
+				CD423FBC17F89C7600958F90 /* XMLKit */,
+				CD423FBD17F89C9700958F90 /* RestKit */,
 			);
 			name = "Restful Web Framework";
 			sourceTree = "<group>";
@@ -88,6 +116,7 @@
 		CDF4078D1791B2C6001B5A57 = {
 			isa = PBXGroup;
 			children = (
+				CD423FBB17F89C4900958F90 /* EVE API */,
 				CDCDE51317A893240062A36F /* Restful Web Framework */,
 				CDF4079F1791B2C6001B5A57 /* EveAPI */,
 				CDF407981791B2C6001B5A57 /* Frameworks */,
@@ -213,6 +242,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD423FBA17F89C3E00958F90 /* RKValueTransformers.m in Sources */,
 				CD2940F817EEA4EA00BC7947 /* ObjectBuilder.m in Sources */,
 				CDBE208817F50D8B00C6B71E /* BlueprintRelationship.m in Sources */,
 				CDF407A61791B2C6001B5A57 /* main.m in Sources */,

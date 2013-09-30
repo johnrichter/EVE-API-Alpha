@@ -10,26 +10,47 @@
 
 @implementation ObjectBlueprint
 
-- (ObjectBlueprint *)
-   initWithClass:(Class)class
-   KeyPath:(NSString *)keyPath
-   Attributes:(NSDictionary *)attributes
-   HasValue:(BOOL)value
+- (ObjectBlueprint *)initWithClass:(Class)aClass
+                           KeyPath:(NSString *)keyPath
+                        Attributes:(NSDictionary *)attributes
+                             Value:(NSString *)value
 {
    self = [super init];
    if (self)
    {
-      self.objectClassId = class;
       self.xmlKeypath = keyPath;
+      self.objectClassId = aClass;
       self.objectAttributes = attributes;
-      self.objectHasValue = value;
-      
-      return self;
+      self.objectValue = value;
+      self.objectRelationships = [[NSMutableArray alloc] init];
    }
-   else
+
+   return self;
+}
+
+- (ObjectBlueprint *)initWithClass:(Class)aClass
+                           KeyPath:(NSString *)keyPath
+                        Attributes:(NSDictionary *)attributes
+                             Value:(NSString *)value
+                     Relationships:(NSArray *)relationships;
+
+{
+   self = [super init];
+   if (self)
    {
-      return nil;
+      self.xmlKeypath = keyPath;
+      self.objectClassId = aClass;
+      self.objectAttributes = attributes;
+      self.objectValue = value;
+      self.objectRelationships = [NSMutableArray arrayWithArray:relationships];
    }
+   
+   return self;
+}
+
+- (void)addRelationshipsFromArray:(NSArray *)relationships
+{
+   [self.objectRelationships addObjectsFromArray:relationships];
 }
 
 @end
