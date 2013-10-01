@@ -173,10 +173,108 @@
    // corospond to a relationship then we need to process them as additional nodes in
    // case there are further blueprint matches deeper within the XML.
    
-   // 1. build array with children that match a relationship
-   // 2. build array with children that do not match a relationship
-   // 3. Loop over relationship matching children
-   // 4. Loop over non-relationship children
+   // Create lists of children that match this object's relationships and ones that don't
+   NSMutableArray *relationshipPaths = [[NSMutableArray alloc] init];
+   for (BlueprintRelationship *relationship in currentBlueprint.objectRelationships)
+   {
+      [relationshipPaths addObject:relationship.xmlKeypath];
+   }
+   
+   NSMutableDictionary *childrenThatMatchRelationships = [[NSMutableDictionary alloc] init];
+   NSMutableArray *childrenThatDontMatchRelationships = [[NSMutableArray alloc] init];
+   
+   for (NSDictionary *child in currentElement[@"children"])
+   {
+      NSString *childName = [child allKeys][0];
+      if ([relationshipPaths containsObject:childName])
+      {
+         if (childrenThatMatchRelationships[childName] == nil)
+         {
+            childrenThatMatchRelationships[childName] = [[NSMutableArray alloc] init];
+         }
+         
+         [childrenThatMatchRelationships[childName] addObject:child];
+      }
+      else
+      {
+         [childrenThatDontMatchRelationships addObject:child];
+      }
+   }
+   
+   // Loop over children that match relationships first
+   for (NSString *childXmlName in childrenThatMatchRelationships)
+   {
+      NSArray *children = childrenThatMatchRelationships[childXmlName];
+      BlueprintRelationship *relationshipMatch = nil;
+      
+      // Find the matching relationship in our current blueprint
+      for (BlueprintRelationship *bpRelationship in currentBlueprint.objectRelationships)
+      {
+         // If true, a match was found
+         if ([bpRelationship.xmlKeypath isEqualToString:childXmlName])
+         {
+            relationshipMatch = bpRelationship;
+            break;
+         }
+      }
+      
+      if (relationshipMatch == nil)
+      {
+         // TODO: report error (match didn't exist) <-- this shouldn't ever happen.
+      }
+      
+      // Create a container for all the children that are built.  If there are more than
+      // one in the 'children' variable above then we will convert it to its destination
+      // property as a collection.  If there is only one child to be built, we will assign
+      // the property directly to that child.
+      NSMutableArray *builtRelationshipChildren = [[NSMutableArray alloc] init];
+      
+      for (NSDictionary *child in children)
+      {
+         // Build the child. Since the algorithm appends the current object on to the
+         // returned array last we can assume that the last item in the returned array is
+         // the one for this relationship.
+         // TODO: Fix this, it is ugly and breakable.
+         
+         
+         // The last object is the one we wanted to build.
+      
+         
+         // Remove it from the array
+         
+         
+         // Add all other objects that were built to the final list
+         
+         
+         // Add the built child to the builtRelationshipChildren array
+      }
+      
+      // if [builtRelationshipChildren count] == 1 this property is a To-One relationship
+      //    assign directly to the property after doing a selector check
+      
+      // else this property is a To-Many relationship
+      //    assign to the property using the conversion function
+   }
+   
+   // Now loop over children that do not match relationships
+   for (NSDictionary *xmlChild in childrenThatDontMatchRelationships)
+   {
+      [builtObjects addObjectsFromArray:[self createObjectsWithBlueprint:nil
+                                                           TopLevelNode:xmlChild
+                                                      WithParentKeypath:currentKeyPath]];
+   }
+   
+   // Finally,  add the current object to the list of built objects
+   [builtObjects addObject:blueprintObject];
+   
+   // Return the list to the caller
+   return [NSArray arrayWithArray:builtObjects];
+   
+   
+   
+   
+   
+   
    
    for (NSDictionary *child in currentElement[@"children"])
    {
@@ -210,19 +308,6 @@
                // been initialized then initialize it.
                Class propertyType = [[blueprintObject objectForKey:relationship.objectKeypath] class];
                
-               // TODO: Does this comparison actually work?
-               if (propertyType == [NSArray class] || propertyType == [NSMutableArray class])
-               {
-                  
-               }
-               else if (propertyType == [NSSet class] || propertyType == [NSMutableSet class])
-               {
-                  
-               }
-               else if (propertyType == [NSDictionary class] || propertyType == [NSMutableDictionary class])
-               {
-               
-               }
                
                BOOL conversionSuccess = [self setObject:blueprintObject
                                                Property:relationship.objectKeypath
@@ -254,10 +339,6 @@
                                                           WithParentKeypath:currentKeyPath]];
       }
    }
-   
-   [builtObjects addObject:blueprintObject];
-   
-   return [NSArray arrayWithArray:builtObjects];
    
    // For each child of passedInElement
    //    if blueprint hasRelationship    // We know at least one child is an object
