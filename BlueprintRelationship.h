@@ -20,5 +20,4 @@
 +(BlueprintRelationship *)relationshipFromXmlKeypath:(NSString *)xmlKeypath
                                      ToObjectKeypath:(NSString *)objectKeypath
                                         ForBlueprint:(ObjectBlueprint *)blueprint;
-
 @end

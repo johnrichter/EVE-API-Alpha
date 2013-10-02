@@ -15,9 +15,12 @@
 @property (strong) NSMutableData *receivedData;
 @property (strong) NSDictionary *xmlMap;
 @property (strong) NSMutableDictionary *blueprintToDictionaryMap;
-
 @property (strong) NSArray *objectBlueprints;
 
+@property (strong) NSArray *builtObjects;
+
 -(RequestOperation *)initWithUrl:(NSURL *)url Blueprints:(NSArray *)blueprints;
+
+-(BOOL)buildObjects;
 
 @end

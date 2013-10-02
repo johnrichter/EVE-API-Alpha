@@ -23,7 +23,7 @@
 
 @property (strong) RKCompoundValueTransformer *valueTransformer;
 
--(ObjectBuilder *)initWithXmlMap:(NSDictionary **)xmlMap AndBlueprints:(NSArray **)blueprints;
+-(ObjectBuilder *)initWithXmlMap:(NSDictionary *)xmlMap AndBlueprints:(NSArray *)blueprints;
 
 -(NSArray *)buildObjects:(NSError **)error;
 

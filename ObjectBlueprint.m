@@ -13,6 +13,23 @@
 - (ObjectBlueprint *)initWithClass:(Class)aClass
                            KeyPath:(NSString *)keyPath
                         Attributes:(NSDictionary *)attributes
+{
+   self = [super init];
+   if (self)
+   {
+      self.xmlKeypath = keyPath;
+      self.objectClassId = aClass;
+      self.objectAttributes = attributes;
+      self.objectRelationships = [[NSMutableArray alloc] init];
+      self.objectValue = @"";
+   }
+   
+   return self;
+}
+
+- (ObjectBlueprint *)initWithClass:(Class)aClass
+                           KeyPath:(NSString *)keyPath
+                        Attributes:(NSDictionary *)attributes
                              Value:(NSString *)value
 {
    self = [super init];
@@ -21,8 +38,16 @@
       self.xmlKeypath = keyPath;
       self.objectClassId = aClass;
       self.objectAttributes = attributes;
-      self.objectValue = value;
       self.objectRelationships = [[NSMutableArray alloc] init];
+      
+      if (!value)
+      {
+         self.objectValue = @"";
+      }
+      else
+      {
+         self.objectValue = value;
+      }
    }
 
    return self;
@@ -41,8 +66,16 @@
       self.xmlKeypath = keyPath;
       self.objectClassId = aClass;
       self.objectAttributes = attributes;
-      self.objectValue = value;
       self.objectRelationships = [NSMutableArray arrayWithArray:relationships];
+      
+      if (!value)
+      {
+         self.objectValue = @"";
+      }
+      else
+      {
+         self.objectValue = value;
+      }
    }
    
    return self;

@@ -11,22 +11,6 @@
 #import "ObjectBlueprint.h"
 #import "ObjectBuilder.h"
 
-/** 
- * Create a class extension for private methods.
- */
-@interface RequestOperation ()
-
-- (NSSet *) getAllXmlKeyPaths;
-
-- (NSMutableArray *) getKeyPathForElement:(NSDictionary *)element
-                                 ParentKeyPath:(NSString *)currentKeyPath;
-
-- (NSDictionary *) createKeyPathToDictionaryMapFromObjectMatches:(NSArray *)objects;
-
-- (BOOL) buildObjects;
-
-@end
-
 @implementation RequestOperation
 
 -(RequestOperation *)initWithUrl:(NSURL *)url Blueprints:(NSArray *)blueprints
@@ -50,153 +34,19 @@
    }
 }
 
-- (NSSet *) getAllXmlKeyPaths
+- (BOOL)buildObjects
 {
-   NSSet *keyPaths = [[NSSet alloc] init];
+   // Create an object builder to handle all of our object creation.
+   ObjectBuilder *builder = [[ObjectBuilder alloc] initWithXmlMap:self.xmlMap
+                                                    AndBlueprints:self.objectBlueprints];
+   // Create an NSError to report any errors
+   NSError *error = [[NSError alloc] init];
    
-   if ([self.xmlMap count] > 0)
-   {
-      keyPaths =
-         [NSSet setWithArray:[self getKeyPathForElement:self.xmlMap ParentKeyPath:@""]];
-   }
+   self.builtObjects = [builder buildObjects:&error];
+   //NSLog(@"Objects: %@", objects);
+   //NSLog(@"Error:   %@", error);
    
-   NSLog(@"keypaths: %@", keyPaths);
-   
-   return keyPaths;
-}
-
-- (NSMutableArray *) getKeyPathForElement:(NSDictionary *)element
-                            ParentKeyPath:(NSString *)parentKeyPath
-{
-   NSString *currentKeyPath = @"";
-   NSString *currentElementName = [element allKeys][0];
-   NSMutableArray *keyPaths = [[NSMutableArray alloc] init];
-   
-   if (!parentKeyPath || [parentKeyPath isEqualToString:@""])
-   {
-      currentKeyPath = currentElementName;
-   }
-   else
-   {
-      // join the parent key path with the current element name with a '.' in between
-      currentKeyPath = [@[parentKeyPath, currentElementName] componentsJoinedByString:@"."];
-   }
-   
-   // Add our current key path into the list
-   [keyPaths addObject:currentKeyPath];
-   
-   // If we have child elements then we need to dive deeper down the path
-   NSArray *children = element[currentElementName][@"children"];
-   if ([children count] > 0)
-   {
-      for (NSDictionary *child in children)
-      {
-         [keyPaths addObjectsFromArray:[self getKeyPathForElement:child
-                                                         ParentKeyPath:currentKeyPath]];
-      }
-   }
-   
-   return keyPaths;
-}
-
-- (NSDictionary *) createKeyPathToDictionaryMapFromObjectMatches:(NSArray *)objects
-{
-   if ([objects count] <= 0) return nil;
-   
-   // For each blueprint match create an empty array for each blueprint key path.
-   // Key paths are guaranteed to be unique due to the way objects are matched.
-   NSMutableDictionary *blueprintMap = [[NSMutableDictionary alloc] init];
-   if ([objects count] > 0)
-   {
-      for (ObjectBlueprint *bp in objects)
-      {
-         NSMutableArray *bpPathMatches =
-            [self getXmlForKeyPath:[bp xmlKeypath]
-                        ForElement:self.xmlMap ParentKeyPath:@""];
-         
-         [blueprintMap setValue:[NSArray arrayWithArray:bpPathMatches] forKey:[bp xmlKeypath]];
-      }
-   }
-   
-   NSLog(@"blueprintMap: %@", blueprintMap);
-   
-   return blueprintMap;
-}
-
-- (NSMutableArray *)getXmlForKeyPath:(NSString *)path
-                               ForElement:(NSDictionary *)element
-                            ParentKeyPath:(NSString *)parentKeyPath
-{
-   NSString *currentKeyPath = @"";
-   NSString *currentElementName = [element allKeys][0];
-   NSMutableArray *matches = [[NSMutableArray alloc] init];
-   
-   if (!parentKeyPath || [parentKeyPath isEqualToString:@""])
-   {
-      currentKeyPath = currentElementName;
-   }
-   else
-   {
-      // join the parent key path with the current element name with a '.' in between
-      currentKeyPath = [@[parentKeyPath, currentElementName] componentsJoinedByString:@"."];
-   }
-
-   if ([currentKeyPath isEqualToString:path])
-   {
-      [matches addObject:element[currentElementName]];
-   }
-   
-   // If it doesn't match we still have to check the children.
-   NSArray *children = element[currentElementName][@"children"];
-   if ([children count] > 0)
-   {
-      for (NSDictionary *child in children)
-      {
-         [matches addObjectsFromArray:[self getXmlForKeyPath:path
-                                                  ForElement:child
-                                               ParentKeyPath:currentKeyPath]];
-      }
-   }
-
-   return matches;
-}
-
-
-- (NSArray *) findObjectMatches
-{
-   NSMutableArray *matches = [[NSMutableArray alloc] init];
-   
-   NSSet *keyPaths = [self getAllXmlKeyPaths];
-   
-   if ([keyPaths count] > 0)
-   {
-      for (ObjectBlueprint *object in self.objectBlueprints)
-      {
-         if ([keyPaths containsObject:[object xmlKeypath]])
-         {
-            [matches addObject:object];
-         }
-      }
-   }
-   
-   return matches;
-}
-
-- (void) buildObjects
-{
-   // First, find blueprints that we need to build.
-   NSArray *matches = [self findObjectMatches];
-   
-   // Second, build object keypath to dictionary mapping for the ObjectBuilder.
-   NSDictionary *keyPathMap = [self createKeyPathToDictionaryMapFromObjectMatches:matches];
-   
-   // Third, build our objects
-   ObjectBuilder *builder = [[ObjectBuilder alloc] initWithKeyPathToXmlMap:keyPathMap
-                                                               WithObjects:matches];
-   NSArray * objects = [builder buildObjects];
-   NSLog(@"Objects: %@", objects);
-   
-   // Fourth, notify our caller we are done and have built the objects.
+   return [self.builtObjects count] > 0;
 }
 
 #pragma mark - NSOperation Methods

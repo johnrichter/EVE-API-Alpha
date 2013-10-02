@@ -28,6 +28,18 @@
    }
 }
 
+-(NSString *)description
+{
+   NSMutableString *output = [[NSMutableString alloc] init];
+   [output appendFormat:@"EVECharacter\n"];
+   [output appendFormat:@"\tID:\t\t\t\t%@\n", self.characterId];
+   [output appendFormat:@"\tName:\t\t\t%@\n", self.characterName];
+   [output appendFormat:@"\tCorporation ID:\t\t%@\n", self.corporationId];
+   [output appendFormat:@"\tCorporation Name:\t%@\n", self.corporationName];
+   
+   return output;
+}
+
 #pragma mark - KVC Attribute and To-One Compliance Methods
 
 - (void) setNilValueForKey:(NSString *)key

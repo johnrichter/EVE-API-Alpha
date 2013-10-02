@@ -45,14 +45,43 @@
                                  Attributes:@{@"characterID":@"characterId",
                                               @"characterName":@"characterName",
                                               @"corporationID":@"corporationId",
-                                              @"corporationName":@"corporationName"}
-                                 HasValue:NO];
+                                              @"corporationName":@"corporationName"}];
+   
+   ObjectBlueprint *key = [[ObjectBlueprint alloc]
+                           initWithClass:<#(__unsafe_unretained Class)#>
+                           KeyPath:<#(NSString *)#>
+                           Attributes:<#(NSDictionary *)#>
+                           Value:<#(NSString *)#>
+                           Relationships:<#(NSArray *)#>];
    
    RequestOperation * myOperation = [[RequestOperation alloc]
                                      initWithUrl:url
                                      Blueprints:@[character]];
+
+   [myOperation addObserver:self
+                 forKeyPath:@"builtObjects"
+                    options:(NSKeyValueObservingOptionNew)
+                    context:NULL];
    
    [myOperation start];
+}
+
+-(void)observeValueForKeyPath:(NSString *)keyPath
+                     ofObject:(id)object
+                       change:(NSDictionary *)change
+                      context:(void *)context
+{
+   if ([keyPath isEqualToString:@"builtObjects"] && object)
+   {
+      NSMutableString *output = [[NSMutableString alloc] init];
+      for (id obj in change[@"new"])
+      {
+         [output appendFormat:@"%@", obj];
+         [output appendFormat:@"\n"];
+      }
+      
+      [self.xmlTextView setString:output];
+   }
 }
 
 @end

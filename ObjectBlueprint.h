@@ -18,6 +18,10 @@
 
 - (ObjectBlueprint *)initWithClass:(Class)aClass
                            KeyPath:(NSString *)keyPath
+                        Attributes:(NSDictionary *)attributes;
+
+- (ObjectBlueprint *)initWithClass:(Class)aClass
+                           KeyPath:(NSString *)keyPath
                         Attributes:(NSDictionary *)attributes
                              Value:(NSString *)value;
 

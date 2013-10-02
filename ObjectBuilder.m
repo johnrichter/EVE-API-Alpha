@@ -12,13 +12,13 @@
 
 @implementation ObjectBuilder
 
--(ObjectBuilder *)initWithXmlMap:(NSDictionary **)xmlMap AndBlueprints:(NSArray **)blueprints
+-(ObjectBuilder *)initWithXmlMap:(NSDictionary *)xmlMap AndBlueprints:(NSArray *)blueprints
 {
    self = [super init];
    if (self)
    {
-      self.xmlMap = *xmlMap;
-      self.blueprints = *blueprints;
+      self.xmlMap = xmlMap;
+      self.blueprints = blueprints;
       self.keyPathToBlueprintMap = [[NSMutableDictionary alloc] init];
       self.valueTransformer = [RKValueTransformer defaultValueTransformer];
    }
@@ -124,12 +124,17 @@
             // TODO: Set error (unable to find blueprints in XML) and return
          }
       }
+      
+      return builtObjects;
    }
 
    // No XML nodes match any blueprints given to the builder.
    else
    {
       // TODO: Set error (Unable to find blueprints in XML) and return
+      return builtObjects; // for an unmatched element that does not have any children
+                           // this will return an empty array for the function to
+                           // recuse correctly.
    }
 
    // Create instance of object from our blueprint!
@@ -221,6 +226,7 @@
       if (relationshipMatch == nil)
       {
          // TODO: report error (match didn't exist) <-- this shouldn't ever happen.
+         return builtObjects;
       }
       
       // Create a container for all the children that are built.  If there are more than
@@ -235,25 +241,60 @@
          // returned array last we can assume that the last item in the returned array is
          // the one for this relationship.
          // TODO: Fix this, it is ugly and breakable.
-         
+         NSMutableArray *subnodeObjects = [NSMutableArray arrayWithArray:
+                                           [self createObjectsWithBlueprint:relationshipMatch.blueprintToBuild
+                                                               TopLevelNode:child
+                                                          WithParentKeypath:currentKeyPath]];
          
          // The last object is the one we wanted to build.
-      
+         id builtChildObject = subnodeObjects[[subnodeObjects count] - 1];
          
          // Remove it from the array
-         
+         [subnodeObjects removeObject:builtChildObject];
          
          // Add all other objects that were built to the final list
-         
+         [builtObjects addObjectsFromArray:subnodeObjects];
          
          // Add the built child to the builtRelationshipChildren array
+         [builtRelationshipChildren addObject:builtChildObject];
       }
       
-      // if [builtRelationshipChildren count] == 1 this property is a To-One relationship
-      //    assign directly to the property after doing a selector check
+      // TODO: Handle 0 children case? (this should be guaranteed to never happen above)
       
-      // else this property is a To-Many relationship
+      // If there is only one child that matched the relationship we have a To-One scenario.
+      if ([builtRelationshipChildren count] == 1)
+      {
+         if ([blueprintObject respondsToSelector:NSSelectorFromString(relationshipMatch.objectKeypath)])
+         {
+            if ([blueprintObject class] == [builtRelationshipChildren[0] class])
+            {
+               // Assign the child to the property!
+               [blueprintObject setValue:builtRelationshipChildren[0]
+                                  forKey:relationshipMatch.objectKeypath];
+            }
+            else
+            {
+               // TODO: error (blueprintObject class did not match build child class in assignment)
+            }
+         }
+         else
+         {
+            // TODO: error (blueprint To-One Relationship did not match object selector
+         }
+      }
+      
+      // If we have more than one this property is a To-Many relationship
       //    assign to the property using the conversion function
+      else
+      {
+         BOOL conversionSuccess = [self setObject:blueprintObject
+                                         Property:relationshipMatch.objectKeypath
+                                            ToRhs:builtRelationshipChildren];
+         if (!conversionSuccess)
+         {
+            // TODO: set error (unable to set relationship property: property)
+         }
+      }
    }
    
    // Now loop over children that do not match relationships
@@ -269,95 +310,8 @@
    
    // Return the list to the caller
    return [NSArray arrayWithArray:builtObjects];
-   
-   
-   
-   
-   
-   
-   
-   for (NSDictionary *child in currentElement[@"children"])
-   {
-      // If we have any relationships, check the child against those first.
-      if ([currentBlueprint.objectRelationships count] > 0)
-      {
-         BOOL childHandled = NO;
-         
-         for (BlueprintRelationship *relationship in currentBlueprint.objectRelationships)
-         {
-            // Check if this relationship corosponds to the child.  Note that keypath in
-            // instance will only be the name of the element, not the '.' separated path.
-            NSString *childName = [child allKeys][0];
-            if ([childName isEqualToString:relationship.xmlKeypath] &&
-                [blueprintObject respondsToSelector:NSSelectorFromString(relationship.objectKeypath)])
-            {
-               // Since the algorithm appends the current object on to the returned array
-               // last we can assume that the last item in the returned array is the one
-               // for this relationship.
-               // TODO: Fix this, it is ugly and breakable.
-               
-               NSMutableArray *subnodeObjects = [NSMutableArray arrayWithArray:
-                  [self createObjectsWithBlueprint:relationship.blueprintToBuild
-                                      TopLevelNode:child
-                                 WithParentKeypath:currentKeyPath]];
-               
-               // The last object is the one we wanted to build
-               id builtChildObject = subnodeObjects[[subnodeObjects count] - 1];
-               
-               // If the blueprintObjects property is a collection type and it hasn't
-               // been initialized then initialize it.
-               Class propertyType = [[blueprintObject objectForKey:relationship.objectKeypath] class];
-               
-               
-               BOOL conversionSuccess = [self setObject:blueprintObject
-                                               Property:relationship.objectKeypath
-                                                  ToRhs:builtChildObject];
-               if (!conversionSuccess)
-               {
-                  // TODO: set error (unable to set relationship property: property)
-               }
-               
-               childHandled = YES;
-               break;
-            }
-         }
-         
-         // This child does not corrospond to a relationship, build it.
-         if (!childHandled)
-         {
-            [builtObjects addObjectsFromArray:[self createObjectsWithBlueprint:nil
-                                                                  TopLevelNode:child
-                                                             WithParentKeypath:currentKeyPath]];
-         }
-      }
-      
-      // No relationships for the current object, build the child
-      else
-      {
-         [builtObjects addObjectsFromArray:[self createObjectsWithBlueprint:nil
-                                                               TopLevelNode:child
-                                                          WithParentKeypath:currentKeyPath]];
-      }
-   }
-   
-   // For each child of passedInElement
-   //    if blueprint hasRelationship    // We know at least one child is an object
-   //       for relationshipKey in blueprint relationships
-   //          if [child objectForKey:relationshipKey] != nil &&
-   //             [object respondsToSelector:bp relationship property key (aka "a_b" -> "aB")]
-   //
-   //             Use our relationship's blueprint to build the child object in the childXMLMap
-   //             object property = <repeat process>(childMap, currentKeypath, childBlueprint)[0]
-   //             break;
-   //
-   //    else
-   //       [builtObjects addObjectsFromArray:<recurse>(childMap, currentKeypath, nil)]
-   //
-   // [builtObjects addObject:object]
-   //
-   // return builtObjects
+ }
 
-}
 
 -(BOOL)setObject:(id)object Property:(NSString *)property ToRhs:(id)rhs
 {
@@ -368,19 +322,40 @@
       // Get the class type of the destination variable
       Class propertyType = [[object valueForKey:property] class];
       
-      // Create an instance of the property type
-      id outputVar = [[propertyType alloc] init];
+      // Create an output variable to hold the converted object
+      id outputVar = nil;
+      
+      NSLog(@"propertyType = %@ | [object class] = %@ | superclass = %@",
+            NSStringFromClass(propertyType),
+            NSStringFromClass([[object valueForKey:property] class]),
+            NSStringFromClass([[[object valueForKey:property] class] superclass]));
       
       NSError *error = self.error;
       
-      success = [[self valueTransformer] transformValue:rhs
-                                                toValue:&outputVar
-                                                ofClass:propertyType
-                                                  error:&error];
+      // TODO: This is bad
+      Class aClass = [[object valueForKey:property] class];
+      while (aClass != nil)
+      {
+         success = [[self valueTransformer] transformValue:rhs
+                                                   toValue:&outputVar
+                                                   ofClass:aClass
+                                                     error:&error];
+         if (success)
+         {
+            break;
+         }
+         
+         aClass = [aClass superclass];
+      }
+      
       if (!success)
       {
          // TODO: Set error (unable to convert to proper type)
          NSLog(@"Error in type transformation = %@", error);
+      }
+      else
+      {
+         [object setValue:outputVar forKey:property];
       }
    }
    else
