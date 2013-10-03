@@ -17,7 +17,7 @@
 
 -(BlueprintRelationship *)init;
 
-+(BlueprintRelationship *)relationshipFromXmlKeypath:(NSString *)xmlKeypath
++(BlueprintRelationship *)relationshipFromChildElementName:(NSString *)xmlKeypath
                                      ToObjectKeypath:(NSString *)objectKeypath
                                         ForBlueprint:(ObjectBlueprint *)blueprint;
 @end

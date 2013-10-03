@@ -9,8 +9,10 @@
 #import "MasterViewController.h"
 #import "XMLFactory.h"
 #import "ObjectBlueprint.h"
+#import "BlueprintRelationship.h"
 #import "RequestOperation.h"
 #import "EVECharacter.h"
+#import "EVEApiKey.h"
 
 @interface MasterViewController ()
 
@@ -47,16 +49,23 @@
                                               @"corporationID":@"corporationId",
                                               @"corporationName":@"corporationName"}];
    
-   ObjectBlueprint *key = [[ObjectBlueprint alloc]
-                           initWithClass:<#(__unsafe_unretained Class)#>
-                           KeyPath:<#(NSString *)#>
-                           Attributes:<#(NSDictionary *)#>
-                           Value:<#(NSString *)#>
-                           Relationships:<#(NSArray *)#>];
+   BlueprintRelationship *apiCharacters =
+      [BlueprintRelationship relationshipFromChildElementName:@"rowset.row"
+                                              ToObjectKeypath:@"characters"
+                                                 ForBlueprint:character];
+   
+   ObjectBlueprint *apiKey = [[ObjectBlueprint alloc]
+                           initWithClass:[EVEApiKey class]
+                           KeyPath:@"eveapi.result.key"
+                           Attributes:@{@"accessMask":@"accessMask",
+                                        @"type":@"keyType",
+                                        @"expires":@"expirationDate"}
+                           Value:nil
+                           Relationships:@[apiCharacters]];
    
    RequestOperation * myOperation = [[RequestOperation alloc]
                                      initWithUrl:url
-                                     Blueprints:@[character]];
+                                     Blueprints:@[apiKey]];
 
    [myOperation addObserver:self
                  forKeyPath:@"builtObjects"

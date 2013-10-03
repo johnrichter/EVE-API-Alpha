@@ -12,7 +12,7 @@
 @interface ObjectBuilder : NSObject
 
 // Holds a reference to the callers xml map
-@property (strong) NSDictionary *xmlMap;
+@property (strong) NSMutableDictionary *xmlMap;
 
 // Holds a reference to all blueprints from the caller
 @property (strong) NSArray *blueprints;

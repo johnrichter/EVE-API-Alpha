@@ -17,7 +17,7 @@
    self = [super init];
    if (self)
    {
-      self.xmlMap = xmlMap;
+      self.xmlMap = [NSMutableDictionary dictionaryWithDictionary:xmlMap];
       self.blueprints = blueprints;
       self.keyPathToBlueprintMap = [[NSMutableDictionary alloc] init];
       self.valueTransformer = [RKValueTransformer defaultValueTransformer];
@@ -68,7 +68,7 @@
 }
 
 -(NSArray *)createObjectsWithBlueprint:(ObjectBlueprint *)blueprintPrematch
-                          TopLevelNode:(NSDictionary *)node
+                          TopLevelNode:(NSMutableDictionary *)node
                      WithParentKeypath:(NSString *)parentKeypath
 {
    // Create our built object collection.
@@ -81,7 +81,7 @@
    NSString *currentElementName = [node allKeys][0];
    
    // Get a pointer to the current elements dictionary of attributes, children, and value
-   NSDictionary *currentElement = node[currentElementName];
+   NSMutableDictionary *currentElement = node[currentElementName];
    
    if (!parentKeypath || [parentKeypath isEqualToString:@""])
    {
@@ -114,7 +114,7 @@
    // current elements children, if there are any.
    else if ([currentElement[@"children"] count] > 0)
    {
-      for (NSDictionary *child in currentElement[@"children"])
+      for (NSMutableDictionary *child in currentElement[@"children"])
       {
          [builtObjects addObjectsFromArray:[self createObjectsWithBlueprint:currentBlueprint
                                                                TopLevelNode:child
@@ -179,32 +179,15 @@
    // case there are further blueprint matches deeper within the XML.
    
    // Create lists of children that match this object's relationships and ones that don't
-   NSMutableArray *relationshipPaths = [[NSMutableArray alloc] init];
-   for (BlueprintRelationship *relationship in currentBlueprint.objectRelationships)
-   {
-      [relationshipPaths addObject:relationship.xmlKeypath];
-   }
-   
    NSMutableDictionary *childrenThatMatchRelationships = [[NSMutableDictionary alloc] init];
    NSMutableArray *childrenThatDontMatchRelationships = [[NSMutableArray alloc] init];
    
-   for (NSDictionary *child in currentElement[@"children"])
-   {
-      NSString *childName = [child allKeys][0];
-      if ([relationshipPaths containsObject:childName])
-      {
-         if (childrenThatMatchRelationships[childName] == nil)
-         {
-            childrenThatMatchRelationships[childName] = [[NSMutableArray alloc] init];
-         }
-         
-         [childrenThatMatchRelationships[childName] addObject:child];
-      }
-      else
-      {
-         [childrenThatDontMatchRelationships addObject:child];
-      }
-   }
+   // By creating these matches and storing the matches in collections, we build every
+   // child that matches each blueprint relationship.
+   [self createChildMatch:&childrenThatMatchRelationships
+            AndNonMatches:&childrenThatDontMatchRelationships
+            FromXmlParent:node
+       UsingRelationships:currentBlueprint.objectRelationships];
    
    // Loop over children that match relationships first
    for (NSString *childXmlName in childrenThatMatchRelationships)
@@ -235,7 +218,7 @@
       // the property directly to that child.
       NSMutableArray *builtRelationshipChildren = [[NSMutableArray alloc] init];
       
-      for (NSDictionary *child in children)
+      for (NSMutableDictionary *child in children)
       {
          // Build the child. Since the algorithm appends the current object on to the
          // returned array last we can assume that the last item in the returned array is
@@ -298,7 +281,7 @@
    }
    
    // Now loop over children that do not match relationships
-   for (NSDictionary *xmlChild in childrenThatDontMatchRelationships)
+   for (NSMutableDictionary *xmlChild in childrenThatDontMatchRelationships)
    {
       [builtObjects addObjectsFromArray:[self createObjectsWithBlueprint:nil
                                                            TopLevelNode:xmlChild
@@ -366,56 +349,85 @@
    return success;
 }
 
-/*
--(BOOL)mapKeyPathsToBlueprints
+-(void)createChildMatch:(NSMutableDictionary **)matches
+          AndNonMatches:(NSMutableArray **)nonMatches
+          FromXmlParent:(NSMutableDictionary *)parent
+     UsingRelationships:(NSArray *)relationships
 {
-   BOOL success = NO;
-   return success;
+   // Loop over each relationship to find matching children
+   for (BlueprintRelationship *relationship in relationships)
+   {
+      // If the xmlPath is a direct child of the parent this function will return all
+      // matches.  If xmlPath is a distant decendant of any of the children, it will
+      // return the dictionaries of each child and remove them from their decendant
+      // parents so we do not process them again later on.
+      NSMutableDictionary *results = [self findAndRemoveDecendantsFromXml:parent
+                                                         ThatMatchKeyPath:[relationship.xmlKeypath
+                                                                           componentsSeparatedByString:@"."]
+                                                                NextIndex:0];
+      [*matches setObject:results[@"matches"] forKey:relationship.xmlKeypath];
+      [*nonMatches addObjectsFromArray:results[@"nonMatches"]];
+   }
 }
 
--(NSArray *)buildObjectsOrig
+-(NSMutableDictionary *)findAndRemoveDecendantsFromXml:(NSMutableDictionary *)xml
+                                      ThatMatchKeyPath:(NSArray *)keypath
+                                             NextIndex:(NSUInteger)nextIndex
 {
-   NSLog(@"keyPathToXmlMap: %@", self.keyPathToXmlMap);
-   NSLog(@"objects: %@", self.objects);
+   NSMutableDictionary *results = [[NSMutableDictionary alloc] init];
+   results[@"matches"] = [[NSMutableArray alloc] init];
+   results[@"nonMatches"] = [[NSMutableArray alloc] init];
    
-   if (self.keyPathToXmlMap == nil) return nil;
+   NSMutableArray *toRemove = [[NSMutableArray alloc] init];
+   NSString *elementName = [xml allKeys][0];
+   NSMutableDictionary *element = xml[elementName];
    
-   NSMutableArray *builtObjects = [[NSMutableArray alloc] init];
-   
-   // Loop over each blueprint
-   for (ObjectBlueprint *blueprint in self.objects)
+   for (NSMutableDictionary *child in element[@"children"])
    {
-      // Get the array corrosponding to the blueprints keypath.
-      NSArray *blueprintXml = self.keyPathToXmlMap[[blueprint matchesKeyPath]];
+      NSString *childName = [child allKeys][0];
       
-      // For each entry in the array we have a unique object
-      for (NSDictionary *entry in blueprintXml)
+      // If the element matches the final path in the keypath we have found our match!
+      if ([childName isEqualToString:keypath[nextIndex]] &&
+          nextIndex == [keypath count] - 1)
       {
-         // Create the object
-         id object = [[[blueprint objectClassId] alloc] init];
+         [toRemove addObject:child];
+         [results[@"matches"] addObject:child];
+      }
+      
+      // The elements matches our current index, but is not the last in line.  We need to
+      // check this element's children
+      else if ([childName isEqualToString:keypath[nextIndex]] &&
+               nextIndex < [keypath count] - 1)
+      {
+         NSMutableDictionary *searchResults = [self findAndRemoveDecendantsFromXml:child
+                                                                  ThatMatchKeyPath:keypath
+                                                                         NextIndex:nextIndex + 1];
          
-         // Get the attributes of the object from XML
-         NSDictionary *attributes = entry[@"attributes"];
+         [results[@"matches"] addObjectsFromArray:searchResults[@"matches"]];
          
-         // Loop over each attribute and copy it to the object if we are able to.
-         for (NSString *xmlKey in attributes)
+         // Just because the direct child has matched deeper in the hierarchy doesn't
+         // mean it is a match.  Mark as a non match.  The children underneath it were
+         // removed entirely so we will not parse them by accident later.
+         if (nextIndex == 0)
          {
-            NSString *blueprintAttribute = [blueprint objectAttributes][xmlKey];
-            if ([object respondsToSelector:NSSelectorFromString(blueprintAttribute)])
-            {
-               [object setValue:attributes[xmlKey] forKey:blueprintAttribute];
-            }
-            else
-            {
-               NSLog(@"Did not repond to selector %@", blueprintAttribute);
-            }
+            [results[@"nonMatches"] addObject:child];
          }
-         
-         [builtObjects addObject:object];
+      }
+      
+      // This DIRECT child is a non match
+      else if (nextIndex == 0)
+      {
+         [results[@"nonMatches"] addObject:child];
       }
    }
    
-   return builtObjects;
+   NSMutableArray *elementChildren = element[@"children"];
+   for (NSMutableDictionary *child in toRemove)
+   {
+      [elementChildren removeObject:child];
+   }
+   
+   return results;
 }
-*/
+
 @end

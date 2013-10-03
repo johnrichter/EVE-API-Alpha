@@ -10,7 +10,7 @@
 		CD2940F517EE639800BC7947 /* EVECharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2940F417EE639800BC7947 /* EVECharacter.m */; };
 		CD2940F817EEA4EA00BC7947 /* ObjectBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2940F717EEA4EA00BC7947 /* ObjectBuilder.m */; };
 		CD423FBA17F89C3E00958F90 /* RKValueTransformers.m in Sources */ = {isa = PBXBuildFile; fileRef = CD423FB917F89C3E00958F90 /* RKValueTransformers.m */; };
-		CD8699B517FBB88200B5160F /* EVEKey.m in Sources */ = {isa = PBXBuildFile; fileRef = CD8699B417FBB88200B5160F /* EVEKey.m */; };
+		CD8699B517FBB88200B5160F /* EVEApiKey.m in Sources */ = {isa = PBXBuildFile; fileRef = CD8699B417FBB88200B5160F /* EVEApiKey.m */; };
 		CDB3E81A17A9CE2500899F94 /* XMLFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB3E81917A9CE2500899F94 /* XMLFactory.m */; };
 		CDBE208817F50D8B00C6B71E /* BlueprintRelationship.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBE208717F50D8B00C6B71E /* BlueprintRelationship.m */; };
 		CDCDE51617A893D90062A36F /* ObjectBlueprint.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCDE51517A893D90062A36F /* ObjectBlueprint.m */; };
@@ -32,8 +32,8 @@
 		CD2940F717EEA4EA00BC7947 /* ObjectBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectBuilder.m; sourceTree = "<group>"; };
 		CD423FB817F89C3E00958F90 /* RKValueTransformers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKValueTransformers.h; sourceTree = "<group>"; };
 		CD423FB917F89C3E00958F90 /* RKValueTransformers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKValueTransformers.m; sourceTree = "<group>"; };
-		CD8699B317FBB88200B5160F /* EVEKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVEKey.h; sourceTree = "<group>"; };
-		CD8699B417FBB88200B5160F /* EVEKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVEKey.m; sourceTree = "<group>"; };
+		CD8699B317FBB88200B5160F /* EVEApiKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVEApiKey.h; sourceTree = "<group>"; };
+		CD8699B417FBB88200B5160F /* EVEApiKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVEApiKey.m; sourceTree = "<group>"; };
 		CDB3E81817A9CE2500899F94 /* XMLFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLFactory.h; sourceTree = "<group>"; };
 		CDB3E81917A9CE2500899F94 /* XMLFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLFactory.m; sourceTree = "<group>"; };
 		CDBE208617F50D8B00C6B71E /* BlueprintRelationship.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueprintRelationship.h; sourceTree = "<group>"; };
@@ -77,8 +77,8 @@
 			children = (
 				CD2940F317EE639800BC7947 /* EVECharacter.h */,
 				CD2940F417EE639800BC7947 /* EVECharacter.m */,
-				CD8699B317FBB88200B5160F /* EVEKey.h */,
-				CD8699B417FBB88200B5160F /* EVEKey.m */,
+				CD8699B317FBB88200B5160F /* EVEApiKey.h */,
+				CD8699B417FBB88200B5160F /* EVEApiKey.m */,
 			);
 			name = "EVE API";
 			sourceTree = "<group>";
@@ -255,7 +255,7 @@
 				CDF407B91791B4F5001B5A57 /* MasterViewController.m in Sources */,
 				CDCDE51617A893D90062A36F /* ObjectBlueprint.m in Sources */,
 				CD2940F517EE639800BC7947 /* EVECharacter.m in Sources */,
-				CD8699B517FBB88200B5160F /* EVEKey.m in Sources */,
+				CD8699B517FBB88200B5160F /* EVEApiKey.m in Sources */,
 				CDCDE51917A894AF0062A36F /* RequestOperation.m in Sources */,
 				CDB3E81A17A9CE2500899F94 /* XMLFactory.m in Sources */,
 			);

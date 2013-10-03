@@ -17,6 +17,5 @@
 @property (strong) NSNumber *test;
 
 -(EVECharacter *)init;
--(void)setNilValueForKey:(NSString *)key;
 
 @end
