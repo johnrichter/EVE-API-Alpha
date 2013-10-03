@@ -32,13 +32,14 @@
 {
    NSMutableString *output = [[NSMutableString alloc] init];
    [output appendFormat:@"EVEKey\n"];
-   [output appendFormat:@"\tKey Type:\t\t\t\t\t%@\n", _keyType];
-   [output appendFormat:@"\tAccess Mask:\t\t\t\t%@\n", _accessMask];
+   [output appendFormat:@"\tKey Type:\t\t\t%@\n", _keyType];
+   [output appendFormat:@"\tAccess Mask:\t\t%@\n", _accessMask];
    [output appendFormat:@"\tExpiration Date:\t%@\n", _expirationDate];
-   [output appendFormat:@"\tCharacters\n"];
+   [output appendFormat:@"\tCharacters\n"
+                        @"\t----------\n"];
    for (id character in _characters)
    {
-      [output appendFormat:@"\t\t%@", character];
+      [output appendFormat:@"\t%@\n", character];
    }
    
    return output;
