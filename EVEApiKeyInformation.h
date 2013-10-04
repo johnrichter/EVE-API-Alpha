@@ -10,12 +10,13 @@
 #import "EVEApi.h"
 #import "EVEApiKey.h"
 
-@interface EVEApiKeyInformation : EVEApi
+@interface EVEApiKeyInformation : EVEApi <EVEApiProtocol>
 
 #pragma mark - XML Properties
-@property (strong) NSNumber *apiVersion;
-@property (strong) NSDate *timeApiObtained;
 @property (strong) EVEApiKey *apiKey;
+
+-(EVEApiKeyInformation *)init;
+-(void)configureObjectBuilders;
 
 -(BOOL)queryTheApi;
 

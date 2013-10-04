@@ -7,8 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "EVEObject.h"
+#import "EVEObjectProtocol.h"
 
-@interface EVEApiKey : NSObject
+@interface EVEApiKey : EVEObject <EVEObjectProtocol>
 
 /**
  * Attributes
@@ -23,8 +25,6 @@
 @property (strong) NSArray *characters;
 
 -(EVEApiKey *)init;
-
-//-(NSUInteger)type;
-//-(void)setType:(NSString *)type;
+-(void)configureObjectBlueprint;
 
 @end

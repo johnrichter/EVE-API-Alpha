@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "EVEApiProtocol.h"
+#import "EVEDate.h"
 #import "RequestOperation.h"
 #import "ObjectBlueprint.h"
 
@@ -24,11 +26,12 @@ typedef enum LegacyApiKeyRestriction : NSUInteger
    kLimitedAccess
 } LegacyApiKeyRestriction;
 
-@interface EVEApi : NSObject
+@interface EVEApi : NSObject <EVEApiProtocol>
 
 #pragma mark - Common API Properties
 @property (strong) NSString *commonName;
 @property (strong) NSMutableString *uri;
+@property (strong) NSMutableDictionary *uriArguments;
 @property (strong) NSNumber *cakAccessMask;
 @property CacheStyle cacheStyle;
 @property LegacyApiKeyRestriction legacyApiRestriction;
@@ -38,8 +41,8 @@ typedef enum LegacyApiKeyRestriction : NSUInteger
 @property (strong) NSNumber *apiVersion;
 
 #pragma mark - Common XML Attributes
-@property (strong) NSDate *lastQueried;
-@property (strong) NSDate *cachedUntil;
+@property (strong) EVEDate *lastQueried;
+@property (strong) EVEDate *cachedUntil;
 
 #pragma mark - Object Building Properties
 @property (strong) RequestOperation *requestOperation;

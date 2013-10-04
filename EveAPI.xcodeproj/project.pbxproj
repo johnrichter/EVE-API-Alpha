@@ -77,6 +77,8 @@
 		CDCDE51617A893D90062A36F /* ObjectBlueprint.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCDE51517A893D90062A36F /* ObjectBlueprint.m */; };
 		CDCDE51917A894AF0062A36F /* RequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCDE51817A894AF0062A36F /* RequestOperation.m */; };
 		CDE0BB3717FE54D500AD8ABB /* EVEApi.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE0BB3617FE54D500AD8ABB /* EVEApi.m */; };
+		CDE0BB3A17FF096100AD8ABB /* EVEDate.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE0BB3917FF096100AD8ABB /* EVEDate.m */; };
+		CDE0BB3D17FF133400AD8ABB /* EVEObject.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE0BB3C17FF133400AD8ABB /* EVEObject.m */; };
 		CDF4079A1791B2C6001B5A57 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDF407991791B2C6001B5A57 /* Cocoa.framework */; };
 		CDF407A41791B2C6001B5A57 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CDF407A21791B2C6001B5A57 /* InfoPlist.strings */; };
 		CDF407A61791B2C6001B5A57 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF407A51791B2C6001B5A57 /* main.m */; };
@@ -228,6 +230,12 @@
 		CDCDE51817A894AF0062A36F /* RequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestOperation.m; sourceTree = "<group>"; };
 		CDE0BB3517FE54D500AD8ABB /* EVEApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVEApi.h; sourceTree = "<group>"; };
 		CDE0BB3617FE54D500AD8ABB /* EVEApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVEApi.m; sourceTree = "<group>"; };
+		CDE0BB3817FF096100AD8ABB /* EVEDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVEDate.h; sourceTree = "<group>"; };
+		CDE0BB3917FF096100AD8ABB /* EVEDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVEDate.m; sourceTree = "<group>"; };
+		CDE0BB3B17FF133400AD8ABB /* EVEObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVEObject.h; sourceTree = "<group>"; };
+		CDE0BB3C17FF133400AD8ABB /* EVEObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVEObject.m; sourceTree = "<group>"; };
+		CDE34D3617FF2C1A00CF670F /* EVEObjectProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EVEObjectProtocol.h; sourceTree = "<group>"; };
+		CDE34D3717FF2E5F00CF670F /* EVEApiProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EVEApiProtocol.h; sourceTree = "<group>"; };
 		CDF407961791B2C6001B5A57 /* EveAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EveAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDF407991791B2C6001B5A57 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		CDF4079C1791B2C6001B5A57 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -272,6 +280,7 @@
 				CD84AED517FD30DC001200AF /* Server */,
 				CDE0BB3517FE54D500AD8ABB /* EVEApi.h */,
 				CDE0BB3617FE54D500AD8ABB /* EVEApi.m */,
+				CDE34D3717FF2E5F00CF670F /* EVEApiProtocol.h */,
 			);
 			name = "EVE API";
 			sourceTree = "<group>";
@@ -469,6 +478,11 @@
 				CD8699B417FBB88200B5160F /* EVEApiKey.m */,
 				CD2940F317EE639800BC7947 /* EVECharacter.h */,
 				CD2940F417EE639800BC7947 /* EVECharacter.m */,
+				CDE0BB3817FF096100AD8ABB /* EVEDate.h */,
+				CDE0BB3917FF096100AD8ABB /* EVEDate.m */,
+				CDE0BB3B17FF133400AD8ABB /* EVEObject.h */,
+				CDE0BB3C17FF133400AD8ABB /* EVEObject.m */,
+				CDE34D3617FF2C1A00CF670F /* EVEObjectProtocol.h */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -681,6 +695,7 @@
 				CD84AEC817FD2FFE001200AF /* EVEFactionalWarfareSystems.m in Sources */,
 				CD84AECB17FD3009001200AF /* EVEJumps.m in Sources */,
 				CDCDE51617A893D90062A36F /* ObjectBlueprint.m in Sources */,
+				CDE0BB3D17FF133400AD8ABB /* EVEObject.m in Sources */,
 				CD84AE8917FD2A16001200AF /* EVEMemberMedals.m in Sources */,
 				CD84AE4717FD25D3001200AF /* EVEContractBids.m in Sources */,
 				CD2940F517EE639800BC7947 /* EVECharacter.m in Sources */,
@@ -691,6 +706,7 @@
 				CD84AE4117FD25B6001200AF /* EVEContracts.m in Sources */,
 				CD84AE5017FD260C001200AF /* EVEKillLog.m in Sources */,
 				CD84AEBF17FD2F87001200AF /* EVEReferenceTypes.m in Sources */,
+				CDE0BB3A17FF096100AD8ABB /* EVEDate.m in Sources */,
 				CD84AEBC17FD2F20001200AF /* EVEFactionalWarfareTopStats.m in Sources */,
 				CD84AEC517FD2FEA001200AF /* EVETypeName.m in Sources */,
 				CD84AEDC17FD3156001200AF /* EVEServerStatus.m in Sources */,

@@ -10,4 +10,27 @@
 
 @implementation EVEApiKeyInformation
 
+-(EVEApiKeyInformation *)init
+{
+   self = [super init];
+   if (self)
+   {
+      self.apiKey = [[EVEApiKey alloc] init];
+   }
+   
+   return self;
+}
+
+-(void)configureObjectBuilders
+{
+   
+}
+
+-(BOOL)queryTheApi
+{
+   BOOL success = NO;
+   
+   return success;
+}
+
 @end
