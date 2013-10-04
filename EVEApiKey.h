@@ -8,14 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-typedef enum EVEApiKeyType : NSUInteger
-{
-   kUnknown,
-   kAccount,
-   kCharacter,
-   kCorporation
-} EVEApiKeyType;
-
 @interface EVEApiKey : NSObject
 
 /**

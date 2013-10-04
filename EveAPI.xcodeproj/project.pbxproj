@@ -76,6 +76,7 @@
 		CDBE208817F50D8B00C6B71E /* BlueprintRelationship.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBE208717F50D8B00C6B71E /* BlueprintRelationship.m */; };
 		CDCDE51617A893D90062A36F /* ObjectBlueprint.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCDE51517A893D90062A36F /* ObjectBlueprint.m */; };
 		CDCDE51917A894AF0062A36F /* RequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCDE51817A894AF0062A36F /* RequestOperation.m */; };
+		CDE0BB3717FE54D500AD8ABB /* EVEApi.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE0BB3617FE54D500AD8ABB /* EVEApi.m */; };
 		CDF4079A1791B2C6001B5A57 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDF407991791B2C6001B5A57 /* Cocoa.framework */; };
 		CDF407A41791B2C6001B5A57 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CDF407A21791B2C6001B5A57 /* InfoPlist.strings */; };
 		CDF407A61791B2C6001B5A57 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF407A51791B2C6001B5A57 /* main.m */; };
@@ -225,6 +226,8 @@
 		CDCDE51517A893D90062A36F /* ObjectBlueprint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectBlueprint.m; sourceTree = "<group>"; };
 		CDCDE51717A894AF0062A36F /* RequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestOperation.h; sourceTree = "<group>"; };
 		CDCDE51817A894AF0062A36F /* RequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestOperation.m; sourceTree = "<group>"; };
+		CDE0BB3517FE54D500AD8ABB /* EVEApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVEApi.h; sourceTree = "<group>"; };
+		CDE0BB3617FE54D500AD8ABB /* EVEApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVEApi.m; sourceTree = "<group>"; };
 		CDF407961791B2C6001B5A57 /* EveAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EveAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDF407991791B2C6001B5A57 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		CDF4079C1791B2C6001B5A57 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -258,15 +261,17 @@
 		CD423FBB17F89C4900958F90 /* EVE API */ = {
 			isa = PBXGroup;
 			children = (
-				CD84AED617FD30E3001200AF /* API */,
-				CD84AED517FD30DC001200AF /* Server */,
 				CD84AE1D17FD1FF0001200AF /* Account */,
+				CD84AED617FD30E3001200AF /* API */,
 				CD84AE1E17FD1FFD001200AF /* Character */,
 				CD84AE1F17FD2009001200AF /* Corporation */,
 				CD84AE2017FD201A001200AF /* EVE */,
 				CD84AE2117FD2021001200AF /* Map */,
 				CD84AE2217FD2029001200AF /* Misc */,
 				CD84AE2317FD2034001200AF /* Objects */,
+				CD84AED517FD30DC001200AF /* Server */,
+				CDE0BB3517FE54D500AD8ABB /* EVEApi.h */,
+				CDE0BB3617FE54D500AD8ABB /* EVEApi.m */,
 			);
 			name = "EVE API";
 			sourceTree = "<group>";
@@ -627,6 +632,7 @@
 				CD84AE9517FD2A5C001200AF /* EVEOutpostList.m in Sources */,
 				CD84AEA417FD2AF0001200AF /* EVETitles.m in Sources */,
 				CD84AED917FD3143001200AF /* EVECallList.m in Sources */,
+				CDE0BB3717FE54D500AD8ABB /* EVEApi.m in Sources */,
 				CD84AEAA17FD2DB4001200AF /* EVECertificateTree.m in Sources */,
 				CD84AE3517FD250D001200AF /* EVECalendarEventAttendees.m in Sources */,
 				CD84AE7A17FD2760001200AF /* EVEWalletJournal.m in Sources */,

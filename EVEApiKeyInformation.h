@@ -7,7 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "EVEApi.h"
+#import "EVEApiKey.h"
 
-@interface EVEApiKeyInformation : NSObject
+@interface EVEApiKeyInformation : EVEApi
+
+#pragma mark - XML Properties
+@property (strong) NSNumber *apiVersion;
+@property (strong) NSDate *timeApiObtained;
+@property (strong) EVEApiKey *apiKey;
+
+-(BOOL)queryTheApi;
 
 @end

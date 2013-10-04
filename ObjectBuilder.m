@@ -302,16 +302,8 @@
    
    if ([object respondsToSelector:NSSelectorFromString(property)])
    {
-      // Get the class type of the destination variable
-      Class propertyType = [[object valueForKey:property] class];
-      
       // Create an output variable to hold the converted object
       id outputVar = nil;
-      
-      NSLog(@"propertyType = %@ | [object class] = %@ | superclass = %@",
-            NSStringFromClass(propertyType),
-            NSStringFromClass([[object valueForKey:property] class]),
-            NSStringFromClass([[[object valueForKey:property] class] superclass]));
       
       NSError *error = self.error;
       
