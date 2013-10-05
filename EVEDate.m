@@ -28,4 +28,9 @@
    [self.objectBlueprint setObjectValue:@"date"];
 }
 
+-(NSString *)description
+{
+   return [NSString stringWithFormat:@"%@", self.date];
+}
+
 @end

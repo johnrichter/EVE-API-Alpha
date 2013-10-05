@@ -21,7 +21,7 @@
    {
       self.objectBlueprints = [[NSMutableArray alloc] init];
       self.urlRequest = [[NSURLRequest alloc] init];
-      self.delegate = nil;
+      self.aDelegate = nil;
    }
    
    return self;
@@ -34,7 +34,7 @@
    {
       self.objectBlueprints = [[NSMutableArray alloc] init];
       self.urlRequest = [[NSURLRequest alloc] init];
-      self.delegate = delegate;
+      self.aDelegate = delegate;
    }
    
    return self;
@@ -82,11 +82,11 @@
    
    if ([error code] == 0)//kOperationSucess)
    {
-      [self.delegate requestOperationSucceededWithObjects:objects];
+      [self.aDelegate requestOperationSucceededWithObjects:objects];
    }
    else
    {
-      [self.delegate requestOperationFailedWithError:error];
+      [self.aDelegate requestOperationFailedWithError:error];
    }
 }
 

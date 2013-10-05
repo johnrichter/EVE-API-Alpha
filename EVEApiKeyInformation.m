@@ -53,7 +53,7 @@
    [self.objectBlueprints addObject:apiKey];
    
    // Configure our RequestOperation with URI and Arguements
-   [self.requestOperation setDelegate:self];
+   [self.requestOperation setADelegate:self];
    [self.requestOperation setUrl:self.uri
                   WithArguements:self.uriArguments
                       Blueprints:self.objectBlueprints];
@@ -92,13 +92,13 @@
 {
    return [NSString stringWithFormat:
            @"%@\n\n"
-           @"CAK Access Mask:        %@\n"
-           @"Cache Style:            %@\n"
-           @"Legacy API Enabled:     %s"
-           @"Legacy API Restriction: %@\n"
-           @"API Version:            %@\n"
-           @"Date Last Queried:      %@\n"
-           @"Cached Until:           %@\n\n"
+           @"CAK Access Mask:\t\t%@\n"
+           @"Cache Style:\t\t\t%@\n"
+           @"Legacy API Enabled:\t\t%s\n"
+           @"Legacy API Restriction:\t%@\n"
+           @"API Version:\t\t\t%@\n"
+           @"Date Last Queried:\t\t%@\n"
+           @"Cached Until:\t\t\t%@\n\n"
            @"%@",
            self.commonName, self.cakAccessMask,
            [EVEApiObject cacheStyleToString:self.cacheStyle],

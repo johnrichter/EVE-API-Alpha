@@ -7,9 +7,11 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "EVEApiKeyInformation.h"
 
 @interface MasterViewController : NSViewController <NSURLConnectionDelegate>
 
 @property (strong) IBOutlet NSTextView *xmlTextView;
+@property (strong) EVEApiKeyInformation *apiKeyInfo;
 
 @end

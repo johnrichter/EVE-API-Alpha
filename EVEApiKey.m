@@ -38,7 +38,7 @@
 -(NSString *)description
 {
    NSMutableString *output = [[NSMutableString alloc] init];
-   [output appendFormat:@"EVEKey\n"];
+   [output appendFormat:@"EVE API Key\n"];
    [output appendFormat:@"\tKey Type:\t\t\t%@\n", _keyType];
    [output appendFormat:@"\tAccess Mask:\t\t%@\n", _accessMask];
    [output appendFormat:@"\tExpiration Date:\t%@\n", _expirationDate];

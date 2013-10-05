@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "RequestOperationProtocol.h"
+#import "RequestOperationDelegate.h"
 
 typedef enum RequestOperationError : NSUInteger
 {
@@ -19,7 +19,7 @@ typedef enum RequestOperationError : NSUInteger
 #pragma mark - User Configured
 @property (strong) NSString *urlToContact;
 @property (strong) NSMutableArray *objectBlueprints;
-@property (weak) id<RequestOperationDelegate> delegate;
+@property (weak) id<RequestOperationDelegate> aDelegate;
 
 #pragma mark - Class Configured
 @property (strong) NSURLRequest *urlRequest;
