@@ -19,7 +19,7 @@ typedef enum RequestOperationError : NSUInteger
 #pragma mark - User Configured
 @property (strong) NSString *urlToContact;
 @property (strong) NSMutableArray *objectBlueprints;
-@property (weak) id<RequestOperationProtocol> delegate;
+@property (weak) id<RequestOperationDelegate> delegate;
 
 #pragma mark - Class Configured
 @property (strong) NSURLRequest *urlRequest;
@@ -29,9 +29,9 @@ typedef enum RequestOperationError : NSUInteger
 
 #pragma mark - Initialization Routines
 -(RequestOperation *)init;
--(RequestOperation *)initWithDelegate:(id<RequestOperationProtocol>)delegate;
+-(RequestOperation *)initWithDelegate:(id<RequestOperationDelegate>)delegate;
 
--(void)setUrl:(NSString *)url WithArguments:(NSDictionary *)arguements Blueprints:(NSArray *)blueprints;
+-(void)setUrl:(NSString *)url WithArguements:(NSDictionary *)arguements Blueprints:(NSArray *)blueprints;
 
 -(void)buildObjects;
 

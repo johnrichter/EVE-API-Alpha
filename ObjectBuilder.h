@@ -19,7 +19,7 @@
 
 @property (strong) NSMutableDictionary *keyPathToBlueprintMap;
 
-@property (strong) NSError *error;
+//@property (strong) NSError *error;
 
 @property (strong) RKCompoundValueTransformer *valueTransformer;
 

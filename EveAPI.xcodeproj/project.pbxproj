@@ -237,9 +237,9 @@
 		CDE0BB3C17FF133400AD8ABB /* EVEObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVEObject.m; sourceTree = "<group>"; };
 		CDE34D3617FF2C1A00CF670F /* EVEObjectProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EVEObjectProtocol.h; sourceTree = "<group>"; };
 		CDE34D3717FF2E5F00CF670F /* EVEApiProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EVEApiProtocol.h; sourceTree = "<group>"; };
-		CDE34D3817FF812100CF670F /* RequestOperationProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RequestOperationProtocol.h; sourceTree = "<group>"; };
 		CDE34D3917FF9D2A00CF670F /* EVEApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVEApi.h; sourceTree = "<group>"; };
 		CDE34D3A17FF9D2A00CF670F /* EVEApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVEApi.m; sourceTree = "<group>"; };
+		CDE34D3C17FFCEF900CF670F /* RequestOperationDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RequestOperationDelegate.h; sourceTree = "<group>"; };
 		CDF407961791B2C6001B5A57 /* EveAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EveAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDF407991791B2C6001B5A57 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		CDF4079C1791B2C6001B5A57 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -289,6 +289,7 @@
 		CD423FBC17F89C7600958F90 /* XMLKit */ = {
 			isa = PBXGroup;
 			children = (
+				CDE34D3C17FFCEF900CF670F /* RequestOperationDelegate.h */,
 				CDCDE51417A893D90062A36F /* ObjectBlueprint.h */,
 				CDCDE51517A893D90062A36F /* ObjectBlueprint.m */,
 				CDCDE51717A894AF0062A36F /* RequestOperation.h */,
@@ -299,7 +300,6 @@
 				CD2940F717EEA4EA00BC7947 /* ObjectBuilder.m */,
 				CDBE208617F50D8B00C6B71E /* BlueprintRelationship.h */,
 				CDBE208717F50D8B00C6B71E /* BlueprintRelationship.m */,
-				CDE34D3817FF812100CF670F /* RequestOperationProtocol.h */,
 			);
 			name = XMLKit;
 			sourceTree = "<group>";

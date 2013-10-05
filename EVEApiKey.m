@@ -20,13 +20,11 @@
       self.keyType = @"";
       self.expirationDate = [[NSDate alloc] init];
       self.characters = @[];
-      
-      return self;
+   
+      [self configureObjectBlueprint];
    }
-   else
-   {
-      return nil;
-   }
+   
+   return self;
 }
 
 -(void)configureObjectBlueprint

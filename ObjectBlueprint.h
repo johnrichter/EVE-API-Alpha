@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "BlueprintRelationship.h"
+
 
 @interface ObjectBlueprint : NSObject
 
@@ -43,7 +43,6 @@
 -(void)addAttributesFromArray:(NSArray *)attributes;
 -(void)addAttributesFromDictionary:(NSDictionary *)attributes;
 
--(void)addRelationship:(BlueprintRelationship *)relationship;
 -(void)addRelationshipsFromArray:(NSArray *)relationships;
 
 @end

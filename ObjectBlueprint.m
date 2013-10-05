@@ -126,17 +126,9 @@
    }
 }
 
--(void)addRelationship:(BlueprintRelationship *)relationship
-{
-   if (![_objectRelationships containsObject:relationship])
-   {
-      [_objectRelationships addObject:relationship];
-   }
-}
-
 -(void)addRelationshipsFromArray:(NSArray *)relationships
 {
-   for (BlueprintRelationship *relationship in relationships)
+   for (id relationship in relationships)
    {
       if (![_objectRelationships containsObject:relationship])
       {

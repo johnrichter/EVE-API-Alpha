@@ -10,9 +10,6 @@
 
 @interface MasterViewController : NSViewController <NSURLConnectionDelegate>
 
-
 @property (strong) IBOutlet NSTextView *xmlTextView;
-@property (strong) NSURLConnection *urlConnection;
-@property (strong) NSMutableData *receivedData;
 
 @end

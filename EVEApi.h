@@ -11,10 +11,10 @@
 
 @interface EVEApi : EVEObject <EVEObjectProtocol>
 
-#pragma mark - Common XML Attributes
+#pragma mark - XML Attributes
 @property (strong) NSNumber *apiVersion;
 
-#pragma mark - Common XML Properties
+#pragma mark - XML Properties
 @property (strong) EVEDate *lastQueried;
 @property (strong) EVEDate *cachedUntil;
 

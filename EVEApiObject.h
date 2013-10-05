@@ -25,9 +25,9 @@ typedef enum LegacyApiKeyRestriction : NSUInteger
    kNoAccess,
    kFullAccess,
    kLimitedAccess
-} LegacyApiKeyRestriction;
+} LegacyApiRestriction;
 
-@interface EVEApiObject : NSObject <EVEApiObjectProtocol>
+@interface EVEApiObject : NSObject <RequestOperationDelegate>
 
 #pragma mark - Common API Properties
 @property (strong) NSString *commonName;
@@ -35,11 +35,27 @@ typedef enum LegacyApiKeyRestriction : NSUInteger
 @property (strong) NSMutableDictionary *uriArguments;
 @property (strong) NSNumber *cakAccessMask;
 @property CacheStyle cacheStyle;
-@property LegacyApiKeyRestriction legacyApiRestriction;
+@property LegacyApiRestriction legacyApiRestriction;
 @property BOOL isLegacyApiKeyEnabled;
+
+#pragma mark - Built Object Properties
+@property (strong) NSNumber *apiVersion;
+@property (strong) EVEDate *lastQueried;
+@property (strong) EVEDate *cachedUntil;
 
 #pragma mark - Object Building Properties
 @property (strong) RequestOperation *requestOperation;
-@property (strong) ObjectBlueprint *apiBlueprint;
+@property (strong) NSMutableArray *objectBlueprints;
+
+#pragma mark - EVEApiObjectProtocol Methods
+-(void)initializeObjectBuilders;
+
+#pragma mark - RequestOperationProtocol Methods
+-(void)requestOperationSucceededWithObjects:(NSArray *)objects;
+-(void)requestOperationFailedWithError:(NSError *)error;
+
+#pragma mark - Helper Methods for Printing
++(NSString *)cacheStyleToString:(CacheStyle)style;
++(NSString *)legacyApiRestrictionToString:(LegacyApiRestriction)restriction;
 
 @end

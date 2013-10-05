@@ -7,12 +7,7 @@
 //
 
 #import "MasterViewController.h"
-#import "XMLFactory.h"
-#import "ObjectBlueprint.h"
-#import "BlueprintRelationship.h"
-#import "RequestOperation.h"
-#import "EVECharacter.h"
-#import "EVEApiKey.h"
+#import "EVEApiKeyInformation.h"
 
 @interface MasterViewController ()
 
@@ -41,38 +36,25 @@
    //NSURL *url = [NSURL URLWithString:@"https://api.eveonline.com/char/WalletJournal.xml.aspx?keyID=1927220&vCode=JVolmWFGtr6wMewZywlpRje3XmRSiI6xKQ6TbOELHEUH7j8vymuim3D62UKOlB6Y&characterID=91836741&rowCount=25"];
    //NSURL *url = [NSURL URLWithString:@"https://api.eveonline.com/char/AssetList.xml.aspx?keyID=1927220&vCode=JVolmWFGtr6wMewZywlpRje3XmRSiI6xKQ6TbOELHEUH7j8vymuim3D62UKOlB6Y/Users/richte43/Documents/Xcode Projects/EveAPI/EVEApi.m&characterID=91836741"];
    
-   ObjectBlueprint *character = [[ObjectBlueprint alloc]
-                                 initWithClass:[EVECharacter class]
-                                 KeyPath:@"eveapi.result.key.rowset.row"
-                                 Attributes:@{@"characterID":@"characterId",
-                                              @"characterName":@"characterName",
-                                              @"corporationID":@"corporationId",
-                                              @"corporationName":@"corporationName"}];
+   EVEApiKeyInformation *apiKeyInfo =
+   [[EVEApiKeyInformation alloc]
+    initWithUriArguements:
+      @{@"keyID":@"1927220",
+        @"vCode":@"JVolmWFGtr6wMewZywlpRje3XmRSiI6xKQ6TbOELHEUH7j8vymuim3D62UKOlB6Y"}];
    
-   BlueprintRelationship *apiCharacters =
-      [BlueprintRelationship relationshipFromXmlKeypath:@"rowset.row"
-                                              RelativeToObjectWithProperty:@"characters"
-                                                 ForBlueprint:character];
+   [apiKeyInfo addObserver:self
+                forKeyPath:@"apiKey"
+                   options:NSKeyValueObservingOptionNew
+                   context:NULL];
    
-   ObjectBlueprint *apiKey = [[ObjectBlueprint alloc]
-                                 initWithClass:[EVEApiKey class]
-                                       KeyPath:@"eveapi.result.key"
-                                    Attributes:@{@"accessMask":@"accessMask",
-                                                 @"type":@"keyType",
-                                                 @"expires":@"expirationDate"}
-                                         Value:nil
-                                 Relationships:@[apiCharacters]];
-   
-   RequestOperation *myOperation = [[RequestOperation alloc]
-                                     initWithUrl:url
-                                     Blueprints:@[apiKey]];
-
-   [myOperation addObserver:self
-                 forKeyPath:@"builtObjects"
-                    options:(NSKeyValueObservingOptionNew)
-                    context:NULL];
-   
-   [myOperation start];
+   if ([apiKeyInfo queryTheApi])
+   {
+      [self.xmlTextView setString:[NSString stringWithFormat:@"%@", apiKeyInfo]];
+   }
+   else
+   {
+      [self.xmlTextView setString:@"Oh noes! Error."];
+   }
 }
 
 -(void)observeValueForKeyPath:(NSString *)keyPath
@@ -80,16 +62,9 @@
                        change:(NSDictionary *)change
                       context:(void *)context
 {
-   if ([keyPath isEqualToString:@"builtObjects"] && object)
+   if ([keyPath isEqualToString:@"apiKey"] && object)
    {
-      NSMutableString *output = [[NSMutableString alloc] init];
-      for (id obj in change[@"new"])
-      {
-         [output appendFormat:@"%@", obj];
-         [output appendFormat:@"\n"];
-      }
-      
-      [self.xmlTextView setString:output];
+      [self.xmlTextView setString:[NSString stringWithFormat:@"%@", object]];
    }
 }
 

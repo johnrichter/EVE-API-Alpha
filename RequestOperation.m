@@ -27,7 +27,7 @@
    return self;
 }
 
--(RequestOperation *)initWithDelegate:(id<RequestOperationProtocol>)delegate
+-(RequestOperation *)initWithDelegate:(id<RequestOperationDelegate>)delegate
 {
    self = [super init];
    if (self)
@@ -45,11 +45,11 @@
 {
    // Store the bluprint objects
    self.objectBlueprints = [NSMutableArray arrayWithArray:blueprints];
+   NSMutableString *urlWithArguements = [NSMutableString stringWithString:url];
    
    if ([arguements count] != 0)
    {
       NSUInteger index = 0;
-      NSMutableString *urlWithArguements = [NSMutableString stringWithString:url];
       [urlWithArguements appendString:@"?"];
       for (NSString *arguement in arguements)
       {
@@ -67,7 +67,7 @@
    }
    
    // Create and save the URLRequest
-   self.urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
+   self.urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:urlWithArguements]];
 }
 
 - (void)buildObjects
@@ -80,13 +80,13 @@
    
    NSArray *objects = [builder buildObjects:&error];
    
-   if ([error code] == kOperationSucess)
+   if ([error code] == 0)//kOperationSucess)
    {
-      [_delegate requestOperationSucceededWithObjects:objects];
+      [self.delegate requestOperationSucceededWithObjects:objects];
    }
    else
    {
-      [_delegate requestOperationFailedWithError:error];
+      [self.delegate requestOperationFailedWithError:error];
    }
 }
 

@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "EVEObject.h"
 #import "EVEObjectProtocol.h"
-#import "ObjectBlueprint.h"
 
 @interface EVEDate : EVEObject <EVEObjectProtocol>
 

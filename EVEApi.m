@@ -19,6 +19,8 @@
       self.lastQueried = [[EVEDate alloc] init];
       self.cachedUntil = [[EVEDate alloc] init];
       self.apiVersion = @2;
+      
+      [self configureObjectBlueprint];
    }
    
    return self;
@@ -26,28 +28,9 @@
 
 -(void)configureObjectBlueprint
 {
-   // Create the main blueprint for our api object
-   self.apiBlueprint = [[ObjectBlueprint alloc] initWithClass:[self class]
-                                                      KeyPath:@"eveapi"
-                                                   Attributes:@{@"version":@"apiVersion"}];
-   
-   // Create our lastQueried relationship
-   ObjectBlueprint *currentTime = _lastQueried.objectBlueprint;
-   [currentTime setXmlKeypath:@"eveapi.currentTime"];
-   
-   BlueprintRelationship *currentTimeRelationship =
-   [BlueprintRelationship relationshipFromXmlKeypath:@"currentTime"
-                        RelativeToObjectWithProperty:@"lastQueried"
-                                        ForBlueprint:currentTime];
-   
-   // Create our cachedUntil relationship
-   ObjectBlueprint *cachedUntil = _cachedUntil.objectBlueprint;
-   [cachedUntil setXmlKeypath:@"eveapi.cachedUntil"];
-   
-   BlueprintRelationship *cachedUntilRelationship =
-   [BlueprintRelationship relationshipFromXmlKeypath:@"cachedUntil"
-                        RelativeToObjectWithProperty:@"cachedUntil"
-                                        ForBlueprint:currentTime];
+   // Configure the main blueprint for our api object
+   [self.objectBlueprint setObjectClassId:[self class]];
+   [self.objectBlueprint addAttributeFrom:@"version" To:@"apiVersion"];
 }
 
 @end

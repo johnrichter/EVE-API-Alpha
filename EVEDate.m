@@ -16,6 +16,7 @@
    if (self)
    {
       self.date = [[NSDate alloc] init];
+      [self configureObjectBlueprint];
    }
    
    return self;

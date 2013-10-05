@@ -16,7 +16,6 @@
 @property (strong) NSString *characterName;
 @property (strong) NSNumber *corporationId;
 @property (strong) NSString *corporationName;
-@property (strong) NSNumber *test;
 
 -(EVECharacter *)init;
 -(void)configureObjectBlueprint;

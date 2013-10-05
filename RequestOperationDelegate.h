@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol RequestOperationProtocol <NSObject>
+@protocol RequestOperationDelegate <NSObject>
 
 @required
 

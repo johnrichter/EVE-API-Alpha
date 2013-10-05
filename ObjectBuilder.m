@@ -39,7 +39,7 @@
       return @[];
    }
    
-   self.error = *error;
+   //self.error = *error;
    
    // Build a key path to blueprint map for quick lookup
    [self createKeypathToBlueprintMap];
@@ -305,7 +305,7 @@
       // Create an output variable to hold the converted object
       id outputVar = nil;
       
-      NSError *error = self.error;
+      NSError *error = [[NSError alloc] init];
       
       // TODO: This is bad
       Class aClass = [[object valueForKey:property] class];
