@@ -7,34 +7,70 @@
 //
 
 #import "RequestOperation.h"
+
 #import "XMLFactory.h"
 #import "ObjectBlueprint.h"
 #import "ObjectBuilder.h"
 
 @implementation RequestOperation
 
--(RequestOperation *)initWithUrl:(NSURL *)url Blueprints:(NSArray *)blueprints
+-(RequestOperation *)init
 {
    self = [super init];
    if (self)
    {
-      // Store the bluprint objects
-      self.objectBlueprints = blueprints;
-      
-      // Create and save the URLRequest
-      self.urlRequest = [NSURLRequest requestWithURL:url];
-      
-      self.blueprintToDictionaryMap = [NSMutableDictionary dictionaryWithDictionary:@{}];
-      
-      return self;
+      self.objectBlueprints = [[NSMutableArray alloc] init];
+      self.urlRequest = [[NSURLRequest alloc] init];
+      self.delegate = nil;
    }
-   else
-   {
-      return nil;
-   }
+   
+   return self;
 }
 
-- (BOOL)buildObjects
+-(RequestOperation *)initWithDelegate:(id<RequestOperationProtocol>)delegate
+{
+   self = [super init];
+   if (self)
+   {
+      self.objectBlueprints = [[NSMutableArray alloc] init];
+      self.urlRequest = [[NSURLRequest alloc] init];
+      self.delegate = delegate;
+   }
+   
+   return self;
+}
+
+-(void)setUrl:(NSString *)url WithArguements:(NSDictionary *)arguements
+   Blueprints:(NSArray *)blueprints
+{
+   // Store the bluprint objects
+   self.objectBlueprints = [NSMutableArray arrayWithArray:blueprints];
+   
+   if ([arguements count] != 0)
+   {
+      NSUInteger index = 0;
+      NSMutableString *urlWithArguements = [NSMutableString stringWithString:url];
+      [urlWithArguements appendString:@"?"];
+      for (NSString *arguement in arguements)
+      {
+         index++;
+         
+         [urlWithArguements appendString:arguement];
+         [urlWithArguements appendString:@"="];
+         [urlWithArguements appendString:arguements[arguement]];
+         
+         if (index != [arguements count])
+         {
+            [urlWithArguements appendString:@"&"];
+         }
+      }
+   }
+   
+   // Create and save the URLRequest
+   self.urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
+}
+
+- (void)buildObjects
 {
    // Create an object builder to handle all of our object creation.
    ObjectBuilder *builder = [[ObjectBuilder alloc] initWithXmlMap:self.xmlMap
@@ -42,11 +78,16 @@
    // Create an NSError to report any errors
    NSError *error = [[NSError alloc] init];
    
-   self.builtObjects = [builder buildObjects:&error];
-   //NSLog(@"Objects: %@", objects);
-   //NSLog(@"Error:   %@", error);
+   NSArray *objects = [builder buildObjects:&error];
    
-   return [self.builtObjects count] > 0;
+   if ([error code] == kOperationSucess)
+   {
+      [_delegate requestOperationSucceededWithObjects:objects];
+   }
+   else
+   {
+      [_delegate requestOperationFailedWithError:error];
+   }
 }
 
 #pragma mark - NSOperation Methods
@@ -58,7 +99,8 @@
    {
       // Kick off the request
       self.receivedData = [NSMutableData data];
-      self.urlConnection = [NSURLConnection connectionWithRequest:self.urlRequest delegate:self];
+      self.urlConnection = [NSURLConnection connectionWithRequest:self.urlRequest
+                                                         delegate:self];
    }
 }
 
@@ -103,7 +145,7 @@
    
    NSLog(@"Received data string: %@", receivedDataString);
    
-   BOOL success = [self buildObjects];
+   [self buildObjects];
 }
 
 @end

@@ -7,8 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "EVEObject.h"
+#import "EVEObjectProtocol.h"
 
-@interface EVECharacter : NSObject
+@interface EVECharacter : EVEObject <EVEObjectProtocol>
 
 @property (strong) NSNumber *characterId;
 @property (strong) NSString *characterName;
@@ -17,5 +19,6 @@
 @property (strong) NSNumber *test;
 
 -(EVECharacter *)init;
+-(void)configureObjectBlueprint;
 
 @end

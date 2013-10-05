@@ -27,8 +27,8 @@
    }
 }
 
-+(BlueprintRelationship *)relationshipFromChildElementName:(NSString *)xmlKeypath
-                                     ToObjectKeypath:(NSString *)objectKeypath
++(BlueprintRelationship *)relationshipFromXmlKeypath:(NSString *)xmlKeypath
+                                     RelativeToObjectWithProperty:(NSString *)objectKeypath
                                         ForBlueprint:(ObjectBlueprint *)blueprint
 {
    BlueprintRelationship *newInstance = [[BlueprintRelationship alloc] init];

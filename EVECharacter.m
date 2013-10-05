@@ -20,12 +20,24 @@
       self.corporationId = @0;
       self.corporationName = @"";
       
+      // Configure the blueprint representation of this class
+      [self configureObjectBlueprint];
+      
       return self;
    }
    else
    {
       return nil;
    }
+}
+
+-(void)configureObjectBlueprint
+{
+   [self.objectBlueprint setObjectClassId:[self class]];
+   [self.objectBlueprint addAttributesFromDictionary:@{@"characterID":@"characterId",
+                                                       @"characterName":@"characterName",
+                                                       @"corporationID":@"corporationId",
+                                                       @"corporationName":@"corporationName"}];
 }
 
 -(NSString *)description

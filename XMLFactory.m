@@ -27,7 +27,7 @@
 
 #pragma mark - Class Factory Functions
 
-+ (NSDictionary *)xmlFromData:(NSData *)data Error:(NSError *)error
++ (NSMutableDictionary *)xmlFromData:(NSData *)data Error:(NSError *)error
 {
     error = nil;
     
@@ -46,10 +46,10 @@
         error = [parser parserError];
     }
     
-    return (NSDictionary *)[xmlDictoryFactory.xmlMap copy];
+    return [xmlDictoryFactory.xmlMap copy];
 }
 
-+ (NSDictionary *)xmlFromFile:(NSURL *)pathToFile Error:(NSError *)error
++ (NSMutableDictionary *)xmlFromFile:(NSURL *)pathToFile Error:(NSError *)error
 {
     error = nil;
     
@@ -68,7 +68,7 @@
         error = [parser parserError];
     }
     
-    return (NSDictionary *)[xmlDictoryFactory.xmlMap copy];
+    return [xmlDictoryFactory.xmlMap copy];
 }
 
 #pragma mark - Handling XML

@@ -7,20 +7,32 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "RequestOperationProtocol.h"
+
+typedef enum RequestOperationError : NSUInteger
+{
+   kOperationSucess = 5000
+} RequestOperationError;
 
 @interface RequestOperation : NSOperation <NSConnectionDelegate>
 
+#pragma mark - User Configured
+@property (strong) NSString *urlToContact;
+@property (strong) NSMutableArray *objectBlueprints;
+@property (weak) id<RequestOperationProtocol> delegate;
+
+#pragma mark - Class Configured
 @property (strong) NSURLRequest *urlRequest;
 @property (strong) NSURLConnection *urlConnection;
 @property (strong) NSMutableData *receivedData;
 @property (strong) NSDictionary *xmlMap;
-@property (strong) NSMutableDictionary *blueprintToDictionaryMap;
-@property (strong) NSArray *objectBlueprints;
 
-@property (strong) NSArray *builtObjects;
+#pragma mark - Initialization Routines
+-(RequestOperation *)init;
+-(RequestOperation *)initWithDelegate:(id<RequestOperationProtocol>)delegate;
 
--(RequestOperation *)initWithUrl:(NSURL *)url Blueprints:(NSArray *)blueprints;
+-(void)setUrl:(NSString *)url WithArguments:(NSDictionary *)arguements Blueprints:(NSArray *)blueprints;
 
--(BOOL)buildObjects;
+-(void)buildObjects;
 
 @end

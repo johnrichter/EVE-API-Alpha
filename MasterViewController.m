@@ -50,20 +50,20 @@
                                               @"corporationName":@"corporationName"}];
    
    BlueprintRelationship *apiCharacters =
-      [BlueprintRelationship relationshipFromChildElementName:@"rowset.row"
-                                              ToObjectKeypath:@"characters"
+      [BlueprintRelationship relationshipFromXmlKeypath:@"rowset.row"
+                                              RelativeToObjectWithProperty:@"characters"
                                                  ForBlueprint:character];
    
    ObjectBlueprint *apiKey = [[ObjectBlueprint alloc]
-                           initWithClass:[EVEApiKey class]
-                           KeyPath:@"eveapi.result.key"
-                           Attributes:@{@"accessMask":@"accessMask",
-                                        @"type":@"keyType",
-                                        @"expires":@"expirationDate"}
-                           Value:nil
-                           Relationships:@[apiCharacters]];
+                                 initWithClass:[EVEApiKey class]
+                                       KeyPath:@"eveapi.result.key"
+                                    Attributes:@{@"accessMask":@"accessMask",
+                                                 @"type":@"keyType",
+                                                 @"expires":@"expirationDate"}
+                                         Value:nil
+                                 Relationships:@[apiCharacters]];
    
-   RequestOperation * myOperation = [[RequestOperation alloc]
+   RequestOperation *myOperation = [[RequestOperation alloc]
                                      initWithUrl:url
                                      Blueprints:@[apiKey]];
 

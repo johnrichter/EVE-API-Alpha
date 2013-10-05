@@ -22,7 +22,7 @@
 
 - (XMLFactory *)init;
 
-+ (NSDictionary *)xmlFromData:(NSData *)data Error:(NSError *)error;
-+ (NSDictionary *)xmlFromFile:(NSURL *)pathToFile Error:(NSError *)error;
++ (NSMutableDictionary *)xmlFromData:(NSData *)data Error:(NSError *)error;
++ (NSMutableDictionary *)xmlFromFile:(NSURL *)pathToFile Error:(NSError *)error;
 
 @end
