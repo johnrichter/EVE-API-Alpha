@@ -102,7 +102,7 @@
            @"%@",
            self.commonName, self.cakAccessMask,
            [EVEApiObject cacheStyleToString:self.cacheStyle],
-           self.isLegacyApiKeyEnabled ? "YES":"NO",
+           self.isLegacyApiKeyEnabled ? "Yes":"No",
            [EVEApiObject legacyApiRestrictionToString:self.legacyApiRestriction],
            self.apiVersion, self.lastQueried, self.cachedUntil, self.apiKey];
 }

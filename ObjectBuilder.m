@@ -21,7 +21,13 @@
       self.blueprints = blueprints;
       self.keyPathToBlueprintMap = [[NSMutableDictionary alloc] init];
       self.valueTransformer = [RKValueTransformer defaultValueTransformer];
+      
+      // Add a date formatter
+      NSDateFormatter *dateFormatter = [NSDateFormatter new];
+      dateFormatter.dateFormat = @"yyyy-mm-dd hh:mm:ss";
+      [self.valueTransformer addValueTransformer:dateFormatter];
    }
+   
    return self;
 }
 
@@ -230,7 +236,7 @@
                                                           WithParentKeypath:currentKeyPath]];
          
          // The last object is the one we wanted to build.
-         id builtChildObject = subnodeObjects[[subnodeObjects count] - 1];
+         id builtChildObject = [subnodeObjects lastObject];
          
          // Remove it from the array
          [subnodeObjects removeObject:builtChildObject];
@@ -353,26 +359,43 @@
       // matches.  If xmlPath is a distant decendant of any of the children, it will
       // return the dictionaries of each child and remove them from their decendant
       // parents so we do not process them again later on.
-      NSMutableDictionary *results = [self findAndRemoveDecendantsFromXml:parent
+      NSMutableArray *results = [self findAndRemoveDecendantsFromXml:parent
                                                          ThatMatchKeyPath:[relationship.xmlKeypath
                                                                            componentsSeparatedByString:@"."]
                                                                 NextIndex:0];
-      [*matches setObject:results[@"matches"] forKey:relationship.xmlKeypath];
-      [*nonMatches addObjectsFromArray:results[@"nonMatches"]];
+      
+      [*matches setObject:results forKey:relationship.xmlKeypath];
+   }
+   
+   // We only need to care about the non-matches direct children of this element.  Any
+   // decendants of the non-matched children have been extracted and removed from
+   // the main xml dictionary so they will not be processed again.
+   // --> If it doesn't exist in the matches, put it in the matches.
+   NSArray *allMatches = [*matches allValues];
+   NSString *parentName = [parent allKeys][0];
+   for (NSMutableDictionary *child in parent[parentName][@"children"])
+   {
+      if (![allMatches containsObject:child])
+      {
+         [*nonMatches addObject:child];
+      }
    }
 }
 
--(NSMutableDictionary *)findAndRemoveDecendantsFromXml:(NSMutableDictionary *)xml
+-(NSMutableArray *)findAndRemoveDecendantsFromXml:(NSMutableDictionary *)xml
                                       ThatMatchKeyPath:(NSArray *)keypath
                                              NextIndex:(NSUInteger)nextIndex
 {
-   NSMutableDictionary *results = [[NSMutableDictionary alloc] init];
-   results[@"matches"] = [[NSMutableArray alloc] init];
-   results[@"nonMatches"] = [[NSMutableArray alloc] init];
-   
+   NSMutableArray *results = [[NSMutableArray alloc] init];
    NSMutableArray *toRemove = [[NSMutableArray alloc] init];
    NSString *elementName = [xml allKeys][0];
    NSMutableDictionary *element = xml[elementName];
+   
+   NSUInteger lastObjectIndex = 0;
+   if ([keypath count] > 1)
+   {
+      lastObjectIndex = [keypath count] - 1;
+   }
    
    for (NSMutableDictionary *child in element[@"children"])
    {
@@ -380,36 +403,22 @@
       
       // If the element matches the final path in the keypath we have found our match!
       if ([childName isEqualToString:keypath[nextIndex]] &&
-          nextIndex == [keypath count] - 1)
+          nextIndex == lastObjectIndex)
       {
          [toRemove addObject:child];
-         [results[@"matches"] addObject:child];
+         [results addObject:child];
       }
       
       // The elements matches our current index, but is not the last in line.  We need to
       // check this element's children
       else if ([childName isEqualToString:keypath[nextIndex]] &&
-               nextIndex < [keypath count] - 1)
+               nextIndex < lastObjectIndex)
       {
-         NSMutableDictionary *searchResults = [self findAndRemoveDecendantsFromXml:child
-                                                                  ThatMatchKeyPath:keypath
-                                                                         NextIndex:nextIndex + 1];
+         NSMutableArray *searchResults = [self findAndRemoveDecendantsFromXml:child
+                                                             ThatMatchKeyPath:keypath
+                                                                    NextIndex:nextIndex + 1];
          
-         [results[@"matches"] addObjectsFromArray:searchResults[@"matches"]];
-         
-         // Just because the direct child has matched deeper in the hierarchy doesn't
-         // mean it is a match.  Mark as a non match.  The children underneath it were
-         // removed entirely so we will not parse them by accident later.
-         if (nextIndex == 0)
-         {
-            [results[@"nonMatches"] addObject:child];
-         }
-      }
-      
-      // This DIRECT child is a non match
-      else if (nextIndex == 0)
-      {
-         [results[@"nonMatches"] addObject:child];
+         [results addObjectsFromArray:searchResults];
       }
    }
    

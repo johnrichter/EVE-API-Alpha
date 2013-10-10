@@ -18,7 +18,7 @@
       // XML Properties
       self.lastQueried = [[EVEDate alloc] init];
       self.cachedUntil = [[EVEDate alloc] init];
-      self.apiVersion = @2;
+      self.apiVersion = @0;
       
       [self configureObjectBlueprint];
    }
