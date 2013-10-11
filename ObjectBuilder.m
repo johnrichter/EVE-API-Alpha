@@ -24,8 +24,10 @@
       
       // Add a date formatter
       NSDateFormatter *dateFormatter = [NSDateFormatter new];
-      dateFormatter.dateFormat = @"yyyy-mm-dd hh:mm:ss";
-      [self.valueTransformer addValueTransformer:dateFormatter];
+      [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+      [dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
+      // Insert at index 14, the defaultValueTransformer's first date transformer slot
+      [self.valueTransformer insertValueTransformer:dateFormatter atIndex:14];
    }
    
    return self;
@@ -255,7 +257,8 @@
       {
          if ([blueprintObject respondsToSelector:NSSelectorFromString(relationshipMatch.objectKeypath)])
          {
-            if ([blueprintObject class] == [builtRelationshipChildren[0] class])
+            if ([[blueprintObject valueForKey:relationshipMatch.objectKeypath] class] ==
+                [builtRelationshipChildren[0] class])
             {
                // Assign the child to the property!
                [blueprintObject setValue:builtRelationshipChildren[0]
