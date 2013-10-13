@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "EVEObject.h"
 #import "EVEObjectProtocol.h"
+#import "EVEDate.h"
 
 @interface EVEApiKey : EVEObject <EVEObjectProtocol>
 
@@ -16,7 +17,7 @@
  * Attributes
  */
 @property (strong) NSNumber *accessMask;
-@property (strong) NSDate *expirationDate;
+@property (strong) EVEDate *expirationDate;
 @property (strong) NSString *keyType;
 
 /**

@@ -7,7 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "EVEApiObject.h"
+#import "EVECharacter.h"
 
-@interface EVEAccountCharacters : NSObject
+@interface EVEAccountCharacters : EVEApiObject
+
+#pragma mark - XML Properties
+
+@property (strong) NSMutableArray *characters;
+
+-(EVEAccountCharacters *)initWithEveKeyId:(NSString *)keyId VCode:(NSString *)vCode;
+
+-(void)queryTheApi;
 
 @end

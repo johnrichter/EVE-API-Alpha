@@ -18,7 +18,7 @@
    {
       self.accessMask = @0;
       self.keyType = @"";
-      self.expirationDate = [[NSDate alloc] init];
+      self.expirationDate = [EVEDate new];
       self.characters = @[];
    
       [self configureObjectBlueprint];
@@ -38,15 +38,13 @@
 -(NSString *)description
 {
    NSMutableString *output = [[NSMutableString alloc] init];
-   [output appendFormat:@"EVE API Key\n"];
+   [output appendFormat:@"\t----- EVE API Key -----\n"];
    [output appendFormat:@"\tKey Type:\t\t\t%@\n", _keyType];
    [output appendFormat:@"\tAccess Mask:\t\t%@\n", _accessMask];
-   [output appendFormat:@"\tExpiration Date:\t%@\n", _expirationDate];
-   [output appendFormat:@"\tCharacters\n"
-                        @"\t----------\n"];
+   [output appendFormat:@"\tExpiration Date:\t%@\n\n", _expirationDate];
    for (id character in _characters)
    {
-      [output appendFormat:@"\t%@\n", character];
+      [output appendFormat:@"%@\n", character];
    }
    
    return output;

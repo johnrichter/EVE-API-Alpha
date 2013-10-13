@@ -8,10 +8,14 @@
 
 #import <Cocoa/Cocoa.h>
 #import "EVEApiKeyInformation.h"
+#import "EVEAccountStatus.h"
+#import "EVEAccountCharacters.h"
 
 @interface MasterViewController : NSViewController <NSURLConnectionDelegate>
 
 @property (strong) IBOutlet NSTextView *xmlTextView;
 @property (strong) EVEApiKeyInformation *apiKeyInfo;
+@property (strong) EVEAccountStatus *accountStatus;
+@property (strong) EVEAccountCharacters *accountCharacters;
 
 @end

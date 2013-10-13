@@ -21,13 +21,6 @@
       self.blueprints = blueprints;
       self.keyPathToBlueprintMap = [[NSMutableDictionary alloc] init];
       self.valueTransformer = [RKValueTransformer defaultValueTransformer];
-      
-      // Add a date formatter
-      NSDateFormatter *dateFormatter = [NSDateFormatter new];
-      [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-      [dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
-      // Insert at index 14, the defaultValueTransformer's first date transformer slot
-      [self.valueTransformer insertValueTransformer:dateFormatter atIndex:14];
    }
    
    return self;
@@ -147,6 +140,30 @@
 
    // Create instance of object from our blueprint!
    id blueprintObject = [[[currentBlueprint objectClassId] alloc] init];
+   
+   // To support a variety of date objects we need to check for a standard formatter
+   // property on the object.
+   if ([blueprintObject respondsToSelector:NSSelectorFromString(@"dateFormatters")])
+   {
+      id dateFormatter = [blueprintObject valueForKey:@"dateFormatters"];
+      
+      if ([dateFormatter isKindOfClass:[NSArray class]])
+      {
+         NSUInteger offset = 0;
+         for (id dateFormat in dateFormatter)
+         {
+            if ([dateFormat isKindOfClass:[NSDateFormatter class]])
+            {
+               [self.valueTransformer insertValueTransformer:dateFormat atIndex:14 + offset];
+            }
+         }
+      }
+      else if ([dateFormatter isKindOfClass:[NSDateFormatter class]])
+      {
+         // 14 is the first slot of the date formatters in the default transformer
+         [self.valueTransformer insertValueTransformer:dateFormatter atIndex:14];
+      }
+   }
    
    // If the object does have a value property and one exists in the current element, set
    // the object's value.

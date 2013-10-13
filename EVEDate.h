@@ -15,6 +15,8 @@
 #pragma mark - XML Properties
 @property (strong) NSDate *date;
 
+@property (strong) NSArray *dateFormatters;
+
 -(void)configureObjectBlueprint;
 
 @end

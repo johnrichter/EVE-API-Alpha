@@ -7,7 +7,6 @@
 //
 
 #import "MasterViewController.h"
-#import "EVEApiKeyInformation.h"
 
 @interface MasterViewController ()
 
@@ -18,54 +17,88 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        
-        // Initialization code here.
+    if (self)
+    {
+       // Initialization code here.
+       [[NSNotificationCenter defaultCenter] addObserver:self
+                                                selector:@selector(EVEApiKeyInformationDidLoad:)
+                                                    name:NSStringFromClass([EVEApiKeyInformation class])
+                                                  object:nil];
+       
+       [[NSNotificationCenter defaultCenter] addObserver:self
+                                                selector:@selector(EVEAccountStatusDidLoad:)
+                                                    name:NSStringFromClass([EVEAccountStatus class])
+                                                  object:nil];
+       
+       [[NSNotificationCenter defaultCenter] addObserver:self
+                                                selector:@selector(EVEAccountCharactersDidLoad:)
+                                                    name:NSStringFromClass([EVEAccountCharacters class])
+                                                  object:nil];
     }
     
     return self;
 }
 
--(void)loadView
+-(void)dealloc
 {
-    [super loadView];
-    
-    [self.xmlTextView setString:@"Hello World!"];
-    
-   NSURL *url = [NSURL URLWithString:@"https://api.eveonline.com/account/APIKeyInfo.xml.aspx?keyID=1927220&vCode=JVolmWFGtr6wMewZywlpRje3XmRSiI6xKQ6TbOELHEUH7j8vymuim3D62UKOlB6Y"];
-   //NSURL *url = [NSURL URLWithString:@"https://api.eveonline.com/char/WalletJournal.xml.aspx?keyID=1927220&vCode=JVolmWFGtr6wMewZywlpRje3XmRSiI6xKQ6TbOELHEUH7j8vymuim3D62UKOlB6Y&characterID=91836741&rowCount=25"];
-   //NSURL *url = [NSURL URLWithString:@"https://api.eveonline.com/char/AssetList.xml.aspx?keyID=1927220&vCode=JVolmWFGtr6wMewZywlpRje3XmRSiI6xKQ6TbOELHEUH7j8vymuim3D62UKOlB6Y/Users/richte43/Documents/Xcode Projects/EveAPI/EVEApi.m&characterID=91836741"];
-   
-   self.apiKeyInfo =
-   [[EVEApiKeyInformation alloc]
-    initWithUriArguements:
-      @{@"keyID":@"1927220",
-        @"vCode":@"JVolmWFGtr6wMewZywlpRje3XmRSiI6xKQ6TbOELHEUH7j8vymuim3D62UKOlB6Y"}];
-   
-   [self.apiKeyInfo addObserver:self
-                forKeyPath:@"apiKey"
-                   options:NSKeyValueObservingOptionNew
-                   context:NULL];
-   
-   if ([self.apiKeyInfo queryTheApi])
-   {
-      [self.xmlTextView setString:[NSString stringWithFormat:@"%@", self.apiKeyInfo]];
-   }
-   else
-   {
-      [self.xmlTextView setString:@"Oh noes! Error."];
-   }
+   [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
--(void)observeValueForKeyPath:(NSString *)keyPath
-                     ofObject:(id)object
-                       change:(NSDictionary *)change
-                      context:(void *)context
+-(void)loadView
 {
-   if ([keyPath isEqualToString:@"apiKey"] && object)
-   {
-      [self.xmlTextView setString:[NSString stringWithFormat:@"%@", object]];
-   }
+   [super loadView];
+   NSString *keyId = @"1927220";
+   NSString *vCode = @"JVolmWFGtr6wMewZywlpRje3XmRSiI6xKQ6TbOELHEUH7j8vymuim3D62UKOlB6Y";
+   
+   self.apiKeyInfo =
+   [[EVEApiKeyInformation alloc] initWithEveKeyId:keyId VCode:vCode];
+   
+   [self.apiKeyInfo queryTheApi];
+   
+   self.accountStatus =
+   [[EVEAccountStatus alloc] initWithEveKeyId:keyId VCode:vCode];
+   
+   [self.accountStatus queryTheApi];
+   
+   self.accountCharacters =
+   [[EVEAccountCharacters alloc] initWithEveKeyId:keyId VCode:vCode];
+   
+   [self.accountCharacters queryTheApi];
+}
+
+-(void)EVEApiKeyInformationDidLoad:(NSNotification *)notification
+{
+   NSMutableString *newStr = [NSMutableString stringWithString:@"\n"];
+   [newStr appendString:self.xmlTextView.string];
+   [newStr appendFormat:@"%@", self.apiKeyInfo];
+   [self.xmlTextView setString:newStr];
+}
+
+-(void)EVEAccountStatusDidLoad:(NSNotification *)notification
+{
+   NSMutableString *newStr = [NSMutableString stringWithString:@"\n"];
+   [newStr appendString:self.xmlTextView.string];
+   [newStr appendFormat:@"%@", self.accountStatus];
+   [self.xmlTextView setString:newStr];
+}
+
+-(void)EVEAccountCharactersDidLoad:(NSNotification *)notification
+{
+   NSMutableString *newStr = [NSMutableString stringWithString:@"\n"];
+   [newStr appendString:self.xmlTextView.string];
+   [newStr appendFormat:@"%@", self.accountCharacters];
+   [self.xmlTextView setString:newStr];
 }
 
 @end
+
+/* MDE
+ 734499
+ rnKgT0CsBodEiQXJsxVXE60taTXwyxTLgCuIDv2Vo22HIRTeNWhOX0RCj4TMcI68
+ */
+
+/* MD
+ 1927220
+ JVolmWFGtr6wMewZywlpRje3XmRSiI6xKQ6TbOELHEUH7j8vymuim3D62UKOlB6Y
+ */
+

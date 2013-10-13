@@ -43,7 +43,7 @@
 -(void)initializeObjectBuilders
 {
    // Create the request operation we will use to download the data
-   self.requestOperation = [[RequestOperation alloc] init];
+   self.requestOperation = [[RequestOperation alloc] initWithDelegate:self];
    
    // Set up EVEApi object blueprint relationships
    ObjectBlueprint *eveapi = [[[EVEApi alloc] init] objectBlueprint];

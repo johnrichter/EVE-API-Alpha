@@ -16,10 +16,20 @@
    if (self)
    {
       self.date = [[NSDate alloc] init];
+      [self initializeDateFormats];
       [self configureObjectBlueprint];
    }
    
    return self;
+}
+
+-(void)initializeDateFormats
+{
+   NSDateFormatter *format = [NSDateFormatter new];
+   [format setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+   [format setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
+   
+   self.dateFormatters = @[format];
 }
 
 -(void)configureObjectBlueprint

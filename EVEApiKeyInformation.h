@@ -15,9 +15,9 @@
 #pragma mark - XML Properties
 @property (strong) EVEApiKey *apiKey;
 
--(EVEApiKeyInformation *)initWithUriArguements:(NSDictionary *)arguements;
+-(EVEApiKeyInformation *)initWithEveKeyId:(NSString *)keyId VCode:(NSString *)vCode;
 
--(BOOL)queryTheApi;
+-(void)queryTheApi;
 
 #pragma mark - EVEApiProtool Methods
 -(void)configureObjectBuilders;
