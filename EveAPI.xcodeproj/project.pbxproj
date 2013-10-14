@@ -75,6 +75,7 @@
 		CD8564DD180B384D00BBE4CA /* EVEAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = CD8564DC180B384D00BBE4CA /* EVEAsset.m */; };
 		CD8564ED180B83E100BBE4CA /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD8564EB180B83E100BBE4CA /* MainWindowController.m */; };
 		CD8564EE180B83E100BBE4CA /* MainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD8564EC180B83E100BBE4CA /* MainWindowController.xib */; };
+		CD8564F1180BAB1100BBE4CA /* EVEEventAttendee.m in Sources */ = {isa = PBXBuildFile; fileRef = CD8564F0180BAB1100BBE4CA /* EVEEventAttendee.m */; };
 		CD8699B517FBB88200B5160F /* EVEApiKey.m in Sources */ = {isa = PBXBuildFile; fileRef = CD8699B417FBB88200B5160F /* EVEApiKey.m */; };
 		CDB3E81A17A9CE2500899F94 /* XMLFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB3E81917A9CE2500899F94 /* XMLFactory.m */; };
 		CDBE208817F50D8B00C6B71E /* BlueprintRelationship.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBE208717F50D8B00C6B71E /* BlueprintRelationship.m */; };
@@ -232,6 +233,8 @@
 		CD8564EA180B83E100BBE4CA /* MainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainWindowController.h; sourceTree = "<group>"; };
 		CD8564EB180B83E100BBE4CA /* MainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainWindowController.m; sourceTree = "<group>"; };
 		CD8564EC180B83E100BBE4CA /* MainWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindowController.xib; sourceTree = "<group>"; };
+		CD8564EF180BAB1100BBE4CA /* EVEEventAttendee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVEEventAttendee.h; sourceTree = "<group>"; };
+		CD8564F0180BAB1100BBE4CA /* EVEEventAttendee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVEEventAttendee.m; sourceTree = "<group>"; };
 		CD8699B317FBB88200B5160F /* EVEApiKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVEApiKey.h; sourceTree = "<group>"; };
 		CD8699B417FBB88200B5160F /* EVEApiKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVEApiKey.m; sourceTree = "<group>"; };
 		CDB3E81817A9CE2500899F94 /* XMLFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLFactory.h; sourceTree = "<group>"; };
@@ -520,6 +523,8 @@
 				CD8564D9180B124200BBE4CA /* EVEWalletBalance.m */,
 				CD8564DB180B384D00BBE4CA /* EVEAsset.h */,
 				CD8564DC180B384D00BBE4CA /* EVEAsset.m */,
+				CD8564EF180BAB1100BBE4CA /* EVEEventAttendee.h */,
+				CD8564F0180BAB1100BBE4CA /* EVEEventAttendee.m */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -733,6 +738,7 @@
 				CD84AE6E17FD26F8001200AF /* EVESkillInTraining.m in Sources */,
 				CD84AE8C17FD2A20001200AF /* EVEMemberSecurity.m in Sources */,
 				CD84AE2617FD20B0001200AF /* EVEApiKeyInformation.m in Sources */,
+				CD8564F1180BAB1100BBE4CA /* EVEEventAttendee.m in Sources */,
 				CDCAF91C180A408500580BA7 /* EVEAccountLogonCount.m in Sources */,
 				CD84AE5F17FD26AC001200AF /* EVEMarketOrders.m in Sources */,
 				CD84AEC817FD2FFE001200AF /* EVEFactionalWarfareSystems.m in Sources */,
