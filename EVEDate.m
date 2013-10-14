@@ -8,8 +8,15 @@
 
 #import "EVEDate.h"
 
+@interface EVEDate ()
+
+-(void)initializeDateFormats;
+
+@end
+
 @implementation EVEDate
 
+#pragma mark - Instance Methods
 -(EVEDate *)init
 {
    self = [super init];
@@ -23,15 +30,6 @@
    return self;
 }
 
--(void)initializeDateFormats
-{
-   NSDateFormatter *format = [NSDateFormatter new];
-   [format setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-   [format setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
-   
-   self.dateFormatters = @[format];
-}
-
 -(void)configureObjectBlueprint
 {
    [self.objectBlueprint setObjectClassId:[self class]];
@@ -42,5 +40,16 @@
 {
    return [NSString stringWithFormat:@"%@", self.date];
 }
+
+#pragma mark - Private Instance Methods
+-(void)initializeDateFormats
+{
+   NSDateFormatter *format = [NSDateFormatter new];
+   [format setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+   [format setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
+   
+   self.dateFormatters = @[format];
+}
+
 
 @end

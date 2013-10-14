@@ -7,7 +7,23 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "EVEApiObject.h"
+#import "EVEWalletBalance.h"
 
-@interface EVEAccountBalance : NSObject
+@interface EVEAccountBalance : EVEApiObject <EVEApiObjectProtocol, RequestOperationDelegate>
+
+#pragma mark - XML Properties
+@property (strong) EVEWalletBalance *wallet;
+
+#pragma mark - Instance Properties
+@property (strong) NSString *keyId;
+@property (strong) NSString *vCode;
+@property (strong) NSNumber *characterId;
+
+#pragma mark - Instance Methods
+-(EVEAccountBalance *)initWithEveKeyId:(NSString *)keyId
+                                 VCode:(NSString *)vCode
+                           CharacterId:(NSNumber *)characterId;
+-(void)queryTheApi;
 
 @end

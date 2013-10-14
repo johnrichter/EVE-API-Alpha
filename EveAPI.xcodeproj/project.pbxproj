@@ -71,6 +71,10 @@
 		CD84AED417FD3099001200AF /* EVEImage.m in Sources */ = {isa = PBXBuildFile; fileRef = CD84AED317FD3099001200AF /* EVEImage.m */; };
 		CD84AED917FD3143001200AF /* EVECallList.m in Sources */ = {isa = PBXBuildFile; fileRef = CD84AED817FD3143001200AF /* EVECallList.m */; };
 		CD84AEDC17FD3156001200AF /* EVEServerStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = CD84AEDB17FD3156001200AF /* EVEServerStatus.m */; };
+		CD8564DA180B124200BBE4CA /* EVEWalletBalance.m in Sources */ = {isa = PBXBuildFile; fileRef = CD8564D9180B124200BBE4CA /* EVEWalletBalance.m */; };
+		CD8564DD180B384D00BBE4CA /* EVEAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = CD8564DC180B384D00BBE4CA /* EVEAsset.m */; };
+		CD8564ED180B83E100BBE4CA /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD8564EB180B83E100BBE4CA /* MainWindowController.m */; };
+		CD8564EE180B83E100BBE4CA /* MainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD8564EC180B83E100BBE4CA /* MainWindowController.xib */; };
 		CD8699B517FBB88200B5160F /* EVEApiKey.m in Sources */ = {isa = PBXBuildFile; fileRef = CD8699B417FBB88200B5160F /* EVEApiKey.m */; };
 		CDB3E81A17A9CE2500899F94 /* XMLFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB3E81917A9CE2500899F94 /* XMLFactory.m */; };
 		CDBE208817F50D8B00C6B71E /* BlueprintRelationship.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBE208717F50D8B00C6B71E /* BlueprintRelationship.m */; };
@@ -90,8 +94,6 @@
 		CDF407AA1791B2C6001B5A57 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = CDF407A81791B2C6001B5A57 /* Credits.rtf */; };
 		CDF407AD1791B2C6001B5A57 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF407AC1791B2C6001B5A57 /* AppDelegate.m */; };
 		CDF407B01791B2C6001B5A57 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDF407AE1791B2C6001B5A57 /* MainMenu.xib */; };
-		CDF407B91791B4F5001B5A57 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF407B71791B4F5001B5A57 /* MasterViewController.m */; };
-		CDF407BA1791B4F5001B5A57 /* MasterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDF407B81791B4F5001B5A57 /* MasterViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -223,6 +225,13 @@
 		CD84AED817FD3143001200AF /* EVECallList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVECallList.m; sourceTree = "<group>"; };
 		CD84AEDA17FD3156001200AF /* EVEServerStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVEServerStatus.h; sourceTree = "<group>"; };
 		CD84AEDB17FD3156001200AF /* EVEServerStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVEServerStatus.m; sourceTree = "<group>"; };
+		CD8564D8180B124200BBE4CA /* EVEWalletBalance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVEWalletBalance.h; sourceTree = "<group>"; };
+		CD8564D9180B124200BBE4CA /* EVEWalletBalance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVEWalletBalance.m; sourceTree = "<group>"; };
+		CD8564DB180B384D00BBE4CA /* EVEAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVEAsset.h; sourceTree = "<group>"; };
+		CD8564DC180B384D00BBE4CA /* EVEAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVEAsset.m; sourceTree = "<group>"; };
+		CD8564EA180B83E100BBE4CA /* MainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainWindowController.h; sourceTree = "<group>"; };
+		CD8564EB180B83E100BBE4CA /* MainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainWindowController.m; sourceTree = "<group>"; };
+		CD8564EC180B83E100BBE4CA /* MainWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindowController.xib; sourceTree = "<group>"; };
 		CD8699B317FBB88200B5160F /* EVEApiKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVEApiKey.h; sourceTree = "<group>"; };
 		CD8699B417FBB88200B5160F /* EVEApiKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVEApiKey.m; sourceTree = "<group>"; };
 		CDB3E81817A9CE2500899F94 /* XMLFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLFactory.h; sourceTree = "<group>"; };
@@ -265,9 +274,6 @@
 		CDF407AB1791B2C6001B5A57 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CDF407AC1791B2C6001B5A57 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		CDF407AF1791B2C6001B5A57 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		CDF407B61791B4F5001B5A57 /* MasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MasterViewController.h; path = ../MasterViewController.h; sourceTree = "<group>"; };
-		CDF407B71791B4F5001B5A57 /* MasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MasterViewController.m; path = ../MasterViewController.m; sourceTree = "<group>"; };
-		CDF407B81791B4F5001B5A57 /* MasterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MasterViewController.xib; path = ../MasterViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -510,6 +516,10 @@
 				CDCAF91B180A408500580BA7 /* EVEAccountLogonCount.m */,
 				CDCAF91D180A40AE00580BA7 /* EVEAccountTotalMinutesPlayed.h */,
 				CDCAF91E180A40AE00580BA7 /* EVEAccountTotalMinutesPlayed.m */,
+				CD8564D8180B124200BBE4CA /* EVEWalletBalance.h */,
+				CD8564D9180B124200BBE4CA /* EVEWalletBalance.m */,
+				CD8564DB180B384D00BBE4CA /* EVEAsset.h */,
+				CD8564DC180B384D00BBE4CA /* EVEAsset.m */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -582,13 +592,13 @@
 		CDF4079F1791B2C6001B5A57 /* EveAPI */ = {
 			isa = PBXGroup;
 			children = (
-				CDF407B61791B4F5001B5A57 /* MasterViewController.h */,
-				CDF407B71791B4F5001B5A57 /* MasterViewController.m */,
-				CDF407B81791B4F5001B5A57 /* MasterViewController.xib */,
 				CDF407AB1791B2C6001B5A57 /* AppDelegate.h */,
 				CDF407AC1791B2C6001B5A57 /* AppDelegate.m */,
 				CDF407AE1791B2C6001B5A57 /* MainMenu.xib */,
 				CDF407A01791B2C6001B5A57 /* Supporting Files */,
+				CD8564EA180B83E100BBE4CA /* MainWindowController.h */,
+				CD8564EB180B83E100BBE4CA /* MainWindowController.m */,
+				CD8564EC180B83E100BBE4CA /* MainWindowController.xib */,
 			);
 			path = EveAPI;
 			sourceTree = "<group>";
@@ -658,8 +668,8 @@
 			files = (
 				CDF407A41791B2C6001B5A57 /* InfoPlist.strings in Resources */,
 				CDF407AA1791B2C6001B5A57 /* Credits.rtf in Resources */,
+				CD8564EE180B83E100BBE4CA /* MainWindowController.xib in Resources */,
 				CDF407B01791B2C6001B5A57 /* MainMenu.xib in Resources */,
-				CDF407BA1791B4F5001B5A57 /* MasterViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -674,6 +684,7 @@
 				CDCAF919180A401E00580BA7 /* EVEAccountCreationDate.m in Sources */,
 				CD84AEA417FD2AF0001200AF /* EVETitles.m in Sources */,
 				CD84AED917FD3143001200AF /* EVECallList.m in Sources */,
+				CD8564DA180B124200BBE4CA /* EVEWalletBalance.m in Sources */,
 				CDE0BB3717FE54D500AD8ABB /* EVEApiObject.m in Sources */,
 				CD84AEAA17FD2DB4001200AF /* EVECertificateTree.m in Sources */,
 				CDE34D3B17FF9D2A00CF670F /* EVEApi.m in Sources */,
@@ -700,6 +711,7 @@
 				CD84AE8F17FD2A2B001200AF /* EVEMemberSecurityLog.m in Sources */,
 				CD84AEC217FD2FA4001200AF /* EVESkillTree.m in Sources */,
 				CD84AE6B17FD26E6001200AF /* EVEResearch.m in Sources */,
+				CD8564DD180B384D00BBE4CA /* EVEAsset.m in Sources */,
 				CDCAF91F180A40AE00580BA7 /* EVEAccountTotalMinutesPlayed.m in Sources */,
 				CD84AE7117FD2701001200AF /* EVESkillQueue.m in Sources */,
 				CD84AE2917FD2472001200AF /* EVEAccountStatus.m in Sources */,
@@ -712,9 +724,9 @@
 				CD84AEB017FD2E2B001200AF /* EVECharacterInfo.m in Sources */,
 				CD84AE7717FD2754001200AF /* EVEUpcomingCalendarEvents.m in Sources */,
 				CD84AE3817FD256C001200AF /* EVECharacterSheet.m in Sources */,
-				CDF407B91791B4F5001B5A57 /* MasterViewController.m in Sources */,
 				CD84AE7D17FD277F001200AF /* EVEWalletTransactions.m in Sources */,
 				CD84AE9E17FD2AA8001200AF /* EVEStarbaseDetail.m in Sources */,
+				CD8564ED180B83E100BBE4CA /* MainWindowController.m in Sources */,
 				CD84AE5317FD2628001200AF /* EVELocations.m in Sources */,
 				CD84AE2F17FD24DC001200AF /* EVEAccountBalance.m in Sources */,
 				CD84AE9B17FD2A8A001200AF /* EVEShareholders.m in Sources */,

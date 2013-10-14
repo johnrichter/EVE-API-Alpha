@@ -12,12 +12,18 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    // Create our master view controller from the nib file
-    self.masterViewController = [[MasterViewController alloc] initWithNibName:@"MasterViewController" bundle:nil];
-    
-    // Add the MasterViewController to the windows content view
-    [self.window.contentView addSubview:self.masterViewController.view];
-    self.masterViewController.view.frame = ((NSView *)self.window.contentView).bounds;
+//    // Create our master view controller from the nib file
+//    self.mainViewController = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
+//    
+//    // Add the MasterViewController to the windows content view
+//    [self.window.contentView addSubview:self.mainViewController.view];
+//    self.mainViewController.view.frame = ((NSView *)self.window.contentView).bounds;
+   
+   self.windowController =
+   [[MainWindowController alloc] initWithWindowNibName:@"MainWindowController"];
+   
+   [self.windowController showWindow:nil];
+   [self.windowController.window makeKeyAndOrderFront:nil];
 }
 
 @end

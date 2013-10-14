@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "EVEObjectProtocol.h"
 #import "ObjectBlueprint.h"
 
 @interface EVEObject : NSObject

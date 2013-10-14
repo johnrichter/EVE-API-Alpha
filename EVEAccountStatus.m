@@ -26,10 +26,10 @@
       self.isLegacyApiKeyEnabled = YES;
       
       // Built Object Properties
-      self.paidUntil = nil;
-      self.creationDate = nil;
-      self.logonCount = nil;
-      self.minutesLoggedIn = nil;
+      self.paidUntil = [EVEAccountExpirationDate new];
+      self.creationDate = [EVEAccountCreationDate new];
+      self.logonCount = [EVEAccountLogonCount new];
+      self.minutesLoggedIn = [EVEAccountTotalMinutesPlayed new];
       
       // Object Building Properties
       [self configureObjectBuilders];

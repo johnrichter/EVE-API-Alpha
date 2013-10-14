@@ -25,7 +25,7 @@
       self.cacheStyle = kShortCache;
       
       // Built Object Properties
-      self.apiKey = nil;
+      self.apiKey = [EVEApiKey new];
       
       // Object Building Properties
       [self configureObjectBuilders];
