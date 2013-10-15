@@ -27,6 +27,10 @@
       // Built Object Properties
       self.apiKey = [EVEApiKey new];
       
+      // Instance Properties
+      self.keyId = keyId;
+      self.vCode = vCode;
+      
       // Object Building Properties
       [self configureObjectBuilders];
    }

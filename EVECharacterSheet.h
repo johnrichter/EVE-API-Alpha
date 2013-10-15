@@ -7,7 +7,21 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "EVEApiObject.h"
 
-@interface EVECharacterSheet : NSObject
+@interface EVECharacterSheet : EVEApiObject <EVEApiObjectProtocol, RequestOperationDelegate>
+
+#pragma mark - XML Properties
+
+#pragma mark - Instance Properties
+@property (strong) NSString *keyId;
+@property (strong) NSString *vCode;
+@property (strong) NSNumber *characterId;
+
+#pragma mark - Instance Methods
+-(EVECharacterSheet *)initWithEveKeyId:(NSString *)keyId
+                                 VCode:(NSString *)vCode
+                           CharacterId:(NSNumber *)characterId;
+-(void)queryTheApi;
 
 @end

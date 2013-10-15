@@ -59,11 +59,12 @@
    {
       if (self.keyPathToBlueprintMap[[bp xmlKeypath]])
       {
-         // TODO: Error more than one blueprint per xml key path specified.
+         [self.keyPathToBlueprintMap[[bp xmlKeypath]] addObject:bp];
       }
       else
       {
-         self.keyPathToBlueprintMap[[bp xmlKeypath]] = bp;
+         NSMutableArray *bpArray = [NSMutableArray arrayWithObject:bp];
+         self.keyPathToBlueprintMap[[bp xmlKeypath]] = bpArray;
       }
    }
 }
@@ -107,13 +108,36 @@
    // to build this object.
    else if (self.keyPathToBlueprintMap[currentKeyPath] != nil)
    {
-      currentBlueprint = self.keyPathToBlueprintMap[currentKeyPath];
+      for (ObjectBlueprint *bp in self.keyPathToBlueprintMap[currentKeyPath])
+      {
+         BOOL useThisBlueprint = YES;
+         NSDictionary *xmlAttributes = currentElement[@"attributes"];
+         
+         for (NSString *attribute in bp.xmlAttributes)
+         {
+            // If the attribute does not appear in the xml element OR
+            // the xml attribute's value is not equal to the blueprints required value
+            // do not use it, as it is not the correct object.
+            if (![[xmlAttributes allKeys] containsObject:attribute] ||
+                ![xmlAttributes[attribute] isEqualToString:bp.xmlAttributes[attribute]])
+            {
+               useThisBlueprint = NO;
+               break;
+            }
+         }
+         
+         if (useThisBlueprint)
+         {
+            currentBlueprint = bp;
+            break;
+         }
+      }
    }
    
    // Since we did not have a blueprint prematch and we did not have a blueprint in our
    // class blueprints collection match the current key path then we need to follow the
    // current elements children, if there are any.
-   else if ([currentElement[@"children"] count] > 0)
+   if (currentBlueprint == nil && [currentElement[@"children"] count] > 0)
    {
       for (NSMutableDictionary *child in currentElement[@"children"])
       {
@@ -382,7 +406,8 @@
       NSMutableArray *results = [self findAndRemoveDecendantsFromXml:parent
                                                          ThatMatchKeyPath:[relationship.xmlKeypath
                                                                            componentsSeparatedByString:@"."]
-                                                                NextIndex:0];
+                                                      WithAttributes:relationship.xmlAttributes
+                                                           NextIndex:0];
       
       [*matches setObject:results forKey:relationship.xmlKeypath];
    }
@@ -403,7 +428,8 @@
 }
 
 -(NSMutableArray *)findAndRemoveDecendantsFromXml:(NSMutableDictionary *)xml
-                                      ThatMatchKeyPath:(NSArray *)keypath
+                                 ThatMatchKeyPath:(NSArray *)keypath
+                                   WithAttributes:(NSDictionary *)attributes
                                              NextIndex:(NSUInteger)nextIndex
 {
    NSMutableArray *results = [[NSMutableArray alloc] init];
@@ -425,8 +451,28 @@
       if ([childName isEqualToString:keypath[nextIndex]] &&
           nextIndex == lastObjectIndex)
       {
-         [toRemove addObject:child];
-         [results addObject:child];
+         BOOL foundMatch = YES;
+         NSDictionary *xmlAttributes = element[@"attributes"];
+         
+         // relationship attribute checking stuff here.
+         for (NSString *attribute in attributes)
+         {
+            // If the attribute does not appear in the xml element OR
+            // the xml attribute's value is not equal to the blueprints required value
+            // do not use it, as it is not the correct object.
+            if (![[xmlAttributes allKeys] containsObject:attribute] ||
+                ![xmlAttributes[attribute] isEqualToString:attributes[attribute]])
+            {
+               foundMatch = NO;
+               break;
+            }
+         }
+         
+         if (foundMatch)
+         {
+            [toRemove addObject:child];
+            [results addObject:child];
+         }
       }
       
       // The elements matches our current index, but is not the last in line.  We need to
@@ -436,6 +482,7 @@
       {
          NSMutableArray *searchResults = [self findAndRemoveDecendantsFromXml:child
                                                              ThatMatchKeyPath:keypath
+                                                               WithAttributes:attributes
                                                                     NextIndex:nextIndex + 1];
          
          [results addObjectsFromArray:searchResults];

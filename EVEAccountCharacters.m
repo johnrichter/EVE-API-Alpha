@@ -28,6 +28,10 @@
       // Built Object Properties
       self.characters = [NSMutableArray new];
       
+      // Instance Properties
+      self.keyId = keyId;
+      self.vCode = vCode;
+      
       // Object Building Properties
       [self configureObjectBuilders];
    }

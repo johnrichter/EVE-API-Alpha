@@ -13,6 +13,7 @@
 
 @property (strong) Class objectClassId;
 @property (strong) NSString *xmlKeypath;
+@property (strong) NSMutableDictionary *xmlAttributes;
 @property (strong) NSMutableDictionary *objectAttributes;
 @property (strong) NSMutableArray *objectRelationships;
 @property (strong) NSString *objectValue;
@@ -22,19 +23,27 @@
 -(ObjectBlueprint *)init;
 
 -(ObjectBlueprint *)initWithClass:(Class)aClass
-                           KeyPath:(NSString *)keyPath
-                        Attributes:(NSDictionary *)attributes;
+                          KeyPath:(NSString *)keyPath;
 
 -(ObjectBlueprint *)initWithClass:(Class)aClass
-                           KeyPath:(NSString *)keyPath
-                        Attributes:(NSDictionary *)attributes
-                             Value:(NSString *)value;
+                          KeyPath:(NSString *)keyPath
+                       Attributes:(NSDictionary *)attributes;
 
 -(ObjectBlueprint *)initWithClass:(Class)aClass
-                           KeyPath:(NSString *)keyPath
-                        Attributes:(NSDictionary *)attributes
-                             Value:(NSString *)value
-                     Relationships:(NSArray *)relationships;
+                          KeyPath:(NSString *)keyPath
+                       Attributes:(NSDictionary *)attributes
+                            Value:(NSString *)value;
+
+-(ObjectBlueprint *)initWithClass:(Class)aClass
+                          KeyPath:(NSString *)keyPath
+               MatchingAttributes:(NSDictionary *)xmlAttributes
+                       Attributes:(NSDictionary *)attributes;
+
+-(ObjectBlueprint *)initWithClass:(Class)aClass
+                          KeyPath:(NSString *)keyPath
+               MatchingAttributes:(NSDictionary *)xmlAttributes
+                       Attributes:(NSDictionary *)attributes
+                            Value:(NSString *)value;
 
 #pragma mark - Property Modification Routines
 
@@ -42,6 +51,11 @@
 -(void)addAttributeFrom:(NSString *)from To:(NSString *)to;
 -(void)addAttributesFromArray:(NSArray *)attributes;
 -(void)addAttributesFromDictionary:(NSDictionary *)attributes;
+
+-(void)addXmlAttribute:(NSString *)xmlAttribute;
+-(void)addXmlAttributeFrom:(NSString *)from To:(NSString *)to;
+-(void)addXmlAttributeFromArray:(NSArray *)xmlAttributes;
+-(void)addXmlattributesFromDictionary:(NSDictionary *)xmlAttributes;
 
 -(void)addRelationshipsFromArray:(NSArray *)relationships;
 

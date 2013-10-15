@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD26E63D180CA7A20060AED3 /* EVECalendarEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = CD26E63C180CA7A20060AED3 /* EVECalendarEvent.m */; };
 		CD2940F517EE639800BC7947 /* EVECharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2940F417EE639800BC7947 /* EVECharacter.m */; };
 		CD2940F817EEA4EA00BC7947 /* ObjectBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2940F717EEA4EA00BC7947 /* ObjectBuilder.m */; };
 		CD423FBA17F89C3E00958F90 /* RKValueTransformers.m in Sources */ = {isa = PBXBuildFile; fileRef = CD423FB917F89C3E00958F90 /* RKValueTransformers.m */; };
@@ -98,6 +99,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CD26E63B180CA7A20060AED3 /* EVECalendarEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVECalendarEvent.h; sourceTree = "<group>"; };
+		CD26E63C180CA7A20060AED3 /* EVECalendarEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVECalendarEvent.m; sourceTree = "<group>"; };
 		CD2940F317EE639800BC7947 /* EVECharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVECharacter.h; sourceTree = "<group>"; };
 		CD2940F417EE639800BC7947 /* EVECharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVECharacter.m; sourceTree = "<group>"; };
 		CD2940F617EEA4EA00BC7947 /* ObjectBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectBuilder.h; sourceTree = "<group>"; };
@@ -525,6 +528,8 @@
 				CD8564DC180B384D00BBE4CA /* EVEAsset.m */,
 				CD8564EF180BAB1100BBE4CA /* EVEEventAttendee.h */,
 				CD8564F0180BAB1100BBE4CA /* EVEEventAttendee.m */,
+				CD26E63B180CA7A20060AED3 /* EVECalendarEvent.h */,
+				CD26E63C180CA7A20060AED3 /* EVECalendarEvent.m */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -754,6 +759,7 @@
 				CD8699B517FBB88200B5160F /* EVEApiKey.m in Sources */,
 				CD84AE4117FD25B6001200AF /* EVEContracts.m in Sources */,
 				CD84AE5017FD260C001200AF /* EVEKillLog.m in Sources */,
+				CD26E63D180CA7A20060AED3 /* EVECalendarEvent.m in Sources */,
 				CD84AEBF17FD2F87001200AF /* EVEReferenceTypes.m in Sources */,
 				CDE0BB3A17FF096100AD8ABB /* EVEDate.m in Sources */,
 				CD84AEBC17FD2F20001200AF /* EVEFactionalWarfareTopStats.m in Sources */,

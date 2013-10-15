@@ -52,10 +52,21 @@
                                                object:nil];
 
       [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(EVEAssetListDidLoad:)
-                                                 name:NSStringFromClass([EVEAssetList class])
-                                               object:nil];
+                                               selector:@selector(EVEAssetListDidLoad:)
+                                                   name:NSStringFromClass([EVEAssetList class])
+                                                 object:nil];
+      
+      [[NSNotificationCenter defaultCenter] addObserver:self
+                                               selector:@selector(EVEUpcomingCalendarEventsDidLoad:)
+                                                   name:NSStringFromClass([EVEUpcomingCalendarEvents class])
+                                                 object:nil];
+      
+      [[NSNotificationCenter defaultCenter] addObserver:self
+                                               selector:@selector(EVECalendarEventAttendeesDidLoad:)
+                                                   name:NSStringFromClass([EVECalendarEventAttendees class])
+                                                 object:nil];
    }
+   
    return self;
 }
 
@@ -63,11 +74,17 @@
 {
     [super windowDidLoad];
     
-    // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
+    // Implement this method to handle any initialization after your window controller's
+    // window has been loaded from its nib file.
+
+   NSString *legacyUserId = @"8695857";
+   NSString *legacyLimitedKey = @"F0AD3EC9275C4FE38A90F191FA2B223AF66C79FAF2CF45828340EC5D0E62220E";
+   NSString *legacyFullKey = @"7D345E16FC2441309723B9B51768CB0F2DDF9A5D43A74CBFAB7567299F5A306C";
    
    NSString *keyId = @"1927220";
    NSString *vCode = @"JVolmWFGtr6wMewZywlpRje3XmRSiI6xKQ6TbOELHEUH7j8vymuim3D62UKOlB6Y";
    NSNumber *minosId = @91779534;
+   NSNumber *minosEvent = @0;
    
    self.apiKeyInfo = [[EVEApiKeyInformation alloc] initWithEveKeyId:keyId VCode:vCode];
    
@@ -89,7 +106,19 @@
    self.assetList = [[EVEAssetList alloc] initWithEveKeyId:keyId
                                                      VCode:vCode
                                                CharacterId:minosId];
-   [self.assetList queryTheApi];
+   //[self.assetList queryTheApi];
+   
+   self.upcomingEvents = [[EVEUpcomingCalendarEvents alloc] initWithEveKeyId:legacyUserId
+                                                                       VCode:legacyFullKey
+                                                                 CharacterId:minosId];
+   [self.upcomingEvents queryTheApi];
+   
+   self.eventAttendees = [[EVECalendarEventAttendees alloc] initWithEveKeyId:legacyUserId
+                                                                       VCode:legacyFullKey
+                                                                 CharacterId:minosId
+                                                                     eventID:@0];
+   //[self.eventAttendees queryTheApi];
+   
 }
 
 -(void)dealloc
@@ -135,8 +164,22 @@
    [newStr appendString:self.xmlTextView.string];
    [newStr appendFormat:@"%@\n", self.assetList];
    [self.xmlTextView setString:newStr];
-   
-   //[self updateTextView];
+}
+
+-(void)EVEUpcomingCalendarEventsDidLoad:(NSNotification *)notification
+{
+   NSMutableString *newStr = [NSMutableString stringWithString:@"\n"];
+   [newStr appendString:self.xmlTextView.string];
+   [newStr appendFormat:@"%@\n", self.upcomingEvents];
+   [self.xmlTextView setString:newStr];
+}
+
+-(void)EVECalendarEventAttendeesDidLoad:(NSNotification *)notification
+{
+   NSMutableString *newStr = [NSMutableString stringWithString:@"\n"];
+   [newStr appendString:self.xmlTextView.string];
+   [newStr appendFormat:@"%@\n", self.eventAttendees];
+   [self.xmlTextView setString:newStr];
 }
 
 @end
@@ -147,6 +190,16 @@
  */
 
 /* MD
+ Full Access New Api
  1927220
  JVolmWFGtr6wMewZywlpRje3XmRSiI6xKQ6TbOELHEUH7j8vymuim3D62UKOlB6Y
+ 
+ Limited Access Legacy
+ 8695857
+ F0AD3EC9275C4FE38A90F191FA2B223AF66C79FAF2CF45828340EC5D0E62220E
+ 
+ Full Access Legacy
+ 8695857
+ 7D345E16FC2441309723B9B51768CB0F2DDF9A5D43A74CBFAB7567299F5A306C
+ 
  */

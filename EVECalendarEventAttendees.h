@@ -25,6 +25,7 @@
 @property (strong) NSString *keyId;
 @property (strong) NSString *vCode;
 @property (strong) NSNumber *characterId;
+@property (strong) NSNumber *eventId;
 
 #pragma mark - Instance Methods
 -(EVECalendarEventAttendees *)initWithEveKeyId:(NSString *)keyId

@@ -47,6 +47,12 @@
       // Built Object Properties
       self.eventAttendees = [NSMutableArray new];
       
+      // Instance Properties
+      self.keyId = keyId;
+      self.vCode = vCode;
+      self.characterId = characterId;
+      self.eventId = eventId;
+      
       // Object Building Properties
       [self configureObjectBuilders];
    }

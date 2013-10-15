@@ -31,6 +31,10 @@
       self.logonCount = [EVEAccountLogonCount new];
       self.minutesLoggedIn = [EVEAccountTotalMinutesPlayed new];
       
+      // Instance Properties
+      self.keyId = keyId;
+      self.vCode = vCode;
+      
       // Object Building Properties
       [self configureObjectBuilders];
    }

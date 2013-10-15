@@ -16,6 +16,8 @@
 // Character APIs
 #import "EVEAccountBalance.h"
 #import "EVEAssetList.h"
+#import "EVECalendarEventAttendees.h"
+#import "EVEUpcomingCalendarEvents.h"
 
 @interface MainWindowController : NSWindowController
 
@@ -27,5 +29,7 @@
 @property (strong) EVEAccountCharacters *accountCharacters;
 @property (strong) EVEAccountBalance *accountBalance;
 @property (strong) EVEAssetList *assetList;
+@property (strong) EVEUpcomingCalendarEvents *upcomingEvents;
+@property (strong) EVECalendarEventAttendees *eventAttendees;
 
 @end

@@ -16,15 +16,12 @@
    if (self)
    {
       self.xmlKeypath = @"";
+      self.xmlAttributes = @{};
       self.objectKeypath = @"";
       self.blueprintToBuild = nil;
-      
-      return self;
    }
-   else
-   {
-      return nil;
-   }
+   
+   return self;
 }
 
 +(BlueprintRelationship *)relationshipFromXmlKeypath:(NSString *)xmlKeypath
@@ -34,6 +31,21 @@
    BlueprintRelationship *newInstance = [[BlueprintRelationship alloc] init];
    
    [newInstance setXmlKeypath:xmlKeypath];
+   [newInstance setObjectKeypath:objectKeypath];
+   [newInstance setBlueprintToBuild:blueprint];
+   
+   return newInstance;
+}
+
++(BlueprintRelationship *)relationshipFromXmlKeypath:(NSString *)xmlKeypath
+                               MatchingXmlAttributes:(NSDictionary *)xmlAttributes
+                        RelativeToObjectWithProperty:(NSString *)objectKeypath
+                                        ForBlueprint:(ObjectBlueprint *)blueprint
+{
+   BlueprintRelationship *newInstance = [[BlueprintRelationship alloc] init];
+   
+   [newInstance setXmlKeypath:xmlKeypath];
+   [newInstance setXmlAttributes:xmlAttributes];
    [newInstance setObjectKeypath:objectKeypath];
    [newInstance setBlueprintToBuild:blueprint];
    

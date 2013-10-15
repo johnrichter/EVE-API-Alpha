@@ -16,8 +16,12 @@
 
 @property (strong) NSMutableArray *characters;
 
--(EVEAccountCharacters *)initWithEveKeyId:(NSString *)keyId VCode:(NSString *)vCode;
+#pragma mark - Instance Properties
+@property (strong) NSString *keyId;
+@property (strong) NSString *vCode;
 
+#pragma mark - Instance Methods
+-(EVEAccountCharacters *)initWithEveKeyId:(NSString *)keyId VCode:(NSString *)vCode;
 -(void)queryTheApi;
 
 @end

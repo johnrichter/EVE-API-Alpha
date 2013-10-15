@@ -19,6 +19,23 @@
    {
       self.objectClassId = nil;
       self.xmlKeypath = @"";
+      self.xmlAttributes = [NSMutableDictionary new];
+      self.objectAttributes = [[NSMutableDictionary alloc] init];
+      self.objectRelationships = [[NSMutableArray alloc] init];
+      self.objectValue = @"";
+   }
+   
+   return self;
+}
+
+-(ObjectBlueprint *)initWithClass:(Class)aClass KeyPath:(NSString *)keyPath
+{
+   self = [super init];
+   if (self)
+   {
+      self.objectClassId = aClass;
+      self.xmlKeypath = keyPath;
+      self.xmlAttributes = [NSMutableDictionary new];
       self.objectAttributes = [[NSMutableDictionary alloc] init];
       self.objectRelationships = [[NSMutableArray alloc] init];
       self.objectValue = @"";
@@ -35,6 +52,7 @@
    if (self)
    {
       self.xmlKeypath = keyPath;
+      self.xmlAttributes = [NSMutableDictionary new];
       self.objectClassId = aClass;
       self.objectAttributes = [NSMutableDictionary dictionaryWithDictionary:attributes];
       self.objectRelationships = [[NSMutableArray alloc] init];
@@ -53,46 +71,50 @@
    if (self)
    {
       self.xmlKeypath = keyPath;
+      self.xmlAttributes = [NSMutableDictionary new];
       self.objectClassId = aClass;
       self.objectAttributes = [NSMutableDictionary dictionaryWithDictionary:attributes];
       self.objectRelationships = [[NSMutableArray alloc] init];
-      
-      if (!value)
-      {
-         self.objectValue = @"";
-      }
-      else
-      {
-         self.objectValue = value;
-      }
+      self.objectValue = value;
    }
 
    return self;
 }
 
 -(ObjectBlueprint *)initWithClass:(Class)aClass
-                           KeyPath:(NSString *)keyPath
-                        Attributes:(NSDictionary *)attributes
-                             Value:(NSString *)value
-                     Relationships:(NSArray *)relationships;
-
+                          KeyPath:(NSString *)keyPath
+               MatchingAttributes:(NSDictionary *)xmlAttributes
+                       Attributes:(NSDictionary *)attributes
 {
    self = [super init];
    if (self)
    {
       self.xmlKeypath = keyPath;
+      self.xmlAttributes = [NSMutableDictionary dictionaryWithDictionary:xmlAttributes];
       self.objectClassId = aClass;
       self.objectAttributes = [NSMutableDictionary dictionaryWithDictionary:attributes];
-      self.objectRelationships = [NSMutableArray arrayWithArray:relationships];
-      
-      if (!value)
-      {
-         self.objectValue = @"";
-      }
-      else
-      {
-         self.objectValue = value;
-      }
+      self.objectRelationships = [[NSMutableArray alloc] init];
+      self.objectValue = @"";
+   }
+   
+   return self;
+}
+
+-(ObjectBlueprint *)initWithClass:(Class)aClass
+                          KeyPath:(NSString *)keyPath
+               MatchingAttributes:(NSDictionary *)xmlAttributes
+                       Attributes:(NSDictionary *)attributes
+                            Value:(NSString *)value
+{
+   self = [super init];
+   if (self)
+   {
+      self.xmlKeypath = keyPath;
+      self.xmlAttributes = [NSMutableDictionary dictionaryWithDictionary:xmlAttributes];
+      self.objectClassId = aClass;
+      self.objectAttributes = [NSMutableDictionary dictionaryWithDictionary:attributes];
+      self.objectRelationships = [[NSMutableArray alloc] init];
+      self.objectValue = value;
    }
    
    return self;
@@ -123,6 +145,32 @@
    for (NSString *attribute in attributes)
    {
       _objectAttributes[attribute] = attributes[attribute];
+   }
+}
+
+-(void)addXmlAttribute:(NSString *)xmlAttribute
+{
+   _xmlAttributes[xmlAttribute] = [xmlAttribute copy];
+}
+
+-(void)addXmlAttributeFrom:(NSString *)from To:(NSString *)to
+{
+   _xmlAttributes[from] = to;
+}
+
+-(void)addXmlAttributeFromArray:(NSArray *)xmlAttributes
+{
+   for (NSString *attribute in xmlAttributes)
+   {
+      _xmlAttributes[attribute] = [attribute copy];
+   }
+}
+
+-(void)addXmlattributesFromDictionary:(NSDictionary *)xmlAttributes
+{
+   for (NSString *attribute in xmlAttributes)
+   {
+      _xmlAttributes[attribute] = xmlAttributes[attribute];
    }
 }
 

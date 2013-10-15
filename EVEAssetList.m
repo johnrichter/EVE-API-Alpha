@@ -46,6 +46,11 @@
       // Built Object Properties
       self.assets = [NSMutableArray new];
       
+      // Instance Properties
+      self.keyId = keyId;
+      self.vCode = vCode;
+      self.characterId = characterId;
+      
       // Object Building Properties
       [self configureObjectBuilders];
    }
