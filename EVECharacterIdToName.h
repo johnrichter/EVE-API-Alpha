@@ -8,6 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface EVECharacterName : NSObject
+@interface EVECharacterIdToName : NSObject
 
 @end

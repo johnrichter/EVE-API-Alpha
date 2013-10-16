@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 Johnathan Richter. All rights reserved.
 //
 
-#import "EVECharacterName.h"
+#import "EVECharacterIdToName.h"
 
-@implementation EVECharacterName
+@implementation EVECharacterIdToName
 
 @end
