@@ -27,5 +27,6 @@
 
 -(EVEApiKey *)init;
 -(void)configureObjectBlueprint;
+-(void)setRelationshipsWithCharacterKeypath:(NSString *)charKeypath;
 
 @end

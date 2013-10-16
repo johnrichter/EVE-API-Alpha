@@ -43,19 +43,12 @@
 -(void)configureObjectBuilders
 {
    // Create the apiKey blueprint
-   ObjectBlueprint *apiKey = [[[EVEApiKey alloc] init] objectBlueprint];
-   [apiKey setXmlKeypath:@"eveapi.result.key"];
-   
-   // Create apiKey to characters relationship
-   BlueprintRelationship *charRelationship =
-      [BlueprintRelationship relationshipFromXmlKeypath:@"rowset.row"
-                           RelativeToObjectWithProperty:@"characters"
-                                           ForBlueprint:[[[EVECharacter alloc] init] objectBlueprint]];
-   
-   [apiKey addRelationshipsFromArray:@[charRelationship]];
-
+   EVEApiKey *apiKey = [EVEApiKey new];
+   [apiKey.objectBlueprint setXmlKeypath:@"eveapi.result.key"];
+   [apiKey setRelationshipsWithCharacterKeypath:@"rowset.row"];
+    
    // Add the apiKey blueprint to our list
-   [self.objectBlueprints addObject:apiKey];
+   [self.objectBlueprints addObject:apiKey.objectBlueprint];
    
    // Configure our RequestOperation with URI and Arguements
    [self.requestOperation setUrl:self.uri

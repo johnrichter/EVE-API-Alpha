@@ -7,6 +7,7 @@
 //
 
 #import "EVEApiKey.h"
+#import "EVECharacter.h"
 #import "BlueprintRelationship.h"
 
 @implementation EVEApiKey
@@ -33,6 +34,16 @@
    [self.objectBlueprint addAttributesFromDictionary:@{@"accessMask":@"accessMask",
                                                        @"type":@"keyType",
                                                        @"expires":@"expirationDate"}];
+}
+
+-(void)setRelationshipsWithCharacterKeypath:(NSString *)charKeypath
+{
+   BlueprintRelationship *charRelationship =
+      [BlueprintRelationship relationshipFromXmlKeypath:charKeypath
+                           RelativeToObjectWithProperty:@"characters"
+                                           ForBlueprint:[[[EVECharacter alloc] init] objectBlueprint]];
+
+   [self.objectBlueprint addRelationshipsFromArray:@[charRelationship]];
 }
 
 -(NSString *)description

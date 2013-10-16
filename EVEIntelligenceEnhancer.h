@@ -1,13 +1,13 @@
 //
-//  EVECharacterNameToId.h
+//  EVEIntelligenceEnhancer.h
 //  EveAPI
 //
 //  Created by Johnathan Richter on 10/15/13.
 //  Copyright (c) 2013 Johnathan Richter. All rights reserved.
 //
 
-#import "EVEApiObject.h"
+#import "EVEAttributeEnhancer.h"
 
-@interface EVECharacterNameToId : EVEApiObject
+@interface EVEIntelligenceEnhancer : EVEAttributeEnhancer
 
 @end
