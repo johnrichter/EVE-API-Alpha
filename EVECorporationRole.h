@@ -1,19 +1,20 @@
 //
-//  EVEAttributeEnhancerId.h
+//  EVECorporationRole.h
 //  EveAPI
 //
-//  Created by Johnathan Richter on 10/15/13.
+//  Created by Johnathan Richter on 10/16/13.
 //  Copyright (c) 2013 Johnathan Richter. All rights reserved.
 //
 
 #import "EVEObject.h"
 
-@interface EVEAttributeEnhancerId : EVEObject <EVEObjectProtocol>
+@interface EVECorporationRole : EVEObject <EVEObjectProtocol>
 
 #pragma mark - XML Value
-@property (strong) NSNumber *enhancerId;
 
 #pragma mark - XML Attributes
+@property (strong) NSNumber *roleId;
+@property (strong) NSString *roleName;
 
 #pragma mark - XML Relationships
 

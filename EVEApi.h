@@ -8,6 +8,7 @@
 
 #import "EVEObject.h"
 #import "EVEDate.h"
+#import "EVEError.h"
 
 @interface EVEApi : EVEObject <EVEObjectProtocol>
 
@@ -17,8 +18,12 @@
 #pragma mark - XML Properties
 @property (strong) EVEDate *lastQueried;
 @property (strong) EVEDate *cachedUntil;
+@property (strong) EVEError *apiError;
 
 #pragma mark - EVEObjectProtocol Methods
 -(void)configureObjectBlueprint;
+-(void)setRelationshipsWithKeypathsForLastQueried:(NSString *)lastQueried
+                                      CachedUntil:(NSString *)cachedUntil
+                                         ApiError:(NSString *)apiError;
 
 @end

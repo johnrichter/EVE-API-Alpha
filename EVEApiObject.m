@@ -27,9 +27,10 @@
       self.isLegacyApiKeyEnabled = NO;
       
       // Built Object Properties
-      self.apiVersion = nil;
-      self.lastQueried = nil;
-      self.cachedUntil = nil;
+      self.apiVersion = @0;
+      self.lastQueried = [EVEDate new];
+      self.cachedUntil = [EVEDate new];
+      self.apiError = [EVEError new];
       
       // Object Building Properties
       [self initializeObjectBuilders];
@@ -45,28 +46,15 @@
    // Create the request operation we will use to download the data
    self.requestOperation = [[RequestOperation alloc] initWithDelegate:self];
    
-   // Set up EVEApi object blueprint relationships
-   ObjectBlueprint *eveapi = [[[EVEApi alloc] init] objectBlueprint];
-   [eveapi setXmlKeypath:@"eveapi"];
-   
-   // Create the EVEApi -> lastQueried relationship
-   BlueprintRelationship *currentTimeRelationship =
-   [BlueprintRelationship relationshipFromXmlKeypath:@"currentTime"
-                        RelativeToObjectWithProperty:@"lastQueried"
-                                        ForBlueprint:[[[EVEDate alloc] init] objectBlueprint]];
-   
-   // Create the EVEApi -> cachedUntil relationship
-   BlueprintRelationship *cachedUntilRelationship =
-   [BlueprintRelationship relationshipFromXmlKeypath:@"cachedUntil"
-                        RelativeToObjectWithProperty:@"cachedUntil"
-                                        ForBlueprint:[[[EVEDate alloc] init] objectBlueprint]];
-
-   // Add both relationships to EVEApi
-   [eveapi.objectRelationships addObjectsFromArray:@[currentTimeRelationship,
-                                                     cachedUntilRelationship]];
+   // Set up EVEApi object blueprint and relationships
+   EVEApi *eveapi = [EVEApi new];
+   [eveapi setRelationshipsWithKeypathsForLastQueried:@"currentTime"
+                                          CachedUntil:@"cachedUntil"
+                                             ApiError:@"error"];
+   [eveapi.objectBlueprint setXmlKeypath:@"eveapi"];
    
    // Add all of our object blueprints to our object
-   self.objectBlueprints = [NSMutableArray arrayWithObject:eveapi];
+   self.objectBlueprints = [NSMutableArray arrayWithObject:eveapi.objectBlueprint];
 }
 
 #pragma mark - RequestOperationProtocol Methods
@@ -80,6 +68,7 @@
          self.apiVersion = [object apiVersion];
          self.lastQueried = [object lastQueried];
          self.cachedUntil = [object cachedUntil];
+         self.apiError = [object apiError];
          
          // Break out of the loop for efficiency since we only are looking for one object
          break;

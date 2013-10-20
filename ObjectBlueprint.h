@@ -14,6 +14,8 @@
 @property (strong) Class objectClassId;
 @property (strong) NSString *xmlKeypath;
 @property (strong) NSMutableDictionary *xmlAttributes;
+@property (strong) NSString *parentElementName;
+@property (strong) NSMutableDictionary *parentXmlAttributes;
 @property (strong) NSMutableDictionary *objectAttributes;
 @property (strong) NSMutableArray *objectRelationships;
 @property (strong) NSString *objectValue;
@@ -52,10 +54,19 @@
 -(void)addAttributesFromArray:(NSArray *)attributes;
 -(void)addAttributesFromDictionary:(NSDictionary *)attributes;
 
+-(void)setXmlKeypath:(NSString *)xmlKeypath MatchingAttributes:(NSDictionary *)xmlAttributes;
 -(void)addXmlAttribute:(NSString *)xmlAttribute;
 -(void)addXmlAttributeFrom:(NSString *)from To:(NSString *)to;
--(void)addXmlAttributeFromArray:(NSArray *)xmlAttributes;
+-(void)addXmlAttributesFromArray:(NSArray *)xmlAttributes;
 -(void)addXmlattributesFromDictionary:(NSDictionary *)xmlAttributes;
+
+-(void)setXmlKeypath:(NSString *)xmlKeypath
+  MatchingParentName:(NSString *)parentName
+ ParentXmlAttributes:(NSDictionary *)parentXmlAttributes;
+-(void)addParentXmlAttribute:(NSString *)xmlAttribute;
+-(void)addParentXmlAttributeFrom:(NSString *)from To:(NSString *)to;
+-(void)addParentXmlAttributesFromArray:(NSArray *)xmlAttributes;
+-(void)addParentXmlattributesFromDictionary:(NSDictionary *)xmlAttributes;
 
 -(void)addRelationshipsFromArray:(NSArray *)relationships;
 

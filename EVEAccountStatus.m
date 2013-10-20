@@ -121,7 +121,8 @@
            @"CAK Access Mask Required:\t%@\n"
            @"Date Last Queried:\t\t\t%@\n"
            @"Cached Until:\t\t\t\t%@\n"
-           @"Cache Style:\t\t\t\t%@\n\n"
+           @"Cache Style:\t\t\t\t%@\n"
+           @"API Error:\t\t\t\t\t%@\n\n"
            @"Paid Until: %@\n"
            @"Date Created: %@\n"
            @"Total Logins: %@\n"
@@ -135,6 +136,7 @@
            self.lastQueried,
            self.cachedUntil,
            [EVEApiObject cacheStyleToString:self.cacheStyle],
+           self.apiError,
            self.paidUntil,
            self.creationDate,
            self.logonCount,

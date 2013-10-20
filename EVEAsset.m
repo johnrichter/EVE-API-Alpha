@@ -52,7 +52,7 @@
 
 -(NSString *)description
 {
-   NSMutableString *asset = [NSMutableString stringWithFormat:@"--- Asset ---\n"];
+   NSMutableString *asset = [NSMutableString stringWithFormat:@"Asset "];
    [asset appendFormat:@"Type: %@ | Quantity: %@ | Location: %@ | Is Packaged: %s | Flag: %@\n",
                        self.typeId,
                        self.quantity,
@@ -62,7 +62,7 @@
    
    for (id object in self.containedAssets)
    {
-      [asset appendFormat:@"\t%@\n", object];
+      [asset appendFormat:@"\t%@", object];
    }
    
    return asset;

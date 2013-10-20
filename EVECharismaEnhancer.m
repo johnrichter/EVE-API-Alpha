@@ -15,7 +15,7 @@
 -(NSString *)description
 {
    return [NSString stringWithFormat:@"Charisma Enhancer Id: %@ | Name: %@",
-           self.enhancerId, self.enhancerName];
+           self.enhancerValue, self.enhancerName];
 }
 
 @end

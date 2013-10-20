@@ -7,7 +7,7 @@
 //
 
 #import "EVEObject.h"
-#import "EVEAttributeEnhancerId.h"
+#import "EVEAttributeEnhancerValue.h"
 #import "EVEAttributeEnhancerName.h"
 
 @interface EVEAttributeEnhancer : EVEObject <EVEObjectProtocol>
@@ -17,7 +17,7 @@
 #pragma mark - XML Attributes
 
 #pragma mark - XML Relationships
-@property (strong) EVEAttributeEnhancerId *enhancerId;
+@property (strong) EVEAttributeEnhancerValue *enhancerValue;
 @property (strong) EVEAttributeEnhancerName *enhancerName;
 
 #pragma mark - Instance Properties
@@ -25,7 +25,7 @@
 #pragma mark - Instance Methods
 
 -(void)configureObjectBlueprint;
--(void)setRelationshipsWithEnhancerIdKeypath:(NSString *)idKeypath
-                                 NameKeypath:(NSString *)nameKeypath;
+-(void)setRelationshipsWithEnhancerValueKeypath:(NSString *)valueKeypath
+                                    NameKeypath:(NSString *)nameKeypath;
 
 @end

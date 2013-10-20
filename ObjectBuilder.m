@@ -50,7 +50,8 @@
    // Finally, convert our xml into real objects.  Error is set by this function
    return [self createObjectsWithBlueprint:nil
                               TopLevelNode:self.xmlMap
-                         WithParentKeypath:@""];
+                         WithParentKeypath:@""
+                          ParentAttributes:nil];
 }
 
 -(void)createKeypathToBlueprintMap
@@ -72,9 +73,13 @@
 -(NSArray *)createObjectsWithBlueprint:(ObjectBlueprint *)blueprintPrematch
                           TopLevelNode:(NSMutableDictionary *)node
                      WithParentKeypath:(NSString *)parentKeypath
+                      ParentAttributes:(NSDictionary *)parentAttributes
 {
    // Create our built object collection.
    NSMutableArray *builtObjects = [[NSMutableArray alloc] init];
+   
+   // Our parent element name for object matching
+   NSString *parentElementName = @"";
    
    // Manage our current key path based on the parent key path passed into the function.
    NSString *currentKeyPath = nil;
@@ -93,6 +98,9 @@
    {
       // Join the parent key path with the current element name with a '.' in between
       currentKeyPath = [@[parentKeypath, currentElementName] componentsJoinedByString:@"."];
+      
+      // Save our parent's name
+      parentElementName = [[parentKeypath componentsSeparatedByString:@"."] lastObject];
    }
    
    // We use the blueprint parameter to determine if we need to build only a specific
@@ -113,12 +121,34 @@
          BOOL useThisBlueprint = YES;
          NSDictionary *xmlAttributes = currentElement[@"attributes"];
          
+         // If the blueprint has to match a parent element name we do so here
+         if (![bp.parentElementName isEqualToString:@""] &&
+             ![bp.parentElementName isEqualToString:parentElementName])
+         {
+               continue;
+         }
+         
+         // If the blueprint must match parent attributes we do so here.
+         for (NSString *parentAttribute in bp.parentXmlAttributes)
+         {
+            if (parentAttributes[parentAttribute] == nil ||
+                ![parentAttributes[parentAttribute]
+                     isEqualToString:bp.parentXmlAttributes[parentAttribute]])
+            {
+               useThisBlueprint = NO;
+               break;
+            }
+         }
+         
+         if (!useThisBlueprint) continue;
+         
+         // If we have to match attributes on the current element we check that here
          for (NSString *attribute in bp.xmlAttributes)
          {
             // If the attribute does not appear in the xml element OR
             // the xml attribute's value is not equal to the blueprints required value
             // do not use it, as it is not the correct object.
-            if (![[xmlAttributes allKeys] containsObject:attribute] ||
+            if (xmlAttributes[attribute] == nil ||
                 ![xmlAttributes[attribute] isEqualToString:bp.xmlAttributes[attribute]])
             {
                useThisBlueprint = NO;
@@ -137,13 +167,14 @@
    // Since we did not have a blueprint prematch and we did not have a blueprint in our
    // class blueprints collection match the current key path then we need to follow the
    // current elements children, if there are any.
-   if (currentBlueprint == nil && [currentElement[@"children"] count] > 0)
+   else if (currentBlueprint == nil && [currentElement[@"children"] count] > 0)
    {
       for (NSMutableDictionary *child in currentElement[@"children"])
       {
          [builtObjects addObjectsFromArray:[self createObjectsWithBlueprint:currentBlueprint
                                                                TopLevelNode:child
-                                                          WithParentKeypath:currentKeyPath]];
+                                                          WithParentKeypath:currentKeyPath
+                                                           ParentAttributes:currentElement[@"attributes"]]];
          if ([builtObjects count] == 0)
          {
             // TODO: Set error (unable to find blueprints in XML) and return
@@ -276,7 +307,8 @@
          NSMutableArray *subnodeObjects = [NSMutableArray arrayWithArray:
                                            [self createObjectsWithBlueprint:relationshipMatch.blueprintToBuild
                                                                TopLevelNode:child
-                                                          WithParentKeypath:currentKeyPath]];
+                                                          WithParentKeypath:currentKeyPath
+                                                           ParentAttributes:currentElement[@"attributes"]]];
          
          // The last object is the one we wanted to build.
          id builtChildObject = [subnodeObjects lastObject];
@@ -335,7 +367,8 @@
    {
       [builtObjects addObjectsFromArray:[self createObjectsWithBlueprint:nil
                                                            TopLevelNode:xmlChild
-                                                      WithParentKeypath:currentKeyPath]];
+                                                      WithParentKeypath:currentKeyPath
+                                                       ParentAttributes:currentElement[@"attributes"]]];
    }
    
    // Finally,  add the current object to the list of built objects
@@ -404,12 +437,15 @@
       // return the dictionaries of each child and remove them from their decendant
       // parents so we do not process them again later on.
       NSMutableArray *results = [self findAndRemoveDecendantsFromXml:parent
-                                                         ThatMatchKeyPath:[relationship.xmlKeypath
-                                                                           componentsSeparatedByString:@"."]
+                                                    ThatMatchKeyPath:[relationship.xmlKeypath
+                                                                        componentsSeparatedByString:@"."]
                                                       WithAttributes:relationship.xmlAttributes
                                                            NextIndex:0];
       
-      [*matches setObject:results forKey:relationship.xmlKeypath];
+      if ([results count] > 0)
+      {
+         [*matches setObject:results forKey:relationship.xmlKeypath];
+      }
    }
    
    // We only need to care about the non-matches direct children of this element.  Any
@@ -430,7 +466,7 @@
 -(NSMutableArray *)findAndRemoveDecendantsFromXml:(NSMutableDictionary *)xml
                                  ThatMatchKeyPath:(NSArray *)keypath
                                    WithAttributes:(NSDictionary *)attributes
-                                             NextIndex:(NSUInteger)nextIndex
+                                        NextIndex:(NSUInteger)nextIndex
 {
    NSMutableArray *results = [[NSMutableArray alloc] init];
    NSMutableArray *toRemove = [[NSMutableArray alloc] init];
@@ -460,7 +496,7 @@
             // If the attribute does not appear in the xml element OR
             // the xml attribute's value is not equal to the blueprints required value
             // do not use it, as it is not the correct object.
-            if (![[xmlAttributes allKeys] containsObject:attribute] ||
+            if (xmlAttributes[attribute] == nil ||
                 ![xmlAttributes[attribute] isEqualToString:attributes[attribute]])
             {
                foundMatch = NO;

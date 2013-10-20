@@ -1,28 +1,29 @@
 //
-//  EVEAttributeEnhancerId.m
+//  EVEError.m
 //  EveAPI
 //
-//  Created by Johnathan Richter on 10/15/13.
+//  Created by Johnathan Richter on 10/19/13.
 //  Copyright (c) 2013 Johnathan Richter. All rights reserved.
 //
 
-#import "EVEAttributeEnhancerId.h"
+#import "EVEError.h"
 
-@interface EVEAttributeEnhancerId ()
+@interface EVEError ()
 
 @end
 
-@implementation EVEAttributeEnhancerId
+@implementation EVEError
 
 #pragma mark - Instance Methods
 
--(EVEAttributeEnhancerId *)init
+-(EVEError *)init
 {
    self = [super init];
    if (self)
    {
       // Initialize XML Variables
-      self.enhancerId = @0;
+      self.code = @0;
+      self.details = @"";
       
       // Configure the object's blueprint
       [self configureObjectBlueprint];
@@ -34,12 +35,14 @@
 -(void)configureObjectBlueprint
 {
    [self.objectBlueprint setObjectClassId:[self class]];
-   [self.objectBlueprint setObjectValue:@"enhancerId"];
+   [self.objectBlueprint setObjectValue:@"details"];
+   [self.objectBlueprint addAttribute:@"code"];
 }
 
 -(NSString *)description
 {
-   return [NSString stringWithFormat:@"%@", self.enhancerId];
+   return [NSString stringWithFormat:@"Code %@ | Details: %@",
+                                     self.code, self.details];
 }
 
 #pragma mark - Private Instance Methods
@@ -48,9 +51,13 @@
 
 -(void)setNilValueForKey:(NSString *)key
 {
-   if([key isEqualToString:@"enhancerId"])
+   if([key isEqualToString:@"code"])
    {
       [self setValue:@0 forKey:key];
+   }
+   else if([key isEqualToString:@"details"])
+   {
+      [self setValue:@"" forKey:key];
    }
 }
 

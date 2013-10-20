@@ -23,7 +23,7 @@
    if (self)
    {
       // Initialize XML Variables
-      self.enhancerId = [EVEAttributeEnhancerId new];
+      self.enhancerValue = [EVEAttributeEnhancerValue new];
       self.enhancerName = [EVEAttributeEnhancerName new];
       
       // Configure the object's blueprint
@@ -38,26 +38,26 @@
    [self.objectBlueprint setObjectClassId:[self class]];
 }
 
--(void)setRelationshipsWithEnhancerIdKeypath:(NSString *)idKeypath
-                                 NameKeypath:(NSString *)nameKeypath
+-(void)setRelationshipsWithEnhancerValueKeypath:(NSString *)valueKeypath
+                                    NameKeypath:(NSString *)nameKeypath
 {
-   BlueprintRelationship *idRelationship =
-   [BlueprintRelationship relationshipFromXmlKeypath:idKeypath
-                        RelativeToObjectWithProperty:@"enhancerId"
-                                        ForBlueprint:[[EVEAttributeEnhancerId new] objectBlueprint]];
+   BlueprintRelationship *valueRelationship =
+   [BlueprintRelationship relationshipFromXmlKeypath:valueKeypath
+                        RelativeToObjectWithProperty:@"enhancerValue"
+                                        ForBlueprint:[[EVEAttributeEnhancerValue new] objectBlueprint]];
    
    BlueprintRelationship *nameRelationship =
    [BlueprintRelationship relationshipFromXmlKeypath:nameKeypath
                         RelativeToObjectWithProperty:@"enhancerName"
                                         ForBlueprint:[[EVEAttributeEnhancerName new] objectBlueprint]];
    
-   [self.objectBlueprint addRelationshipsFromArray:@[idRelationship, nameRelationship]];
+   [self.objectBlueprint addRelationshipsFromArray:@[valueRelationship, nameRelationship]];
 }
 
 -(NSString *)description
 {
-   return [NSString stringWithFormat:@"Enhancer Id: %@ | Name: %@",
-           self.enhancerId, self.enhancerName];
+   return [NSString stringWithFormat:@"Enhancer Value: %@ | Name: %@",
+           self.enhancerValue, self.enhancerName];
 }
 
 #pragma mark - Private Instance Methods
@@ -68,7 +68,7 @@
 {
    if([key isEqualToString:@"enhancerId"])
    {
-      [self setValue:[EVEAttributeEnhancerId new] forKey:key];
+      [self setValue:[EVEAttributeEnhancerValue new] forKey:key];
    }
    else if([key isEqualToString:@"enhancerName"])
    {

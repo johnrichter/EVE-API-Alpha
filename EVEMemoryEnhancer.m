@@ -20,7 +20,7 @@
 -(NSString *)description
 {
    return [NSString stringWithFormat:@"Memory Enhancer Id: %@ | Name: %@",
-                                     self.enhancerId, self.enhancerName];
+                                     self.enhancerValue, self.enhancerName];
 }
 
 @end

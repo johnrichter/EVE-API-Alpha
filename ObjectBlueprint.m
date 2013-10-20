@@ -20,8 +20,10 @@
       self.objectClassId = nil;
       self.xmlKeypath = @"";
       self.xmlAttributes = [NSMutableDictionary new];
-      self.objectAttributes = [[NSMutableDictionary alloc] init];
-      self.objectRelationships = [[NSMutableArray alloc] init];
+      self.parentElementName = @"";
+      self.parentXmlAttributes = [NSMutableDictionary new];
+      self.objectAttributes = [NSMutableDictionary new];
+      self.objectRelationships = [NSMutableArray new];
       self.objectValue = @"";
    }
    
@@ -36,8 +38,10 @@
       self.objectClassId = aClass;
       self.xmlKeypath = keyPath;
       self.xmlAttributes = [NSMutableDictionary new];
-      self.objectAttributes = [[NSMutableDictionary alloc] init];
-      self.objectRelationships = [[NSMutableArray alloc] init];
+      self.parentElementName = @"";
+      self.parentXmlAttributes = [NSMutableDictionary new];
+      self.objectAttributes = [NSMutableDictionary new];
+      self.objectRelationships = [NSMutableArray new];
       self.objectValue = @"";
    }
    
@@ -53,6 +57,8 @@
    {
       self.xmlKeypath = keyPath;
       self.xmlAttributes = [NSMutableDictionary new];
+      self.parentElementName = @"";
+      self.parentXmlAttributes = [NSMutableDictionary new];
       self.objectClassId = aClass;
       self.objectAttributes = [NSMutableDictionary dictionaryWithDictionary:attributes];
       self.objectRelationships = [[NSMutableArray alloc] init];
@@ -72,6 +78,8 @@
    {
       self.xmlKeypath = keyPath;
       self.xmlAttributes = [NSMutableDictionary new];
+      self.parentElementName = @"";
+      self.parentXmlAttributes = [NSMutableDictionary new];
       self.objectClassId = aClass;
       self.objectAttributes = [NSMutableDictionary dictionaryWithDictionary:attributes];
       self.objectRelationships = [[NSMutableArray alloc] init];
@@ -91,6 +99,8 @@
    {
       self.xmlKeypath = keyPath;
       self.xmlAttributes = [NSMutableDictionary dictionaryWithDictionary:xmlAttributes];
+      self.parentElementName = @"";
+      self.parentXmlAttributes = [NSMutableDictionary new];
       self.objectClassId = aClass;
       self.objectAttributes = [NSMutableDictionary dictionaryWithDictionary:attributes];
       self.objectRelationships = [[NSMutableArray alloc] init];
@@ -111,6 +121,8 @@
    {
       self.xmlKeypath = keyPath;
       self.xmlAttributes = [NSMutableDictionary dictionaryWithDictionary:xmlAttributes];
+      self.parentElementName = @"";
+      self.parentXmlAttributes = [NSMutableDictionary new];
       self.objectClassId = aClass;
       self.objectAttributes = [NSMutableDictionary dictionaryWithDictionary:attributes];
       self.objectRelationships = [[NSMutableArray alloc] init];
@@ -148,6 +160,17 @@
    }
 }
 
+-(void)setXmlKeypath:(NSString *)xmlKeypath
+  MatchingAttributes:(NSDictionary *)xmlAttributes
+{
+   [self setXmlKeypath:xmlKeypath];
+   
+   for (NSString *attribute in xmlAttributes)
+   {
+      _xmlAttributes[attribute] = xmlAttributes[attribute];
+   }
+}
+
 -(void)addXmlAttribute:(NSString *)xmlAttribute
 {
    _xmlAttributes[xmlAttribute] = [xmlAttribute copy];
@@ -158,7 +181,7 @@
    _xmlAttributes[from] = to;
 }
 
--(void)addXmlAttributeFromArray:(NSArray *)xmlAttributes
+-(void)addXmlAttributesFromArray:(NSArray *)xmlAttributes
 {
    for (NSString *attribute in xmlAttributes)
    {
@@ -171,6 +194,45 @@
    for (NSString *attribute in xmlAttributes)
    {
       _xmlAttributes[attribute] = xmlAttributes[attribute];
+   }
+}
+
+-(void)setXmlKeypath:(NSString *)xmlKeypath
+  MatchingParentName:(NSString *)parentName
+ ParentXmlAttributes:(NSDictionary *)parentXmlAttributes
+{
+   [self setXmlKeypath:xmlKeypath];
+   [self setParentElementName:parentName];
+   
+   for (NSString *attribute in parentXmlAttributes)
+   {
+      _parentXmlAttributes[attribute] = parentXmlAttributes[attribute];
+   }
+}
+
+-(void)addParentXmlAttribute:(NSString *)xmlAttribute;
+{
+   _parentXmlAttributes[xmlAttribute] = [xmlAttribute copy];
+}
+
+-(void)addParentXmlAttributeFrom:(NSString *)from To:(NSString *)to;
+{
+   _parentXmlAttributes[from] = to;
+}
+
+-(void)addParentXmlAttributesFromArray:(NSArray *)xmlAttributes;
+{
+   for (NSString *attribute in xmlAttributes)
+   {
+      _parentXmlAttributes[attribute] = [attribute copy];
+   }
+}
+
+-(void)addParentXmlattributesFromDictionary:(NSDictionary *)xmlAttributes
+{
+   for (NSString *attribute in xmlAttributes)
+   {
+      _parentXmlAttributes[attribute] = xmlAttributes[attribute];
    }
 }
 

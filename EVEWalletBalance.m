@@ -36,6 +36,7 @@
 -(void)configureObjectBlueprint
 {
    [self.objectBlueprint setObjectClassId:[self class]];
+   [self.objectBlueprint setObjectValue:@"walletBalance"];
    [self.objectBlueprint addAttributesFromDictionary:@{@"accountID":@"walletId",
                                                        @"accountKey":@"walletKey",
                                                        @"balance":@"walletBalance"}];
@@ -43,10 +44,7 @@
 
 -(NSString *)description
 {
-   return [NSString stringWithFormat:@"--- Wallet Balance ---\n"
-                                     @"Wallet Id:\t\t\t%@\n"
-                                     @"Wallet Key:\t\t%@\n"
-                                     @"Wallet Balance:\t\t%@\n",
+   return [NSString stringWithFormat:@"Wallet Id: %@ | Key: %@ | Balance: %@",
                                      self.walletId,
                                      self.walletKey,
                                      self.walletBalance];

@@ -18,11 +18,11 @@
 #import "EVEAssetList.h"
 #import "EVECalendarEventAttendees.h"
 #import "EVEUpcomingCalendarEvents.h"
+#import "EVECharacterSheet.h"
 
 @interface MainWindowController : NSWindowController
 
 @property (strong) IBOutlet NSTextView *xmlTextView;
-
 
 @property (strong) EVEApiKeyInformation *apiKeyInfo;
 @property (strong) EVEAccountStatus *accountStatus;
@@ -31,5 +31,6 @@
 @property (strong) EVEAssetList *assetList;
 @property (strong) EVEUpcomingCalendarEvents *upcomingEvents;
 @property (strong) EVECalendarEventAttendees *eventAttendees;
+@property (strong) EVECharacterSheet *characterSheet;
 
 @end

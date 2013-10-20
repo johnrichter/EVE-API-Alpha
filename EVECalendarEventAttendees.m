@@ -75,7 +75,8 @@
            @"CAK Access Mask Required:\t%@\n"
            @"Date Last Queried:\t\t\t%@\n"
            @"Cached Until:\t\t\t\t%@\n"
-           @"Cache Style:\t\t\t\t%@\n\n",
+           @"Cache Style:\t\t\t\t%@\n"
+           @"API Error:\t\t\t\t\t%@\n\n",
            self.commonName,
            self.apiVersion,
            self.uri,
@@ -84,7 +85,8 @@
            self.cakAccessMask,
            self.lastQueried,
            self.cachedUntil,
-           [EVEApiObject cacheStyleToString:self.cacheStyle]];
+           [EVEApiObject cacheStyleToString:self.cacheStyle],
+           self.apiError];
    
    for (id object in self.eventAttendees)
    {

@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "EVEApiProtocol.h"
 #import "EVEDate.h"
+#import "EVEError.h"
 #import "RequestOperation.h"
 #import "ObjectBlueprint.h"
 
@@ -42,6 +43,7 @@ typedef enum LegacyApiKeyRestriction : NSUInteger
 @property (strong) NSNumber *apiVersion;
 @property (strong) EVEDate *lastQueried;
 @property (strong) EVEDate *cachedUntil;
+@property (strong) EVEError *apiError;
 
 #pragma mark - Object Building Properties
 @property (strong) RequestOperation *requestOperation;

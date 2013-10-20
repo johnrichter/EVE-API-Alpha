@@ -1,28 +1,28 @@
 //
-//  EVECharacterId.m
+//  EVEAttributeEnhancerId.m
 //  EveAPI
 //
 //  Created by Johnathan Richter on 10/15/13.
 //  Copyright (c) 2013 Johnathan Richter. All rights reserved.
 //
 
-#import "EVECharacterId.h"
+#import "EVEAttributeEnhancerValue.h"
 
-@interface EVECharacterId ()
+@interface EVEAttributeEnhancerValue ()
 
 @end
 
-@implementation EVECharacterId
+@implementation EVEAttributeEnhancerValue
 
 #pragma mark - Instance Methods
 
--(EVECharacterId *)init
+-(EVEAttributeEnhancerValue *)init
 {
    self = [super init];
    if (self)
    {
       // Initialize XML Variables
-      self.characterId = @0;
+      self.enhancerValue = @0;
       
       // Configure the object's blueprint
       [self configureObjectBlueprint];
@@ -34,12 +34,12 @@
 -(void)configureObjectBlueprint
 {
    [self.objectBlueprint setObjectClassId:[self class]];
-   [self.objectBlueprint setObjectValue:@"characterId"];
+   [self.objectBlueprint setObjectValue:@"enhancerValue"];
 }
 
 -(NSString *)description
 {
-   return [NSString stringWithFormat:@"%@", self.characterId];
+   return [NSString stringWithFormat:@"%@", self.enhancerValue];
 }
 
 #pragma mark - Private Instance Methods
@@ -48,7 +48,7 @@
 
 -(void)setNilValueForKey:(NSString *)key
 {
-   if([key isEqualToString:@"characterId"])
+   if([key isEqualToString:@"enhancerId"])
    {
       [self setValue:@0 forKey:key];
    }
