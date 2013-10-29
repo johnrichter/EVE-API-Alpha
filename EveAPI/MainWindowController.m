@@ -70,6 +70,16 @@
                                                selector:@selector(EVECharacterSheetDidLoad:)
                                                    name:NSStringFromClass([EVECharacterSheet class])
                                                  object:nil];
+      
+      [[NSNotificationCenter defaultCenter] addObserver:self
+                                               selector:@selector(EVEContactListDidLoad:)
+                                                   name:NSStringFromClass([EVEContactList class])
+                                                 object:nil];
+      
+      [[NSNotificationCenter defaultCenter] addObserver:self
+                                               selector:@selector(EVEContactNotificationsDidLoad:)
+                                                   name:NSStringFromClass([EVEContactNotifications class])
+                                                 object:nil];
    }
    
    return self;
@@ -77,10 +87,10 @@
 
 - (void)windowDidLoad
 {
-    [super windowDidLoad];
+   [super windowDidLoad];
     
-    // Implement this method to handle any initialization after your window controller's
-    // window has been loaded from its nib file.
+   // Implement this method to handle any initialization after your window controller's
+   // window has been loaded from its nib file.
 
    NSString *legacyUserId = @"8695857";
    NSString *legacyLimitedKey = @"F0AD3EC9275C4FE38A90F191FA2B223AF66C79FAF2CF45828340EC5D0E62220E";
@@ -129,7 +139,17 @@
    self.characterSheet = [[EVECharacterSheet alloc] initWithEveKeyId:keyId
                                                                VCode:vCode
                                                          CharacterId:minosId];
-   [self.characterSheet queryTheApi];
+   //[self.characterSheet queryTheApi];
+   
+   self.contactList = [[EVEContactList alloc] initWithEveKeyId:keyId
+                                                         VCode:vCode
+                                                   CharacterId:minosId];
+   //[self.contactList queryTheApi];
+   
+   self.contactNotifications = [[EVEContactNotifications alloc] initWithEveKeyId:keyId
+                                                                           VCode:vCode
+                                                                     CharacterId:minosId];
+   [self.contactNotifications queryTheApi];
 }
 
 -(void)dealloc
@@ -198,6 +218,22 @@
    NSMutableString *newStr = [NSMutableString stringWithString:@"\n"];
    [newStr appendString:self.xmlTextView.string];
    [newStr appendFormat:@"%@\n", self.characterSheet];
+   [self.xmlTextView setString:newStr];
+}
+
+-(void)EVEContactListDidLoad:(NSNotification *)notification
+{
+   NSMutableString *newStr = [NSMutableString stringWithString:@"\n"];
+   [newStr appendString:self.xmlTextView.string];
+   [newStr appendFormat:@"%@\n", self.contactList];
+   [self.xmlTextView setString:newStr];
+}
+
+-(void)EVEContactNotificationsDidLoad:(NSNotification *)notification
+{
+   NSMutableString *newStr = [NSMutableString stringWithString:@"\n"];
+   [newStr appendString:self.xmlTextView.string];
+   [newStr appendFormat:@"%@\n", self.contactNotifications];
    [self.xmlTextView setString:newStr];
 }
 

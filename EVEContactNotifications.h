@@ -7,7 +7,22 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "EVEApiObject.h"
 
-@interface EVEContactNotifications : NSObject
+@interface EVEContactNotifications : EVEApiObject <EVEApiObjectProtocol, RequestOperationDelegate>
+
+#pragma mark - XML Properties
+@property (strong) NSMutableArray *notifications;
+
+#pragma mark - Instance Properties
+@property (strong) NSString *keyId;
+@property (strong) NSString *vCode;
+@property (strong) NSNumber *characterId;
+
+#pragma mark - Instance Methods
+-(EVEContactNotifications *)initWithEveKeyId:(NSString *)keyId
+                                       VCode:(NSString *)vCode
+                                 CharacterId:(NSNumber *)characterId;
+-(void)queryTheApi;
 
 @end

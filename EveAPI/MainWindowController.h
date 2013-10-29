@@ -19,6 +19,8 @@
 #import "EVECalendarEventAttendees.h"
 #import "EVEUpcomingCalendarEvents.h"
 #import "EVECharacterSheet.h"
+#import "EVEContactList.h"
+#import "EVEContactNotifications.h"
 
 @interface MainWindowController : NSWindowController
 
@@ -32,5 +34,6 @@
 @property (strong) EVEUpcomingCalendarEvents *upcomingEvents;
 @property (strong) EVECalendarEventAttendees *eventAttendees;
 @property (strong) EVECharacterSheet *characterSheet;
-
+@property (strong) EVEContactList *contactList;
+@property (strong) EVEContactNotifications *contactNotifications;
 @end
