@@ -80,6 +80,16 @@
                                                selector:@selector(EVEContactNotificationsDidLoad:)
                                                    name:NSStringFromClass([EVEContactNotifications class])
                                                  object:nil];
+      
+      [[NSNotificationCenter defaultCenter] addObserver:self
+                                               selector:@selector(EVEContractsDidLoad:)
+                                                   name:NSStringFromClass([EVEContracts class])
+                                                 object:nil];
+      
+      [[NSNotificationCenter defaultCenter] addObserver:self
+                                               selector:@selector(EVEContractItemsDidLoad:)
+                                                   name:NSStringFromClass([EVEContractItems class])
+                                                 object:nil];
    }
    
    return self;
@@ -102,6 +112,7 @@
    NSString *corpVCode = @"nei3DTwGZuKmuN8k37ZbwiQB3IuRzuhclmHnTbfKwKMsPMrPb18S3oM6Vq5aurZH";
    NSNumber *minosId = @91779534;
    NSNumber *minosEvent = @0;
+   NSNumber *minosContractId = @74186293;
    
    self.apiKeyInfo = [[EVEApiKeyInformation alloc] initWithEveKeyId:keyId VCode:vCode];
    
@@ -149,7 +160,18 @@
    self.contactNotifications = [[EVEContactNotifications alloc] initWithEveKeyId:keyId
                                                                            VCode:vCode
                                                                      CharacterId:minosId];
-   [self.contactNotifications queryTheApi];
+   //[self.contactNotifications queryTheApi];
+   
+   self.characterContracts = [[EVEContracts alloc] initWithEveKeyId:keyId
+                                                              VCode:vCode
+                                                        CharacterId:minosId];
+   //[self.characterContracts queryTheApi];
+   
+   self.contractItems = [[EVEContractItems alloc] initWithEveKeyId:keyId
+                                                             VCode:vCode
+                                                       CharacterId:minosId
+                                                        ContractId:minosContractId];
+   [self.contractItems queryTheApi];
 }
 
 -(void)dealloc
@@ -234,6 +256,22 @@
    NSMutableString *newStr = [NSMutableString stringWithString:@"\n"];
    [newStr appendString:self.xmlTextView.string];
    [newStr appendFormat:@"%@\n", self.contactNotifications];
+   [self.xmlTextView setString:newStr];
+}
+
+-(void)EVEContractsDidLoad:(NSNotification *)notification
+{
+   NSMutableString *newStr = [NSMutableString stringWithString:@"\n"];
+   [newStr appendString:self.xmlTextView.string];
+   [newStr appendFormat:@"%@\n", self.characterContracts];
+   [self.xmlTextView setString:newStr];
+}
+
+-(void)EVEContractItemsDidLoad:(NSNotification *)notification
+{
+   NSMutableString *newStr = [NSMutableString stringWithString:@"\n"];
+   [newStr appendString:self.xmlTextView.string];
+   [newStr appendFormat:@"%@\n", self.contractItems];
    [self.xmlTextView setString:newStr];
 }
 

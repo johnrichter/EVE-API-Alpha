@@ -19,7 +19,7 @@
 @property (strong) NSNumber *typeId;
 @property (strong) NSNumber *quantity;
 @property (strong) NSNumber *flag;
-@property (strong) NSNumber *isPackaged;
+@property (strong) NSNumber *isNotPackaged;
 
 #pragma mark - XML Relationships
 

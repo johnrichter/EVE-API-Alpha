@@ -17,10 +17,57 @@
 #import "EVEAccountBalance.h"
 #import "EVEAssetList.h"
 #import "EVECalendarEventAttendees.h"
-#import "EVEUpcomingCalendarEvents.h"
 #import "EVECharacterSheet.h"
 #import "EVEContactList.h"
 #import "EVEContactNotifications.h"
+#import "EVEContracts.h"
+#import "EVEContractItems.h"
+#import "EVEContractBids.h"
+#import "EVEFactionalWarfareStats.h"
+#import "EVEIndustryJobs.h"
+#import "EVEKillLog.h"
+#import "EVELocations.h"
+#import "EVEMailBodies.h"
+#import "EVEMailingLists.h"
+#import "EVEMailMessages.h"
+#import "EVEMarketOrders.h"
+#import "EVEMedals.h"
+#import "EVENotifications.h"
+#import "EVENotificationTexts.h"
+#import "EVEResearch.h"
+#import "EVESkillInTraining.h"
+#import "EVESkillQueue.h"
+#import "EVEStandings.h"
+#import "EVEUpcomingCalendarEvents.h"
+#import "EVEWalletJournal.h"
+#import "EVEWalletTransactions.h"
+
+// Corporation APIs
+
+// Global EVE APIs
+#import "EVEAllianceList.h"
+#import "EVECertificateTree.h"
+#import "EVECharacterInfo.h"
+#import "EVECharacterIdToName.h"
+#import "EVECharacterNameToId.h"
+#import "EVEConquerableStationList.h"
+#import "EVEErrorList.h"
+#import "EVEFactionalWarfareTopStats.h"
+#import "EVEReferenceTypes.h"
+#import "EVESkillTree.h"
+#import "EVETypeName.h"
+
+// Map APIs
+#import "EVEFactionalWarfareSystems.h"
+#import "EVEJumps.h"
+#import "EVEKills.h"
+#import "EVESovereignty.h"
+
+// Misc APIs
+#import "EVEImage.h"
+
+// Server APIs
+#import "EVEServerStatus.h"
 
 @interface MainWindowController : NSWindowController
 
@@ -36,4 +83,7 @@
 @property (strong) EVECharacterSheet *characterSheet;
 @property (strong) EVEContactList *contactList;
 @property (strong) EVEContactNotifications *contactNotifications;
+@property (strong) EVEContracts *characterContracts;
+@property (strong) EVEContractItems *contractItems;
+
 @end

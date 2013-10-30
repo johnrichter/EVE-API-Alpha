@@ -27,7 +27,7 @@
       self.typeId = @0;
       self.quantity = @0;
       self.flag = @0;
-      self.isPackaged = @0;
+      self.isNotPackaged = @0;
       
       // XML Relationships
       self.containedAssets = @[];
@@ -47,17 +47,17 @@
                                                        @"typeID":@"typeId",
                                                        @"quantity":@"quantity",
                                                        @"flag":@"flag",
-                                                       @"singleton":@"isPackaged"}];
+                                                       @"singleton":@"isNotPackaged"}];
 }
 
 -(NSString *)description
 {
    NSMutableString *asset = [NSMutableString stringWithFormat:@"Asset "];
-   [asset appendFormat:@"Type: %@ | Quantity: %@ | Location: %@ | Is Packaged: %s | Flag: %@\n",
+   [asset appendFormat:@"Type: %@ | Quantity: %@ | Location: %@ | Is Not Packaged: %s | Flag: %@\n",
                        self.typeId,
                        self.quantity,
                        self.locationId,
-                       self.isPackaged ? "Yes":"No",
+                       self.isNotPackaged ? "Yes":"No",
                        self.flag];
    
    for (id object in self.containedAssets)
@@ -94,7 +94,7 @@
    {
       [self setValue:@0 forKey:key];
    }
-   else if([key isEqualToString:@"isPackaged"])
+   else if([key isEqualToString:@"isNotPackaged"])
    {
       [self setValue:@0 forKey:key];
    }
