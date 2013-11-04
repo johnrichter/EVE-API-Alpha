@@ -85,6 +85,11 @@
                                                    name:NSStringFromClass([EVEContractBids class])
                                                  object:nil];
       
+      [[NSNotificationCenter defaultCenter] addObserver:self
+                                               selector:@selector(EVEFactionalWarfareStatsDidLoad:)
+                                                   name:NSStringFromClass([EVEFactionalWarfareStats class])
+                                                 object:nil];
+      
       // Server APIs
       [[NSNotificationCenter defaultCenter] addObserver:self
                                                selector:@selector(EVEServerStatusDidLoad:)
@@ -182,7 +187,15 @@
    self.contractBids = [[EVEContractBids alloc] initWithEveKeyId:keyId
                                                            VCode:vCode
                                                      CharacterId:minosId];
-   [self.contractBids queryTheApi];
+   //[self.contractBids queryTheApi];
+   
+   self.factionalWarfareStats = [[EVEFactionalWarfareStats alloc] initWithEveKeyId:keyId
+                                                                             VCode:vCode
+                                                                       CharacterId:minosId];
+   [self.factionalWarfareStats queryTheApi];
+   
+   
+   
    
    // Server APIs
    self.callList = [EVECallList new];
@@ -298,6 +311,14 @@
    NSMutableString *newStr = [NSMutableString stringWithString:@"\n"];
    [newStr appendString:self.xmlTextView.string];
    [newStr appendFormat:@"%@\n", self.contractBids];
+   [self.xmlTextView setString:newStr];
+}
+
+-(void)EVEFactionalWarfareStatsDidLoad:(NSNotification *)notification
+{
+   NSMutableString *newStr = [NSMutableString stringWithString:@"\n"];
+   [newStr appendString:self.xmlTextView.string];
+   [newStr appendFormat:@"%@\n", self.factionalWarfareStats];
    [self.xmlTextView setString:newStr];
 }
 

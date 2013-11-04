@@ -25,7 +25,7 @@
       self.bidId = @0;
       self.contractId = @0;
       self.bidderId = @0;
-      self.dateBidPlaced = [EVEDate new];
+      self.dateBidPlaced = [EVEBidDate new];
       self.amount = @0;
       
       // Configure the object's blueprint
@@ -74,7 +74,7 @@
    }
    else if([key isEqualToString:@"dateBidPlaced"])
    {
-      [self setValue:[EVEDate new] forKey:key];
+      [self setValue:[EVEBidDate new] forKey:key];
    }
    else if([key isEqualToString:@"amount"])
    {

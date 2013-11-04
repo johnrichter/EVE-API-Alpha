@@ -7,7 +7,7 @@
 //
 
 #import "EVEObject.h"
-#import "EVEDate.h"
+#import "EVEBidDate.h"
 
 @interface EVEContractBid : EVEObject <EVEObjectProtocol>
 
@@ -17,7 +17,7 @@
 @property (strong) NSNumber *bidId;
 @property (strong) NSNumber *contractId;
 @property (strong) NSNumber *bidderId;
-@property (strong) EVEDate *dateBidPlaced;
+@property (strong) EVEBidDate *dateBidPlaced;
 @property (strong) NSNumber *amount;
 
 #pragma mark - XML Relationships

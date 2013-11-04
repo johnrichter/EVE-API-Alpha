@@ -87,6 +87,7 @@
 @property (strong) EVEContracts *characterContracts;
 @property (strong) EVEContractItems *contractItems;
 @property (strong) EVEContractBids *contractBids;
+@property (strong) EVEFactionalWarfareStats *factionalWarfareStats;
 
 // Server APIs
 @property (strong) EVEServerStatus *serverStatus;

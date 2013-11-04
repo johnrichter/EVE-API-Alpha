@@ -134,6 +134,18 @@
 		CDD079CB1827108800248F3B /* EVEServerState.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD079CA1827108800248F3B /* EVEServerState.m */; };
 		CDD079CE182710C400248F3B /* EVEPlayersOnline.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD079CD182710C400248F3B /* EVEPlayersOnline.m */; };
 		CDD079D21827296B00248F3B /* EVEContractBid.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD079D11827296B00248F3B /* EVEContractBid.m */; };
+		CDD079D518273CDA00248F3B /* EVEFactionId.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD079D418273CDA00248F3B /* EVEFactionId.m */; };
+		CDD079D818273CE500248F3B /* EVEFactionName.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD079D718273CE500248F3B /* EVEFactionName.m */; };
+		CDD079DB18273D0100248F3B /* EVEFactionEnlistDate.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD079DA18273D0100248F3B /* EVEFactionEnlistDate.m */; };
+		CDD079DE18273D5700248F3B /* EVEFactionCurrentRank.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD079DD18273D5700248F3B /* EVEFactionCurrentRank.m */; };
+		CDD079E118273D6200248F3B /* EVEFactionHighestRank.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD079E018273D6200248F3B /* EVEFactionHighestRank.m */; };
+		CDD079E418273D7100248F3B /* EVEFactionKillsYesterday.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD079E318273D7100248F3B /* EVEFactionKillsYesterday.m */; };
+		CDD079E718273D7E00248F3B /* EVEFactionKillsLastWeek.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD079E618273D7E00248F3B /* EVEFactionKillsLastWeek.m */; };
+		CDD079EA18273D9D00248F3B /* EVEFactionTotalKills.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD079E918273D9D00248F3B /* EVEFactionTotalKills.m */; };
+		CDD079ED18273DC300248F3B /* EVEFactionVictoryPointsYesterday.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD079EC18273DC300248F3B /* EVEFactionVictoryPointsYesterday.m */; };
+		CDD079F018273DD100248F3B /* EVEFactionVictoryPointsLastWeek.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD079EF18273DD100248F3B /* EVEFactionVictoryPointsLastWeek.m */; };
+		CDD079F318273DE800248F3B /* EVEFactionTotalVictoryPoints.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD079F218273DE800248F3B /* EVEFactionTotalVictoryPoints.m */; };
+		CDD079F618273E7200248F3B /* EVEBidDate.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD079F518273E7200248F3B /* EVEBidDate.m */; };
 		CDE0BB3717FE54D500AD8ABB /* EVEApiObject.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE0BB3617FE54D500AD8ABB /* EVEApiObject.m */; };
 		CDE0BB3A17FF096100AD8ABB /* EVEDate.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE0BB3917FF096100AD8ABB /* EVEDate.m */; };
 		CDE0BB3D17FF133400AD8ABB /* EVEObject.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE0BB3C17FF133400AD8ABB /* EVEObject.m */; };
@@ -400,6 +412,30 @@
 		CDD079CD182710C400248F3B /* EVEPlayersOnline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVEPlayersOnline.m; sourceTree = "<group>"; };
 		CDD079D01827296B00248F3B /* EVEContractBid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVEContractBid.h; sourceTree = "<group>"; };
 		CDD079D11827296B00248F3B /* EVEContractBid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVEContractBid.m; sourceTree = "<group>"; };
+		CDD079D318273CDA00248F3B /* EVEFactionId.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVEFactionId.h; sourceTree = "<group>"; };
+		CDD079D418273CDA00248F3B /* EVEFactionId.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVEFactionId.m; sourceTree = "<group>"; };
+		CDD079D618273CE500248F3B /* EVEFactionName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVEFactionName.h; sourceTree = "<group>"; };
+		CDD079D718273CE500248F3B /* EVEFactionName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVEFactionName.m; sourceTree = "<group>"; };
+		CDD079D918273D0100248F3B /* EVEFactionEnlistDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVEFactionEnlistDate.h; sourceTree = "<group>"; };
+		CDD079DA18273D0100248F3B /* EVEFactionEnlistDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVEFactionEnlistDate.m; sourceTree = "<group>"; };
+		CDD079DC18273D5700248F3B /* EVEFactionCurrentRank.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVEFactionCurrentRank.h; sourceTree = "<group>"; };
+		CDD079DD18273D5700248F3B /* EVEFactionCurrentRank.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVEFactionCurrentRank.m; sourceTree = "<group>"; };
+		CDD079DF18273D6200248F3B /* EVEFactionHighestRank.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVEFactionHighestRank.h; sourceTree = "<group>"; };
+		CDD079E018273D6200248F3B /* EVEFactionHighestRank.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVEFactionHighestRank.m; sourceTree = "<group>"; };
+		CDD079E218273D7100248F3B /* EVEFactionKillsYesterday.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVEFactionKillsYesterday.h; sourceTree = "<group>"; };
+		CDD079E318273D7100248F3B /* EVEFactionKillsYesterday.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVEFactionKillsYesterday.m; sourceTree = "<group>"; };
+		CDD079E518273D7E00248F3B /* EVEFactionKillsLastWeek.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVEFactionKillsLastWeek.h; sourceTree = "<group>"; };
+		CDD079E618273D7E00248F3B /* EVEFactionKillsLastWeek.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVEFactionKillsLastWeek.m; sourceTree = "<group>"; };
+		CDD079E818273D9D00248F3B /* EVEFactionTotalKills.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVEFactionTotalKills.h; sourceTree = "<group>"; };
+		CDD079E918273D9D00248F3B /* EVEFactionTotalKills.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVEFactionTotalKills.m; sourceTree = "<group>"; };
+		CDD079EB18273DC300248F3B /* EVEFactionVictoryPointsYesterday.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVEFactionVictoryPointsYesterday.h; sourceTree = "<group>"; };
+		CDD079EC18273DC300248F3B /* EVEFactionVictoryPointsYesterday.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVEFactionVictoryPointsYesterday.m; sourceTree = "<group>"; };
+		CDD079EE18273DD100248F3B /* EVEFactionVictoryPointsLastWeek.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVEFactionVictoryPointsLastWeek.h; sourceTree = "<group>"; };
+		CDD079EF18273DD100248F3B /* EVEFactionVictoryPointsLastWeek.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVEFactionVictoryPointsLastWeek.m; sourceTree = "<group>"; };
+		CDD079F118273DE800248F3B /* EVEFactionTotalVictoryPoints.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVEFactionTotalVictoryPoints.h; sourceTree = "<group>"; };
+		CDD079F218273DE800248F3B /* EVEFactionTotalVictoryPoints.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVEFactionTotalVictoryPoints.m; sourceTree = "<group>"; };
+		CDD079F418273E7200248F3B /* EVEBidDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVEBidDate.h; sourceTree = "<group>"; };
+		CDD079F518273E7200248F3B /* EVEBidDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVEBidDate.m; sourceTree = "<group>"; };
 		CDE0BB3517FE54D500AD8ABB /* EVEApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVEApiObject.h; sourceTree = "<group>"; };
 		CDE0BB3617FE54D500AD8ABB /* EVEApiObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVEApiObject.m; sourceTree = "<group>"; };
 		CDE0BB3817FF096100AD8ABB /* EVEDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVEDate.h; sourceTree = "<group>"; };
@@ -713,6 +749,8 @@
 				CDAFC7D118208D9A006BCAEC /* EVEContractItem.m */,
 				CDD079D01827296B00248F3B /* EVEContractBid.h */,
 				CDD079D11827296B00248F3B /* EVEContractBid.m */,
+				CDD079F418273E7200248F3B /* EVEBidDate.h */,
+				CDD079F518273E7200248F3B /* EVEBidDate.m */,
 				CD12AE2818160B43007B99AC /* EVECorporationContact.h */,
 				CD12AE2918160B43007B99AC /* EVECorporationContact.m */,
 				CDB7B35C180E169B00675108 /* EVECorporationId.h */,
@@ -768,6 +806,28 @@
 				CDD079CA1827108800248F3B /* EVEServerState.m */,
 				CDD079CC182710C400248F3B /* EVEPlayersOnline.h */,
 				CDD079CD182710C400248F3B /* EVEPlayersOnline.m */,
+				CDD079D318273CDA00248F3B /* EVEFactionId.h */,
+				CDD079D418273CDA00248F3B /* EVEFactionId.m */,
+				CDD079D618273CE500248F3B /* EVEFactionName.h */,
+				CDD079D718273CE500248F3B /* EVEFactionName.m */,
+				CDD079D918273D0100248F3B /* EVEFactionEnlistDate.h */,
+				CDD079DA18273D0100248F3B /* EVEFactionEnlistDate.m */,
+				CDD079DC18273D5700248F3B /* EVEFactionCurrentRank.h */,
+				CDD079DD18273D5700248F3B /* EVEFactionCurrentRank.m */,
+				CDD079DF18273D6200248F3B /* EVEFactionHighestRank.h */,
+				CDD079E018273D6200248F3B /* EVEFactionHighestRank.m */,
+				CDD079E218273D7100248F3B /* EVEFactionKillsYesterday.h */,
+				CDD079E318273D7100248F3B /* EVEFactionKillsYesterday.m */,
+				CDD079E518273D7E00248F3B /* EVEFactionKillsLastWeek.h */,
+				CDD079E618273D7E00248F3B /* EVEFactionKillsLastWeek.m */,
+				CDD079E818273D9D00248F3B /* EVEFactionTotalKills.h */,
+				CDD079E918273D9D00248F3B /* EVEFactionTotalKills.m */,
+				CDD079EB18273DC300248F3B /* EVEFactionVictoryPointsYesterday.h */,
+				CDD079EC18273DC300248F3B /* EVEFactionVictoryPointsYesterday.m */,
+				CDD079EE18273DD100248F3B /* EVEFactionVictoryPointsLastWeek.h */,
+				CDD079EF18273DD100248F3B /* EVEFactionVictoryPointsLastWeek.m */,
+				CDD079F118273DE800248F3B /* EVEFactionTotalVictoryPoints.h */,
+				CDD079F218273DE800248F3B /* EVEFactionTotalVictoryPoints.m */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -950,6 +1010,8 @@
 				CDB7B340180E0F9200675108 /* EVENumber.m in Sources */,
 				CDD079C51826F7E100248F3B /* EVECallGroup.m in Sources */,
 				CD84AE5C17FD2692001200AF /* EVEMailMessages.m in Sources */,
+				CDD079E418273D7100248F3B /* EVEFactionKillsYesterday.m in Sources */,
+				CDD079F018273DD100248F3B /* EVEFactionVictoryPointsLastWeek.m in Sources */,
 				CD423FBA17F89C3E00958F90 /* RKValueTransformers.m in Sources */,
 				CD84AEA117FD2AB2001200AF /* EVEStarbaseList.m in Sources */,
 				CDB7B364180E180B00675108 /* EVEAllianceId.m in Sources */,
@@ -976,6 +1038,7 @@
 				CDF407A61791B2C6001B5A57 /* main.m in Sources */,
 				CD84AE7417FD273F001200AF /* EVEStandings.m in Sources */,
 				CDB7B385180E27A000675108 /* EVEAttributeEnhancer.m in Sources */,
+				CDD079D518273CDA00248F3B /* EVEFactionId.m in Sources */,
 				CD84AE8F17FD2A2B001200AF /* EVEMemberSecurityLog.m in Sources */,
 				CDA8FB75180F760F005979A2 /* EVECorporationRole.m in Sources */,
 				CD84AEC217FD2FA4001200AF /* EVESkillTree.m in Sources */,
@@ -990,7 +1053,9 @@
 				CD84AE5917FD267D001200AF /* EVEMailingLists.m in Sources */,
 				CDB7B349180E123E00675108 /* EVECharacterId.m in Sources */,
 				CD84AE8317FD290B001200AF /* EVEContainerLog.m in Sources */,
+				CDD079DB18273D0100248F3B /* EVEFactionEnlistDate.m in Sources */,
 				CDB7B379180E1BDB00675108 /* EVEPerceptionEnhancer.m in Sources */,
+				CDD079EA18273D9D00248F3B /* EVEFactionTotalKills.m in Sources */,
 				CD84AED117FD302C001200AF /* EVESovereignty.m in Sources */,
 				CDD079C81826F7F600248F3B /* EVECall.m in Sources */,
 				CDAFC7D218208D9A006BCAEC /* EVEContractItem.m in Sources */,
@@ -1031,6 +1096,7 @@
 				CD84AE4717FD25D3001200AF /* EVEContractBids.m in Sources */,
 				CD2940F517EE639800BC7947 /* EVECharacter.m in Sources */,
 				CD84AECE17FD301D001200AF /* EVEKills.m in Sources */,
+				CDD079E718273D7E00248F3B /* EVEFactionKillsLastWeek.m in Sources */,
 				CD84AED417FD3099001200AF /* EVEImage.m in Sources */,
 				CD84AE9817FD2A68001200AF /* EVEOutpostServiceDetail.m in Sources */,
 				CDA8FB6F180F72EB005979A2 /* EVESkill.m in Sources */,
@@ -1040,10 +1106,13 @@
 				CDA8FB90180F7F89005979A2 /* EVECharacterCharisma.m in Sources */,
 				CD8699B517FBB88200B5160F /* EVEApiKey.m in Sources */,
 				CD84AE4117FD25B6001200AF /* EVEContracts.m in Sources */,
+				CDD079F618273E7200248F3B /* EVEBidDate.m in Sources */,
 				CD84AE5017FD260C001200AF /* EVEKillLog.m in Sources */,
 				CD26E63D180CA7A20060AED3 /* EVECalendarEvent.m in Sources */,
 				CD84AEBF17FD2F87001200AF /* EVEReferenceTypes.m in Sources */,
+				CDD079D818273CE500248F3B /* EVEFactionName.m in Sources */,
 				CDE0BB3A17FF096100AD8ABB /* EVEDate.m in Sources */,
+				CDD079F318273DE800248F3B /* EVEFactionTotalVictoryPoints.m in Sources */,
 				CD84AEBC17FD2F20001200AF /* EVEFactionalWarfareTopStats.m in Sources */,
 				CDCAF916180A3F5B00580BA7 /* EVEAccountExpirationDate.m in Sources */,
 				CD84AEC517FD2FEA001200AF /* EVETypeName.m in Sources */,
@@ -1052,6 +1121,7 @@
 				CDD079CE182710C400248F3B /* EVEPlayersOnline.m in Sources */,
 				CDA8FB87180F7E25005979A2 /* EVECharacterMemory.m in Sources */,
 				CD84AE6217FD26B9001200AF /* EVEMedals.m in Sources */,
+				CDD079DE18273D5700248F3B /* EVEFactionCurrentRank.m in Sources */,
 				CDB7B382180E1BFF00675108 /* EVECharismaEnhancer.m in Sources */,
 				CDB7B352180E149A00675108 /* EVEBloodLine.m in Sources */,
 				CD84AEB917FD2E6D001200AF /* EVEErrorList.m in Sources */,
@@ -1059,9 +1129,11 @@
 				CD84AE2C17FD24BE001200AF /* EVEAccountCharacters.m in Sources */,
 				CDA8FB84180F7E19005979A2 /* EVECharacterIntelligence.m in Sources */,
 				CDB7B355180E154400675108 /* EVEAncestry.m in Sources */,
+				CDD079ED18273DC300248F3B /* EVEFactionVictoryPointsYesterday.m in Sources */,
 				CD84AEA717FD2DA7001200AF /* EVEAllianceList.m in Sources */,
 				CD84AE6517FD26C3001200AF /* EVENotifications.m in Sources */,
 				CDB3E81A17A9CE2500899F94 /* XMLFactory.m in Sources */,
+				CDD079E118273D6200248F3B /* EVEFactionHighestRank.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
