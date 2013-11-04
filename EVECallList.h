@@ -7,7 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "EVEApiObject.h"
 
-@interface EVECallList : NSObject
+@interface EVECallList : EVEApiObject <EVEApiObjectProtocol, RequestOperationDelegate>
+
+#pragma mark - XML Properties
+@property (strong) NSMutableArray *callGroups;
+@property (strong) NSMutableArray *calls;
+
+#pragma mark - Instance Properties
+
+#pragma mark - Instance Methods
+-(EVECallList *)init;
+-(void)queryTheApi;
 
 @end

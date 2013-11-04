@@ -39,7 +39,7 @@
                                                     @"vCode":vCode,
                                                     @"characterID":[characterId stringValue],
                                                     @"contractID":[contractId stringValue]}];
-      self.cakAccessMask = @0;
+      self.cakAccessMask = @67108864;
       self.cacheStyle = kModifiedShortCache;
       self.legacyApiRestriction = kFullAccess;
       self.isLegacyApiKeyEnabled = NO;

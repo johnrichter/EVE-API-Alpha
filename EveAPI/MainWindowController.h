@@ -68,6 +68,7 @@
 
 // Server APIs
 #import "EVEServerStatus.h"
+#import "EVECallList.h"
 
 @interface MainWindowController : NSWindowController
 
@@ -85,5 +86,12 @@
 @property (strong) EVEContactNotifications *contactNotifications;
 @property (strong) EVEContracts *characterContracts;
 @property (strong) EVEContractItems *contractItems;
+@property (strong) EVEContractBids *contractBids;
+
+// Server APIs
+@property (strong) EVEServerStatus *serverStatus;
+
+// Eve Online API Server APIs
+@property (strong) EVECallList *callList;
 
 @end

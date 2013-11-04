@@ -19,18 +19,7 @@
    self = [super initWithWindow:window];
    if (self)
    {
-      // Initialization code here.
-
-      //       [self.scrollView setAutoresizingMask:NSViewWidthSizable | NSViewHeightSizable];
-      //
-      //       [self.xmlTextView setMaxSize:NSMakeSize(FLT_MAX, FLT_MAX)];
-      //       [self.xmlTextView setVerticallyResizable:YES];
-      //       [self.xmlTextView setHorizontallyResizable:YES];
-      //       [self.xmlTextView setAutoresizingMask:NSViewWidthSizable | NSViewHeightSizable];
-      //       [[self.xmlTextView textContainer] setWidthTracksTextView:YES];
-      //       [[self.xmlTextView textContainer] setHeightTracksTextView:YES];
-
-      // Initialization code here.
+      // Character APIs
       [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(EVEApiKeyInformationDidLoad:)
                                                  name:NSStringFromClass([EVEApiKeyInformation class])
@@ -90,6 +79,22 @@
                                                selector:@selector(EVEContractItemsDidLoad:)
                                                    name:NSStringFromClass([EVEContractItems class])
                                                  object:nil];
+      
+      [[NSNotificationCenter defaultCenter] addObserver:self
+                                               selector:@selector(EVEContractBidsDidLoad:)
+                                                   name:NSStringFromClass([EVEContractBids class])
+                                                 object:nil];
+      
+      // Server APIs
+      [[NSNotificationCenter defaultCenter] addObserver:self
+                                               selector:@selector(EVEServerStatusDidLoad:)
+                                                   name:NSStringFromClass([EVEServerStatus class])
+                                                 object:nil];
+      
+      [[NSNotificationCenter defaultCenter] addObserver:self
+                                               selector:@selector(EVECallListDidLoad:)
+                                                   name:NSStringFromClass([EVECallList class])
+                                                 object:nil];
    }
    
    return self;
@@ -114,6 +119,7 @@
    NSNumber *minosEvent = @0;
    NSNumber *minosContractId = @74186293;
    
+   // Character APIs
    self.apiKeyInfo = [[EVEApiKeyInformation alloc] initWithEveKeyId:keyId VCode:vCode];
    
    //[self.apiKeyInfo queryTheApi];
@@ -171,7 +177,19 @@
                                                              VCode:vCode
                                                        CharacterId:minosId
                                                         ContractId:minosContractId];
-   [self.contractItems queryTheApi];
+   //[self.contractItems queryTheApi];
+   
+   self.contractBids = [[EVEContractBids alloc] initWithEveKeyId:keyId
+                                                           VCode:vCode
+                                                     CharacterId:minosId];
+   [self.contractBids queryTheApi];
+   
+   // Server APIs
+   self.callList = [EVECallList new];
+   //[self.callList queryTheApi];
+   
+   self.serverStatus = [EVEServerStatus new];
+   //[self.serverStatus queryTheApi];
 }
 
 -(void)dealloc
@@ -272,6 +290,31 @@
    NSMutableString *newStr = [NSMutableString stringWithString:@"\n"];
    [newStr appendString:self.xmlTextView.string];
    [newStr appendFormat:@"%@\n", self.contractItems];
+   [self.xmlTextView setString:newStr];
+}
+
+-(void)EVEContractBidsDidLoad:(NSNotification *)notification
+{
+   NSMutableString *newStr = [NSMutableString stringWithString:@"\n"];
+   [newStr appendString:self.xmlTextView.string];
+   [newStr appendFormat:@"%@\n", self.contractBids];
+   [self.xmlTextView setString:newStr];
+}
+
+// EVE Online APIs Server APIs
+-(void)EVECallListDidLoad:(NSNotification *)notification
+{
+   NSMutableString *newStr = [NSMutableString stringWithString:@"\n"];
+   [newStr appendString:self.xmlTextView.string];
+   [newStr appendFormat:@"%@\n", self.callList];
+   [self.xmlTextView setString:newStr];
+}
+
+-(void)EVEServerStatusDidLoad:(NSNotification *)notification
+{
+   NSMutableString *newStr = [NSMutableString stringWithString:@"\n"];
+   [newStr appendString:self.xmlTextView.string];
+   [newStr appendFormat:@"%@\n", self.serverStatus];
    [self.xmlTextView setString:newStr];
 }
 
