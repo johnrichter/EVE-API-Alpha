@@ -121,6 +121,7 @@
 		CDB7B37F180E1BF400675108 /* EVEIntelligenceEnhancer.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB7B37E180E1BF400675108 /* EVEIntelligenceEnhancer.m */; };
 		CDB7B382180E1BFF00675108 /* EVECharismaEnhancer.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB7B381180E1BFF00675108 /* EVECharismaEnhancer.m */; };
 		CDB7B385180E27A000675108 /* EVEAttributeEnhancer.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB7B384180E27A000675108 /* EVEAttributeEnhancer.m */; };
+		CDB8D066182B2DD500900514 /* EVEIndustryJob.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB8D065182B2DD500900514 /* EVEIndustryJob.m */; };
 		CDBE208817F50D8B00C6B71E /* BlueprintRelationship.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBE208717F50D8B00C6B71E /* BlueprintRelationship.m */; };
 		CDBF28A5181F417600A4F45E /* EVEContactNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBF28A4181F417600A4F45E /* EVEContactNotification.m */; };
 		CDCAF916180A3F5B00580BA7 /* EVEAccountExpirationDate.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCAF915180A3F5B00580BA7 /* EVEAccountExpirationDate.m */; };
@@ -386,6 +387,8 @@
 		CDB7B381180E1BFF00675108 /* EVECharismaEnhancer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVECharismaEnhancer.m; sourceTree = "<group>"; };
 		CDB7B383180E27A000675108 /* EVEAttributeEnhancer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVEAttributeEnhancer.h; sourceTree = "<group>"; };
 		CDB7B384180E27A000675108 /* EVEAttributeEnhancer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVEAttributeEnhancer.m; sourceTree = "<group>"; };
+		CDB8D064182B2DD500900514 /* EVEIndustryJob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVEIndustryJob.h; sourceTree = "<group>"; };
+		CDB8D065182B2DD500900514 /* EVEIndustryJob.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVEIndustryJob.m; sourceTree = "<group>"; };
 		CDBE208617F50D8B00C6B71E /* BlueprintRelationship.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueprintRelationship.h; sourceTree = "<group>"; };
 		CDBE208717F50D8B00C6B71E /* BlueprintRelationship.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueprintRelationship.m; sourceTree = "<group>"; };
 		CDBF28A3181F417600A4F45E /* EVEContactNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVEContactNotification.h; sourceTree = "<group>"; };
@@ -828,6 +831,8 @@
 				CDD079EF18273DD100248F3B /* EVEFactionVictoryPointsLastWeek.m */,
 				CDD079F118273DE800248F3B /* EVEFactionTotalVictoryPoints.h */,
 				CDD079F218273DE800248F3B /* EVEFactionTotalVictoryPoints.m */,
+				CDB8D064182B2DD500900514 /* EVEIndustryJob.h */,
+				CDB8D065182B2DD500900514 /* EVEIndustryJob.m */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -1128,6 +1133,7 @@
 				CDCDE51917A894AF0062A36F /* RequestOperation.m in Sources */,
 				CD84AE2C17FD24BE001200AF /* EVEAccountCharacters.m in Sources */,
 				CDA8FB84180F7E19005979A2 /* EVECharacterIntelligence.m in Sources */,
+				CDB8D066182B2DD500900514 /* EVEIndustryJob.m in Sources */,
 				CDB7B355180E154400675108 /* EVEAncestry.m in Sources */,
 				CDD079ED18273DC300248F3B /* EVEFactionVictoryPointsYesterday.m in Sources */,
 				CD84AEA717FD2DA7001200AF /* EVEAllianceList.m in Sources */,

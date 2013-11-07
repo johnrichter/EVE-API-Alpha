@@ -7,7 +7,22 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "EVEApiObject.h"
 
-@interface EVEIndustryJobs : NSObject
+@interface EVEIndustryJobs : EVEApiObject <EVEApiObjectProtocol, RequestOperationDelegate>
+
+#pragma mark - XML Properties
+@property (strong) NSMutableArray *jobs;
+
+#pragma mark - Instance Properties
+@property (strong) NSString *keyId;
+@property (strong) NSString *vCode;
+@property (strong) NSNumber *characterId;
+
+#pragma mark - Instance Methods
+-(EVEIndustryJobs *)initWithEveKeyId:(NSString *)keyId
+                               VCode:(NSString *)vCode
+                         CharacterId:(NSNumber *)characterId;
+-(void)queryTheApi;
 
 @end

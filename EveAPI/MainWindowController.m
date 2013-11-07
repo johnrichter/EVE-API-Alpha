@@ -90,6 +90,11 @@
                                                    name:NSStringFromClass([EVEFactionalWarfareStats class])
                                                  object:nil];
       
+      [[NSNotificationCenter defaultCenter] addObserver:self
+                                               selector:@selector(EVEIndustryJobsDidLoad:)
+                                                   name:NSStringFromClass([EVEIndustryJobs class])
+                                                 object:nil];
+      
       // Server APIs
       [[NSNotificationCenter defaultCenter] addObserver:self
                                                selector:@selector(EVEServerStatusDidLoad:)
@@ -192,7 +197,12 @@
    self.factionalWarfareStats = [[EVEFactionalWarfareStats alloc] initWithEveKeyId:keyId
                                                                              VCode:vCode
                                                                        CharacterId:minosId];
-   [self.factionalWarfareStats queryTheApi];
+   //[self.factionalWarfareStats queryTheApi];
+   
+   self.industryJobs = [[EVEIndustryJobs alloc] initWithEveKeyId:keyId
+                                                           VCode:vCode
+                                                     CharacterId:minosId];
+   [self.industryJobs queryTheApi];
    
    
    
@@ -336,6 +346,14 @@
    NSMutableString *newStr = [NSMutableString stringWithString:@"\n"];
    [newStr appendString:self.xmlTextView.string];
    [newStr appendFormat:@"%@\n", self.serverStatus];
+   [self.xmlTextView setString:newStr];
+}
+
+-(void)EVEIndustryJobsDidLoad:(NSNotification *)notification
+{
+   NSMutableString *newStr = [NSMutableString stringWithString:@"\n"];
+   [newStr appendString:self.xmlTextView.string];
+   [newStr appendFormat:@"%@\n", self.industryJobs];
    [self.xmlTextView setString:newStr];
 }
 
