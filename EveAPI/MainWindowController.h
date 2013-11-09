@@ -93,6 +93,8 @@
 @property (strong) EVELocations *locations;
 @property (strong) EVEMailBodies *mailBodies;
 @property (strong) EVEMailMessages *mailMessages;
+@property (strong) EVEMailingLists *mailingLists;
+@property (strong) EVEMarketOrders *marketOrders;
 
 // Server APIs
 @property (strong) EVEServerStatus *serverStatus;

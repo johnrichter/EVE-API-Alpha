@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD0434B5182DEBD000A59E4F /* EVEMailingList.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0434B4182DEBD000A59E4F /* EVEMailingList.m */; };
+		CD0434B7182DEE8B00A59E4F /* EveAPI-Notes.txt in Resources */ = {isa = PBXBuildFile; fileRef = CD0434B6182DEE8B00A59E4F /* EveAPI-Notes.txt */; };
+		CD0434BA182DF0F500A59E4F /* EVEMarketOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0434B9182DF0F500A59E4F /* EVEMarketOrder.m */; };
 		CD0EEC09182D325F0068E754 /* EVEKill.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0EEC08182D325F0068E754 /* EVEKill.m */; };
 		CD0EEC0C182D35D70068E754 /* EVEKillVictim.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0EEC0B182D35D70068E754 /* EVEKillVictim.m */; };
 		CD0EEC0F182D4DC30068E754 /* EVEKillAttackers.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0EEC0E182D4DC30068E754 /* EVEKillAttackers.m */; };
@@ -155,6 +158,7 @@
 		CDD079F018273DD100248F3B /* EVEFactionVictoryPointsLastWeek.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD079EF18273DD100248F3B /* EVEFactionVictoryPointsLastWeek.m */; };
 		CDD079F318273DE800248F3B /* EVEFactionTotalVictoryPoints.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD079F218273DE800248F3B /* EVEFactionTotalVictoryPoints.m */; };
 		CDD079F618273E7200248F3B /* EVEBidDate.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD079F518273E7200248F3B /* EVEBidDate.m */; };
+		CDD5BC3C182DD227004505F8 /* EVEMailMessages.xml in Resources */ = {isa = PBXBuildFile; fileRef = CDD5BC3B182DD227004505F8 /* EVEMailMessages.xml */; };
 		CDE0BB3717FE54D500AD8ABB /* EVEApiObject.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE0BB3617FE54D500AD8ABB /* EVEApiObject.m */; };
 		CDE0BB3A17FF096100AD8ABB /* EVEDate.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE0BB3917FF096100AD8ABB /* EVEDate.m */; };
 		CDE0BB3D17FF133400AD8ABB /* EVEObject.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE0BB3C17FF133400AD8ABB /* EVEObject.m */; };
@@ -168,6 +172,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CD0434B3182DEBD000A59E4F /* EVEMailingList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVEMailingList.h; sourceTree = "<group>"; };
+		CD0434B4182DEBD000A59E4F /* EVEMailingList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVEMailingList.m; sourceTree = "<group>"; };
+		CD0434B6182DEE8B00A59E4F /* EveAPI-Notes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "EveAPI-Notes.txt"; sourceTree = SOURCE_ROOT; };
+		CD0434B8182DF0F500A59E4F /* EVEMarketOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVEMarketOrder.h; sourceTree = "<group>"; };
+		CD0434B9182DF0F500A59E4F /* EVEMarketOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVEMarketOrder.m; sourceTree = "<group>"; };
 		CD0EEC07182D325F0068E754 /* EVEKill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVEKill.h; sourceTree = "<group>"; };
 		CD0EEC08182D325F0068E754 /* EVEKill.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVEKill.m; sourceTree = "<group>"; };
 		CD0EEC0A182D35D70068E754 /* EVEKillVictim.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVEKillVictim.h; sourceTree = "<group>"; };
@@ -463,6 +472,7 @@
 		CDD079F218273DE800248F3B /* EVEFactionTotalVictoryPoints.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVEFactionTotalVictoryPoints.m; sourceTree = "<group>"; };
 		CDD079F418273E7200248F3B /* EVEBidDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVEBidDate.h; sourceTree = "<group>"; };
 		CDD079F518273E7200248F3B /* EVEBidDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVEBidDate.m; sourceTree = "<group>"; };
+		CDD5BC3B182DD227004505F8 /* EVEMailMessages.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = EVEMailMessages.xml; path = "Test XML/EVEMailMessages.xml"; sourceTree = SOURCE_ROOT; };
 		CDE0BB3517FE54D500AD8ABB /* EVEApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVEApiObject.h; sourceTree = "<group>"; };
 		CDE0BB3617FE54D500AD8ABB /* EVEApiObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVEApiObject.m; sourceTree = "<group>"; };
 		CDE0BB3817FF096100AD8ABB /* EVEDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVEDate.h; sourceTree = "<group>"; };
@@ -873,6 +883,10 @@
 				CD0EEC1A182D7B950068E754 /* EVEItemLocation.m */,
 				CD0EEC1C182DA24E0068E754 /* EVEMail.h */,
 				CD0EEC1D182DA24E0068E754 /* EVEMail.m */,
+				CD0434B3182DEBD000A59E4F /* EVEMailingList.h */,
+				CD0434B4182DEBD000A59E4F /* EVEMailingList.m */,
+				CD0434B8182DF0F500A59E4F /* EVEMarketOrder.h */,
+				CD0434B9182DF0F500A59E4F /* EVEMarketOrder.m */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -961,6 +975,8 @@
 		CDF407A01791B2C6001B5A57 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CD0434B6182DEE8B00A59E4F /* EveAPI-Notes.txt */,
+				CDD5BC3B182DD227004505F8 /* EVEMailMessages.xml */,
 				CDF407A11791B2C6001B5A57 /* EveAPI-Info.plist */,
 				CDF407A21791B2C6001B5A57 /* InfoPlist.strings */,
 				CDF407A51791B2C6001B5A57 /* main.m */,
@@ -1021,9 +1037,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD0434B7182DEE8B00A59E4F /* EveAPI-Notes.txt in Resources */,
 				CDF407A41791B2C6001B5A57 /* InfoPlist.strings in Resources */,
 				CDF407AA1791B2C6001B5A57 /* Credits.rtf in Resources */,
 				CD8564EE180B83E100BBE4CA /* MainWindowController.xib in Resources */,
+				CDD5BC3C182DD227004505F8 /* EVEMailMessages.xml in Resources */,
 				CDF407B01791B2C6001B5A57 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1117,10 +1135,12 @@
 				CDD079D21827296B00248F3B /* EVEContractBid.m in Sources */,
 				CD84AE7D17FD277F001200AF /* EVEWalletTransactions.m in Sources */,
 				CD84AE9E17FD2AA8001200AF /* EVEStarbaseDetail.m in Sources */,
+				CD0434B5182DEBD000A59E4F /* EVEMailingList.m in Sources */,
 				CD12AE2A18160B43007B99AC /* EVECorporationContact.m in Sources */,
 				CD8564ED180B83E100BBE4CA /* MainWindowController.m in Sources */,
 				CD84AE5317FD2628001200AF /* EVELocations.m in Sources */,
 				CD84AE2F17FD24DC001200AF /* EVEAccountBalance.m in Sources */,
+				CD0434BA182DF0F500A59E4F /* EVEMarketOrder.m in Sources */,
 				CD84AE9B17FD2A8A001200AF /* EVEShareholders.m in Sources */,
 				CD84AE6E17FD26F8001200AF /* EVESkillInTraining.m in Sources */,
 				CD84AE8C17FD2A20001200AF /* EVEMemberSecurity.m in Sources */,

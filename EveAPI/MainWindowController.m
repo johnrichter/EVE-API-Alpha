@@ -115,6 +115,16 @@
                                                    name:NSStringFromClass([EVEMailMessages class])
                                                  object:nil];
       
+      [[NSNotificationCenter defaultCenter] addObserver:self
+                                               selector:@selector(EVEMailingListsDidLoad:)
+                                                   name:NSStringFromClass([EVEMailingLists class])
+                                                 object:nil];
+      
+      [[NSNotificationCenter defaultCenter] addObserver:self
+                                               selector:@selector(EVEMarketOrdersDidLoad:)
+                                                   name:NSStringFromClass([EVEMarketOrders class])
+                                                 object:nil];
+      
       
       
       
@@ -141,6 +151,9 @@
    // Implement this method to handle any initialization after your window controller's
    // window has been loaded from its nib file.
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunused-variable"
+
    NSString *legacyUserId = @"8695857";
    NSString *legacyLimitedKey = @"F0AD3EC9275C4FE38A90F191FA2B223AF66C79FAF2CF45828340EC5D0E62220E";
    NSString *legacyFullKey = @"7D345E16FC2441309723B9B51768CB0F2DDF9A5D43A74CBFAB7567299F5A306C";
@@ -158,6 +171,8 @@
    NSString *mdeKeyId = @"734499";
    NSString *mdeVCode = @"rnKgT0CsBodEiQXJsxVXE60taTXwyxTLgCuIDv2Vo22HIRTeNWhOX0RCj4TMcI68";
    NSNumber *mdeId = @153571845;
+   
+#pragma clang diagnostic pop
    
    // Character APIs
    self.apiKeyInfo = [[EVEApiKeyInformation alloc] initWithEveKeyId:keyId VCode:vCode];
@@ -249,12 +264,27 @@
                                                        VCode:vCode
                                                  CharacterId:minosId
                                                      MailIds:minosMailIds];
-   [self.mailBodies queryTheApi];
+   //[self.mailBodies queryTheApi];
    
    self.mailMessages = [[EVEMailMessages alloc] initWithEveKeyId:keyId
                                                            VCode:vCode
                                                      CharacterId:minosId];
-   [self.mailMessages queryTheApi];
+   //[self.mailMessages queryTheApi];
+   
+   self.mailingLists = [[EVEMailingLists alloc] initWithEveKeyId:keyId
+                                                           VCode:vCode
+                                                     CharacterId:minosId];
+   //[self.mailingLists queryTheApi];
+   
+   self.marketOrders = [[EVEMarketOrders alloc] initWithEveKeyId:keyId
+                                                           VCode:vCode
+                                                     CharacterId:minosId
+                                                         OrderId:nil];
+   [self.marketOrders queryTheApi];
+   
+   
+   
+   
    
    // Server APIs
    self.callList = [EVECallList new];
@@ -418,6 +448,22 @@
    NSMutableString *newStr = [NSMutableString stringWithString:@"\n"];
    [newStr appendString:self.xmlTextView.string];
    [newStr appendFormat:@"%@\n", self.mailMessages];
+   [self.xmlTextView setString:newStr];
+}
+
+-(void)EVEMailingListsDidLoad:(NSNotification *)notification
+{
+   NSMutableString *newStr = [NSMutableString stringWithString:@"\n"];
+   [newStr appendString:self.xmlTextView.string];
+   [newStr appendFormat:@"%@\n", self.mailingLists];
+   [self.xmlTextView setString:newStr];
+}
+
+-(void)EVEMarketOrdersDidLoad:(NSNotification *)notification
+{
+   NSMutableString *newStr = [NSMutableString stringWithString:@"\n"];
+   [newStr appendString:self.xmlTextView.string];
+   [newStr appendFormat:@"%@\n", self.marketOrders];
    [self.xmlTextView setString:newStr];
 }
 
