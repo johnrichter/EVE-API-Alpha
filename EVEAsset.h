@@ -19,7 +19,7 @@
 @property (strong) NSNumber *typeId;
 @property (strong) NSNumber *quantity;
 @property (strong) NSNumber *flag;
-@property (strong) NSNumber *isNotPackaged;
+@property BOOL isNotPackaged;
 
 #pragma mark - XML Relationships
 
@@ -31,5 +31,7 @@
 #pragma mark - Instance Methods
 
 -(void)configureObjectBlueprint;
+
+-(void)setContainedAssetsRelationKeypath:(NSString *)keypath;
 
 @end

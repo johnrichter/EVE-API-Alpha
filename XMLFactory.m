@@ -189,7 +189,10 @@
     // Through this method the parser object passes the contents of the block to its delegate in an NSData object.
     // The CDATA block is character data that is ignored by the parser. The encoding of the character data is UTF-8.
     // To convert the data object to a string object, use the NSString method initWithData:encoding:.
-    NSLog(@"Found CDATA block: %@", [[NSString alloc] initWithData:CDATABlock encoding:NSUTF8StringEncoding]);
+    //NSLog(@"Found CDATA block: %@", [[NSString alloc] initWithData:CDATABlock encoding:NSUTF8StringEncoding]);
+   
+   [self parser:parser foundCharacters:[[NSString alloc] initWithData:CDATABlock
+                                                             encoding:NSUTF8StringEncoding]];
 }
 
 #pragma mark - Handling the DTD

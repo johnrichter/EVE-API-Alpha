@@ -7,7 +7,22 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "EVEApiObject.h"
 
-@interface EVEKillLog : NSObject
+@interface EVEKillLog : EVEApiObject <EVEApiObjectProtocol, RequestOperationDelegate>
+
+#pragma mark - XML Properties
+@property (strong) NSMutableArray *kills;
+
+#pragma mark - Instance Properties
+@property (strong) NSString *keyId;
+@property (strong) NSString *vCode;
+@property (strong) NSNumber *characterId;
+
+#pragma mark - Instance Methods
+-(EVEKillLog *)initWithEveKeyId:(NSString *)keyId
+                          VCode:(NSString *)vCode
+                    CharacterId:(NSNumber *)characterId;
+-(void)queryTheApi;
 
 @end

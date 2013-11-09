@@ -35,7 +35,7 @@
 {
    [self.objectBlueprint setObjectClassId:[self class]];
    [self.objectBlueprint addAttributesFromDictionary:@{@"characterID":@"characterId",
-                                                       @"characterName":@"characterName",
+                                                       @"name":@"characterName",
                                                        @"corporationID":@"corporationId",
                                                        @"corporationName":@"corporationName"}];
 }

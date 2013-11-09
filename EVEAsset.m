@@ -7,6 +7,7 @@
 //
 
 #import "EVEAsset.h"
+#import "BlueprintRelationship.h"
 
 @interface EVEAsset ()
 
@@ -25,9 +26,9 @@
       self.itemId = @0;
       self.locationId = @0;
       self.typeId = @0;
-      self.quantity = @0;
+      self.quantity = @1;
       self.flag = @0;
-      self.isNotPackaged = @0;
+      self.isNotPackaged = NO;
       
       // XML Relationships
       self.containedAssets = @[];
@@ -50,10 +51,22 @@
                                                        @"singleton":@"isNotPackaged"}];
 }
 
+-(void)setContainedAssetsRelationKeypath:(NSString *)keypath
+{
+   BlueprintRelationship *containedAssetsRelation =
+      [BlueprintRelationship relationshipFromXmlKeypath:keypath
+                           RelativeToObjectWithProperty:@"containedAssets"
+                                           ForBlueprint:self.objectBlueprint];
+   
+   [self.objectBlueprint addRelationshipsFromArray:@[containedAssetsRelation]];
+}
+
 -(NSString *)description
 {
    NSMutableString *asset = [NSMutableString stringWithFormat:@"Asset "];
-   [asset appendFormat:@"Type: %@ | Quantity: %@ | Location: %@ | Is Not Packaged: %s | Flag: %@\n",
+   [asset appendFormat:@"Item ID: %@ | Type: %@ | Quantity: %@ | Location: %@ | "
+                       @"Is Not Packaged: %s | Flag: %@\n",
+                       self.itemId,
                        self.typeId,
                        self.quantity,
                        self.locationId,
@@ -96,7 +109,7 @@
    }
    else if([key isEqualToString:@"isNotPackaged"])
    {
-      [self setValue:@0 forKey:key];
+      [self setValue:NO forKey:key];
    }
 }
 

@@ -95,6 +95,30 @@
                                                    name:NSStringFromClass([EVEIndustryJobs class])
                                                  object:nil];
       
+      [[NSNotificationCenter defaultCenter] addObserver:self
+                                               selector:@selector(EVEKillLogDidLoad:)
+                                                   name:NSStringFromClass([EVEKillLog class])
+                                                 object:nil];
+      
+      [[NSNotificationCenter defaultCenter] addObserver:self
+                                               selector:@selector(EVELocationsDidLoad:)
+                                                   name:NSStringFromClass([EVELocations class])
+                                                 object:nil];
+      
+      [[NSNotificationCenter defaultCenter] addObserver:self
+                                               selector:@selector(EVEMailBodiesDidLoad:)
+                                                   name:NSStringFromClass([EVEMailBodies class])
+                                                 object:nil];
+      
+      [[NSNotificationCenter defaultCenter] addObserver:self
+                                               selector:@selector(EVEMailMessagesDidLoad:)
+                                                   name:NSStringFromClass([EVEMailMessages class])
+                                                 object:nil];
+      
+      
+      
+      
+      
       // Server APIs
       [[NSNotificationCenter defaultCenter] addObserver:self
                                                selector:@selector(EVEServerStatusDidLoad:)
@@ -128,6 +152,12 @@
    NSNumber *minosId = @91779534;
    NSNumber *minosEvent = @0;
    NSNumber *minosContractId = @74186293;
+   NSArray *minosItems = @[@1010763044490, @1010755814428];
+   NSArray *minosMailIds = @[@1234567, @9876543, @326802133, @330432459];
+   
+   NSString *mdeKeyId = @"734499";
+   NSString *mdeVCode = @"rnKgT0CsBodEiQXJsxVXE60taTXwyxTLgCuIDv2Vo22HIRTeNWhOX0RCj4TMcI68";
+   NSNumber *mdeId = @153571845;
    
    // Character APIs
    self.apiKeyInfo = [[EVEApiKeyInformation alloc] initWithEveKeyId:keyId VCode:vCode];
@@ -202,10 +232,29 @@
    self.industryJobs = [[EVEIndustryJobs alloc] initWithEveKeyId:keyId
                                                            VCode:vCode
                                                      CharacterId:minosId];
-   [self.industryJobs queryTheApi];
+   //[self.industryJobs queryTheApi];
    
+   self.killLog = [[EVEKillLog alloc] initWithEveKeyId:@"2761762"
+                                                 VCode:@"qXUt2hPC8s8EcU8by43ffDmCUoooTa1gRbxV6h8fXJQeLfs1IztWUH7cTLXOGlrP"
+                                           CharacterId:minosId];
+   //[self.killLog queryTheApi];
    
+   self.locations = [[EVELocations alloc] initWithEveKeyId:keyId
+                                                     VCode:vCode
+                                               CharacterId:minosId
+                                                   ItemIds:minosItems];
+   //[self.locations queryTheApi];
    
+   self.mailBodies = [[EVEMailBodies alloc] initWithEveKeyId:keyId
+                                                       VCode:vCode
+                                                 CharacterId:minosId
+                                                     MailIds:minosMailIds];
+   [self.mailBodies queryTheApi];
+   
+   self.mailMessages = [[EVEMailMessages alloc] initWithEveKeyId:keyId
+                                                           VCode:vCode
+                                                     CharacterId:minosId];
+   [self.mailMessages queryTheApi];
    
    // Server APIs
    self.callList = [EVECallList new];
@@ -332,6 +381,49 @@
    [self.xmlTextView setString:newStr];
 }
 
+-(void)EVEIndustryJobsDidLoad:(NSNotification *)notification
+{
+   NSMutableString *newStr = [NSMutableString stringWithString:@"\n"];
+   [newStr appendString:self.xmlTextView.string];
+   [newStr appendFormat:@"%@\n", self.industryJobs];
+   [self.xmlTextView setString:newStr];
+}
+
+-(void)EVEKillLogDidLoad:(NSNotification *)notification
+{
+   NSMutableString *newStr = [NSMutableString stringWithString:@"\n"];
+   [newStr appendString:self.xmlTextView.string];
+   [newStr appendFormat:@"%@\n", self.killLog];
+   [self.xmlTextView setString:newStr];
+}
+
+-(void)EVELocationsDidLoad:(NSNotification *)notification
+{
+   NSMutableString *newStr = [NSMutableString stringWithString:@"\n"];
+   [newStr appendString:self.xmlTextView.string];
+   [newStr appendFormat:@"%@\n", self.locations];
+   [self.xmlTextView setString:newStr];
+}
+
+-(void)EVEMailBodiesDidLoad:(NSNotification *)notification
+{
+   NSMutableString *newStr = [NSMutableString stringWithString:@"\n"];
+   [newStr appendString:self.xmlTextView.string];
+   [newStr appendFormat:@"%@\n", self.mailBodies];
+   [self.xmlTextView setString:newStr];
+}
+
+-(void)EVEMailMessagesDidLoad:(NSNotification *)notification
+{
+   NSMutableString *newStr = [NSMutableString stringWithString:@"\n"];
+   [newStr appendString:self.xmlTextView.string];
+   [newStr appendFormat:@"%@\n", self.mailMessages];
+   [self.xmlTextView setString:newStr];
+}
+
+
+
+
 // EVE Online APIs Server APIs
 -(void)EVECallListDidLoad:(NSNotification *)notification
 {
@@ -346,14 +438,6 @@
    NSMutableString *newStr = [NSMutableString stringWithString:@"\n"];
    [newStr appendString:self.xmlTextView.string];
    [newStr appendFormat:@"%@\n", self.serverStatus];
-   [self.xmlTextView setString:newStr];
-}
-
--(void)EVEIndustryJobsDidLoad:(NSNotification *)notification
-{
-   NSMutableString *newStr = [NSMutableString stringWithString:@"\n"];
-   [newStr appendString:self.xmlTextView.string];
-   [newStr appendFormat:@"%@\n", self.industryJobs];
    [self.xmlTextView setString:newStr];
 }
 

@@ -98,18 +98,14 @@
 
 -(void)configureObjectBuilders
 {
-   ObjectBlueprint *asset = [[EVEAsset new] objectBlueprint];
-   [asset setXmlKeypath:@"eveapi.result.rowset.row"];
+   EVEAsset *asset = [EVEAsset new];
+   [asset setContainedAssetsRelationKeypath:@"rowset.row"];
    
-   BlueprintRelationship *containedAssets =
-   [BlueprintRelationship relationshipFromXmlKeypath:@"rowset.row"
-                        RelativeToObjectWithProperty:@"containedAssets"
-                                        ForBlueprint:[[EVEAsset new] objectBlueprint]];
-
-   [asset addRelationshipsFromArray:@[containedAssets]];
+   ObjectBlueprint *assetBP = asset.objectBlueprint;
+   [assetBP setXmlKeypath:@"eveapi.result.rowset.row"];
    
    // Add the object blueprints to our array
-   [self.objectBlueprints addObject:asset];
+   [self.objectBlueprints addObject:assetBP];
    
    // Configure our RequestOperation with URI and Arguements
    [self.requestOperation setUrl:self.uri

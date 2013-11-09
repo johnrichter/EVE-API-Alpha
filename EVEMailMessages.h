@@ -6,8 +6,22 @@
 //  Copyright (c) 2013 Johnathan Richter. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "EVEApiObject.h"
 
-@interface EVEMailMessages : NSObject
+@interface EVEMailMessages : EVEApiObject <EVEApiObjectProtocol, RequestOperationDelegate>
+
+#pragma mark - XML Properties
+@property (strong) NSMutableArray *eveMails;
+
+#pragma mark - Instance Properties
+@property (strong) NSString *keyId;
+@property (strong) NSString *vCode;
+@property (strong) NSNumber *characterId;
+
+#pragma mark - Instance Methods
+-(EVEMailMessages *)initWithEveKeyId:(NSString *)keyId
+                               VCode:(NSString *)vCode
+                         CharacterId:(NSNumber *)characterId;
+-(void)queryTheApi;
 
 @end
