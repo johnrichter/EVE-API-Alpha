@@ -95,6 +95,9 @@
 @property (strong) EVEMailMessages *mailMessages;
 @property (strong) EVEMailingLists *mailingLists;
 @property (strong) EVEMarketOrders *marketOrders;
+@property (strong) EVEMedals *medals;
+@property (strong) EVENotifications *notifications;
+@property (strong) EVENotificationTexts *notificationTexts;
 
 // Server APIs
 @property (strong) EVEServerStatus *serverStatus;

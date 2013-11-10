@@ -6,8 +6,25 @@
 //  Copyright (c) 2013 Johnathan Richter. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "EVEApiObject.h"
 
-@interface EVENotificationTexts : NSObject
+@interface EVENotificationTexts : EVEApiObject <EVEApiObjectProtocol, RequestOperationDelegate>
+
+#pragma mark - XML Properties
+@property (strong) NSMutableArray *notifications;
+
+#pragma mark - Instance Properties
+@property (strong) NSString *keyId;
+@property (strong) NSString *vCode;
+@property (strong) NSNumber *characterId;
+@property (strong) NSArray *notificationIds;
+
+#pragma mark - Instance Methods
+-(EVENotificationTexts *)initWithEveKeyId:(NSString *)keyId
+                                    VCode:(NSString *)vCode
+                              CharacterId:(NSNumber *)characterId
+                          NotificationIds:(NSArray *)notificationIds;
+-(void)queryTheApi;
+
 
 @end

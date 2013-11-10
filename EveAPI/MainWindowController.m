@@ -125,6 +125,21 @@
                                                    name:NSStringFromClass([EVEMarketOrders class])
                                                  object:nil];
       
+      [[NSNotificationCenter defaultCenter] addObserver:self
+                                               selector:@selector(EVEMedalsDidLoad:)
+                                                   name:NSStringFromClass([EVEMedals class])
+                                                 object:nil];
+      
+      [[NSNotificationCenter defaultCenter] addObserver:self
+                                               selector:@selector(EVENotificationsDidLoad:)
+                                                   name:NSStringFromClass([EVENotifications class])
+                                                 object:nil];
+      
+      [[NSNotificationCenter defaultCenter] addObserver:self
+                                               selector:@selector(EVENotificationTextsDidLoad:)
+                                                   name:NSStringFromClass([EVENotificationTexts class])
+                                                 object:nil];
+      
       
       
       
@@ -167,6 +182,7 @@
    NSNumber *minosContractId = @74186293;
    NSArray *minosItems = @[@1010763044490, @1010755814428];
    NSArray *minosMailIds = @[@1234567, @9876543, @326802133, @330432459];
+   NSArray *minosNotificationIds = @[@440205911, @440203872];
    
    NSString *mdeKeyId = @"734499";
    NSString *mdeVCode = @"rnKgT0CsBodEiQXJsxVXE60taTXwyxTLgCuIDv2Vo22HIRTeNWhOX0RCj4TMcI68";
@@ -280,8 +296,23 @@
                                                            VCode:vCode
                                                      CharacterId:minosId
                                                          OrderId:nil];
-   [self.marketOrders queryTheApi];
+   //[self.marketOrders queryTheApi];
    
+   self.medals = [[EVEMedals alloc] initWithEveKeyId:keyId
+                                               VCode:vCode
+                                         CharacterId:minosId];
+   //[self.medals queryTheApi];
+   
+   self.notifications = [[EVENotifications alloc] initWithEveKeyId:keyId
+                                                             VCode:vCode
+                                                       CharacterId:minosId];
+   //[self.notifications queryTheApi];
+   
+   self.notificationTexts = [[EVENotificationTexts alloc] initWithEveKeyId:keyId
+                                                                     VCode:vCode
+                                                               CharacterId:minosId
+                                                           NotificationIds:minosNotificationIds];
+   [self.notificationTexts queryTheApi];
    
    
    
@@ -464,6 +495,30 @@
    NSMutableString *newStr = [NSMutableString stringWithString:@"\n"];
    [newStr appendString:self.xmlTextView.string];
    [newStr appendFormat:@"%@\n", self.marketOrders];
+   [self.xmlTextView setString:newStr];
+}
+
+-(void)EVEMedalsDidLoad:(NSNotification *)notification
+{
+   NSMutableString *newStr = [NSMutableString stringWithString:@"\n"];
+   [newStr appendString:self.xmlTextView.string];
+   [newStr appendFormat:@"%@\n", self.medals];
+   [self.xmlTextView setString:newStr];
+}
+
+-(void)EVENotificationsDidLoad:(NSNotification *)notification
+{
+   NSMutableString *newStr = [NSMutableString stringWithString:@"\n"];
+   [newStr appendString:self.xmlTextView.string];
+   [newStr appendFormat:@"%@\n", self.notifications];
+   [self.xmlTextView setString:newStr];
+}
+
+-(void)EVENotificationTextsDidLoad:(NSNotification *)notification
+{
+   NSMutableString *newStr = [NSMutableString stringWithString:@"\n"];
+   [newStr appendString:self.xmlTextView.string];
+   [newStr appendFormat:@"%@\n", self.notificationTexts];
    [self.xmlTextView setString:newStr];
 }
 

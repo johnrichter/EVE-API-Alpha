@@ -10,6 +10,7 @@
 		CD0434B5182DEBD000A59E4F /* EVEMailingList.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0434B4182DEBD000A59E4F /* EVEMailingList.m */; };
 		CD0434B7182DEE8B00A59E4F /* EveAPI-Notes.txt in Resources */ = {isa = PBXBuildFile; fileRef = CD0434B6182DEE8B00A59E4F /* EveAPI-Notes.txt */; };
 		CD0434BA182DF0F500A59E4F /* EVEMarketOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0434B9182DF0F500A59E4F /* EVEMarketOrder.m */; };
+		CD0C6FC918301F5400261D4F /* EVEMedal.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0C6FC818301F5400261D4F /* EVEMedal.m */; };
 		CD0EEC09182D325F0068E754 /* EVEKill.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0EEC08182D325F0068E754 /* EVEKill.m */; };
 		CD0EEC0C182D35D70068E754 /* EVEKillVictim.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0EEC0B182D35D70068E754 /* EVEKillVictim.m */; };
 		CD0EEC0F182D4DC30068E754 /* EVEKillAttackers.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0EEC0E182D4DC30068E754 /* EVEKillAttackers.m */; };
@@ -177,6 +178,8 @@
 		CD0434B6182DEE8B00A59E4F /* EveAPI-Notes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "EveAPI-Notes.txt"; sourceTree = SOURCE_ROOT; };
 		CD0434B8182DF0F500A59E4F /* EVEMarketOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVEMarketOrder.h; sourceTree = "<group>"; };
 		CD0434B9182DF0F500A59E4F /* EVEMarketOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVEMarketOrder.m; sourceTree = "<group>"; };
+		CD0C6FC718301F5400261D4F /* EVEMedal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVEMedal.h; sourceTree = "<group>"; };
+		CD0C6FC818301F5400261D4F /* EVEMedal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVEMedal.m; sourceTree = "<group>"; };
 		CD0EEC07182D325F0068E754 /* EVEKill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVEKill.h; sourceTree = "<group>"; };
 		CD0EEC08182D325F0068E754 /* EVEKill.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVEKill.m; sourceTree = "<group>"; };
 		CD0EEC0A182D35D70068E754 /* EVEKillVictim.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVEKillVictim.h; sourceTree = "<group>"; };
@@ -842,6 +845,26 @@
 				CDB8D065182B2DD500900514 /* EVEIndustryJob.m */,
 				CDB7B37D180E1BF400675108 /* EVEIntelligenceEnhancer.h */,
 				CDB7B37E180E1BF400675108 /* EVEIntelligenceEnhancer.m */,
+				CD0EEC19182D7B950068E754 /* EVEItemLocation.h */,
+				CD0EEC1A182D7B950068E754 /* EVEItemLocation.m */,
+				CD0EEC07182D325F0068E754 /* EVEKill.h */,
+				CD0EEC08182D325F0068E754 /* EVEKill.m */,
+				CD0EEC13182D4E290068E754 /* EVEKillAttacker.h */,
+				CD0EEC14182D4E290068E754 /* EVEKillAttacker.m */,
+				CD0EEC0D182D4DC30068E754 /* EVEKillAttackers.h */,
+				CD0EEC0E182D4DC30068E754 /* EVEKillAttackers.m */,
+				CD0EEC16182D4E330068E754 /* EVEKillItem.h */,
+				CD0EEC17182D4E330068E754 /* EVEKillItem.m */,
+				CD0EEC10182D4DCC0068E754 /* EVEKillItems.h */,
+				CD0EEC11182D4DCC0068E754 /* EVEKillItems.m */,
+				CD0EEC0A182D35D70068E754 /* EVEKillVictim.h */,
+				CD0EEC0B182D35D70068E754 /* EVEKillVictim.m */,
+				CD0EEC1C182DA24E0068E754 /* EVEMail.h */,
+				CD0EEC1D182DA24E0068E754 /* EVEMail.m */,
+				CD0434B3182DEBD000A59E4F /* EVEMailingList.h */,
+				CD0434B4182DEBD000A59E4F /* EVEMailingList.m */,
+				CD0434B8182DF0F500A59E4F /* EVEMarketOrder.h */,
+				CD0434B9182DF0F500A59E4F /* EVEMarketOrder.m */,
 				CDB7B374180E1BC800675108 /* EVEMemoryEnhancer.h */,
 				CDB7B375180E1BC800675108 /* EVEMemoryEnhancer.m */,
 				CD896FC9181F4B5E0067D2D7 /* EVENotification.h */,
@@ -867,26 +890,8 @@
 				CD8564D9180B124200BBE4CA /* EVEWalletBalance.m */,
 				CDB7B37A180E1BE800675108 /* EVEWillpowerEnhancer.h */,
 				CDB7B37B180E1BE800675108 /* EVEWillpowerEnhancer.m */,
-				CD0EEC07182D325F0068E754 /* EVEKill.h */,
-				CD0EEC08182D325F0068E754 /* EVEKill.m */,
-				CD0EEC0A182D35D70068E754 /* EVEKillVictim.h */,
-				CD0EEC0B182D35D70068E754 /* EVEKillVictim.m */,
-				CD0EEC0D182D4DC30068E754 /* EVEKillAttackers.h */,
-				CD0EEC0E182D4DC30068E754 /* EVEKillAttackers.m */,
-				CD0EEC13182D4E290068E754 /* EVEKillAttacker.h */,
-				CD0EEC14182D4E290068E754 /* EVEKillAttacker.m */,
-				CD0EEC10182D4DCC0068E754 /* EVEKillItems.h */,
-				CD0EEC11182D4DCC0068E754 /* EVEKillItems.m */,
-				CD0EEC16182D4E330068E754 /* EVEKillItem.h */,
-				CD0EEC17182D4E330068E754 /* EVEKillItem.m */,
-				CD0EEC19182D7B950068E754 /* EVEItemLocation.h */,
-				CD0EEC1A182D7B950068E754 /* EVEItemLocation.m */,
-				CD0EEC1C182DA24E0068E754 /* EVEMail.h */,
-				CD0EEC1D182DA24E0068E754 /* EVEMail.m */,
-				CD0434B3182DEBD000A59E4F /* EVEMailingList.h */,
-				CD0434B4182DEBD000A59E4F /* EVEMailingList.m */,
-				CD0434B8182DF0F500A59E4F /* EVEMarketOrder.h */,
-				CD0434B9182DF0F500A59E4F /* EVEMarketOrder.m */,
+				CD0C6FC718301F5400261D4F /* EVEMedal.h */,
+				CD0C6FC818301F5400261D4F /* EVEMedal.m */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -1153,6 +1158,7 @@
 				CD84AEC817FD2FFE001200AF /* EVEFactionalWarfareSystems.m in Sources */,
 				CDBF28A5181F417600A4F45E /* EVEContactNotification.m in Sources */,
 				CD84AECB17FD3009001200AF /* EVEJumps.m in Sources */,
+				CD0C6FC918301F5400261D4F /* EVEMedal.m in Sources */,
 				CDB7B370180E1AA400675108 /* EVEAttributeEnhancerName.m in Sources */,
 				CDCDE51617A893D90062A36F /* ObjectBlueprint.m in Sources */,
 				CDB7B376180E1BC800675108 /* EVEMemoryEnhancer.m in Sources */,

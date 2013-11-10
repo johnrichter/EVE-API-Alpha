@@ -26,6 +26,7 @@
       self.typeId = @0;
       self.senderId = @0;
       self.dateSent = [EVEDate new];
+      self.additionalInformation = @"";
       self.hasBeenRead = NO;
       
       // Configure the object's blueprint
@@ -38,6 +39,7 @@
 -(void)configureObjectBlueprint
 {
    [self.objectBlueprint setObjectClassId:[self class]];
+   [self.objectBlueprint setObjectValue:@"additionalInformation"];
    [self.objectBlueprint addAttributesFromDictionary:@{@"notificationID":@"notificationId",
                                                        @"senderID":@"senderId",
                                                        @"typeID":@"typeId",
@@ -48,9 +50,9 @@
 -(NSString *)description
 {
    return [NSString stringWithFormat:@"Notification ID: %@ | Sender ID: %@ | "
-           @"Type ID: %@ | Date Sent: %@ | Has Been Read: %s",
+           @"Type ID: %@ | Date Sent: %@ | Has Been Read: %s | Text:\n%@",
            self.notificationId, self.senderId, self.typeId,
-           self.dateSent, self.hasBeenRead ? "Yes":"No"];
+           self.dateSent, self.hasBeenRead ? "Yes":"No", self.additionalInformation];
 }
 
 #pragma mark - Private Instance Methods
@@ -72,6 +74,10 @@
       [self setValue:@0 forKey:key];
    }
    else if([key isEqualToString:@"hasBeenRead"])
+   {
+      [self setValue:NO forKey:key];
+   }
+   else if([key isEqualToString:@"additionalInformation"])
    {
       [self setValue:NO forKey:key];
    }
