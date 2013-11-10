@@ -8,6 +8,7 @@
 
 #import "EVENotificationTexts.h"
 #import "EVENotification.h"
+#import "EVEString.h"
 
 @interface EVENotificationTexts ()
 
@@ -46,6 +47,7 @@
       
       // Built Object Properties
       self.notifications = [NSMutableArray new];
+      self.missingNotificationIds = @[];
       
       // Instance Properties
       self.keyId = keyId;
@@ -88,6 +90,9 @@
                            [EVEApiObject cacheStyleToString:self.cacheStyle],
                            self.apiError];
    
+   [api appendFormat:@"Message IDs %@ did not exist\n\n",
+      [self.missingNotificationIds componentsJoinedByString:@", "]];
+   
    for (id object in self.notifications)
    {
       [api appendFormat:@"%@\n", object];
@@ -104,8 +109,11 @@
    ObjectBlueprint *notification = [[EVENotification new] objectBlueprint];
    [notification setXmlKeypath:@"eveapi.result.rowset.row"];
    
+   ObjectBlueprint *missingIds = [[EVEString new] objectBlueprint];
+   [missingIds setXmlKeypath:@"eveapi.result.rowset.missingIDs"];
+   
    // Add the blueprints to our collection
-   [self.objectBlueprints addObject:notification];
+   [self.objectBlueprints addObjectsFromArray:@[notification, missingIds]];
    
    // Configure our RequestOperation with URI and Arguements
    [self.requestOperation setUrl:self.uri
@@ -125,6 +133,10 @@
       if ([object class] == [EVENotification class])
       {
          [self.notifications addObject:object];
+      }
+      else if ([object class] == [EVEString class])
+      {
+         self.missingNotificationIds = [((EVEString *)object).string componentsSeparatedByString:@","];
       }
    }
    

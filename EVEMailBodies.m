@@ -8,6 +8,7 @@
 
 #import "EVEMailBodies.h"
 #import "EVEMail.h"
+#import "EVEString.h"
 
 @interface EVEMailBodies ()
 
@@ -21,8 +22,6 @@
 @end
 
 @implementation EVEMailBodies
-
-@synthesize missingMessageIdsString = _missingMessageIdsString;
 
 #pragma mark - Instance Methods
 
@@ -49,7 +48,6 @@
       // Built Object Properties
       self.eveMails = [NSMutableArray new];
       self.missingMessageIds = @[];
-      self.missingMessageIdsString = [EVEString new];
       
       // Instance Properties
       self.keyId = keyId;

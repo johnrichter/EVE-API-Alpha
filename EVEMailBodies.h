@@ -7,13 +7,11 @@
 //
 
 #import "EVEApiObject.h"
-#import "EVEString.h"
 
 @interface EVEMailBodies : EVEApiObject <EVEApiObjectProtocol, RequestOperationDelegate>
 
 #pragma mark - XML Properties
 @property (strong) NSMutableArray *eveMails;
-@property (strong) EVEString *missingMessageIdsString;
 @property (strong) NSArray *missingMessageIds;
 
 #pragma mark - Instance Properties

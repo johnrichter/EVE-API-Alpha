@@ -182,7 +182,7 @@
    NSNumber *minosContractId = @74186293;
    NSArray *minosItems = @[@1010763044490, @1010755814428];
    NSArray *minosMailIds = @[@1234567, @9876543, @326802133, @330432459];
-   NSArray *minosNotificationIds = @[@440205911, @440203872];
+   NSArray *minosNotificationIds = @[@1234567, @9876543, @440205911, @440203872];
    
    NSString *mdeKeyId = @"734499";
    NSString *mdeVCode = @"rnKgT0CsBodEiQXJsxVXE60taTXwyxTLgCuIDv2Vo22HIRTeNWhOX0RCj4TMcI68";
@@ -306,7 +306,7 @@
    self.notifications = [[EVENotifications alloc] initWithEveKeyId:keyId
                                                              VCode:vCode
                                                        CharacterId:minosId];
-   //[self.notifications queryTheApi];
+   [self.notifications queryTheApi];
    
    self.notificationTexts = [[EVENotificationTexts alloc] initWithEveKeyId:keyId
                                                                      VCode:vCode

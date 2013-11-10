@@ -163,5 +163,45 @@
 129	Character Application Reject Message
 130	Character Application Withdraw Message
 
+ 
+ Additional Information Detail
+ Depending on the type of the notification there is structured data available in the 
+ notification. The time outputed by some of the notifications is formatted to Microsoft's 
+ version of epoch time, the formula to convert this to unix epoch is: 
+ $x = ($v / 10000000) - 11644473600; where $v is the time returned in the notification text.
+ 
+ 16 - New corp member application
+ applicationText	An HTML-formatted reason given by the applicant for joining the 
+ corporation. May be surrounded by single quotes (') where the rationale contains colons (:).
+ charID	The identifier of the applicant's character
+ corpID	The identifier of the corporation receiving the application
+ 
+ 19 - Corp tax rate changed
+ corpID	The identifier of the corporation affected by the tax rate change
+ newTaxRate	The tax rate, as a percentage, applicable after the change, expressed as a 
+ rational number to one decimal place (with a leading or trailing zero if necessary)
+ oldTaxRate	The tax rate that applied prior to the change
+ 
+ 69 - Agent locates a character
+ agentLocation	 3	Region of the locator agent
+                4	Constellation of the locator agent
+                5	Solarsystem of the locator agent
+               15	Station of the agent
+            x/y/z	Coordinates of the locator agent
+ 
+ characterID		characterID of the target
+ 
+ messageIndex
+ 
+ targetLocation	 3	Region of the target
+                   4	Constellation of the target
+                   5	Solarsystem of the target
+                   6	Shipname of the target
+                  15	Station of the target
+               x/y/z	Coordinates of the target (if not in station)
+ 
+ 130 - Character Application Withdraw Message
+ The format is the same as for new member applications.
+ 
  */
 @end

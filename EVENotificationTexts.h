@@ -12,6 +12,7 @@
 
 #pragma mark - XML Properties
 @property (strong) NSMutableArray *notifications;
+@property (strong) NSArray *missingNotificationIds;
 
 #pragma mark - Instance Properties
 @property (strong) NSString *keyId;
