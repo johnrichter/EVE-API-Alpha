@@ -98,6 +98,8 @@
 @property (strong) EVEMedals *medals;
 @property (strong) EVENotifications *notifications;
 @property (strong) EVENotificationTexts *notificationTexts;
+@property (strong) EVEResearch *research;
+@property (strong) EVESkillInTraining *skillInTraining;
 
 // Server APIs
 @property (strong) EVEServerStatus *serverStatus;

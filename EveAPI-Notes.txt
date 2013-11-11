@@ -12,5 +12,6 @@ TODO:
 - verify that all xml elements and attributes for all APIs are properly mapped to objects
 - kill log only works once... must destroy lots of ships to test... currently not tested.
 - I am not subscribed to any mailing lists, need to test the EVEMailingLists api
+- I have no research agents to test EVERearch, test it.
 
 Note: from evecontracts on down, i did not put in the corect legacy information

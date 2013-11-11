@@ -11,6 +11,16 @@
 		CD0434B7182DEE8B00A59E4F /* EveAPI-Notes.txt in Resources */ = {isa = PBXBuildFile; fileRef = CD0434B6182DEE8B00A59E4F /* EveAPI-Notes.txt */; };
 		CD0434BA182DF0F500A59E4F /* EVEMarketOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0434B9182DF0F500A59E4F /* EVEMarketOrder.m */; };
 		CD0C6FC918301F5400261D4F /* EVEMedal.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0C6FC818301F5400261D4F /* EVEMedal.m */; };
+		CD0C6FCF18306FA300261D4F /* EVEResearchAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0C6FCE18306FA300261D4F /* EVEResearchAgent.m */; };
+		CD0C6FD218307AD500261D4F /* EVESkillTrainingTQDate.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0C6FD118307AD500261D4F /* EVESkillTrainingTQDate.m */; };
+		CD0C6FD518307AEF00261D4F /* EVESkillTrainingEndDate.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0C6FD418307AEF00261D4F /* EVESkillTrainingEndDate.m */; };
+		CD0C6FD818307B2800261D4F /* EVESkillTrainingStartDate.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0C6FD718307B2800261D4F /* EVESkillTrainingStartDate.m */; };
+		CD0C6FDB18307B3B00261D4F /* EVESkillTrainingTypeId.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0C6FDA18307B3B00261D4F /* EVESkillTrainingTypeId.m */; };
+		CD0C6FE418307B9900261D4F /* EVESkillTrainingToLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0C6FE318307B9900261D4F /* EVESkillTrainingToLevel.m */; };
+		CD0C6FE718307C8B00261D4F /* EVESkillTraining.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0C6FE618307C8B00261D4F /* EVESkillTraining.m */; };
+		CD0C6FEC1830817B00261D4F /* EVESkillTrainingEndSp.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0C6FE91830817B00261D4F /* EVESkillTrainingEndSp.m */; };
+		CD0C6FED1830817B00261D4F /* EVESkillTrainingStartSp.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0C6FEB1830817B00261D4F /* EVESkillTrainingStartSp.m */; };
+		CD0C6FF018308C3200261D4F /* EVEBool.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0C6FEF18308C3200261D4F /* EVEBool.m */; };
 		CD0EEC09182D325F0068E754 /* EVEKill.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0EEC08182D325F0068E754 /* EVEKill.m */; };
 		CD0EEC0C182D35D70068E754 /* EVEKillVictim.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0EEC0B182D35D70068E754 /* EVEKillVictim.m */; };
 		CD0EEC0F182D4DC30068E754 /* EVEKillAttackers.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0EEC0E182D4DC30068E754 /* EVEKillAttackers.m */; };
@@ -180,6 +190,26 @@
 		CD0434B9182DF0F500A59E4F /* EVEMarketOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVEMarketOrder.m; sourceTree = "<group>"; };
 		CD0C6FC718301F5400261D4F /* EVEMedal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVEMedal.h; sourceTree = "<group>"; };
 		CD0C6FC818301F5400261D4F /* EVEMedal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVEMedal.m; sourceTree = "<group>"; };
+		CD0C6FCD18306FA300261D4F /* EVEResearchAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVEResearchAgent.h; sourceTree = "<group>"; };
+		CD0C6FCE18306FA300261D4F /* EVEResearchAgent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVEResearchAgent.m; sourceTree = "<group>"; };
+		CD0C6FD018307AD500261D4F /* EVESkillTrainingTQDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVESkillTrainingTQDate.h; sourceTree = "<group>"; };
+		CD0C6FD118307AD500261D4F /* EVESkillTrainingTQDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVESkillTrainingTQDate.m; sourceTree = "<group>"; };
+		CD0C6FD318307AEF00261D4F /* EVESkillTrainingEndDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVESkillTrainingEndDate.h; sourceTree = "<group>"; };
+		CD0C6FD418307AEF00261D4F /* EVESkillTrainingEndDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVESkillTrainingEndDate.m; sourceTree = "<group>"; };
+		CD0C6FD618307B2800261D4F /* EVESkillTrainingStartDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVESkillTrainingStartDate.h; sourceTree = "<group>"; };
+		CD0C6FD718307B2800261D4F /* EVESkillTrainingStartDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVESkillTrainingStartDate.m; sourceTree = "<group>"; };
+		CD0C6FD918307B3B00261D4F /* EVESkillTrainingTypeId.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVESkillTrainingTypeId.h; sourceTree = "<group>"; };
+		CD0C6FDA18307B3B00261D4F /* EVESkillTrainingTypeId.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVESkillTrainingTypeId.m; sourceTree = "<group>"; };
+		CD0C6FE218307B9900261D4F /* EVESkillTrainingToLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVESkillTrainingToLevel.h; sourceTree = "<group>"; };
+		CD0C6FE318307B9900261D4F /* EVESkillTrainingToLevel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVESkillTrainingToLevel.m; sourceTree = "<group>"; };
+		CD0C6FE518307C8B00261D4F /* EVESkillTraining.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVESkillTraining.h; sourceTree = "<group>"; };
+		CD0C6FE618307C8B00261D4F /* EVESkillTraining.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVESkillTraining.m; sourceTree = "<group>"; };
+		CD0C6FE81830817B00261D4F /* EVESkillTrainingEndSp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVESkillTrainingEndSp.h; sourceTree = "<group>"; };
+		CD0C6FE91830817B00261D4F /* EVESkillTrainingEndSp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVESkillTrainingEndSp.m; sourceTree = "<group>"; };
+		CD0C6FEA1830817B00261D4F /* EVESkillTrainingStartSp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVESkillTrainingStartSp.h; sourceTree = "<group>"; };
+		CD0C6FEB1830817B00261D4F /* EVESkillTrainingStartSp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVESkillTrainingStartSp.m; sourceTree = "<group>"; };
+		CD0C6FEE18308C3200261D4F /* EVEBool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVEBool.h; sourceTree = "<group>"; };
+		CD0C6FEF18308C3200261D4F /* EVEBool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVEBool.m; sourceTree = "<group>"; };
 		CD0EEC07182D325F0068E754 /* EVEKill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVEKill.h; sourceTree = "<group>"; };
 		CD0EEC08182D325F0068E754 /* EVEKill.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVEKill.m; sourceTree = "<group>"; };
 		CD0EEC0A182D35D70068E754 /* EVEKillVictim.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVEKillVictim.h; sourceTree = "<group>"; };
@@ -718,6 +748,10 @@
 		CD84AE2317FD2034001200AF /* Objects */ = {
 			isa = PBXGroup;
 			children = (
+				CD0C6FE81830817B00261D4F /* EVESkillTrainingEndSp.h */,
+				CD0C6FE91830817B00261D4F /* EVESkillTrainingEndSp.m */,
+				CD0C6FEA1830817B00261D4F /* EVESkillTrainingStartSp.h */,
+				CD0C6FEB1830817B00261D4F /* EVESkillTrainingStartSp.m */,
 				CDCAF917180A401E00580BA7 /* EVEAccountCreationDate.h */,
 				CDCAF918180A401E00580BA7 /* EVEAccountCreationDate.m */,
 				CDCAF914180A3F5B00580BA7 /* EVEAccountExpirationDate.h */,
@@ -892,6 +926,22 @@
 				CDB7B37B180E1BE800675108 /* EVEWillpowerEnhancer.m */,
 				CD0C6FC718301F5400261D4F /* EVEMedal.h */,
 				CD0C6FC818301F5400261D4F /* EVEMedal.m */,
+				CD0C6FCD18306FA300261D4F /* EVEResearchAgent.h */,
+				CD0C6FCE18306FA300261D4F /* EVEResearchAgent.m */,
+				CD0C6FD018307AD500261D4F /* EVESkillTrainingTQDate.h */,
+				CD0C6FD118307AD500261D4F /* EVESkillTrainingTQDate.m */,
+				CD0C6FD318307AEF00261D4F /* EVESkillTrainingEndDate.h */,
+				CD0C6FD418307AEF00261D4F /* EVESkillTrainingEndDate.m */,
+				CD0C6FD618307B2800261D4F /* EVESkillTrainingStartDate.h */,
+				CD0C6FD718307B2800261D4F /* EVESkillTrainingStartDate.m */,
+				CD0C6FD918307B3B00261D4F /* EVESkillTrainingTypeId.h */,
+				CD0C6FDA18307B3B00261D4F /* EVESkillTrainingTypeId.m */,
+				CD0C6FE218307B9900261D4F /* EVESkillTrainingToLevel.h */,
+				CD0C6FE318307B9900261D4F /* EVESkillTrainingToLevel.m */,
+				CD0C6FE518307C8B00261D4F /* EVESkillTraining.h */,
+				CD0C6FE618307C8B00261D4F /* EVESkillTraining.m */,
+				CD0C6FEE18308C3200261D4F /* EVEBool.h */,
+				CD0C6FEF18308C3200261D4F /* EVEBool.m */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -1059,6 +1109,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD84AE9517FD2A5C001200AF /* EVEOutpostList.m in Sources */,
+				CD0C6FCF18306FA300261D4F /* EVEResearchAgent.m in Sources */,
 				CDA8FB81180F7A28005979A2 /* EVECorporationTitle.m in Sources */,
 				CDCAF919180A401E00580BA7 /* EVEAccountCreationDate.m in Sources */,
 				CD84AEA417FD2AF0001200AF /* EVETitles.m in Sources */,
@@ -1105,6 +1156,7 @@
 				CDB7B367180E187D00675108 /* EVECloneName.m in Sources */,
 				CDF407A61791B2C6001B5A57 /* main.m in Sources */,
 				CD0EEC1E182DA24E0068E754 /* EVEMail.m in Sources */,
+				CD0C6FF018308C3200261D4F /* EVEBool.m in Sources */,
 				CD84AE7417FD273F001200AF /* EVEStandings.m in Sources */,
 				CDB7B385180E27A000675108 /* EVEAttributeEnhancer.m in Sources */,
 				CDD079D518273CDA00248F3B /* EVEFactionId.m in Sources */,
@@ -1120,6 +1172,7 @@
 				CD84AE2917FD2472001200AF /* EVEAccountStatus.m in Sources */,
 				CDB7B35B180E160700675108 /* EVECorporationName.m in Sources */,
 				CD3C2F6B18133DE900EE7EB7 /* EVEError.m in Sources */,
+				CD0C6FEC1830817B00261D4F /* EVESkillTrainingEndSp.m in Sources */,
 				CD84AE5917FD267D001200AF /* EVEMailingLists.m in Sources */,
 				CDB7B349180E123E00675108 /* EVECharacterId.m in Sources */,
 				CD84AE8317FD290B001200AF /* EVEContainerLog.m in Sources */,
@@ -1139,12 +1192,14 @@
 				CD12AE2718160B38007B99AC /* EVECharacterContact.m in Sources */,
 				CDD079D21827296B00248F3B /* EVEContractBid.m in Sources */,
 				CD84AE7D17FD277F001200AF /* EVEWalletTransactions.m in Sources */,
+				CD0C6FE718307C8B00261D4F /* EVESkillTraining.m in Sources */,
 				CD84AE9E17FD2AA8001200AF /* EVEStarbaseDetail.m in Sources */,
 				CD0434B5182DEBD000A59E4F /* EVEMailingList.m in Sources */,
 				CD12AE2A18160B43007B99AC /* EVECorporationContact.m in Sources */,
 				CD8564ED180B83E100BBE4CA /* MainWindowController.m in Sources */,
 				CD84AE5317FD2628001200AF /* EVELocations.m in Sources */,
 				CD84AE2F17FD24DC001200AF /* EVEAccountBalance.m in Sources */,
+				CD0C6FDB18307B3B00261D4F /* EVESkillTrainingTypeId.m in Sources */,
 				CD0434BA182DF0F500A59E4F /* EVEMarketOrder.m in Sources */,
 				CD84AE9B17FD2A8A001200AF /* EVEShareholders.m in Sources */,
 				CD84AE6E17FD26F8001200AF /* EVESkillInTraining.m in Sources */,
@@ -1160,7 +1215,9 @@
 				CD84AECB17FD3009001200AF /* EVEJumps.m in Sources */,
 				CD0C6FC918301F5400261D4F /* EVEMedal.m in Sources */,
 				CDB7B370180E1AA400675108 /* EVEAttributeEnhancerName.m in Sources */,
+				CD0C6FE418307B9900261D4F /* EVESkillTrainingToLevel.m in Sources */,
 				CDCDE51617A893D90062A36F /* ObjectBlueprint.m in Sources */,
+				CD0C6FED1830817B00261D4F /* EVESkillTrainingStartSp.m in Sources */,
 				CDB7B376180E1BC800675108 /* EVEMemoryEnhancer.m in Sources */,
 				CDE0BB3D17FF133400AD8ABB /* EVEObject.m in Sources */,
 				CD84AE8917FD2A16001200AF /* EVEMemberMedals.m in Sources */,
@@ -1193,10 +1250,13 @@
 				CDCAF916180A3F5B00580BA7 /* EVEAccountExpirationDate.m in Sources */,
 				CD84AEC517FD2FEA001200AF /* EVETypeName.m in Sources */,
 				CD84AEDC17FD3156001200AF /* EVEServerStatus.m in Sources */,
+				CD0C6FD518307AEF00261D4F /* EVESkillTrainingEndDate.m in Sources */,
 				CD84AE3B17FD2576001200AF /* EVEContactList.m in Sources */,
 				CDD079CE182710C400248F3B /* EVEPlayersOnline.m in Sources */,
 				CDA8FB87180F7E25005979A2 /* EVECharacterMemory.m in Sources */,
 				CD84AE6217FD26B9001200AF /* EVEMedals.m in Sources */,
+				CD0C6FD218307AD500261D4F /* EVESkillTrainingTQDate.m in Sources */,
+				CD0C6FD818307B2800261D4F /* EVESkillTrainingStartDate.m in Sources */,
 				CDD079DE18273D5700248F3B /* EVEFactionCurrentRank.m in Sources */,
 				CD0EEC09182D325F0068E754 /* EVEKill.m in Sources */,
 				CDB7B382180E1BFF00675108 /* EVECharismaEnhancer.m in Sources */,

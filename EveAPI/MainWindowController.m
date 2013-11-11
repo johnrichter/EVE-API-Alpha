@@ -140,6 +140,16 @@
                                                    name:NSStringFromClass([EVENotificationTexts class])
                                                  object:nil];
       
+      [[NSNotificationCenter defaultCenter] addObserver:self
+                                               selector:@selector(EVEResearchDidLoad:)
+                                                   name:NSStringFromClass([EVEResearch class])
+                                                 object:nil];
+      
+      [[NSNotificationCenter defaultCenter] addObserver:self
+                                               selector:@selector(EVESkillInTrainingDidLoad:)
+                                                   name:NSStringFromClass([EVESkillInTraining class])
+                                                 object:nil];
+      
       
       
       
@@ -306,13 +316,23 @@
    self.notifications = [[EVENotifications alloc] initWithEveKeyId:keyId
                                                              VCode:vCode
                                                        CharacterId:minosId];
-   [self.notifications queryTheApi];
+   //[self.notifications queryTheApi];
    
    self.notificationTexts = [[EVENotificationTexts alloc] initWithEveKeyId:keyId
                                                                      VCode:vCode
                                                                CharacterId:minosId
                                                            NotificationIds:minosNotificationIds];
-   [self.notificationTexts queryTheApi];
+   //[self.notificationTexts queryTheApi];
+   
+   self.research = [[EVEResearch alloc] initWithEveKeyId:keyId
+                                                   VCode:vCode
+                                             CharacterId:minosId];
+   //[self.research queryTheApi];
+   
+   self.skillInTraining = [[EVESkillInTraining alloc] initWithEveKeyId:keyId
+                                                                 VCode:vCode
+                                                           CharacterId:minosId];
+   [self.skillInTraining queryTheApi];
    
    
    
@@ -519,6 +539,22 @@
    NSMutableString *newStr = [NSMutableString stringWithString:@"\n"];
    [newStr appendString:self.xmlTextView.string];
    [newStr appendFormat:@"%@\n", self.notificationTexts];
+   [self.xmlTextView setString:newStr];
+}
+
+-(void)EVEResearchDidLoad:(NSNotification *)notification
+{
+   NSMutableString *newStr = [NSMutableString stringWithString:@"\n"];
+   [newStr appendString:self.xmlTextView.string];
+   [newStr appendFormat:@"%@\n", self.research];
+   [self.xmlTextView setString:newStr];
+}
+
+-(void)EVESkillInTrainingDidLoad:(NSNotification *)notification
+{
+   NSMutableString *newStr = [NSMutableString stringWithString:@"\n"];
+   [newStr appendString:self.xmlTextView.string];
+   [newStr appendFormat:@"%@\n", self.skillInTraining];
    [self.xmlTextView setString:newStr];
 }
 
