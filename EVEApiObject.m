@@ -83,7 +83,7 @@
 
 #pragma mark - Helper Methods for Printing
 
-+(NSString *)cacheStyleToString:(CacheStyle)style
++(NSString *)cacheStyleToString:(EVECacheStyle)style
 {
    switch (style)
    {
@@ -101,7 +101,7 @@
    }
 }
 
-+(NSString *)legacyApiRestrictionToString:(LegacyApiRestriction)restriction
++(NSString *)legacyApiRestrictionToString:(EVELegacyApiRestriction)restriction
 {
    switch (restriction)
    {

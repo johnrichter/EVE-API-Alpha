@@ -150,6 +150,21 @@
                                                    name:NSStringFromClass([EVESkillInTraining class])
                                                  object:nil];
       
+      [[NSNotificationCenter defaultCenter] addObserver:self
+                                               selector:@selector(EVESkillQueueDidLoad:)
+                                                   name:NSStringFromClass([EVESkillQueue class])
+                                                 object:nil];
+      
+      [[NSNotificationCenter defaultCenter] addObserver:self
+                                               selector:@selector(EVEStandingsDidLoad:)
+                                                   name:NSStringFromClass([EVEStandings class])
+                                                 object:nil];
+      
+      [[NSNotificationCenter defaultCenter] addObserver:self
+                                               selector:@selector(EVEWalletJournalDidLoad:)
+                                                   name:NSStringFromClass([EVEWalletJournal class])
+                                                 object:nil];
+      
       
       
       
@@ -193,10 +208,13 @@
    NSArray *minosItems = @[@1010763044490, @1010755814428];
    NSArray *minosMailIds = @[@1234567, @9876543, @326802133, @330432459];
    NSArray *minosNotificationIds = @[@1234567, @9876543, @440205911, @440203872];
+   NSNumber *minosWalletId = @1000;
    
    NSString *mdeKeyId = @"734499";
    NSString *mdeVCode = @"rnKgT0CsBodEiQXJsxVXE60taTXwyxTLgCuIDv2Vo22HIRTeNWhOX0RCj4TMcI68";
    NSNumber *mdeId = @153571845;
+   
+   NSNumber *agentShadeId = @92323562;
    
 #pragma clang diagnostic pop
    
@@ -332,7 +350,24 @@
    self.skillInTraining = [[EVESkillInTraining alloc] initWithEveKeyId:keyId
                                                                  VCode:vCode
                                                            CharacterId:minosId];
-   [self.skillInTraining queryTheApi];
+   //[self.skillInTraining queryTheApi];
+   
+   self.skillQueue = [[EVESkillQueue alloc] initWithEveKeyId:mdeKeyId
+                                                       VCode:mdeVCode
+                                                 CharacterId:mdeId];
+   //[self.skillQueue queryTheApi];
+   
+   self.standings = [[EVEStandings alloc] initWithEveKeyId:keyId
+                                                     VCode:vCode
+                                               CharacterId:minosId];
+   //[self.standings queryTheApi];
+   
+   self.walletJournal = [[EVEWalletJournal alloc] initWithEveKeyId:corpKeyId
+                                                             VCode:corpVCode
+                                                       CharacterId:minosId
+                                                          WalletId:@1004];
+   [self.walletJournal queryTheApi];
+   
    
    
    
@@ -555,6 +590,30 @@
    NSMutableString *newStr = [NSMutableString stringWithString:@"\n"];
    [newStr appendString:self.xmlTextView.string];
    [newStr appendFormat:@"%@\n", self.skillInTraining];
+   [self.xmlTextView setString:newStr];
+}
+
+-(void)EVESkillQueueDidLoad:(NSNotification *)notification
+{
+   NSMutableString *newStr = [NSMutableString stringWithString:@"\n"];
+   [newStr appendString:self.xmlTextView.string];
+   [newStr appendFormat:@"%@\n", self.skillQueue];
+   [self.xmlTextView setString:newStr];
+}
+
+-(void)EVEStandingsDidLoad:(NSNotification *)notification
+{
+   NSMutableString *newStr = [NSMutableString stringWithString:@"\n"];
+   [newStr appendString:self.xmlTextView.string];
+   [newStr appendFormat:@"%@\n", self.standings];
+   [self.xmlTextView setString:newStr];
+}
+
+-(void)EVEWalletJournalDidLoad:(NSNotification *)notification
+{
+   NSMutableString *newStr = [NSMutableString stringWithString:@"\n"];
+   [newStr appendString:self.xmlTextView.string];
+   [newStr appendFormat:@"%@\n", self.walletJournal];
    [self.xmlTextView setString:newStr];
 }
 

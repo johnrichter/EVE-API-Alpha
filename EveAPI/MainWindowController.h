@@ -100,6 +100,9 @@
 @property (strong) EVENotificationTexts *notificationTexts;
 @property (strong) EVEResearch *research;
 @property (strong) EVESkillInTraining *skillInTraining;
+@property (strong) EVESkillQueue *skillQueue;
+@property (strong) EVEStandings *standings;
+@property (strong) EVEWalletJournal *walletJournal;
 
 // Server APIs
 @property (strong) EVEServerStatus *serverStatus;

@@ -66,8 +66,6 @@
       }
    }
    
-   NSLog(@"%@\n", urlWithArguements);
-   
    // Create and save the URLRequest
    self.urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:urlWithArguements]];
 }

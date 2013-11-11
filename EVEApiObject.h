@@ -13,20 +13,20 @@
 #import "RequestOperation.h"
 #import "ObjectBlueprint.h"
 
-typedef enum CacheStyle : NSUInteger
+typedef enum EVECacheStyle : NSUInteger
 {
    kShortCache,
    kModifiedShortCache,
    kLongCache
-} CacheStyle;
+} EVECacheStyle;
 
-typedef enum LegacyApiKeyRestriction : NSUInteger
+typedef enum EVELegacyApiKeyRestriction : NSUInteger
 {
    kNotApplicable,
    kNoAccess,
    kFullAccess,
    kLimitedAccess
-} LegacyApiRestriction;
+} EVELegacyApiRestriction;
 
 @interface EVEApiObject : NSObject <RequestOperationDelegate>
 
@@ -35,8 +35,8 @@ typedef enum LegacyApiKeyRestriction : NSUInteger
 @property (strong) NSMutableString *uri;
 @property (strong) NSMutableDictionary *uriArguments;
 @property (strong) NSNumber *cakAccessMask;
-@property CacheStyle cacheStyle;
-@property LegacyApiRestriction legacyApiRestriction;
+@property EVECacheStyle cacheStyle;
+@property EVELegacyApiRestriction legacyApiRestriction;
 @property BOOL isLegacyApiKeyEnabled;
 
 #pragma mark - Built Object Properties
@@ -57,7 +57,7 @@ typedef enum LegacyApiKeyRestriction : NSUInteger
 -(void)requestOperationFailedWithError:(NSError *)error;
 
 #pragma mark - Helper Methods for Printing
-+(NSString *)cacheStyleToString:(CacheStyle)style;
-+(NSString *)legacyApiRestrictionToString:(LegacyApiRestriction)restriction;
++(NSString *)cacheStyleToString:(EVECacheStyle)style;
++(NSString *)legacyApiRestrictionToString:(EVELegacyApiRestriction)restriction;
 
 @end
