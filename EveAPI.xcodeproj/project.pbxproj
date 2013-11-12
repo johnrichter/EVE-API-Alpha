@@ -38,6 +38,7 @@
 		CD2940F817EEA4EA00BC7947 /* ObjectBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2940F717EEA4EA00BC7947 /* ObjectBuilder.m */; };
 		CD3C2F6B18133DE900EE7EB7 /* EVEError.m in Sources */ = {isa = PBXBuildFile; fileRef = CD3C2F6A18133DE900EE7EB7 /* EVEError.m */; };
 		CD423FBA17F89C3E00958F90 /* RKValueTransformers.m in Sources */ = {isa = PBXBuildFile; fileRef = CD423FB917F89C3E00958F90 /* RKValueTransformers.m */; };
+		CD5A447318319B8F005195FD /* EVEWalletTransactionEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = CD5A447218319B8F005195FD /* EVEWalletTransactionEntry.m */; };
 		CD84AE2617FD20B0001200AF /* EVEApiKeyInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = CD84AE2517FD20B0001200AF /* EVEApiKeyInformation.m */; };
 		CD84AE2917FD2472001200AF /* EVEAccountStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = CD84AE2817FD2472001200AF /* EVEAccountStatus.m */; };
 		CD84AE2C17FD24BE001200AF /* EVEAccountCharacters.m in Sources */ = {isa = PBXBuildFile; fileRef = CD84AE2B17FD24BE001200AF /* EVEAccountCharacters.m */; };
@@ -68,7 +69,6 @@
 		CD84AE7717FD2754001200AF /* EVEUpcomingCalendarEvents.m in Sources */ = {isa = PBXBuildFile; fileRef = CD84AE7617FD2754001200AF /* EVEUpcomingCalendarEvents.m */; };
 		CD84AE7A17FD2760001200AF /* EVEWalletJournal.m in Sources */ = {isa = PBXBuildFile; fileRef = CD84AE7917FD2760001200AF /* EVEWalletJournal.m */; };
 		CD84AE7D17FD277F001200AF /* EVEWalletTransactions.m in Sources */ = {isa = PBXBuildFile; fileRef = CD84AE7C17FD277F001200AF /* EVEWalletTransactions.m */; };
-		CD84AE8017FD27A4001200AF /* EVEAccountBalances.m in Sources */ = {isa = PBXBuildFile; fileRef = CD84AE7F17FD27A4001200AF /* EVEAccountBalances.m */; };
 		CD84AE8317FD290B001200AF /* EVEContainerLog.m in Sources */ = {isa = PBXBuildFile; fileRef = CD84AE8217FD290B001200AF /* EVEContainerLog.m */; };
 		CD84AE8617FD29A4001200AF /* EVECorporationSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = CD84AE8517FD29A4001200AF /* EVECorporationSheet.m */; };
 		CD84AE8917FD2A16001200AF /* EVEMemberMedals.m in Sources */ = {isa = PBXBuildFile; fileRef = CD84AE8817FD2A16001200AF /* EVEMemberMedals.m */; };
@@ -250,6 +250,8 @@
 		CD3C2F6A18133DE900EE7EB7 /* EVEError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVEError.m; sourceTree = "<group>"; };
 		CD423FB817F89C3E00958F90 /* RKValueTransformers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKValueTransformers.h; sourceTree = "<group>"; };
 		CD423FB917F89C3E00958F90 /* RKValueTransformers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKValueTransformers.m; sourceTree = "<group>"; };
+		CD5A447118319B8F005195FD /* EVEWalletTransactionEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVEWalletTransactionEntry.h; sourceTree = "<group>"; };
+		CD5A447218319B8F005195FD /* EVEWalletTransactionEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVEWalletTransactionEntry.m; sourceTree = "<group>"; };
 		CD84AE2417FD20B0001200AF /* EVEApiKeyInformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVEApiKeyInformation.h; sourceTree = "<group>"; };
 		CD84AE2517FD20B0001200AF /* EVEApiKeyInformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVEApiKeyInformation.m; sourceTree = "<group>"; };
 		CD84AE2717FD2472001200AF /* EVEAccountStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVEAccountStatus.h; sourceTree = "<group>"; };
@@ -310,8 +312,6 @@
 		CD84AE7917FD2760001200AF /* EVEWalletJournal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVEWalletJournal.m; sourceTree = "<group>"; };
 		CD84AE7B17FD277F001200AF /* EVEWalletTransactions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVEWalletTransactions.h; sourceTree = "<group>"; };
 		CD84AE7C17FD277F001200AF /* EVEWalletTransactions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVEWalletTransactions.m; sourceTree = "<group>"; };
-		CD84AE7E17FD27A4001200AF /* EVEAccountBalances.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVEAccountBalances.h; sourceTree = "<group>"; };
-		CD84AE7F17FD27A4001200AF /* EVEAccountBalances.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVEAccountBalances.m; sourceTree = "<group>"; };
 		CD84AE8117FD290B001200AF /* EVEContainerLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVEContainerLog.h; sourceTree = "<group>"; };
 		CD84AE8217FD290B001200AF /* EVEContainerLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVEContainerLog.m; sourceTree = "<group>"; };
 		CD84AE8417FD29A4001200AF /* EVECorporationSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVECorporationSheet.h; sourceTree = "<group>"; };
@@ -565,9 +565,10 @@
 		CD423FBB17F89C4900958F90 /* EVE API */ = {
 			isa = PBXGroup;
 			children = (
-				CDD079CF182717C200248F3B /* API */,
 				CD84AE1D17FD1FF0001200AF /* Account */,
+				CDD079CF182717C200248F3B /* API */,
 				CD84AE1E17FD1FFD001200AF /* Character */,
+				CD5A44741831C133005195FD /* Character/Corporation */,
 				CD84AE1F17FD2009001200AF /* Corporation */,
 				CD84AE2017FD201A001200AF /* EVE */,
 				CD84AE2117FD2021001200AF /* Map */,
@@ -605,6 +606,41 @@
 			name = RestKit;
 			sourceTree = "<group>";
 		};
+		CD5A44741831C133005195FD /* Character/Corporation */ = {
+			isa = PBXGroup;
+			children = (
+				CD84AE7B17FD277F001200AF /* EVEWalletTransactions.h */,
+				CD84AE7C17FD277F001200AF /* EVEWalletTransactions.m */,
+				CD84AE7217FD273F001200AF /* EVEStandings.h */,
+				CD84AE7317FD273F001200AF /* EVEStandings.m */,
+				CD84AE5D17FD26AC001200AF /* EVEMarketOrders.h */,
+				CD84AE5E17FD26AC001200AF /* EVEMarketOrders.m */,
+				CD84AE6017FD26B9001200AF /* EVEMedals.h */,
+				CD84AE6117FD26B9001200AF /* EVEMedals.m */,
+				CD84AE4817FD25ED001200AF /* EVEFactionalWarfareStats.h */,
+				CD84AE4917FD25ED001200AF /* EVEFactionalWarfareStats.m */,
+				CD84AE4B17FD25FF001200AF /* EVEIndustryJobs.h */,
+				CD84AE4C17FD25FF001200AF /* EVEIndustryJobs.m */,
+				CD84AE4E17FD260C001200AF /* EVEKillLog.h */,
+				CD84AE4F17FD260C001200AF /* EVEKillLog.m */,
+				CD84AE5117FD2628001200AF /* EVELocations.h */,
+				CD84AE5217FD2628001200AF /* EVELocations.m */,
+				CD84AE3F17FD25B6001200AF /* EVEContracts.h */,
+				CD84AE4017FD25B6001200AF /* EVEContracts.m */,
+				CD84AE4217FD25C3001200AF /* EVEContractItems.h */,
+				CD84AE4317FD25C3001200AF /* EVEContractItems.m */,
+				CD84AE4517FD25D3001200AF /* EVEContractBids.h */,
+				CD84AE4617FD25D3001200AF /* EVEContractBids.m */,
+				CD84AE3917FD2576001200AF /* EVEContactList.h */,
+				CD84AE3A17FD2576001200AF /* EVEContactList.m */,
+				CD84AE3017FD24F1001200AF /* EVEAssetList.h */,
+				CD84AE3117FD24F1001200AF /* EVEAssetList.m */,
+				CD84AE2D17FD24DC001200AF /* EVEAccountBalance.h */,
+				CD84AE2E17FD24DC001200AF /* EVEAccountBalance.m */,
+			);
+			name = Character/Corporation;
+			sourceTree = "<group>";
+		};
 		CD84AE1D17FD1FF0001200AF /* Account */ = {
 			isa = PBXGroup;
 			children = (
@@ -621,42 +657,18 @@
 		CD84AE1E17FD1FFD001200AF /* Character */ = {
 			isa = PBXGroup;
 			children = (
-				CD84AE2D17FD24DC001200AF /* EVEAccountBalance.h */,
-				CD84AE2E17FD24DC001200AF /* EVEAccountBalance.m */,
-				CD84AE3017FD24F1001200AF /* EVEAssetList.h */,
-				CD84AE3117FD24F1001200AF /* EVEAssetList.m */,
 				CD84AE3317FD250D001200AF /* EVECalendarEventAttendees.h */,
 				CD84AE3417FD250D001200AF /* EVECalendarEventAttendees.m */,
 				CD84AE3617FD256C001200AF /* EVECharacterSheet.h */,
 				CD84AE3717FD256C001200AF /* EVECharacterSheet.m */,
-				CD84AE3917FD2576001200AF /* EVEContactList.h */,
-				CD84AE3A17FD2576001200AF /* EVEContactList.m */,
 				CD84AE3C17FD25A8001200AF /* EVEContactNotifications.h */,
 				CD84AE3D17FD25A8001200AF /* EVEContactNotifications.m */,
-				CD84AE3F17FD25B6001200AF /* EVEContracts.h */,
-				CD84AE4017FD25B6001200AF /* EVEContracts.m */,
-				CD84AE4217FD25C3001200AF /* EVEContractItems.h */,
-				CD84AE4317FD25C3001200AF /* EVEContractItems.m */,
-				CD84AE4517FD25D3001200AF /* EVEContractBids.h */,
-				CD84AE4617FD25D3001200AF /* EVEContractBids.m */,
-				CD84AE4817FD25ED001200AF /* EVEFactionalWarfareStats.h */,
-				CD84AE4917FD25ED001200AF /* EVEFactionalWarfareStats.m */,
-				CD84AE4B17FD25FF001200AF /* EVEIndustryJobs.h */,
-				CD84AE4C17FD25FF001200AF /* EVEIndustryJobs.m */,
-				CD84AE4E17FD260C001200AF /* EVEKillLog.h */,
-				CD84AE4F17FD260C001200AF /* EVEKillLog.m */,
-				CD84AE5117FD2628001200AF /* EVELocations.h */,
-				CD84AE5217FD2628001200AF /* EVELocations.m */,
 				CD84AE5417FD2673001200AF /* EVEMailBodies.h */,
 				CD84AE5517FD2673001200AF /* EVEMailBodies.m */,
 				CD84AE5717FD267D001200AF /* EVEMailingLists.h */,
 				CD84AE5817FD267D001200AF /* EVEMailingLists.m */,
 				CD84AE5A17FD2692001200AF /* EVEMailMessages.h */,
 				CD84AE5B17FD2692001200AF /* EVEMailMessages.m */,
-				CD84AE5D17FD26AC001200AF /* EVEMarketOrders.h */,
-				CD84AE5E17FD26AC001200AF /* EVEMarketOrders.m */,
-				CD84AE6017FD26B9001200AF /* EVEMedals.h */,
-				CD84AE6117FD26B9001200AF /* EVEMedals.m */,
 				CD84AE6317FD26C3001200AF /* EVENotifications.h */,
 				CD84AE6417FD26C3001200AF /* EVENotifications.m */,
 				CD84AE6617FD26D8001200AF /* EVENotificationTexts.h */,
@@ -667,14 +679,10 @@
 				CD84AE6D17FD26F8001200AF /* EVESkillInTraining.m */,
 				CD84AE6F17FD2701001200AF /* EVESkillQueue.h */,
 				CD84AE7017FD2701001200AF /* EVESkillQueue.m */,
-				CD84AE7217FD273F001200AF /* EVEStandings.h */,
-				CD84AE7317FD273F001200AF /* EVEStandings.m */,
 				CD84AE7517FD2754001200AF /* EVEUpcomingCalendarEvents.h */,
 				CD84AE7617FD2754001200AF /* EVEUpcomingCalendarEvents.m */,
 				CD84AE7817FD2760001200AF /* EVEWalletJournal.h */,
 				CD84AE7917FD2760001200AF /* EVEWalletJournal.m */,
-				CD84AE7B17FD277F001200AF /* EVEWalletTransactions.h */,
-				CD84AE7C17FD277F001200AF /* EVEWalletTransactions.m */,
 			);
 			name = Character;
 			sourceTree = "<group>";
@@ -682,8 +690,6 @@
 		CD84AE1F17FD2009001200AF /* Corporation */ = {
 			isa = PBXGroup;
 			children = (
-				CD84AE7E17FD27A4001200AF /* EVEAccountBalances.h */,
-				CD84AE7F17FD27A4001200AF /* EVEAccountBalances.m */,
 				CD84AE8117FD290B001200AF /* EVEContainerLog.h */,
 				CD84AE8217FD290B001200AF /* EVEContainerLog.m */,
 				CD84AE8417FD29A4001200AF /* EVECorporationSheet.h */,
@@ -972,6 +978,8 @@
 				CD99155E18314E9300DA09E8 /* EVEStanding.m */,
 				CD9915601831594600DA09E8 /* EVEWalletJournalEntry.h */,
 				CD9915611831594600DA09E8 /* EVEWalletJournalEntry.m */,
+				CD5A447118319B8F005195FD /* EVEWalletTransactionEntry.h */,
+				CD5A447218319B8F005195FD /* EVEWalletTransactionEntry.m */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -1185,7 +1193,6 @@
 				CDB7B34F180E142D00675108 /* EVERace.m in Sources */,
 				CD84AE6817FD26D8001200AF /* EVENotificationTexts.m in Sources */,
 				CD2940F817EEA4EA00BC7947 /* ObjectBuilder.m in Sources */,
-				CD84AE8017FD27A4001200AF /* EVEAccountBalances.m in Sources */,
 				CDBE208817F50D8B00C6B71E /* BlueprintRelationship.m in Sources */,
 				CD99155918314E1F00DA09E8 /* EVENpcCorporationStanding.m in Sources */,
 				CDB7B367180E187D00675108 /* EVECloneName.m in Sources */,
@@ -1220,6 +1227,7 @@
 				CDAFC7D218208D9A006BCAEC /* EVEContractItem.m in Sources */,
 				CD84AEB617FD2E63001200AF /* EVEConquerableStationList.m in Sources */,
 				CDA8FB8A180F7E34005979A2 /* EVECharacterPerception.m in Sources */,
+				CD5A447318319B8F005195FD /* EVEWalletTransactionEntry.m in Sources */,
 				CD84AE3217FD24F1001200AF /* EVEAssetList.m in Sources */,
 				CDF407AD1791B2C6001B5A57 /* AppDelegate.m in Sources */,
 				CD84AEB017FD2E2B001200AF /* EVECharacterInfo.m in Sources */,

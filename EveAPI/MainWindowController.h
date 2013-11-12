@@ -103,6 +103,7 @@
 @property (strong) EVESkillQueue *skillQueue;
 @property (strong) EVEStandings *standings;
 @property (strong) EVEWalletJournal *walletJournal;
+@property (strong) EVEWalletTransactions *walletTransactions;
 
 // Server APIs
 @property (strong) EVEServerStatus *serverStatus;

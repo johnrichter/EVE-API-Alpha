@@ -165,6 +165,11 @@
                                                    name:NSStringFromClass([EVEWalletJournal class])
                                                  object:nil];
       
+      [[NSNotificationCenter defaultCenter] addObserver:self
+                                               selector:@selector(EVEWalletTransactionsDidLoad:)
+                                                   name:NSStringFromClass([EVEWalletTransactions class])
+                                                 object:nil];
+      
       
       
       
@@ -367,6 +372,12 @@
                                                        CharacterId:minosId
                                                           WalletId:@1004];
    [self.walletJournal queryTheApi];
+   
+   self.walletTransactions = [[EVEWalletTransactions alloc] initWithEveKeyId:corpKeyId
+                                                                       VCode:corpVCode
+                                                                 CharacterId:minosId
+                                                                    WalletId:@1004];
+   //[self.walletTransactions queryTheApi];
    
    
    
@@ -614,6 +625,14 @@
    NSMutableString *newStr = [NSMutableString stringWithString:@"\n"];
    [newStr appendString:self.xmlTextView.string];
    [newStr appendFormat:@"%@\n", self.walletJournal];
+   [self.xmlTextView setString:newStr];
+}
+
+-(void)EVEWalletTransactionsDidLoad:(NSNotification *)notification
+{
+   NSMutableString *newStr = [NSMutableString stringWithString:@"\n"];
+   [newStr appendString:self.xmlTextView.string];
+   [newStr appendFormat:@"%@\n", self.walletTransactions];
    [self.xmlTextView setString:newStr];
 }
 
