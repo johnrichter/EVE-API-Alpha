@@ -170,9 +170,32 @@
                                                    name:NSStringFromClass([EVEWalletTransactions class])
                                                  object:nil];
       
+      // Character/Corporation APIs
       
+      // Corporation APIs
       
+      // EVE Global APIs
       
+      // Map APIs
+      [[NSNotificationCenter defaultCenter] addObserver:self
+                                               selector:@selector(EVESovereigntyDidLoad:)
+                                                   name:NSStringFromClass([EVESovereignty class])
+                                                 object:nil];
+      
+      [[NSNotificationCenter defaultCenter] addObserver:self
+                                               selector:@selector(EVEKillsDidLoad:)
+                                                   name:NSStringFromClass([EVEKills class])
+                                                 object:nil];
+      
+      [[NSNotificationCenter defaultCenter] addObserver:self
+                                               selector:@selector(EVEJumpsDidLoad:)
+                                                   name:NSStringFromClass([EVEJumps class])
+                                                 object:nil];
+      
+      [[NSNotificationCenter defaultCenter] addObserver:self
+                                               selector:@selector(EVEFactionalWarfareSystemsDidLoad:)
+                                                   name:NSStringFromClass([EVEFactionalWarfareSystems class])
+                                                 object:nil];
       
       // Server APIs
       [[NSNotificationCenter defaultCenter] addObserver:self
@@ -223,6 +246,7 @@
    
 #pragma clang diagnostic pop
    
+   // ------------------------------------------------------------------------------------
    // Character APIs
    self.apiKeyInfo = [[EVEApiKeyInformation alloc] initWithEveKeyId:keyId VCode:vCode];
    
@@ -371,7 +395,7 @@
                                                              VCode:corpVCode
                                                        CharacterId:minosId
                                                           WalletId:@1004];
-   [self.walletJournal queryTheApi];
+   //[self.walletJournal queryTheApi];
    
    self.walletTransactions = [[EVEWalletTransactions alloc] initWithEveKeyId:corpKeyId
                                                                        VCode:corpVCode
@@ -379,11 +403,33 @@
                                                                     WalletId:@1004];
    //[self.walletTransactions queryTheApi];
    
+   // ------------------------------------------------------------------------------------
+   // Character/Corporation APIs
    
+   // ------------------------------------------------------------------------------------
+   // Corporation APIs
    
+   // ------------------------------------------------------------------------------------
+   // EVE Global APIs
    
+   // ------------------------------------------------------------------------------------
+   // Map APIs
    
+   self.sovereignty = [EVESovereignty new];
+   //[self.sovereignty queryTheApi];
+   
+   self.kills = [EVEKills new];
+   //[self.kills queryTheApi];
+   
+   self.jumps = [EVEJumps new];
+   //[self.jumps queryTheApi];
+   
+   self.facWarSystems = [EVEFactionalWarfareSystems new];
+   [self.facWarSystems queryTheApi];
+   
+   // ------------------------------------------------------------------------------------
    // Server APIs
+   
    self.callList = [EVECallList new];
    //[self.callList queryTheApi];
    
@@ -636,8 +682,44 @@
    [self.xmlTextView setString:newStr];
 }
 
+// Character/Corporation APIs
 
+// Corporation APIs
 
+// EVE Global APIs
+
+// Map APIs
+-(void)EVESovereigntyDidLoad:(NSNotification *)notification
+{
+   NSMutableString *newStr = [NSMutableString stringWithString:@"\n"];
+   [newStr appendString:self.xmlTextView.string];
+   [newStr appendFormat:@"%@\n", self.sovereignty];
+   [self.xmlTextView setString:newStr];
+}
+
+-(void)EVEKillsDidLoad:(NSNotification *)notification
+{
+   NSMutableString *newStr = [NSMutableString stringWithString:@"\n"];
+   [newStr appendString:self.xmlTextView.string];
+   [newStr appendFormat:@"%@\n", self.kills];
+   [self.xmlTextView setString:newStr];
+}
+
+-(void)EVEJumpsDidLoad:(NSNotification *)notification
+{
+   NSMutableString *newStr = [NSMutableString stringWithString:@"\n"];
+   [newStr appendString:self.xmlTextView.string];
+   [newStr appendFormat:@"%@\n", self.jumps];
+   [self.xmlTextView setString:newStr];
+}
+
+-(void)EVEFactionalWarfareSystemsDidLoad:(NSNotification *)notification
+{
+   NSMutableString *newStr = [NSMutableString stringWithString:@"\n"];
+   [newStr appendString:self.xmlTextView.string];
+   [newStr appendFormat:@"%@\n", self.facWarSystems];
+   [self.xmlTextView setString:newStr];
+}
 
 // EVE Online APIs Server APIs
 -(void)EVECallListDidLoad:(NSNotification *)notification

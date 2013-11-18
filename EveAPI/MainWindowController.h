@@ -105,6 +105,12 @@
 @property (strong) EVEWalletJournal *walletJournal;
 @property (strong) EVEWalletTransactions *walletTransactions;
 
+// Map APIs
+@property (strong) EVEFactionalWarfareSystems *facWarSystems;
+@property (strong) EVEJumps *jumps;
+@property (strong) EVEKills *kills;
+@property (strong) EVESovereignty *sovereignty;
+
 // Server APIs
 @property (strong) EVEServerStatus *serverStatus;
 

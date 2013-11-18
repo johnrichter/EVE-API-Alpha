@@ -6,8 +6,18 @@
 //  Copyright (c) 2013 Johnathan Richter. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "EVEApiObject.h"
 
-@interface EVEFactionalWarfareSystems : NSObject
+@interface EVEFactionalWarfareSystems : EVEApiObject <EVEApiObjectProtocol, RequestOperationDelegate>
+
+#pragma mark - XML Properties
+@property (strong) NSMutableArray *solarSystems;
+
+#pragma mark - Instance Properties
+
+#pragma mark - Instance Methods
+-(EVEFactionalWarfareSystems *)init;
+-(void)queryTheApi;
+
 
 @end

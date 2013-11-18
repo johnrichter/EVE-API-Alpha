@@ -39,6 +39,10 @@
 		CD3C2F6B18133DE900EE7EB7 /* EVEError.m in Sources */ = {isa = PBXBuildFile; fileRef = CD3C2F6A18133DE900EE7EB7 /* EVEError.m */; };
 		CD423FBA17F89C3E00958F90 /* RKValueTransformers.m in Sources */ = {isa = PBXBuildFile; fileRef = CD423FB917F89C3E00958F90 /* RKValueTransformers.m */; };
 		CD5A447318319B8F005195FD /* EVEWalletTransactionEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = CD5A447218319B8F005195FD /* EVEWalletTransactionEntry.m */; };
+		CD839DA91839947200027FA8 /* EVESolarSystemSovereignty.m in Sources */ = {isa = PBXBuildFile; fileRef = CD839DA81839947200027FA8 /* EVESolarSystemSovereignty.m */; };
+		CD839DAC1839A08B00027FA8 /* EVESolarSystemKills.m in Sources */ = {isa = PBXBuildFile; fileRef = CD839DAB1839A08B00027FA8 /* EVESolarSystemKills.m */; };
+		CD839DAF1839A51900027FA8 /* EVESolarSystemJumps.m in Sources */ = {isa = PBXBuildFile; fileRef = CD839DAE1839A51900027FA8 /* EVESolarSystemJumps.m */; };
+		CD839DB21839AB2000027FA8 /* EVESolarSystemFactionWarfareStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = CD839DB11839AB2000027FA8 /* EVESolarSystemFactionWarfareStatus.m */; };
 		CD84AE2617FD20B0001200AF /* EVEApiKeyInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = CD84AE2517FD20B0001200AF /* EVEApiKeyInformation.m */; };
 		CD84AE2917FD2472001200AF /* EVEAccountStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = CD84AE2817FD2472001200AF /* EVEAccountStatus.m */; };
 		CD84AE2C17FD24BE001200AF /* EVEAccountCharacters.m in Sources */ = {isa = PBXBuildFile; fileRef = CD84AE2B17FD24BE001200AF /* EVEAccountCharacters.m */; };
@@ -252,6 +256,14 @@
 		CD423FB917F89C3E00958F90 /* RKValueTransformers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKValueTransformers.m; sourceTree = "<group>"; };
 		CD5A447118319B8F005195FD /* EVEWalletTransactionEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVEWalletTransactionEntry.h; sourceTree = "<group>"; };
 		CD5A447218319B8F005195FD /* EVEWalletTransactionEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVEWalletTransactionEntry.m; sourceTree = "<group>"; };
+		CD839DA71839947200027FA8 /* EVESolarSystemSovereignty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVESolarSystemSovereignty.h; sourceTree = "<group>"; };
+		CD839DA81839947200027FA8 /* EVESolarSystemSovereignty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVESolarSystemSovereignty.m; sourceTree = "<group>"; };
+		CD839DAA1839A08B00027FA8 /* EVESolarSystemKills.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVESolarSystemKills.h; sourceTree = "<group>"; };
+		CD839DAB1839A08B00027FA8 /* EVESolarSystemKills.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVESolarSystemKills.m; sourceTree = "<group>"; };
+		CD839DAD1839A51900027FA8 /* EVESolarSystemJumps.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVESolarSystemJumps.h; sourceTree = "<group>"; };
+		CD839DAE1839A51900027FA8 /* EVESolarSystemJumps.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVESolarSystemJumps.m; sourceTree = "<group>"; };
+		CD839DB01839AB2000027FA8 /* EVESolarSystemFactionWarfareStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVESolarSystemFactionWarfareStatus.h; sourceTree = "<group>"; };
+		CD839DB11839AB2000027FA8 /* EVESolarSystemFactionWarfareStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVESolarSystemFactionWarfareStatus.m; sourceTree = "<group>"; };
 		CD84AE2417FD20B0001200AF /* EVEApiKeyInformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVEApiKeyInformation.h; sourceTree = "<group>"; };
 		CD84AE2517FD20B0001200AF /* EVEApiKeyInformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVEApiKeyInformation.m; sourceTree = "<group>"; };
 		CD84AE2717FD2472001200AF /* EVEAccountStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVEAccountStatus.h; sourceTree = "<group>"; };
@@ -980,6 +992,14 @@
 				CD9915611831594600DA09E8 /* EVEWalletJournalEntry.m */,
 				CD5A447118319B8F005195FD /* EVEWalletTransactionEntry.h */,
 				CD5A447218319B8F005195FD /* EVEWalletTransactionEntry.m */,
+				CD839DA71839947200027FA8 /* EVESolarSystemSovereignty.h */,
+				CD839DA81839947200027FA8 /* EVESolarSystemSovereignty.m */,
+				CD839DAA1839A08B00027FA8 /* EVESolarSystemKills.h */,
+				CD839DAB1839A08B00027FA8 /* EVESolarSystemKills.m */,
+				CD839DAD1839A51900027FA8 /* EVESolarSystemJumps.h */,
+				CD839DAE1839A51900027FA8 /* EVESolarSystemJumps.m */,
+				CD839DB01839AB2000027FA8 /* EVESolarSystemFactionWarfareStatus.h */,
+				CD839DB11839AB2000027FA8 /* EVESolarSystemFactionWarfareStatus.m */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -1169,6 +1189,7 @@
 				CDB7B340180E0F9200675108 /* EVENumber.m in Sources */,
 				CDD079C51826F7E100248F3B /* EVECallGroup.m in Sources */,
 				CD84AE5C17FD2692001200AF /* EVEMailMessages.m in Sources */,
+				CD839DAC1839A08B00027FA8 /* EVESolarSystemKills.m in Sources */,
 				CDD079E418273D7100248F3B /* EVEFactionKillsYesterday.m in Sources */,
 				CDD079F018273DD100248F3B /* EVEFactionVictoryPointsLastWeek.m in Sources */,
 				CD423FBA17F89C3E00958F90 /* RKValueTransformers.m in Sources */,
@@ -1198,6 +1219,7 @@
 				CDB7B367180E187D00675108 /* EVECloneName.m in Sources */,
 				CDF407A61791B2C6001B5A57 /* main.m in Sources */,
 				CD0EEC1E182DA24E0068E754 /* EVEMail.m in Sources */,
+				CD839DB21839AB2000027FA8 /* EVESolarSystemFactionWarfareStatus.m in Sources */,
 				CD0C6FF018308C3200261D4F /* EVEBool.m in Sources */,
 				CD84AE7417FD273F001200AF /* EVEStandings.m in Sources */,
 				CDB7B385180E27A000675108 /* EVEAttributeEnhancer.m in Sources */,
@@ -1205,6 +1227,7 @@
 				CD84AE8F17FD2A2B001200AF /* EVEMemberSecurityLog.m in Sources */,
 				CDA8FB75180F760F005979A2 /* EVECorporationRole.m in Sources */,
 				CD84AEC217FD2FA4001200AF /* EVESkillTree.m in Sources */,
+				CD839DA91839947200027FA8 /* EVESolarSystemSovereignty.m in Sources */,
 				CD0EEC1B182D7B950068E754 /* EVEItemLocation.m in Sources */,
 				CD84AE6B17FD26E6001200AF /* EVEResearch.m in Sources */,
 				CD8564DD180B384D00BBE4CA /* EVEAsset.m in Sources */,
@@ -1238,6 +1261,7 @@
 				CD84AE7D17FD277F001200AF /* EVEWalletTransactions.m in Sources */,
 				CD0C6FE718307C8B00261D4F /* EVESkillTraining.m in Sources */,
 				CD84AE9E17FD2AA8001200AF /* EVEStarbaseDetail.m in Sources */,
+				CD839DAF1839A51900027FA8 /* EVESolarSystemJumps.m in Sources */,
 				CD0434B5182DEBD000A59E4F /* EVEMailingList.m in Sources */,
 				CD12AE2A18160B43007B99AC /* EVECorporationContact.m in Sources */,
 				CD8564ED180B83E100BBE4CA /* MainWindowController.m in Sources */,

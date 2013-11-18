@@ -6,8 +6,19 @@
 //  Copyright (c) 2013 Johnathan Richter. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "EVEApiObject.h"
+#import "EVEDate.h"
 
-@interface EVESovereignty : NSObject
+@interface EVESovereignty : EVEApiObject <EVEApiObjectProtocol, RequestOperationDelegate>
+
+#pragma mark - XML Properties
+@property (strong) NSMutableArray *solarSystems;
+@property (strong) EVEDate *dataFromDate;
+
+#pragma mark - Instance Properties
+
+#pragma mark - Instance Methods
+-(EVESovereignty *)init;
+-(void)queryTheApi;
 
 @end
