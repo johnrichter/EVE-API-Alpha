@@ -46,7 +46,6 @@
 
 // Global EVE APIs
 #import "EVEAllianceList.h"
-#import "EVECertificateTree.h"
 #import "EVECharacterInfo.h"
 #import "EVECharacterIdToName.h"
 #import "EVECharacterNameToId.h"
@@ -104,6 +103,11 @@
 @property (strong) EVEStandings *standings;
 @property (strong) EVEWalletJournal *walletJournal;
 @property (strong) EVEWalletTransactions *walletTransactions;
+
+// EVE Global APIs
+@property (strong) EVEAllianceList *allianceList;
+@property (strong) EVECharacterNameToId *charNameToId;
+@property (strong) EVECharacterIdToName *charIdToName;
 
 // Map APIs
 @property (strong) EVEFactionalWarfareSystems *facWarSystems;

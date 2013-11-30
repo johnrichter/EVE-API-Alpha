@@ -6,8 +6,18 @@
 //  Copyright (c) 2013 Johnathan Richter. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "EVEApiObject.h"
 
-@interface EVEAllianceList : NSObject
+@interface EVEAllianceList : EVEApiObject <EVEApiObjectProtocol, RequestOperationDelegate>
+
+#pragma mark - XML Properties
+@property (strong) NSMutableArray *alliances;
+
+#pragma mark - Instance Properties
+
+#pragma mark - Instance Methods
+-(EVEAllianceList *)init;
+-(void)queryTheApi;
+
 
 @end

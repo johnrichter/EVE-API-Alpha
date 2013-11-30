@@ -175,6 +175,20 @@
       // Corporation APIs
       
       // EVE Global APIs
+      [[NSNotificationCenter defaultCenter] addObserver:self
+                                               selector:@selector(EVEAllianceListDidLoad:)
+                                                   name:NSStringFromClass([EVEAllianceList class])
+                                                 object:nil];
+      
+      [[NSNotificationCenter defaultCenter] addObserver:self
+                                               selector:@selector(EVECharacterNameToIdDidLoad:)
+                                                   name:NSStringFromClass([EVECharacterNameToId class])
+                                                 object:nil];
+      
+      [[NSNotificationCenter defaultCenter] addObserver:self
+                                               selector:@selector(EVECharacterIdToNameDidLoad:)
+                                                   name:NSStringFromClass([EVECharacterIdToName class])
+                                                 object:nil];
       
       // Map APIs
       [[NSNotificationCenter defaultCenter] addObserver:self
@@ -411,6 +425,16 @@
    
    // ------------------------------------------------------------------------------------
    // EVE Global APIs
+   self.allianceList = [EVEAllianceList new];
+   //[self.allianceList queryTheApi];
+   
+   self.charNameToId = [[EVECharacterNameToId alloc] initWithNames:@[@"Minos%20Daedalus",
+                                                                     @"Master%20DarkEnforcer"]];
+   //[self.charNameToId queryTheApi];
+   
+   self.charIdToName = [[EVECharacterIdToName alloc] initWithIds:@[@91779534,
+                                                                   @153571845]];
+   //[self.charIdToName queryTheApi];
    
    // ------------------------------------------------------------------------------------
    // Map APIs
@@ -425,7 +449,7 @@
    //[self.jumps queryTheApi];
    
    self.facWarSystems = [EVEFactionalWarfareSystems new];
-   [self.facWarSystems queryTheApi];
+   //[self.facWarSystems queryTheApi];
    
    // ------------------------------------------------------------------------------------
    // Server APIs
@@ -687,6 +711,29 @@
 // Corporation APIs
 
 // EVE Global APIs
+-(void)EVEAllianceListDidLoad:(NSNotification *)notification
+{
+   NSMutableString *newStr = [NSMutableString stringWithString:@"\n"];
+   [newStr appendString:self.xmlTextView.string];
+   [newStr appendFormat:@"%@\n", self.allianceList];
+   [self.xmlTextView setString:newStr];
+}
+
+-(void)EVECharacterNameToIdDidLoad:(NSNotification *)notification
+{
+   NSMutableString *newStr = [NSMutableString stringWithString:@"\n"];
+   [newStr appendString:self.xmlTextView.string];
+   [newStr appendFormat:@"%@\n", self.charNameToId];
+   [self.xmlTextView setString:newStr];
+}
+
+-(void)EVECharacterIdToNameDidLoad:(NSNotification *)notification
+{
+   NSMutableString *newStr = [NSMutableString stringWithString:@"\n"];
+   [newStr appendString:self.xmlTextView.string];
+   [newStr appendFormat:@"%@\n", self.charIdToName];
+   [self.xmlTextView setString:newStr];
+}
 
 // Map APIs
 -(void)EVESovereigntyDidLoad:(NSNotification *)notification

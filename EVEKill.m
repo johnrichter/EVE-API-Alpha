@@ -69,7 +69,7 @@
                                   MatchingXmlAttributes:attributes
                            RelativeToObjectWithProperty:@"attackers"
                                            ForBlueprint:[attackers objectBlueprint]];
-   
+
    [self.objectBlueprint addRelationshipsFromArray:@[attackersRelation]];
 }
 

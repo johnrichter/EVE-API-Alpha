@@ -8,6 +8,20 @@
 
 #import "EVEApiObject.h"
 
-@interface EVECharacterNameToId : EVEApiObject
+@interface EVECharacterNameToId : EVEApiObject <EVEApiObjectProtocol, RequestOperationDelegate>
+
+#pragma mark - XML Properties
+@property (strong) NSMutableArray *characters;
+
+#pragma mark - Instance Properties
+@property (strong) NSArray *names;
+@property unsigned int maxNamesPerCall;
+@property unsigned int numNamesLeftToQuery;
+@property unsigned int namesQueryIndex;
+
+#pragma mark - Instance Methods
+-(EVECharacterNameToId *)initWithNames:(NSArray *)names;
+-(void)queryTheApi;
+
 
 @end

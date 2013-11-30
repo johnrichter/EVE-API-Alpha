@@ -39,10 +39,7 @@
                                                     @"vCode":vCode,
                                                     @"characterID":[characterId stringValue],
                                                     @"IDs":[itemIds componentsJoinedByString:@","]}];
-//      [self.uri appendFormat:@"?keyID=%@", keyId];
-//      [self.uri appendFormat:@"&vCode=%@", vCode];
-//      [self.uri appendFormat:@"&characterID=%@", [characterId stringValue]];
-//      [self.uri appendFormat:@"&itemIDs=%@", [itemIds componentsJoinedByString:@","]];
+
       self.cakAccessMask = @134217728;
       self.cacheStyle = kShortCache;
       self.legacyApiRestriction = kFullAccess;

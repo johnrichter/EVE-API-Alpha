@@ -24,7 +24,7 @@
       // Initialize XML Variables
       self.typeId = @0;
       self.skillpoints = @0;
-      self.currentLevel = @0;
+      self.level = @0;
       self.published = @0;
       
       // Configure the object's blueprint
@@ -39,14 +39,14 @@
    [self.objectBlueprint setObjectClassId:[self class]];
    [self.objectBlueprint addAttributesFromDictionary:@{@"typeID":@"typeId",
                                                        @"skillpoints":@"skillpoints",
-                                                       @"level":@"currentLevel",
+                                                       @"level":@"level",
                                                        @"published":@"published"}];
 }
 
 -(NSString *)description
 {
    return [NSString stringWithFormat:@"Skill Type: %@, Level: %@, Skillpoints: %@, Published:%@",
-                                     self.typeId, self.currentLevel,
+                                     self.typeId, self.level,
                                      self.skillpoints, self.published];
 }
 
@@ -64,7 +64,7 @@
    {
       [self setValue:@0 forKey:key];
    }
-   else if([key isEqualToString:@"currentLevel"])
+   else if([key isEqualToString:@"level"])
    {
       [self setValue:@0 forKey:key];
    }

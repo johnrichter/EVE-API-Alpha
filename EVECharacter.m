@@ -42,14 +42,10 @@
 
 -(NSString *)description
 {
-   NSMutableString *output = [[NSMutableString alloc] init];
-   [output appendFormat:@"\t----- EVECharacter -----\n"];
-   [output appendFormat:@"\tID:\t\t\t\t%@\n", self.characterId];
-   [output appendFormat:@"\tName:\t\t\t%@\n", self.characterName];
-   [output appendFormat:@"\tCorporation ID:\t\t%@\n", self.corporationId];
-   [output appendFormat:@"\tCorporation Name:\t%@\n", self.corporationName];
-   
-   return output;
+   return [NSString stringWithFormat:@"Character ID: %@ | Name: %@ | "
+                                     @"Corporation { ID: %@, Name: %@ }",
+                                     self.characterId, self.characterName,
+                                     self.corporationId, self.corporationName];
 }
 
 #pragma mark - KVC Attribute and To-One Compliance Methods

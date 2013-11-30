@@ -13,5 +13,7 @@ TODO:
 - kill log only works once... must destroy lots of ships to test... currently not tested.
 - I am not subscribed to any mailing lists, need to test the EVEMailingLists api
 - I have no research agents to test EVERearch, test it.
+- If the API returns 0 bytes of data, the program doesn't error out.  fix this
+  It can be forced by using multiple repeated characters in EVECharacterNameToId
 
 Note: from evecontracts on down, i did not put in the corect legacy information

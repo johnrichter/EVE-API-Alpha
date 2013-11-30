@@ -127,7 +127,7 @@
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
    // We should release the connection and data object, but with ARC we do not have to
-   NSLog(@"Conneciton failed! Error - %@ %@",
+   NSLog(@"Connection failed! Error - %@ %@",
          [error localizedDescription],
          [[error userInfo] objectForKey:NSURLErrorFailingURLStringErrorKey]);
 }

@@ -1,22 +1,21 @@
 //
-//  EVESkill.h
+//  EVECorporation.h
 //  EveAPI
 //
-//  Created by Johnathan Richter on 10/16/13.
+//  Created by Johnathan Richter on 11/29/13.
 //  Copyright (c) 2013 Johnathan Richter. All rights reserved.
 //
 
 #import "EVEObject.h"
+#import "EVEDate.h"
 
-@interface EVESkill : EVEObject <EVEObjectProtocol>
+@interface EVECorporation : EVEObject <EVEObjectProtocol>
 
 #pragma mark - XML Value
 
 #pragma mark - XML Attributes
-@property (strong) NSNumber *typeId;
-@property (strong) NSNumber *skillpoints;
-@property (strong) NSNumber *level;
-@property (strong) NSNumber *published;
+@property (strong) NSNumber *corporationId;
+@property (strong) EVEDate *allianceJoinDate;
 
 #pragma mark - XML Relationships
 
