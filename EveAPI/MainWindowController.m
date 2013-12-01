@@ -195,6 +195,16 @@
                                                    name:NSStringFromClass([EVECharacterInfo class])
                                                  object:nil];
       
+      [[NSNotificationCenter defaultCenter] addObserver:self
+                                               selector:@selector(EVEConquerableStationListDidLoad:)
+                                                   name:NSStringFromClass([EVEConquerableStationList class])
+                                                 object:nil];
+      
+      [[NSNotificationCenter defaultCenter] addObserver:self
+                                               selector:@selector(EVEFactionalWarfareGlobalStatsDidLoad:)
+                                                   name:NSStringFromClass([EVEFactionalWarfareGlobalStats class])
+                                                 object:nil];
+      
       // Map APIs
       [[NSNotificationCenter defaultCenter] addObserver:self
                                                selector:@selector(EVESovereigntyDidLoad:)
@@ -441,11 +451,17 @@
                                                                    @153571845]];
    //[self.charIdToName queryTheApi];
    
-   self.characterInfo = [[EVECharacterInfo alloc] initWithCharacterId:minosId];
-   //self.characterInfo = [[EVECharacterInfo alloc] initWithEveKeyId:keyId
-   //                                                          VCode:vCode
-   //                                                    CharacterId:minosId];
-   [self.characterInfo queryTheApi];
+   //self.characterInfo = [[EVECharacterInfo alloc] initWithCharacterId:minosId];
+   self.characterInfo = [[EVECharacterInfo alloc] initWithEveKeyId:keyId
+                                                             VCode:vCode
+                                                       CharacterId:minosId];
+   //[self.characterInfo queryTheApi];
+   
+   self.conquerableStations = [EVEConquerableStationList new];
+   //[self.conquerableStations queryTheApi];
+   
+   self.factionWarGlobalStats = [EVEFactionalWarfareGlobalStats new];
+   [self.factionWarGlobalStats queryTheApi];
    
    // ------------------------------------------------------------------------------------
    // Map APIs
@@ -751,6 +767,22 @@
    NSMutableString *newStr = [NSMutableString stringWithString:@"\n"];
    [newStr appendString:self.xmlTextView.string];
    [newStr appendFormat:@"%@\n", self.characterInfo];
+   [self.xmlTextView setString:newStr];
+}
+
+-(void)EVEConquerableStationListDidLoad:(NSNotification *)notification
+{
+   NSMutableString *newStr = [NSMutableString stringWithString:@"\n"];
+   [newStr appendString:self.xmlTextView.string];
+   [newStr appendFormat:@"%@\n", self.conquerableStations];
+   [self.xmlTextView setString:newStr];
+}
+
+-(void)EVEFactionalWarfareGlobalStatsDidLoad:(NSNotification *)notification
+{
+   NSMutableString *newStr = [NSMutableString stringWithString:@"\n"];
+   [newStr appendString:self.xmlTextView.string];
+   [newStr appendFormat:@"%@\n", self.factionWarGlobalStats];
    [self.xmlTextView setString:newStr];
 }
 

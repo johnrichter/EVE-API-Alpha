@@ -6,8 +6,17 @@
 //  Copyright (c) 2013 Johnathan Richter. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "EVEApiObject.h"
 
-@interface EVEFactionalWarfareTopStats : NSObject
+@interface EVEFactionalWarfareTopStats : EVEApiObject <EVEApiObjectProtocol, RequestOperationDelegate>
+
+#pragma mark - XML Properties
+
+#pragma mark - Instance Properties
+
+#pragma mark - Instance Methods
+-(EVEFactionalWarfareTopStats *)init;
+-(void)queryTheApi;
+
 
 @end

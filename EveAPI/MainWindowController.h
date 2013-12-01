@@ -51,6 +51,7 @@
 #import "EVECharacterNameToId.h"
 #import "EVEConquerableStationList.h"
 #import "EVEErrorList.h"
+#import "EVEFactionalWarfareGlobalStats.h"
 #import "EVEFactionalWarfareTopStats.h"
 #import "EVEReferenceTypes.h"
 #import "EVESkillTree.h"
@@ -109,6 +110,8 @@
 @property (strong) EVECharacterNameToId *charNameToId;
 @property (strong) EVECharacterIdToName *charIdToName;
 @property (strong) EVECharacterInfo *characterInfo;
+@property (strong) EVEConquerableStationList *conquerableStations;
+@property (strong) EVEFactionalWarfareGlobalStats *factionWarGlobalStats;
 
 // Map APIs
 @property (strong) EVEFactionalWarfareSystems *facWarSystems;
