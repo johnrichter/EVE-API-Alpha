@@ -449,7 +449,7 @@
    
    self.charIdToName = [[EVECharacterIdToName alloc] initWithIds:@[@91779534,
                                                                    @153571845]];
-   [self.charIdToName queryTheApi];
+   //[self.charIdToName queryTheApi];
    
    //self.characterInfo = [[EVECharacterInfo alloc] initWithCharacterId:minosId];
    self.characterInfo = [[EVECharacterInfo alloc] initWithEveKeyId:keyId
