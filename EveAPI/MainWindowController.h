@@ -108,6 +108,7 @@
 @property (strong) EVEAllianceList *allianceList;
 @property (strong) EVECharacterNameToId *charNameToId;
 @property (strong) EVECharacterIdToName *charIdToName;
+@property (strong) EVECharacterInfo *characterInfo;
 
 // Map APIs
 @property (strong) EVEFactionalWarfareSystems *facWarSystems;

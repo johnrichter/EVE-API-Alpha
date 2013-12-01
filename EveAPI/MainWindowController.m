@@ -190,6 +190,11 @@
                                                    name:NSStringFromClass([EVECharacterIdToName class])
                                                  object:nil];
       
+      [[NSNotificationCenter defaultCenter] addObserver:self
+                                               selector:@selector(EVECharacterInfoDidLoad:)
+                                                   name:NSStringFromClass([EVECharacterInfo class])
+                                                 object:nil];
+      
       // Map APIs
       [[NSNotificationCenter defaultCenter] addObserver:self
                                                selector:@selector(EVESovereigntyDidLoad:)
@@ -435,6 +440,12 @@
    self.charIdToName = [[EVECharacterIdToName alloc] initWithIds:@[@91779534,
                                                                    @153571845]];
    //[self.charIdToName queryTheApi];
+   
+   self.characterInfo = [[EVECharacterInfo alloc] initWithCharacterId:minosId];
+   //self.characterInfo = [[EVECharacterInfo alloc] initWithEveKeyId:keyId
+   //                                                          VCode:vCode
+   //                                                    CharacterId:minosId];
+   [self.characterInfo queryTheApi];
    
    // ------------------------------------------------------------------------------------
    // Map APIs
@@ -732,6 +743,14 @@
    NSMutableString *newStr = [NSMutableString stringWithString:@"\n"];
    [newStr appendString:self.xmlTextView.string];
    [newStr appendFormat:@"%@\n", self.charIdToName];
+   [self.xmlTextView setString:newStr];
+}
+
+-(void)EVECharacterInfoDidLoad:(NSNotification *)notification
+{
+   NSMutableString *newStr = [NSMutableString stringWithString:@"\n"];
+   [newStr appendString:self.xmlTextView.string];
+   [newStr appendFormat:@"%@\n", self.characterInfo];
    [self.xmlTextView setString:newStr];
 }
 
