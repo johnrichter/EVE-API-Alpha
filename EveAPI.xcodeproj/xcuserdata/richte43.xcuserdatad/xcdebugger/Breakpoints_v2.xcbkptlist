@@ -1604,9 +1604,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "58"
-            endingLineNumber = "58"
-            landmarkName = "-initWithNames:"
-            landmarkType = "5">
+            endingLineNumber = "58">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1620,9 +1618,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "104"
-            endingLineNumber = "104"
-            landmarkName = "-description"
-            landmarkType = "5">
+            endingLineNumber = "104">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
@@ -1666,9 +1662,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "188"
-            endingLineNumber = "188"
-            landmarkName = "-requestOperationSucceededWithObjects:"
-            landmarkType = "5">
+            endingLineNumber = "188">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
@@ -1712,9 +1706,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "23"
-            endingLineNumber = "23"
-            landmarkName = "@implementation EVECharacterNameToId"
-            landmarkType = "3">
+            endingLineNumber = "23">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1728,9 +1720,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "186"
-            endingLineNumber = "186"
-            landmarkName = "-requestOperationSucceededWithObjects:"
-            landmarkType = "5">
+            endingLineNumber = "186">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1744,9 +1734,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "197"
-            endingLineNumber = "197"
-            landmarkName = "-requestOperationSucceededWithObjects:"
-            landmarkType = "5">
+            endingLineNumber = "197">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1760,9 +1748,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "114"
-            endingLineNumber = "114"
-            landmarkName = "-queriedMoreNames"
-            landmarkType = "5">
+            endingLineNumber = "114">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

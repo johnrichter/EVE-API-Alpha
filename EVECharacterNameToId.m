@@ -1,13 +1,13 @@
 //
-//  EVECharacterNameToId.h
+//  EVECharacterNameToId.m
 //  EveAPI
 //
 //  Created by Johnathan Richter on 12/1/13.
 //  Copyright (c) 2013 Johnathan Richter. All rights reserved.
 //
 
-#import "EVEObject.h"
+#import "EVECharacterNameToId.h"
 
-@interface EVECharacterNameToId : EVEObject
+@implementation EVECharacterNameToId
 
 @end
