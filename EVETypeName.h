@@ -6,8 +6,21 @@
 //  Copyright (c) 2013 Johnathan Richter. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "EVEApiObject.h"
 
-@interface EVETypeName : NSObject
+@interface EVETypeName : EVEApiObject <EVEApiObjectProtocol, RequestOperationDelegate>
+
+#pragma mark - XML Properties
+@property (strong) NSMutableArray *types;
+
+#pragma mark - Instance Properties
+@property (strong) NSArray *ids;
+@property (strong) NSMutableArray *idsToQuery;
+@property unsigned int maxEntriesPerCall;
+
+#pragma mark - Instance Methods
+-(EVETypeName *)initWithIds:(NSArray *)ids;
+-(void)queryTheApi;
+
 
 @end

@@ -112,6 +112,7 @@
 @property (strong) EVECharacterInfo *characterInfo;
 @property (strong) EVEConquerableStationList *conquerableStations;
 @property (strong) EVEFactionalWarfareGlobalStats *factionWarGlobalStats;
+@property (strong) EVETypeName *typeName;
 
 // Map APIs
 @property (strong) EVEFactionalWarfareSystems *facWarSystems;

@@ -205,6 +205,11 @@
                                                    name:NSStringFromClass([EVEFactionalWarfareGlobalStats class])
                                                  object:nil];
       
+      [[NSNotificationCenter defaultCenter] addObserver:self
+                                               selector:@selector(EVETypeNameDidLoad:)
+                                                   name:NSStringFromClass([EVETypeName class])
+                                                 object:nil];
+      
       // Map APIs
       [[NSNotificationCenter defaultCenter] addObserver:self
                                                selector:@selector(EVESovereigntyDidLoad:)
@@ -272,6 +277,13 @@
    NSNumber *mdeId = @153571845;
    
    NSNumber *agentShadeId = @92323562;
+   
+   NSMutableArray *typeIds = [NSMutableArray new];
+   for (unsigned int num = 0; num < 1000; ++num)
+   {
+      NSNumber *number = [NSNumber numberWithUnsignedInt:num];
+      [typeIds addObject:[number stringValue]];
+   }
    
 #pragma clang diagnostic pop
    
@@ -462,6 +474,9 @@
    
    self.factionWarGlobalStats = [EVEFactionalWarfareGlobalStats new];
    //[self.factionWarGlobalStats queryTheApi];
+   
+   self.typeName = [[EVETypeName alloc] initWithIds:typeIds];
+   [self.typeName queryTheApi];
    
    // ------------------------------------------------------------------------------------
    // Map APIs
@@ -783,6 +798,14 @@
    NSMutableString *newStr = [NSMutableString stringWithString:@"\n"];
    [newStr appendString:self.xmlTextView.string];
    [newStr appendFormat:@"%@\n", self.factionWarGlobalStats];
+   [self.xmlTextView setString:newStr];
+}
+
+-(void)EVETypeNameDidLoad:(NSNotification *)notification
+{
+   NSMutableString *newStr = [NSMutableString stringWithString:@"\n"];
+   [newStr appendString:self.xmlTextView.string];
+   [newStr appendFormat:@"%@\n", self.typeName];
    [self.xmlTextView setString:newStr];
 }
 
