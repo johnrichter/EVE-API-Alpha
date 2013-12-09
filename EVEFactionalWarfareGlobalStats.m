@@ -169,27 +169,27 @@
    {
       if ([object class] == [EVEFactionKillsYesterday class])
       {
-         self.killsYesterday = ((EVEFactionKillsYesterday *)object).number;
+         self.killsYesterday = ((EVEFactionKillsYesterday *)object).kills;
       }
       else if ([object class] == [EVEFactionKillsLastWeek class])
       {
-         self.killsLastWeek = ((EVEFactionKillsLastWeek *)object).number;
+         self.killsLastWeek = ((EVEFactionKillsLastWeek *)object).kills;
       }
       else if ([object class] == [EVEFactionTotalKills class])
       {
-         self.totalKills = ((EVEFactionTotalKills *)object).number;
+         self.totalKills = ((EVEFactionTotalKills *)object).kills;
       }
       else if ([object class] == [EVEFactionVictoryPointsYesterday class])
       {
-         self.victoryPointsYesterday = ((EVEFactionVictoryPointsYesterday *)object).number;
+         self.victoryPointsYesterday = ((EVEFactionVictoryPointsYesterday *)object).victoryPoints;
       }
       else if ([object class] == [EVEFactionVictoryPointsLastWeek class])
       {
-         self.victoryPointsLastWeek = ((EVEFactionVictoryPointsLastWeek *)object).number;
+         self.victoryPointsLastWeek = ((EVEFactionVictoryPointsLastWeek *)object).victoryPoints;
       }
       else if ([object class] == [EVEFactionTotalVictoryPoints class])
       {
-         self.totalVictoryPoints = ((EVEFactionTotalVictoryPoints *)object).number;
+         self.totalVictoryPoints = ((EVEFactionTotalVictoryPoints *)object).victoryPoints;
       }
       else if ([object class] == [EVEFaction class])
       {

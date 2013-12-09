@@ -6,8 +6,20 @@
 //  Copyright (c) 2013 Johnathan Richter. All rights reserved.
 //
 
-#import "EVENumber.h"
+#import "EVEFaction.h"
 
-@interface EVEFactionVictoryPointsLastWeek : EVENumber
+@interface EVEFactionVictoryPointsLastWeek : EVEFaction
+
+#pragma mark - XML Value
+
+#pragma mark - XML Attributes
+
+#pragma mark - XML Relationships
+
+#pragma mark - Instance Properties
+
+#pragma mark - Instance Methods
+
+-(EVEFactionVictoryPointsLastWeek *)init;
 
 @end

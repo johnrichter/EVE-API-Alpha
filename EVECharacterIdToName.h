@@ -15,9 +15,8 @@
 
 #pragma mark - Instance Properties
 @property (strong) NSArray *ids;
+@property (strong) NSMutableArray *idsToQuery;
 @property unsigned int maxIdsPerCall;
-@property unsigned int numIdsLeftToQuery;
-@property unsigned int idsQueryIndex;
 
 #pragma mark - Instance Methods
 -(EVECharacterIdToName *)initWithIds:(NSArray *)ids;

@@ -41,7 +41,7 @@
       
       // Instance Properties
       self.ids = [ids copy];
-      self.idsToQuery = [NSMutableArray arrayWithArray:ids];
+      self.idsToQuery = [NSMutableArray arrayWithArray:self.ids];
       self.maxEntriesPerCall = 250;
       
       // URI argument setup
@@ -57,12 +57,13 @@
       {
          [nextIdBatchToQuery addObjectsFromArray:self.idsToQuery];
       }
-      
-      // remove the next batch from our master query list
-      [self.idsToQuery removeObjectsInArray:nextIdBatchToQuery];
-      
+   
+      // Add the batch to the URI
       [self.uriArguments addEntriesFromDictionary:@{@"ids":[nextIdBatchToQuery
                                                             componentsJoinedByString:@","]}];
+   
+      // Remove the next batch from our master query list
+      [self.idsToQuery removeObjectsInArray:nextIdBatchToQuery];
       
       // Object Building Properties
       [self configureObjectBuilders];
@@ -107,7 +108,7 @@
    return api;
 }
 
--(BOOL)queriedMoreIds
+-(BOOL)didQueryMoreIds
 {
    // if there are objects in the 'idsToQuery' array then we are not finished
    if ([self.idsToQuery count] == 0)
@@ -182,7 +183,7 @@
       }
    }
    
-   if (![self queriedMoreIds])
+   if (![self didQueryMoreIds])
    {
       [[NSNotificationCenter defaultCenter] postNotificationName:NSStringFromClass([self class])
                                                           object:nil

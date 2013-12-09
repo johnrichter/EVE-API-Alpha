@@ -206,6 +206,16 @@
                                                  object:nil];
       
       [[NSNotificationCenter defaultCenter] addObserver:self
+                                               selector:@selector(EVEFactionalWarfareTopStatsDidLoad:)
+                                                   name:NSStringFromClass([EVEFactionalWarfareTopStats class])
+                                                 object:nil];
+      
+      [[NSNotificationCenter defaultCenter] addObserver:self
+                                               selector:@selector(EVEReferenceTypesDidLoad:)
+                                                   name:NSStringFromClass([EVEReferenceTypes class])
+                                                 object:nil];
+      
+      [[NSNotificationCenter defaultCenter] addObserver:self
                                                selector:@selector(EVETypeNameDidLoad:)
                                                    name:NSStringFromClass([EVETypeName class])
                                                  object:nil];
@@ -475,8 +485,14 @@
    self.factionWarGlobalStats = [EVEFactionalWarfareGlobalStats new];
    //[self.factionWarGlobalStats queryTheApi];
    
+   self.factionWarTopStats = [EVEFactionalWarfareTopStats new];
+   [self.factionWarTopStats queryTheApi];
+   
    self.typeName = [[EVETypeName alloc] initWithIds:typeIds];
-   [self.typeName queryTheApi];
+   //[self.typeName queryTheApi];
+   
+   self.refTypes = [EVEReferenceTypes new];
+   //[self.refTypes queryTheApi];
    
    // ------------------------------------------------------------------------------------
    // Map APIs
@@ -798,6 +814,22 @@
    NSMutableString *newStr = [NSMutableString stringWithString:@"\n"];
    [newStr appendString:self.xmlTextView.string];
    [newStr appendFormat:@"%@\n", self.factionWarGlobalStats];
+   [self.xmlTextView setString:newStr];
+}
+
+-(void)EVEFactionalWarfareTopStatsDidLoad:(NSNotification *)notification
+{
+   NSMutableString *newStr = [NSMutableString stringWithString:@"\n"];
+   [newStr appendString:self.xmlTextView.string];
+   [newStr appendFormat:@"%@\n", self.factionWarTopStats];
+   [self.xmlTextView setString:newStr];
+}
+
+-(void)EVEReferenceTypesDidLoad:(NSNotification *)notification
+{
+   NSMutableString *newStr = [NSMutableString stringWithString:@"\n"];
+   [newStr appendString:self.xmlTextView.string];
+   [newStr appendFormat:@"%@\n", self.refTypes];
    [self.xmlTextView setString:newStr];
 }
 

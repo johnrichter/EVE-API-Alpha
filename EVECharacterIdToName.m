@@ -28,32 +28,9 @@
    self = [super init];
    if (self)
    {
-      self.maxIdsPerCall = 250;
-      self.idsQueryIndex = 0;
-      self.numIdsLeftToQuery = 0;
-      
       // Common API Properties
       self.commonName = @"Character Id to Name";
       [self.uri appendString:@"eve/CharacterName.xml.aspx"];
-
-      NSMutableArray *idsToBeQueried = [NSMutableArray new];
-      if ([ids count] > self.maxIdsPerCall)
-      {
-         self.numIdsLeftToQuery = [ids count] - self.maxIdsPerCall;
-         
-         for (unsigned int index = 0; index < self.maxIdsPerCall; ++index)
-         {
-            [idsToBeQueried addObject:ids[index]];
-         }
-      }
-      else
-      {
-         [idsToBeQueried addObjectsFromArray:ids];
-      }
-      
-      self.idsQueryIndex += [idsToBeQueried count];
-      [self.uriArguments addEntriesFromDictionary:@{@"ids":[idsToBeQueried
-                                                            componentsJoinedByString:@","]}];
       
       self.cakAccessMask = @0;
       self.cacheStyle = kModifiedShortCache;
@@ -64,7 +41,30 @@
       self.characters = [NSMutableArray new];
       
       // Instance Properties
-      self.ids = ids;
+      self.ids = [ids copy];
+      self.idsToQuery = [NSMutableArray arrayWithArray:self.ids];
+      self.maxIdsPerCall = 250;
+      
+      // URI argument setup
+      NSMutableArray *nextIdBatchToQuery = [NSMutableArray new];
+      if ([self.idsToQuery count] > self.maxIdsPerCall)
+      {
+         for (unsigned int index = 0; index < self.maxIdsPerCall; ++index)
+         {
+            [nextIdBatchToQuery addObject:self.idsToQuery[index]];
+         }
+      }
+      else
+      {
+         [nextIdBatchToQuery addObjectsFromArray:self.idsToQuery];
+      }
+      
+      // Add the batch to the URI
+      [self.uriArguments addEntriesFromDictionary:@{@"ids":[nextIdBatchToQuery
+                                                            componentsJoinedByString:@","]}];
+      
+      // Remove the next batch from our master query list
+      [self.idsToQuery removeObjectsInArray:nextIdBatchToQuery];
       
       // Object Building Properties
       [self configureObjectBuilders];
@@ -109,58 +109,46 @@
    return api;
 }
 
--(BOOL)queriedMoreIds
+-(BOOL)didQueryMoreIds
 {
-   if (self.numIdsLeftToQuery > 0)
+   // if there are objects in the 'idsToQuery' array then we are not finished
+   if ([self.idsToQuery count] == 0)
    {
-      NSMutableArray *idsToBeQueried = [NSMutableArray new];
-      if (self.numIdsLeftToQuery > self.maxIdsPerCall)
-      {
-         self.numIdsLeftToQuery -= self.maxIdsPerCall;
-         
-         for (unsigned int index = self.idsQueryIndex;
-              index < self.maxIdsPerCall + self.idsQueryIndex && index < [self.ids count];
-              ++index)
-         {
-            [idsToBeQueried addObject:self.ids[index]];
-         }
-         
-         self.idsQueryIndex += self.maxIdsPerCall;
-      }
-      else
-      {
-         self.numIdsLeftToQuery = 0;
-         self.idsQueryIndex = 0;
-         
-         for (unsigned int index = self.idsQueryIndex;
-              index < [self.ids count];
-              ++index)
-         {
-            [idsToBeQueried addObject:self.ids[index]];
-         }
-      }
-      
-      self.uriArguments[@"ids"] = [idsToBeQueried componentsJoinedByString:@","];
-      
-      // Create a new RequestOperation
-      self.requestOperation = [[RequestOperation alloc] initWithDelegate:self];
-      
-      // Configure our RequestOperation with URI and Arguements
-      [self.requestOperation setUrl:self.uri
-                     WithArguements:self.uriArguments
-                         Blueprints:self.objectBlueprints];
-      
-      NSLog(@"Retrieving more names.  Have already obtained %lu",
-            (unsigned long)[self.characters count]);
-      
-      // Asynchronously fetch the next wallet journal entry page
-      [self.requestOperation start];
-      
-      return YES;
+      return NO;
    }
    
-   return NO;
-}
+   NSMutableArray *nextIdBatchToQuery = [NSMutableArray new];
+   if ([self.idsToQuery count] > self.maxIdsPerCall)
+   {
+      for (unsigned int index = 0; index < self.maxIdsPerCall; ++index)
+      {
+         [nextIdBatchToQuery addObject:self.idsToQuery[index]];
+      }
+   }
+   else
+   {
+      [nextIdBatchToQuery addObjectsFromArray:self.idsToQuery];
+   }
+   
+   // remove the next batch from our master query list
+   [self.idsToQuery removeObjectsInArray:nextIdBatchToQuery];
+   
+   self.uriArguments[@"ids"] = [nextIdBatchToQuery componentsJoinedByString:@","];
+   
+   // Create a new RequestOperation
+   self.requestOperation = [[RequestOperation alloc] initWithDelegate:self];
+   
+   // Configure our RequestOperation with URI and Arguements
+   [self.requestOperation setUrl:self.uri
+                  WithArguements:self.uriArguments
+                      Blueprints:self.objectBlueprints];
+   
+   NSLog(@"Retrieving more type names.");
+   
+   // Asynchronously fetch the next batch of type names
+   [self.requestOperation start];
+   
+   return YES;}
 
 
 #pragma mark - EVEApiProtool Methods
@@ -195,7 +183,7 @@
    }
    
    // If we didn't query more ids
-   if (![self queriedMoreIds])
+   if (![self didQueryMoreIds])
    {
       [[NSNotificationCenter defaultCenter] postNotificationName:NSStringFromClass([self class])
                                                           object:nil

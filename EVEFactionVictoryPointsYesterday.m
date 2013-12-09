@@ -10,4 +10,23 @@
 
 @implementation EVEFactionVictoryPointsYesterday
 
+-(EVEFactionVictoryPointsYesterday *)init
+{
+   self = [super init];
+   if (self)
+   {      
+      // Configure the object's blueprint
+      [self configureObjectBlueprint];
+   }
+   
+   return self;
+}
+
+-(void)configureObjectBlueprint
+{
+   [super configureObjectBlueprint];
+   [self.objectBlueprint setObjectClassId:[self class]];
+   [self.objectBlueprint setObjectValue:@"victoryPoints"];
+}
+
 @end

@@ -13,6 +13,7 @@
 #pragma mark - XML Value
 
 #pragma mark - XML Attributes
+// Faction Warfare Global Stats
 @property (strong) NSNumber *factionId;
 @property (strong) NSString *factionName;
 @property (strong) NSNumber *pilotCount;
@@ -23,6 +24,10 @@
 @property (strong) NSNumber *victoryPointsYesterday;
 @property (strong) NSNumber *victoryPointsLastWeek;
 @property (strong) NSNumber *totalVictoryPoints;
+
+// Faction Warfare Top 100
+@property (strong) NSNumber *kills;
+@property (strong) NSNumber *victoryPoints;
 
 #pragma mark - XML Relationships
 

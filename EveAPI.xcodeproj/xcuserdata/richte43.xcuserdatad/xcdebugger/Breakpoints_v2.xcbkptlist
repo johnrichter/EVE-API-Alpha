@@ -924,11 +924,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EveAPI/MainWindowController.m"
-            timestampString = "407646697.602527"
+            timestampString = "408244554.580498"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "298"
-            endingLineNumber = "298"
+            startingLineNumber = "308"
+            endingLineNumber = "308"
             landmarkName = "-windowDidLoad"
             landmarkType = "5">
          </BreakpointContent>
@@ -1032,11 +1032,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EveAPI/MainWindowController.m"
-            timestampString = "407646697.602527"
+            timestampString = "408244554.580498"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "265"
-            endingLineNumber = "265"
+            startingLineNumber = "275"
+            endingLineNumber = "275"
             landmarkName = "-windowDidLoad"
             landmarkType = "5">
          </BreakpointContent>
@@ -1584,11 +1584,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EveAPI/MainWindowController.m"
-            timestampString = "407646697.602527"
+            timestampString = "408244554.580498"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "442"
-            endingLineNumber = "442"
+            startingLineNumber = "452"
+            endingLineNumber = "452"
             landmarkName = "-windowDidLoad"
             landmarkType = "5">
          </BreakpointContent>
@@ -1600,11 +1600,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EVECharacterNameToId.m"
-            timestampString = "407573939.870225"
+            timestampString = "408231910.367315"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "259"
-            endingLineNumber = "259">
+            startingLineNumber = "247"
+            endingLineNumber = "247">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1614,11 +1614,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EVECharacterNameToId.m"
-            timestampString = "407573939.870225"
+            timestampString = "408231910.367315"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "305"
-            endingLineNumber = "305">
+            startingLineNumber = "293"
+            endingLineNumber = "293">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
@@ -1658,11 +1658,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EVECharacterNameToId.m"
-            timestampString = "407573939.870225"
+            timestampString = "408231910.367315"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "389"
-            endingLineNumber = "389">
+            startingLineNumber = "377"
+            endingLineNumber = "377">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
@@ -1702,11 +1702,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EVECharacterNameToId.m"
-            timestampString = "407573939.870225"
+            timestampString = "408231910.367315"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "224"
-            endingLineNumber = "224">
+            startingLineNumber = "212"
+            endingLineNumber = "212">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1716,11 +1716,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EVECharacterNameToId.m"
-            timestampString = "407573939.870225"
+            timestampString = "408231910.367315"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "387"
-            endingLineNumber = "387">
+            startingLineNumber = "375"
+            endingLineNumber = "375">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1730,11 +1730,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EVECharacterNameToId.m"
-            timestampString = "407573939.870225"
+            timestampString = "408231910.367315"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "398"
-            endingLineNumber = "398">
+            startingLineNumber = "386"
+            endingLineNumber = "386">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1744,11 +1744,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EVECharacterNameToId.m"
-            timestampString = "407573939.870225"
+            timestampString = "408231910.367315"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "315"
-            endingLineNumber = "315">
+            startingLineNumber = "303"
+            endingLineNumber = "303">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1836,12 +1836,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EVETypeName.m"
-            timestampString = "407646867.734912"
+            timestampString = "408231910.367315"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
-            landmarkName = "-initWithIds:"
+            startingLineNumber = "114"
+            endingLineNumber = "114"
+            landmarkName = "-didQueryMoreIds"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1852,12 +1852,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EVETypeName.m"
-            timestampString = "407646875.013206"
+            timestampString = "408231910.367315"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "113"
-            endingLineNumber = "113"
-            landmarkName = "-queriedMoreIds"
+            startingLineNumber = "135"
+            endingLineNumber = "135"
+            landmarkName = "-didQueryMoreIds"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1867,14 +1867,30 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "EVETypeName.m"
-            timestampString = "407647052.974114"
+            filePath = "EVECharacterNameToId.m"
+            timestampString = "408231947.244286"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "134"
-            endingLineNumber = "134"
-            landmarkName = "-queriedMoreIds"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "-queryTheApi"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EVEFactionWarfarePilotTotalVictoryPoints.m"
+            timestampString = "408235997.464358"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "@implementation EVEFactionWarfarePilotTotalVictoryPoints"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

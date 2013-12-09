@@ -33,6 +33,9 @@
       self.victoryPointsLastWeek = @0;
       self.totalVictoryPoints = @0;
       
+      self.kills = @0;
+      self.victoryPoints = @0;
+      
       // Configure the object's blueprint
       [self configureObjectBlueprint];
    }
@@ -44,13 +47,15 @@
 {
    [self.objectBlueprint setObjectClassId:[self class]];
    [self.objectBlueprint addAttributesFromDictionary:
-      @{@"factionId":@"factionId",
+      @{@"factionID":@"factionId",
         @"factionName":@"factionName",
         @"pilots":@"pilotCount",
         @"systemsControlled":@"systemsControlled",
+        @"kills":@"kills",
         @"killsYesterday":@"killsYesterday",
         @"killsLastWeek":@"killsLastWeek",
         @"killsTotal":@"totalKills",
+        @"victoryPoints":@"victoryPoints",
         @"victoryPointsYesterday":@"victoryPointsYesterday",
         @"victoryPointsLastWeek":@"victoryPointsLastWeek",
         @"victoryPointsTotal":@"totalVictoryPoints"}];
@@ -62,12 +67,13 @@
                                      @"Total Systems Controlled: %@ | "
                                      @"Kills Yesterday: %@, Last Week: %@, Total: %@ | "
                                      @"Victory Points Yesterday: %@, Last Week: %@, "
-                                     @"Total: %@",
+                                     @"Total: %@ | Kills: %@, Victory Points: %@",
                                      self.factionId, self.factionName, self.pilotCount,
                                      self.systemsControlled, self.killsYesterday,
                                      self.killsLastWeek, self.totalKills,
                                      self.victoryPointsYesterday,
-                                     self.victoryPointsLastWeek, self.totalVictoryPoints];
+                                     self.victoryPointsLastWeek, self.totalVictoryPoints,
+                                     self.kills, self.victoryPoints];
 }
 
 #pragma mark - Private Instance Methods
@@ -92,6 +98,10 @@
    {
       [self setValue:@0 forKey:key];
    }
+   else if([key isEqualToString:@"kills"])
+   {
+      [self setValue:@0 forKey:key];
+   }
    else if([key isEqualToString:@"killsYesterday"])
    {
       [self setValue:@0 forKey:key];
@@ -101,6 +111,10 @@
       [self setValue:@0 forKey:key];
    }
    else if([key isEqualToString:@"totalKills"])
+   {
+      [self setValue:@0 forKey:key];
+   }
+   else if([key isEqualToString:@"victoryPoints"])
    {
       [self setValue:@0 forKey:key];
    }
