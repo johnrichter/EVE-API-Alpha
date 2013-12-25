@@ -115,6 +115,7 @@
 @property (strong) EVEReferenceTypes *refTypes;
 @property (strong) EVETypeName *typeName;
 @property (strong) EVEFactionalWarfareTopStats *factionWarTopStats;
+@property (strong) EVESkillTree *skillTree;
 
 // Map APIs
 @property (strong) EVEFactionalWarfareSystems *facWarSystems;

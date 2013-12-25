@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ObjectBuilder.m"
-            timestampString = "403931899.996667"
+            timestampString = "408421189.018821"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "388"
-            endingLineNumber = "388"
+            startingLineNumber = "396"
+            endingLineNumber = "396"
             landmarkName = "-setObject:Property:ToRhs:"
             landmarkType = "5">
          </BreakpointContent>
@@ -545,7 +545,7 @@
                   symbolName = "-[ObjectBuilder createObjectsWithBlueprint:TopLevelNode:WithParentKeypath:ParentAttributes:]"
                   moduleName = "EveAPI"
                   urlString = "file:///Users/richte43/Documents/Xcode%20Projects/EveAPI/ObjectBuilder.m"
-                  timestampString = "405652063.341028"
+                  timestampString = "408420578.104309"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "273"
@@ -559,12 +559,12 @@
                   symbolName = "-[ObjectBuilder createObjectsWithBlueprint:TopLevelNode:WithParentKeypath:ParentAttributes:]"
                   moduleName = "EveAPI"
                   urlString = "file:///Users/richte43/Documents/Xcode%20Projects/EveAPI/ObjectBuilder.m"
-                  timestampString = "405652063.341322"
+                  timestampString = "408420578.104597"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "273"
                   endingLineNumber = "273"
-                  offsetFromSymbolStart = "10630">
+                  offsetFromSymbolStart = "10031">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -750,11 +750,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ObjectBuilder.m"
-            timestampString = "403931899.996667"
+            timestampString = "408421189.018821"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "476"
-            endingLineNumber = "476"
+            startingLineNumber = "484"
+            endingLineNumber = "484"
             landmarkName = "-findAndRemoveDecendantsFromXml:ThatMatchKeyPath:WithAttributes:NextIndex:"
             landmarkType = "5">
          </BreakpointContent>
@@ -766,11 +766,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ObjectBuilder.m"
-            timestampString = "403931899.996667"
+            timestampString = "408421189.018821"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "487"
-            endingLineNumber = "487"
+            startingLineNumber = "495"
+            endingLineNumber = "495"
             landmarkName = "-findAndRemoveDecendantsFromXml:ThatMatchKeyPath:WithAttributes:NextIndex:"
             landmarkType = "5">
          </BreakpointContent>
@@ -782,11 +782,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ObjectBuilder.m"
-            timestampString = "403931899.996667"
+            timestampString = "408421189.018821"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "528"
-            endingLineNumber = "528"
+            startingLineNumber = "536"
+            endingLineNumber = "536"
             landmarkName = "-findAndRemoveDecendantsFromXml:ThatMatchKeyPath:WithAttributes:NextIndex:"
             landmarkType = "5">
          </BreakpointContent>
@@ -798,11 +798,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ObjectBuilder.m"
-            timestampString = "403931899.996667"
+            timestampString = "408421189.018821"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "447"
-            endingLineNumber = "447"
+            startingLineNumber = "455"
+            endingLineNumber = "455"
             landmarkName = "-createChildMatch:AndNonMatches:FromXmlParent:UsingRelationships:"
             landmarkType = "5">
          </BreakpointContent>
@@ -924,11 +924,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EveAPI/MainWindowController.m"
-            timestampString = "408244554.580498"
+            timestampString = "408391882.067101"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "308"
-            endingLineNumber = "308"
+            startingLineNumber = "313"
+            endingLineNumber = "313"
             landmarkName = "-windowDidLoad"
             landmarkType = "5">
          </BreakpointContent>
@@ -1032,11 +1032,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EveAPI/MainWindowController.m"
-            timestampString = "408244554.580498"
+            timestampString = "408391882.067101"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "275"
-            endingLineNumber = "275"
+            startingLineNumber = "280"
+            endingLineNumber = "280"
             landmarkName = "-windowDidLoad"
             landmarkType = "5">
          </BreakpointContent>
@@ -1142,11 +1142,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ObjectBuilder.m"
-            timestampString = "405651810.417742"
+            timestampString = "408421189.018821"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "397"
-            endingLineNumber = "397"
+            startingLineNumber = "405"
+            endingLineNumber = "405"
             landmarkName = "-setObject:Property:ToRhs:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1158,43 +1158,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ObjectBuilder.m"
-            timestampString = "405651907.262666"
+            timestampString = "408421189.018821"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "355"
-            endingLineNumber = "355"
-            landmarkName = "-createObjectsWithBlueprint:TopLevelNode:WithParentKeypath:ParentAttributes:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ObjectBuilder.m"
-            timestampString = "405651916.021287"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "337"
-            endingLineNumber = "337"
-            landmarkName = "-createObjectsWithBlueprint:TopLevelNode:WithParentKeypath:ParentAttributes:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ObjectBuilder.m"
-            timestampString = "405652056.7274"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "366"
-            endingLineNumber = "366"
+            startingLineNumber = "374"
+            endingLineNumber = "374"
             landmarkName = "-createObjectsWithBlueprint:TopLevelNode:WithParentKeypath:ParentAttributes:"
             landmarkType = "5">
             <Locations>
@@ -1205,7 +1173,7 @@
                   symbolName = "-[ObjectBuilder createObjectsWithBlueprint:TopLevelNode:WithParentKeypath:ParentAttributes:]"
                   moduleName = "EveAPI"
                   urlString = "file:///Users/richte43/Documents/Xcode%20Projects/EveAPI/ObjectBuilder.m"
-                  timestampString = "405652117.606357"
+                  timestampString = "408419740.081782"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "366"
@@ -1219,7 +1187,7 @@
                   symbolName = "-[ObjectBuilder createObjectsWithBlueprint:TopLevelNode:WithParentKeypath:ParentAttributes:]"
                   moduleName = "EveAPI"
                   urlString = "file:///Users/richte43/Documents/Xcode%20Projects/EveAPI/ObjectBuilder.m"
-                  timestampString = "405652117.606526"
+                  timestampString = "408419740.081945"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "366"
@@ -1584,11 +1552,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EveAPI/MainWindowController.m"
-            timestampString = "408244554.580498"
+            timestampString = "408391882.067101"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "452"
-            endingLineNumber = "452"
+            startingLineNumber = "457"
+            endingLineNumber = "457"
             landmarkName = "-windowDidLoad"
             landmarkType = "5">
          </BreakpointContent>
@@ -1891,6 +1859,272 @@
             endingLineNumber = "13"
             landmarkName = "@implementation EVEFactionWarfarePilotTotalVictoryPoints"
             landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ObjectBuilder.m"
+            timestampString = "408412516.709024"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "201"
+            endingLineNumber = "201"
+            landmarkName = "-createObjectsWithBlueprint:TopLevelNode:WithParentKeypath:ParentAttributes:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ObjectBuilder.m"
+            timestampString = "408421189.018821"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "392"
+            endingLineNumber = "392"
+            landmarkName = "-setObject:Property:ToRhs:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ObjectBuilder.m"
+            timestampString = "408421189.018821"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "441"
+            endingLineNumber = "441"
+            landmarkName = "-createChildMatch:AndNonMatches:FromXmlParent:UsingRelationships:"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ObjectBuilder createChildMatch:AndNonMatches:FromXmlParent:UsingRelationships:]"
+                  moduleName = "EveAPI"
+                  urlString = "file:///Users/richte43/Documents/Xcode%20Projects/EveAPI/ObjectBuilder.m"
+                  timestampString = "408420578.105292"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "434"
+                  endingLineNumber = "434"
+                  offsetFromSymbolStart = "120">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ObjectBuilder createChildMatch:AndNonMatches:FromXmlParent:UsingRelationships:]"
+                  moduleName = "EveAPI"
+                  urlString = "file:///Users/richte43/Documents/Xcode%20Projects/EveAPI/ObjectBuilder.m"
+                  timestampString = "408420578.105582"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "434"
+                  endingLineNumber = "434"
+                  offsetFromSymbolStart = "887">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ObjectBuilder.m"
+            timestampString = "408421189.018821"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "490"
+            endingLineNumber = "490"
+            landmarkName = "-findAndRemoveDecendantsFromXml:ThatMatchKeyPath:WithAttributes:NextIndex:"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ObjectBuilder findAndRemoveDecendantsFromXml:ThatMatchKeyPath:WithAttributes:NextIndex:]"
+                  moduleName = "EveAPI"
+                  urlString = "file:///Users/richte43/Documents/Xcode%20Projects/EveAPI/ObjectBuilder.m"
+                  timestampString = "408420578.105902"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "483"
+                  endingLineNumber = "483"
+                  offsetFromSymbolStart = "467">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ObjectBuilder findAndRemoveDecendantsFromXml:ThatMatchKeyPath:WithAttributes:NextIndex:]"
+                  moduleName = "EveAPI"
+                  urlString = "file:///Users/richte43/Documents/Xcode%20Projects/EveAPI/ObjectBuilder.m"
+                  timestampString = "408420578.106224"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "483"
+                  endingLineNumber = "483"
+                  offsetFromSymbolStart = "2503">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ObjectBuilder.m"
+            timestampString = "408421189.018821"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "447"
+            endingLineNumber = "447"
+            landmarkName = "-createChildMatch:AndNonMatches:FromXmlParent:UsingRelationships:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ObjectBuilder.m"
+            timestampString = "408413842.056946"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
+            landmarkName = "-createObjectsWithBlueprint:TopLevelNode:WithParentKeypath:ParentAttributes:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ObjectBuilder.m"
+            timestampString = "408413846.984634"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
+            landmarkName = "-createObjectsWithBlueprint:TopLevelNode:WithParentKeypath:ParentAttributes:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EVESkillGroup.m"
+            timestampString = "408415758.33546"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "-description"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[EVESkillGroup description]"
+                  moduleName = "EveAPI"
+                  urlString = "file:///Users/richte43/Documents/Xcode%20Projects/EveAPI/EVESkillGroup.m"
+                  timestampString = "408415764.356035"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "77"
+                  endingLineNumber = "77"
+                  offsetFromSymbolStart = "276">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[EVESkillGroup description]"
+                  moduleName = "EveAPI"
+                  urlString = "file:///Users/richte43/Documents/Xcode%20Projects/EveAPI/EVESkillGroup.m"
+                  timestampString = "408415764.356299"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "77"
+                  endingLineNumber = "77"
+                  offsetFromSymbolStart = "696">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ObjectBuilder.m"
+            timestampString = "408417618.810402"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "282"
+            endingLineNumber = "282"
+            landmarkName = "-createObjectsWithBlueprint:TopLevelNode:WithParentKeypath:ParentAttributes:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ObjectBuilder.m"
+            timestampString = "408417624.450288"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "289"
+            endingLineNumber = "289"
+            landmarkName = "-createObjectsWithBlueprint:TopLevelNode:WithParentKeypath:ParentAttributes:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ObjectBuilder.m"
+            timestampString = "408421184.691626"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "344"
+            endingLineNumber = "344"
+            landmarkName = "-createObjectsWithBlueprint:TopLevelNode:WithParentKeypath:ParentAttributes:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

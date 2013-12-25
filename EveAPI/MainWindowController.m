@@ -211,6 +211,11 @@
                                                  object:nil];
       
       [[NSNotificationCenter defaultCenter] addObserver:self
+                                               selector:@selector(EVESkillTreeDidLoad:)
+                                                   name:NSStringFromClass([EVESkillTree class])
+                                                 object:nil];
+      
+      [[NSNotificationCenter defaultCenter] addObserver:self
                                                selector:@selector(EVEReferenceTypesDidLoad:)
                                                    name:NSStringFromClass([EVEReferenceTypes class])
                                                  object:nil];
@@ -452,7 +457,7 @@
                                                                        VCode:corpVCode
                                                                  CharacterId:minosId
                                                                     WalletId:@1004];
-   //[self.walletTransactions queryTheApi];
+   [self.walletTransactions queryTheApi];
    
    // ------------------------------------------------------------------------------------
    // Character/Corporation APIs
@@ -486,7 +491,10 @@
    //[self.factionWarGlobalStats queryTheApi];
    
    self.factionWarTopStats = [EVEFactionalWarfareTopStats new];
-   [self.factionWarTopStats queryTheApi];
+   //[self.factionWarTopStats queryTheApi];
+   
+   self.skillTree = [EVESkillTree new];
+   //[self.skillTree queryTheApi];
    
    self.typeName = [[EVETypeName alloc] initWithIds:typeIds];
    //[self.typeName queryTheApi];
@@ -830,6 +838,14 @@
    NSMutableString *newStr = [NSMutableString stringWithString:@"\n"];
    [newStr appendString:self.xmlTextView.string];
    [newStr appendFormat:@"%@\n", self.refTypes];
+   [self.xmlTextView setString:newStr];
+}
+
+-(void)EVESkillTreeDidLoad:(NSNotification *)notification
+{
+   NSMutableString *newStr = [NSMutableString stringWithString:@"\n"];
+   [newStr appendString:self.xmlTextView.string];
+   [newStr appendFormat:@"%@\n", self.skillTree];
    [self.xmlTextView setString:newStr];
 }
 

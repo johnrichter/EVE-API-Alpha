@@ -339,7 +339,15 @@
             }
             else
             {
-               // TODO: error (blueprintObject class did not match build child class in assignment)
+               // This code will happen if an array of only one object will be used
+               // I am not sure if this is proper or will work in all scenarios.
+               BOOL conversionSuccess = [self setObject:blueprintObject
+                                               Property:relationshipMatch.objectKeypath
+                                                  ToRhs:builtRelationshipChildren];
+               if (!conversionSuccess)
+               {
+                  // TODO: set error (unable to set relationship property: property)
+               }
             }
          }
          else

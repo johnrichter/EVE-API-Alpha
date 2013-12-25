@@ -6,8 +6,18 @@
 //  Copyright (c) 2013 Johnathan Richter. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "EVEApiObject.h"
 
-@interface EVESkillTree : NSObject
+@interface EVESkillTree : EVEApiObject <EVEApiObjectProtocol, RequestOperationDelegate>
+
+#pragma mark - XML Properties
+@property (strong) NSMutableArray *skillGroups;
+
+#pragma mark - Instance Properties
+
+#pragma mark - Instance Methods
+-(EVESkillTree *)init;
+-(void)queryTheApi;
+
 
 @end
