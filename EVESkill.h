@@ -9,6 +9,8 @@
 #import "EVEObject.h"
 #import "EVEString.h"
 #import "EVENumber.h"
+#import "EVESkillRequirements.h"
+#import "EVESkillBonuses.h"
 
 @interface EVESkill : EVEObject <EVEObjectProtocol>
 
@@ -25,10 +27,10 @@
 #pragma mark - XML Relationships
 @property (strong) EVEString *skillDescription;
 @property (strong) EVENumber *rank;
-@property (strong) NSArray *requiredSkills;
+@property (strong) EVESkillRequirements *requiredSkills;
 @property (strong) EVEString *primaryAttribute;
 @property (strong) EVEString *secondaryAttribute;
-@property (strong) NSArray *skillBonuses;
+@property (strong) EVESkillBonuses *skillBonuses;
 
 #pragma mark - Instance Properties
 

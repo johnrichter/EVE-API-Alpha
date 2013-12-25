@@ -8,8 +8,6 @@
 
 #import "EVESkill.h"
 #import "BlueprintRelationship.h"
-#import "EVESkillRequirements.h"
-#import "EVESkillBonuses.h
 
 @interface EVESkill ()
 
@@ -33,10 +31,10 @@
       self.skillGroupId = @0;
       self.skillDescription = [EVEString new];
       self.rank = [EVENumber new];
-      self.requiredSkills = @[];
+      self.requiredSkills = [EVESkillRequirements new];
       self.primaryAttribute = [EVEString new];
       self.secondaryAttribute = [EVEString new];
-      self.skillBonuses = @[];
+      self.skillBonuses = [EVESkillBonuses new];
       
       // Configure the object's blueprint
       [self configureObjectBlueprint];
@@ -59,9 +57,11 @@
 -(void)setRelationKeypathsForDescription:(NSString *)description
                                     Rank:(NSString *)rank
                           RequiredSkills:(NSString *)requiredSkills
+                           RequiredSkill:(NSString *)requiredSkill
                         PrimaryAttribute:(NSString *)primaryAttribute
                       SecondaryAttribute:(NSString *)secondaryAttribute
                             SkillBonuses:(NSString *)skillBonuses
+                              SkillBonus:(NSString *)skillBonus
 {
    BlueprintRelationship *desc =
       [BlueprintRelationship relationshipFromXmlKeypath:description
@@ -83,15 +83,22 @@
                            RelativeToObjectWithProperty:@"secondaryAttribute"
                                            ForBlueprint:[[EVEString new] objectBlueprint]];
    
+   EVESkillRequirements *reqSkills = [EVESkillRequirements new];
+   [reqSkills setRelationKeypathsForRequirements:requiredSkill];
+   [reqSkills.objectBlueprint setXmlKeypath:requiredSkills
+                         MatchingAttributes:@{@"name":@"requiredSkills"}];
+   
+//   BlueprintRelationship *reqSkills = ;
+//   
+//   BlueprintRelationship *skillBonus = ;
    
    
-   BlueprintRelationship *skillBonus = ;
-   
-   
+   // Add objects to our blueprint
+   // TODO: add parent attribute matching for relationships
+//   self.objectBlueprint 
    
    // Add relationships to our blueprint
-   [self.objectBlueprint addRelationshipsFromArray:@[desc, skillRank, primary, secondary,
-                                                     reqSkills, skillBonus]];
+   [self.objectBlueprint addRelationshipsFromArray:@[desc, skillRank, primary, secondary]];
 }
 
 -(NSString *)description
