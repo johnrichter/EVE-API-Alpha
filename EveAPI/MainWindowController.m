@@ -457,7 +457,7 @@
                                                                        VCode:corpVCode
                                                                  CharacterId:minosId
                                                                     WalletId:@1004];
-   [self.walletTransactions queryTheApi];
+   //[self.walletTransactions queryTheApi];
    
    // ------------------------------------------------------------------------------------
    // Character/Corporation APIs
@@ -468,7 +468,7 @@
    // ------------------------------------------------------------------------------------
    // EVE Global APIs
    self.allianceList = [EVEAllianceList new];
-   //[self.allianceList queryTheApi];
+   [self.allianceList queryTheApi];
    
    self.charNameToId = [[EVECharacterNameToId alloc] initWithNames:@[@"Minos%20Daedalus",
                                                                      @"Master%20DarkEnforcer"]];
